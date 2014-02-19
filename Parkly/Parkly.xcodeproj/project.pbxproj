@@ -14,13 +14,14 @@
 		9DE9D52E18B462B50035519D /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 9DE9D52D18B462B50035519D /* main.m */; };
 		9DE9D53218B462B50035519D /* DTAppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 9DE9D53118B462B50035519D /* DTAppDelegate.m */; };
 		9DE9D53518B462B50035519D /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 9DE9D53318B462B50035519D /* Main.storyboard */; };
-		9DE9D53818B462B50035519D /* DTViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 9DE9D53718B462B50035519D /* DTViewController.m */; };
 		9DE9D53A18B462B50035519D /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 9DE9D53918B462B50035519D /* Images.xcassets */; };
 		9DE9D54118B462B50035519D /* XCTest.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 9DE9D54018B462B50035519D /* XCTest.framework */; };
 		9DE9D54218B462B50035519D /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 9DE9D52118B462B50035519D /* Foundation.framework */; };
 		9DE9D54318B462B50035519D /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 9DE9D52518B462B50035519D /* UIKit.framework */; };
 		9DE9D54B18B462B50035519D /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = 9DE9D54918B462B50035519D /* InfoPlist.strings */; };
 		9DE9D54D18B462B50035519D /* ParklyTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 9DE9D54C18B462B50035519D /* ParklyTests.m */; };
+		9DE9D55918B53CC10035519D /* DTLoginViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 9DE9D55818B53CC10035519D /* DTLoginViewController.m */; };
+		9DE9D55D18B53CF10035519D /* DTLotFinderViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 9DE9D55C18B53CF10035519D /* DTLotFinderViewController.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -45,14 +46,16 @@
 		9DE9D53018B462B50035519D /* DTAppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = DTAppDelegate.h; sourceTree = "<group>"; };
 		9DE9D53118B462B50035519D /* DTAppDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = DTAppDelegate.m; sourceTree = "<group>"; };
 		9DE9D53418B462B50035519D /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
-		9DE9D53618B462B50035519D /* DTViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = DTViewController.h; sourceTree = "<group>"; };
-		9DE9D53718B462B50035519D /* DTViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = DTViewController.m; sourceTree = "<group>"; };
 		9DE9D53918B462B50035519D /* Images.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Images.xcassets; sourceTree = "<group>"; };
 		9DE9D53F18B462B50035519D /* ParklyTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = ParklyTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		9DE9D54018B462B50035519D /* XCTest.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = XCTest.framework; path = Library/Frameworks/XCTest.framework; sourceTree = DEVELOPER_DIR; };
 		9DE9D54818B462B50035519D /* ParklyTests-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = "ParklyTests-Info.plist"; sourceTree = "<group>"; };
 		9DE9D54A18B462B50035519D /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/InfoPlist.strings; sourceTree = "<group>"; };
 		9DE9D54C18B462B50035519D /* ParklyTests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ParklyTests.m; sourceTree = "<group>"; };
+		9DE9D55718B53CC10035519D /* DTLoginViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = DTLoginViewController.h; path = Files/DTLoginViewController.h; sourceTree = "<group>"; };
+		9DE9D55818B53CC10035519D /* DTLoginViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = DTLoginViewController.m; path = Files/DTLoginViewController.m; sourceTree = "<group>"; };
+		9DE9D55B18B53CF10035519D /* DTLotFinderViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = DTLotFinderViewController.h; path = Files/DTLotFinderViewController.h; sourceTree = "<group>"; };
+		9DE9D55C18B53CF10035519D /* DTLotFinderViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = DTLotFinderViewController.m; path = Files/DTLotFinderViewController.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -115,8 +118,8 @@
 				9DE9D53018B462B50035519D /* DTAppDelegate.h */,
 				9DE9D53118B462B50035519D /* DTAppDelegate.m */,
 				9DE9D53318B462B50035519D /* Main.storyboard */,
-				9DE9D53618B462B50035519D /* DTViewController.h */,
-				9DE9D53718B462B50035519D /* DTViewController.m */,
+				9DE9D55A18B53CCF0035519D /* DTLotFinder */,
+				9DE9D55618B53C810035519D /* DTLogin */,
 				9DE9D53918B462B50035519D /* Images.xcassets */,
 				9DE9D52818B462B50035519D /* Supporting Files */,
 			);
@@ -150,6 +153,24 @@
 				9DE9D54918B462B50035519D /* InfoPlist.strings */,
 			);
 			name = "Supporting Files";
+			sourceTree = "<group>";
+		};
+		9DE9D55618B53C810035519D /* DTLogin */ = {
+			isa = PBXGroup;
+			children = (
+				9DE9D55718B53CC10035519D /* DTLoginViewController.h */,
+				9DE9D55818B53CC10035519D /* DTLoginViewController.m */,
+			);
+			name = DTLogin;
+			sourceTree = "<group>";
+		};
+		9DE9D55A18B53CCF0035519D /* DTLotFinder */ = {
+			isa = PBXGroup;
+			children = (
+				9DE9D55B18B53CF10035519D /* DTLotFinderViewController.h */,
+				9DE9D55C18B53CF10035519D /* DTLotFinderViewController.m */,
+			);
+			name = DTLotFinder;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -250,8 +271,9 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				9DE9D55D18B53CF10035519D /* DTLotFinderViewController.m in Sources */,
 				9DE9D53218B462B50035519D /* DTAppDelegate.m in Sources */,
-				9DE9D53818B462B50035519D /* DTViewController.m in Sources */,
+				9DE9D55918B53CC10035519D /* DTLoginViewController.m in Sources */,
 				9DE9D52E18B462B50035519D /* main.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
