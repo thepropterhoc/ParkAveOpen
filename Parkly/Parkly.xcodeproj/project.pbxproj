@@ -1,0 +1,476 @@
+// !$*UTF8*$!
+{
+	archiveVersion = 1;
+	classes = {
+	};
+	objectVersion = 46;
+	objects = {
+
+/* Begin PBXBuildFile section */
+		9DE9D52218B462B50035519D /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 9DE9D52118B462B50035519D /* Foundation.framework */; };
+		9DE9D52418B462B50035519D /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 9DE9D52318B462B50035519D /* CoreGraphics.framework */; };
+		9DE9D52618B462B50035519D /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 9DE9D52518B462B50035519D /* UIKit.framework */; };
+		9DE9D52C18B462B50035519D /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = 9DE9D52A18B462B50035519D /* InfoPlist.strings */; };
+		9DE9D52E18B462B50035519D /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 9DE9D52D18B462B50035519D /* main.m */; };
+		9DE9D53218B462B50035519D /* DTAppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 9DE9D53118B462B50035519D /* DTAppDelegate.m */; };
+		9DE9D53518B462B50035519D /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 9DE9D53318B462B50035519D /* Main.storyboard */; };
+		9DE9D53818B462B50035519D /* DTViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 9DE9D53718B462B50035519D /* DTViewController.m */; };
+		9DE9D53A18B462B50035519D /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 9DE9D53918B462B50035519D /* Images.xcassets */; };
+		9DE9D54118B462B50035519D /* XCTest.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 9DE9D54018B462B50035519D /* XCTest.framework */; };
+		9DE9D54218B462B50035519D /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 9DE9D52118B462B50035519D /* Foundation.framework */; };
+		9DE9D54318B462B50035519D /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 9DE9D52518B462B50035519D /* UIKit.framework */; };
+		9DE9D54B18B462B50035519D /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = 9DE9D54918B462B50035519D /* InfoPlist.strings */; };
+		9DE9D54D18B462B50035519D /* ParklyTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 9DE9D54C18B462B50035519D /* ParklyTests.m */; };
+/* End PBXBuildFile section */
+
+/* Begin PBXContainerItemProxy section */
+		9DE9D54418B462B50035519D /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 9DE9D51618B462B50035519D /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = 9DE9D51D18B462B50035519D;
+			remoteInfo = Parkly;
+		};
+/* End PBXContainerItemProxy section */
+
+/* Begin PBXFileReference section */
+		9DE9D51E18B462B50035519D /* Parkly.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Parkly.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		9DE9D52118B462B50035519D /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
+		9DE9D52318B462B50035519D /* CoreGraphics.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreGraphics.framework; path = System/Library/Frameworks/CoreGraphics.framework; sourceTree = SDKROOT; };
+		9DE9D52518B462B50035519D /* UIKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = UIKit.framework; path = System/Library/Frameworks/UIKit.framework; sourceTree = SDKROOT; };
+		9DE9D52918B462B50035519D /* Parkly-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = "Parkly-Info.plist"; sourceTree = "<group>"; };
+		9DE9D52B18B462B50035519D /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/InfoPlist.strings; sourceTree = "<group>"; };
+		9DE9D52D18B462B50035519D /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
+		9DE9D52F18B462B50035519D /* Parkly-Prefix.pch */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "Parkly-Prefix.pch"; sourceTree = "<group>"; };
+		9DE9D53018B462B50035519D /* DTAppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = DTAppDelegate.h; sourceTree = "<group>"; };
+		9DE9D53118B462B50035519D /* DTAppDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = DTAppDelegate.m; sourceTree = "<group>"; };
+		9DE9D53418B462B50035519D /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
+		9DE9D53618B462B50035519D /* DTViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = DTViewController.h; sourceTree = "<group>"; };
+		9DE9D53718B462B50035519D /* DTViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = DTViewController.m; sourceTree = "<group>"; };
+		9DE9D53918B462B50035519D /* Images.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Images.xcassets; sourceTree = "<group>"; };
+		9DE9D53F18B462B50035519D /* ParklyTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = ParklyTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
+		9DE9D54018B462B50035519D /* XCTest.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = XCTest.framework; path = Library/Frameworks/XCTest.framework; sourceTree = DEVELOPER_DIR; };
+		9DE9D54818B462B50035519D /* ParklyTests-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = "ParklyTests-Info.plist"; sourceTree = "<group>"; };
+		9DE9D54A18B462B50035519D /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/InfoPlist.strings; sourceTree = "<group>"; };
+		9DE9D54C18B462B50035519D /* ParklyTests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ParklyTests.m; sourceTree = "<group>"; };
+/* End PBXFileReference section */
+
+/* Begin PBXFrameworksBuildPhase section */
+		9DE9D51B18B462B50035519D /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				9DE9D52418B462B50035519D /* CoreGraphics.framework in Frameworks */,
+				9DE9D52618B462B50035519D /* UIKit.framework in Frameworks */,
+				9DE9D52218B462B50035519D /* Foundation.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		9DE9D53C18B462B50035519D /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				9DE9D54118B462B50035519D /* XCTest.framework in Frameworks */,
+				9DE9D54318B462B50035519D /* UIKit.framework in Frameworks */,
+				9DE9D54218B462B50035519D /* Foundation.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXFrameworksBuildPhase section */
+
+/* Begin PBXGroup section */
+		9DE9D51518B462B50035519D = {
+			isa = PBXGroup;
+			children = (
+				9DE9D52718B462B50035519D /* Parkly */,
+				9DE9D54618B462B50035519D /* ParklyTests */,
+				9DE9D52018B462B50035519D /* Frameworks */,
+				9DE9D51F18B462B50035519D /* Products */,
+			);
+			sourceTree = "<group>";
+		};
+		9DE9D51F18B462B50035519D /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				9DE9D51E18B462B50035519D /* Parkly.app */,
+				9DE9D53F18B462B50035519D /* ParklyTests.xctest */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+		9DE9D52018B462B50035519D /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				9DE9D52118B462B50035519D /* Foundation.framework */,
+				9DE9D52318B462B50035519D /* CoreGraphics.framework */,
+				9DE9D52518B462B50035519D /* UIKit.framework */,
+				9DE9D54018B462B50035519D /* XCTest.framework */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		9DE9D52718B462B50035519D /* Parkly */ = {
+			isa = PBXGroup;
+			children = (
+				9DE9D53018B462B50035519D /* DTAppDelegate.h */,
+				9DE9D53118B462B50035519D /* DTAppDelegate.m */,
+				9DE9D53318B462B50035519D /* Main.storyboard */,
+				9DE9D53618B462B50035519D /* DTViewController.h */,
+				9DE9D53718B462B50035519D /* DTViewController.m */,
+				9DE9D53918B462B50035519D /* Images.xcassets */,
+				9DE9D52818B462B50035519D /* Supporting Files */,
+			);
+			path = Parkly;
+			sourceTree = "<group>";
+		};
+		9DE9D52818B462B50035519D /* Supporting Files */ = {
+			isa = PBXGroup;
+			children = (
+				9DE9D52918B462B50035519D /* Parkly-Info.plist */,
+				9DE9D52A18B462B50035519D /* InfoPlist.strings */,
+				9DE9D52D18B462B50035519D /* main.m */,
+				9DE9D52F18B462B50035519D /* Parkly-Prefix.pch */,
+			);
+			name = "Supporting Files";
+			sourceTree = "<group>";
+		};
+		9DE9D54618B462B50035519D /* ParklyTests */ = {
+			isa = PBXGroup;
+			children = (
+				9DE9D54C18B462B50035519D /* ParklyTests.m */,
+				9DE9D54718B462B50035519D /* Supporting Files */,
+			);
+			path = ParklyTests;
+			sourceTree = "<group>";
+		};
+		9DE9D54718B462B50035519D /* Supporting Files */ = {
+			isa = PBXGroup;
+			children = (
+				9DE9D54818B462B50035519D /* ParklyTests-Info.plist */,
+				9DE9D54918B462B50035519D /* InfoPlist.strings */,
+			);
+			name = "Supporting Files";
+			sourceTree = "<group>";
+		};
+/* End PBXGroup section */
+
+/* Begin PBXNativeTarget section */
+		9DE9D51D18B462B50035519D /* Parkly */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 9DE9D55018B462B50035519D /* Build configuration list for PBXNativeTarget "Parkly" */;
+			buildPhases = (
+				9DE9D51A18B462B50035519D /* Sources */,
+				9DE9D51B18B462B50035519D /* Frameworks */,
+				9DE9D51C18B462B50035519D /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = Parkly;
+			productName = Parkly;
+			productReference = 9DE9D51E18B462B50035519D /* Parkly.app */;
+			productType = "com.apple.product-type.application";
+		};
+		9DE9D53E18B462B50035519D /* ParklyTests */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 9DE9D55318B462B50035519D /* Build configuration list for PBXNativeTarget "ParklyTests" */;
+			buildPhases = (
+				9DE9D53B18B462B50035519D /* Sources */,
+				9DE9D53C18B462B50035519D /* Frameworks */,
+				9DE9D53D18B462B50035519D /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				9DE9D54518B462B50035519D /* PBXTargetDependency */,
+			);
+			name = ParklyTests;
+			productName = ParklyTests;
+			productReference = 9DE9D53F18B462B50035519D /* ParklyTests.xctest */;
+			productType = "com.apple.product-type.bundle.unit-test";
+		};
+/* End PBXNativeTarget section */
+
+/* Begin PBXProject section */
+		9DE9D51618B462B50035519D /* Project object */ = {
+			isa = PBXProject;
+			attributes = {
+				CLASSPREFIX = DT;
+				LastUpgradeCheck = 0500;
+				ORGANIZATIONNAME = DevTeam14;
+				TargetAttributes = {
+					9DE9D53E18B462B50035519D = {
+						TestTargetID = 9DE9D51D18B462B50035519D;
+					};
+				};
+			};
+			buildConfigurationList = 9DE9D51918B462B50035519D /* Build configuration list for PBXProject "Parkly" */;
+			compatibilityVersion = "Xcode 3.2";
+			developmentRegion = English;
+			hasScannedForEncodings = 0;
+			knownRegions = (
+				en,
+				Base,
+			);
+			mainGroup = 9DE9D51518B462B50035519D;
+			productRefGroup = 9DE9D51F18B462B50035519D /* Products */;
+			projectDirPath = "";
+			projectRoot = "";
+			targets = (
+				9DE9D51D18B462B50035519D /* Parkly */,
+				9DE9D53E18B462B50035519D /* ParklyTests */,
+			);
+		};
+/* End PBXProject section */
+
+/* Begin PBXResourcesBuildPhase section */
+		9DE9D51C18B462B50035519D /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				9DE9D53A18B462B50035519D /* Images.xcassets in Resources */,
+				9DE9D52C18B462B50035519D /* InfoPlist.strings in Resources */,
+				9DE9D53518B462B50035519D /* Main.storyboard in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		9DE9D53D18B462B50035519D /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				9DE9D54B18B462B50035519D /* InfoPlist.strings in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXResourcesBuildPhase section */
+
+/* Begin PBXSourcesBuildPhase section */
+		9DE9D51A18B462B50035519D /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				9DE9D53218B462B50035519D /* DTAppDelegate.m in Sources */,
+				9DE9D53818B462B50035519D /* DTViewController.m in Sources */,
+				9DE9D52E18B462B50035519D /* main.m in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		9DE9D53B18B462B50035519D /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				9DE9D54D18B462B50035519D /* ParklyTests.m in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXSourcesBuildPhase section */
+
+/* Begin PBXTargetDependency section */
+		9DE9D54518B462B50035519D /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = 9DE9D51D18B462B50035519D /* Parkly */;
+			targetProxy = 9DE9D54418B462B50035519D /* PBXContainerItemProxy */;
+		};
+/* End PBXTargetDependency section */
+
+/* Begin PBXVariantGroup section */
+		9DE9D52A18B462B50035519D /* InfoPlist.strings */ = {
+			isa = PBXVariantGroup;
+			children = (
+				9DE9D52B18B462B50035519D /* en */,
+			);
+			name = InfoPlist.strings;
+			sourceTree = "<group>";
+		};
+		9DE9D53318B462B50035519D /* Main.storyboard */ = {
+			isa = PBXVariantGroup;
+			children = (
+				9DE9D53418B462B50035519D /* Base */,
+			);
+			name = Main.storyboard;
+			sourceTree = "<group>";
+		};
+		9DE9D54918B462B50035519D /* InfoPlist.strings */ = {
+			isa = PBXVariantGroup;
+			children = (
+				9DE9D54A18B462B50035519D /* en */,
+			);
+			name = InfoPlist.strings;
+			sourceTree = "<group>";
+		};
+/* End PBXVariantGroup section */
+
+/* Begin XCBuildConfiguration section */
+		9DE9D54E18B462B50035519D /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				ARCHS = "$(ARCHS_STANDARD_INCLUDING_64_BIT)";
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				COPY_PHASE_STRIP = NO;
+				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				GCC_SYMBOLS_PRIVATE_EXTERN = NO;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 7.0;
+				ONLY_ACTIVE_ARCH = YES;
+				SDKROOT = iphoneos;
+			};
+			name = Debug;
+		};
+		9DE9D54F18B462B50035519D /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				ARCHS = "$(ARCHS_STANDARD_INCLUDING_64_BIT)";
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				COPY_PHASE_STRIP = YES;
+				ENABLE_NS_ASSERTIONS = NO;
+				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 7.0;
+				SDKROOT = iphoneos;
+				VALIDATE_PRODUCT = YES;
+			};
+			name = Release;
+		};
+		9DE9D55118B462B50035519D /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
+				GCC_PRECOMPILE_PREFIX_HEADER = YES;
+				GCC_PREFIX_HEADER = "Parkly/Parkly-Prefix.pch";
+				INFOPLIST_FILE = "Parkly/Parkly-Info.plist";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				WRAPPER_EXTENSION = app;
+			};
+			name = Debug;
+		};
+		9DE9D55218B462B50035519D /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
+				GCC_PRECOMPILE_PREFIX_HEADER = YES;
+				GCC_PREFIX_HEADER = "Parkly/Parkly-Prefix.pch";
+				INFOPLIST_FILE = "Parkly/Parkly-Info.plist";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				WRAPPER_EXTENSION = app;
+			};
+			name = Release;
+		};
+		9DE9D55418B462B50035519D /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ARCHS = "$(ARCHS_STANDARD_INCLUDING_64_BIT)";
+				BUNDLE_LOADER = "$(BUILT_PRODUCTS_DIR)/Parkly.app/Parkly";
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(SDKROOT)/Developer/Library/Frameworks",
+					"$(inherited)",
+					"$(DEVELOPER_FRAMEWORKS_DIR)",
+				);
+				GCC_PRECOMPILE_PREFIX_HEADER = YES;
+				GCC_PREFIX_HEADER = "Parkly/Parkly-Prefix.pch";
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				INFOPLIST_FILE = "ParklyTests/ParklyTests-Info.plist";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				TEST_HOST = "$(BUNDLE_LOADER)";
+				WRAPPER_EXTENSION = xctest;
+			};
+			name = Debug;
+		};
+		9DE9D55518B462B50035519D /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ARCHS = "$(ARCHS_STANDARD_INCLUDING_64_BIT)";
+				BUNDLE_LOADER = "$(BUILT_PRODUCTS_DIR)/Parkly.app/Parkly";
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(SDKROOT)/Developer/Library/Frameworks",
+					"$(inherited)",
+					"$(DEVELOPER_FRAMEWORKS_DIR)",
+				);
+				GCC_PRECOMPILE_PREFIX_HEADER = YES;
+				GCC_PREFIX_HEADER = "Parkly/Parkly-Prefix.pch";
+				INFOPLIST_FILE = "ParklyTests/ParklyTests-Info.plist";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				TEST_HOST = "$(BUNDLE_LOADER)";
+				WRAPPER_EXTENSION = xctest;
+			};
+			name = Release;
+		};
+/* End XCBuildConfiguration section */
+
+/* Begin XCConfigurationList section */
+		9DE9D51918B462B50035519D /* Build configuration list for PBXProject "Parkly" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				9DE9D54E18B462B50035519D /* Debug */,
+				9DE9D54F18B462B50035519D /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		9DE9D55018B462B50035519D /* Build configuration list for PBXNativeTarget "Parkly" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				9DE9D55118B462B50035519D /* Debug */,
+				9DE9D55218B462B50035519D /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+		};
+		9DE9D55318B462B50035519D /* Build configuration list for PBXNativeTarget "ParklyTests" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				9DE9D55418B462B50035519D /* Debug */,
+				9DE9D55518B462B50035519D /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+		};
+/* End XCConfigurationList section */
+	};
+	rootObject = 9DE9D51618B462B50035519D /* Project object */;
+}
