@@ -7,6 +7,18 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		9D15D3B118B5B33300FA635E /* DTRoundedImageView.m in Sources */ = {isa = PBXBuildFile; fileRef = 9D15D3B018B5B33300FA635E /* DTRoundedImageView.m */; };
+		9D15D3BC18B6F34100FA635E /* JosefinSlab-Bold.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 9D15D3B218B6F34100FA635E /* JosefinSlab-Bold.ttf */; };
+		9D15D3BD18B6F34100FA635E /* JosefinSlab-BoldItalic.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 9D15D3B318B6F34100FA635E /* JosefinSlab-BoldItalic.ttf */; };
+		9D15D3BE18B6F34100FA635E /* JosefinSlab-Italic.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 9D15D3B418B6F34100FA635E /* JosefinSlab-Italic.ttf */; };
+		9D15D3BF18B6F34100FA635E /* JosefinSlab-Light.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 9D15D3B518B6F34100FA635E /* JosefinSlab-Light.ttf */; };
+		9D15D3C018B6F34100FA635E /* JosefinSlab-LightItalic.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 9D15D3B618B6F34100FA635E /* JosefinSlab-LightItalic.ttf */; };
+		9D15D3C118B6F34100FA635E /* JosefinSlab-Regular.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 9D15D3B718B6F34100FA635E /* JosefinSlab-Regular.ttf */; };
+		9D15D3C218B6F34100FA635E /* JosefinSlab-SemiBold.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 9D15D3B818B6F34100FA635E /* JosefinSlab-SemiBold.ttf */; };
+		9D15D3C318B6F34100FA635E /* JosefinSlab-SemiBoldItalic.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 9D15D3B918B6F34100FA635E /* JosefinSlab-SemiBoldItalic.ttf */; };
+		9D15D3C418B6F34100FA635E /* JosefinSlab-Thin.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 9D15D3BA18B6F34100FA635E /* JosefinSlab-Thin.ttf */; };
+		9D15D3C518B6F34100FA635E /* JosefinSlab-ThinItalic.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 9D15D3BB18B6F34100FA635E /* JosefinSlab-ThinItalic.ttf */; };
+		9D2E92A718B5A49F00509F23 /* DTNavigationBar.m in Sources */ = {isa = PBXBuildFile; fileRef = 9D2E92A618B5A49F00509F23 /* DTNavigationBar.m */; };
 		9DE9D52218B462B50035519D /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 9DE9D52118B462B50035519D /* Foundation.framework */; };
 		9DE9D52418B462B50035519D /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 9DE9D52318B462B50035519D /* CoreGraphics.framework */; };
 		9DE9D52618B462B50035519D /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 9DE9D52518B462B50035519D /* UIKit.framework */; };
@@ -35,6 +47,20 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		9D15D3AF18B5B33300FA635E /* DTRoundedImageView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = DTRoundedImageView.h; path = Files/DTRoundedImageView.h; sourceTree = "<group>"; };
+		9D15D3B018B5B33300FA635E /* DTRoundedImageView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = DTRoundedImageView.m; path = Files/DTRoundedImageView.m; sourceTree = "<group>"; };
+		9D15D3B218B6F34100FA635E /* JosefinSlab-Bold.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "JosefinSlab-Bold.ttf"; sourceTree = "<group>"; };
+		9D15D3B318B6F34100FA635E /* JosefinSlab-BoldItalic.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "JosefinSlab-BoldItalic.ttf"; sourceTree = "<group>"; };
+		9D15D3B418B6F34100FA635E /* JosefinSlab-Italic.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "JosefinSlab-Italic.ttf"; sourceTree = "<group>"; };
+		9D15D3B518B6F34100FA635E /* JosefinSlab-Light.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "JosefinSlab-Light.ttf"; sourceTree = "<group>"; };
+		9D15D3B618B6F34100FA635E /* JosefinSlab-LightItalic.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "JosefinSlab-LightItalic.ttf"; sourceTree = "<group>"; };
+		9D15D3B718B6F34100FA635E /* JosefinSlab-Regular.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "JosefinSlab-Regular.ttf"; sourceTree = "<group>"; };
+		9D15D3B818B6F34100FA635E /* JosefinSlab-SemiBold.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "JosefinSlab-SemiBold.ttf"; sourceTree = "<group>"; };
+		9D15D3B918B6F34100FA635E /* JosefinSlab-SemiBoldItalic.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "JosefinSlab-SemiBoldItalic.ttf"; sourceTree = "<group>"; };
+		9D15D3BA18B6F34100FA635E /* JosefinSlab-Thin.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "JosefinSlab-Thin.ttf"; sourceTree = "<group>"; };
+		9D15D3BB18B6F34100FA635E /* JosefinSlab-ThinItalic.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "JosefinSlab-ThinItalic.ttf"; sourceTree = "<group>"; };
+		9D2E92A518B5A49F00509F23 /* DTNavigationBar.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = DTNavigationBar.h; path = Files/DTNavigationBar.h; sourceTree = "<group>"; };
+		9D2E92A618B5A49F00509F23 /* DTNavigationBar.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = DTNavigationBar.m; path = Files/DTNavigationBar.m; sourceTree = "<group>"; };
 		9DE9D51E18B462B50035519D /* Parkly.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Parkly.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		9DE9D52118B462B50035519D /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
 		9DE9D52318B462B50035519D /* CoreGraphics.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreGraphics.framework; path = System/Library/Frameworks/CoreGraphics.framework; sourceTree = SDKROOT; };
@@ -82,6 +108,17 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		9D2E92A418B5A48300509F23 /* DTUIElements */ = {
+			isa = PBXGroup;
+			children = (
+				9D2E92A518B5A49F00509F23 /* DTNavigationBar.h */,
+				9D2E92A618B5A49F00509F23 /* DTNavigationBar.m */,
+				9D15D3AF18B5B33300FA635E /* DTRoundedImageView.h */,
+				9D15D3B018B5B33300FA635E /* DTRoundedImageView.m */,
+			);
+			name = DTUIElements;
+			sourceTree = "<group>";
+		};
 		9DE9D51518B462B50035519D = {
 			isa = PBXGroup;
 			children = (
@@ -117,6 +154,7 @@
 			children = (
 				9DE9D53018B462B50035519D /* DTAppDelegate.h */,
 				9DE9D53118B462B50035519D /* DTAppDelegate.m */,
+				9D2E92A418B5A48300509F23 /* DTUIElements */,
 				9DE9D53318B462B50035519D /* Main.storyboard */,
 				9DE9D55A18B53CCF0035519D /* DTLotFinder */,
 				9DE9D55618B53C810035519D /* DTLogin */,
@@ -129,6 +167,16 @@
 		9DE9D52818B462B50035519D /* Supporting Files */ = {
 			isa = PBXGroup;
 			children = (
+				9D15D3B218B6F34100FA635E /* JosefinSlab-Bold.ttf */,
+				9D15D3B318B6F34100FA635E /* JosefinSlab-BoldItalic.ttf */,
+				9D15D3B418B6F34100FA635E /* JosefinSlab-Italic.ttf */,
+				9D15D3B518B6F34100FA635E /* JosefinSlab-Light.ttf */,
+				9D15D3B618B6F34100FA635E /* JosefinSlab-LightItalic.ttf */,
+				9D15D3B718B6F34100FA635E /* JosefinSlab-Regular.ttf */,
+				9D15D3B818B6F34100FA635E /* JosefinSlab-SemiBold.ttf */,
+				9D15D3B918B6F34100FA635E /* JosefinSlab-SemiBoldItalic.ttf */,
+				9D15D3BA18B6F34100FA635E /* JosefinSlab-Thin.ttf */,
+				9D15D3BB18B6F34100FA635E /* JosefinSlab-ThinItalic.ttf */,
 				9DE9D52918B462B50035519D /* Parkly-Info.plist */,
 				9DE9D52A18B462B50035519D /* InfoPlist.strings */,
 				9DE9D52D18B462B50035519D /* main.m */,
@@ -250,9 +298,19 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				9D15D3C418B6F34100FA635E /* JosefinSlab-Thin.ttf in Resources */,
+				9D15D3BF18B6F34100FA635E /* JosefinSlab-Light.ttf in Resources */,
 				9DE9D53A18B462B50035519D /* Images.xcassets in Resources */,
+				9D15D3C518B6F34100FA635E /* JosefinSlab-ThinItalic.ttf in Resources */,
+				9D15D3C018B6F34100FA635E /* JosefinSlab-LightItalic.ttf in Resources */,
 				9DE9D52C18B462B50035519D /* InfoPlist.strings in Resources */,
+				9D15D3C218B6F34100FA635E /* JosefinSlab-SemiBold.ttf in Resources */,
+				9D15D3BC18B6F34100FA635E /* JosefinSlab-Bold.ttf in Resources */,
+				9D15D3C318B6F34100FA635E /* JosefinSlab-SemiBoldItalic.ttf in Resources */,
+				9D15D3C118B6F34100FA635E /* JosefinSlab-Regular.ttf in Resources */,
+				9D15D3BE18B6F34100FA635E /* JosefinSlab-Italic.ttf in Resources */,
 				9DE9D53518B462B50035519D /* Main.storyboard in Resources */,
+				9D15D3BD18B6F34100FA635E /* JosefinSlab-BoldItalic.ttf in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -271,9 +329,11 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				9D2E92A718B5A49F00509F23 /* DTNavigationBar.m in Sources */,
 				9DE9D55D18B53CF10035519D /* DTLotFinderViewController.m in Sources */,
 				9DE9D53218B462B50035519D /* DTAppDelegate.m in Sources */,
 				9DE9D55918B53CC10035519D /* DTLoginViewController.m in Sources */,
+				9D15D3B118B5B33300FA635E /* DTRoundedImageView.m in Sources */,
 				9DE9D52E18B462B50035519D /* main.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -483,6 +543,7 @@
 				9DE9D55218B462B50035519D /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 		9DE9D55318B462B50035519D /* Build configuration list for PBXNativeTarget "ParklyTests" */ = {
 			isa = XCConfigurationList;
@@ -491,6 +552,7 @@
 				9DE9D55518B462B50035519D /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};
