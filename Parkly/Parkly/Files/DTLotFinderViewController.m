@@ -26,17 +26,7 @@
 - (void)viewDidLoad
 {
   [super viewDidLoad];
-  
-  //[self setupMapView];
 	// Do any additional setup after loading the view.
-}
-
--(void)setupMapView
-{
-  MKMapCamera *camera = [[MKMapCamera alloc] init];
-  //[camera setCenterCoordinate:self.theMap.userLocation.coordinate];
-  [camera setAltitude:2000.0f];
-  [self.theMap setCamera:camera animated:YES];
 }
 
 - (void)didReceiveMemoryWarning
@@ -45,13 +35,28 @@
     // Dispose of any resources that can be recreated.
 }
 
--(void)mapView:(MKMapView *)mapView didUpdateUserLocation:(MKUserLocation *)userLocation
-{
-  [mapView.camera setAltitude:2000.0f];
-  [mapView.camera setCenterCoordinate:userLocation.coordinate];
+- (IBAction)didSelectSegment:(UISegmentedControl *)sender {
+  if(sender.selectedSegmentIndex == 0){
+    //Sort elements of table by price
+  } else if(sender.selectedSegmentIndex == 1){
+    //Sort elements of table by distance
+  } else if(sender.selectedSegmentIndex == 2){
+    //Sort elements of table by surface type
+  } else {
+    //Sort elements of table by review rank
+  }
 }
 
-- (IBAction)didSelectSegment:(UISegmentedControl *)sender {
-  
+-(void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender
+{
+  if([[segue identifier] isEqualToString:@"embed"]){
+    DTTableViewController *dest = [segue destinationViewController];
+    dest.delegate = self;
+  }
+}
+
+-(void)tableViewDidSelectRowAtIndexPath:(NSIndexPath *)indexPath
+{
+  NSLog(@"Received update about push of index at path : %d", indexPath.row);
 }
 @end

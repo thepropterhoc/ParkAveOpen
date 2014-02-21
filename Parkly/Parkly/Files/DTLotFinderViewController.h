@@ -8,11 +8,13 @@
 
 #import <UIKit/UIKit.h>
 #import <MapKit/MapKit.h>
+#import "DTTableViewController.h"
 
-@interface DTLotFinderViewController : UIViewController <MKMapViewDelegate>
+@interface DTLotFinderViewController : UIViewController <MKMapViewDelegate, DTTableViewControllerDelegate>
 
 
 @property (strong, nonatomic) IBOutlet MKMapView *theMap;
 - (IBAction)didSelectSegment:(UISegmentedControl *)sender;
+@property (strong, nonatomic) IBOutlet UIView *tableSuperView;
 
 @end

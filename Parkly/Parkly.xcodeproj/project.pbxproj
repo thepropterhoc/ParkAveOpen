@@ -21,6 +21,10 @@
 		9D15D3C818B7233F00FA635E /* DTSignupViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 9D15D3C718B7233F00FA635E /* DTSignupViewController.m */; };
 		9D15D3CF18B724DF00FA635E /* DTTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 9D15D3CE18B724DF00FA635E /* DTTableViewController.m */; };
 		9D15D3D118B72A0C00FA635E /* MapKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 9D15D3D018B72A0C00FA635E /* MapKit.framework */; };
+		9D15D3D418B7405D00FA635E /* DTTableCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 9D15D3D318B7405D00FA635E /* DTTableCell.m */; };
+		9D15D3D818B7F79100FA635E /* DTParkingLot.m in Sources */ = {isa = PBXBuildFile; fileRef = 9D15D3D718B7F79100FA635E /* DTParkingLot.m */; };
+		9D15D3DB18B7F79F00FA635E /* DTParkingSpot.m in Sources */ = {isa = PBXBuildFile; fileRef = 9D15D3DA18B7F79F00FA635E /* DTParkingSpot.m */; };
+		9D15D3E418B7FF3F00FA635E /* DTUser.m in Sources */ = {isa = PBXBuildFile; fileRef = 9D15D3E318B7FF3F00FA635E /* DTUser.m */; };
 		9D2E92A718B5A49F00509F23 /* DTNavigationBar.m in Sources */ = {isa = PBXBuildFile; fileRef = 9D2E92A618B5A49F00509F23 /* DTNavigationBar.m */; };
 		9DE9D52218B462B50035519D /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 9DE9D52118B462B50035519D /* Foundation.framework */; };
 		9DE9D52418B462B50035519D /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 9DE9D52318B462B50035519D /* CoreGraphics.framework */; };
@@ -67,6 +71,14 @@
 		9D15D3CD18B724DF00FA635E /* DTTableViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = DTTableViewController.h; path = Files/DTTableViewController.h; sourceTree = "<group>"; };
 		9D15D3CE18B724DF00FA635E /* DTTableViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = DTTableViewController.m; path = Files/DTTableViewController.m; sourceTree = "<group>"; };
 		9D15D3D018B72A0C00FA635E /* MapKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = MapKit.framework; path = System/Library/Frameworks/MapKit.framework; sourceTree = SDKROOT; };
+		9D15D3D218B7405D00FA635E /* DTTableCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = DTTableCell.h; path = Files/DTTableCell.h; sourceTree = "<group>"; };
+		9D15D3D318B7405D00FA635E /* DTTableCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = DTTableCell.m; path = Files/DTTableCell.m; sourceTree = "<group>"; };
+		9D15D3D618B7F79100FA635E /* DTParkingLot.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = DTParkingLot.h; path = Files/DTParkingLot.h; sourceTree = "<group>"; };
+		9D15D3D718B7F79100FA635E /* DTParkingLot.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = DTParkingLot.m; path = Files/DTParkingLot.m; sourceTree = "<group>"; };
+		9D15D3D918B7F79F00FA635E /* DTParkingSpot.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = DTParkingSpot.h; path = Files/DTParkingSpot.h; sourceTree = "<group>"; };
+		9D15D3DA18B7F79F00FA635E /* DTParkingSpot.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = DTParkingSpot.m; path = Files/DTParkingSpot.m; sourceTree = "<group>"; };
+		9D15D3E218B7FF3F00FA635E /* DTUser.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = DTUser.h; path = Files/DTUser.h; sourceTree = "<group>"; };
+		9D15D3E318B7FF3F00FA635E /* DTUser.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = DTUser.m; path = Files/DTUser.m; sourceTree = "<group>"; };
 		9D2E92A518B5A49F00509F23 /* DTNavigationBar.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = DTNavigationBar.h; path = Files/DTNavigationBar.h; sourceTree = "<group>"; };
 		9D2E92A618B5A49F00509F23 /* DTNavigationBar.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = DTNavigationBar.m; path = Files/DTNavigationBar.m; sourceTree = "<group>"; };
 		9DE9D51E18B462B50035519D /* Parkly.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Parkly.app; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -126,6 +138,19 @@
 			name = DTSignup;
 			sourceTree = "<group>";
 		};
+		9D15D3D518B7F77800FA635E /* DTDataTypes */ = {
+			isa = PBXGroup;
+			children = (
+				9D15D3D618B7F79100FA635E /* DTParkingLot.h */,
+				9D15D3D718B7F79100FA635E /* DTParkingLot.m */,
+				9D15D3D918B7F79F00FA635E /* DTParkingSpot.h */,
+				9D15D3DA18B7F79F00FA635E /* DTParkingSpot.m */,
+				9D15D3E218B7FF3F00FA635E /* DTUser.h */,
+				9D15D3E318B7FF3F00FA635E /* DTUser.m */,
+			);
+			name = DTDataTypes;
+			sourceTree = "<group>";
+		};
 		9D2E92A418B5A48300509F23 /* DTUIElements */ = {
 			isa = PBXGroup;
 			children = (
@@ -135,6 +160,8 @@
 				9D15D3B018B5B33300FA635E /* DTRoundedImageView.m */,
 				9D15D3CD18B724DF00FA635E /* DTTableViewController.h */,
 				9D15D3CE18B724DF00FA635E /* DTTableViewController.m */,
+				9D15D3D218B7405D00FA635E /* DTTableCell.h */,
+				9D15D3D318B7405D00FA635E /* DTTableCell.m */,
 			);
 			name = DTUIElements;
 			sourceTree = "<group>";
@@ -173,6 +200,7 @@
 		9DE9D52718B462B50035519D /* Parkly */ = {
 			isa = PBXGroup;
 			children = (
+				9D15D3D518B7F77800FA635E /* DTDataTypes */,
 				9DE9D53018B462B50035519D /* DTAppDelegate.h */,
 				9DE9D53118B462B50035519D /* DTAppDelegate.m */,
 				9DE9D53918B462B50035519D /* Images.xcassets */,
@@ -352,12 +380,16 @@
 			buildActionMask = 2147483647;
 			files = (
 				9D2E92A718B5A49F00509F23 /* DTNavigationBar.m in Sources */,
+				9D15D3D418B7405D00FA635E /* DTTableCell.m in Sources */,
+				9D15D3D818B7F79100FA635E /* DTParkingLot.m in Sources */,
 				9D15D3CF18B724DF00FA635E /* DTTableViewController.m in Sources */,
 				9DE9D55D18B53CF10035519D /* DTLotFinderViewController.m in Sources */,
 				9DE9D53218B462B50035519D /* DTAppDelegate.m in Sources */,
 				9DE9D55918B53CC10035519D /* DTLoginViewController.m in Sources */,
+				9D15D3DB18B7F79F00FA635E /* DTParkingSpot.m in Sources */,
 				9D15D3B118B5B33300FA635E /* DTRoundedImageView.m in Sources */,
 				9DE9D52E18B462B50035519D /* main.m in Sources */,
+				9D15D3E418B7FF3F00FA635E /* DTUser.m in Sources */,
 				9D15D3C818B7233F00FA635E /* DTSignupViewController.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

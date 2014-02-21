@@ -8,6 +8,14 @@
 
 #import <UIKit/UIKit.h>
 
-@interface DTTableViewController : UIViewController
+@protocol DTTableViewControllerDelegate <NSObject>
+
+-(void)tableViewDidSelectRowAtIndexPath:(NSIndexPath*)indexPath;
+
+@end
+
+@interface DTTableViewController : UIViewController <UITableViewDelegate, UITableViewDataSource>
+
+@property (weak) id <DTTableViewControllerDelegate> delegate;
 
 @end
