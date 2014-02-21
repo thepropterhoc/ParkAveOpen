@@ -1,18 +1,18 @@
 //
-//  DTLoginViewController.m
+//  DTSignupViewController.m
 //  Parkly
 //
-//  Created by Shelby Vanhooser on 2/19/14.
+//  Created by Shelby Vanhooser on 2/21/14.
 //  Copyright (c) 2014 DevTeam14. All rights reserved.
 //
 
-#import "DTLoginViewController.h"
+#import "DTSignupViewController.h"
 
-@interface DTLoginViewController ()
+@interface DTSignupViewController ()
 
 @end
 
-@implementation DTLoginViewController
+@implementation DTSignupViewController
 
 - (id)initWithNibName:(NSString *)nibNameOrNil bundle:(NSBundle *)nibBundleOrNil
 {
@@ -25,9 +25,7 @@
 
 - (void)viewDidLoad
 {
-  [super viewDidLoad];
-  
-  [[UIApplication sharedApplication] setStatusBarStyle:UIStatusBarStyleLightContent];
+    [super viewDidLoad];
 	// Do any additional setup after loading the view.
 }
 
@@ -36,13 +34,10 @@
     [super didReceiveMemoryWarning];
     // Dispose of any resources that can be recreated.
 }
-- (IBAction)loginButtonPressed:(id)sender {
-  [self performSegueWithIdentifier:@"goToMain" sender:self];
+
+- (IBAction)didPressSignupButton:(id)sender {
 }
 
-- (IBAction)signupButtonPressed:(id)sender {
-  
+- (IBAction)didPressCancelButton:(id)sender {
 }
-
-
 @end

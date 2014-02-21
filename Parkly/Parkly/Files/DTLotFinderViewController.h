@@ -7,7 +7,12 @@
 //
 
 #import <UIKit/UIKit.h>
+#import <MapKit/MapKit.h>
 
-@interface DTLotFinderViewController : UIViewController
+@interface DTLotFinderViewController : UIViewController <MKMapViewDelegate>
+
+
+@property (strong, nonatomic) IBOutlet MKMapView *theMap;
+- (IBAction)didSelectSegment:(UISegmentedControl *)sender;
 
 @end

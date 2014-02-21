@@ -18,6 +18,9 @@
 		9D15D3C318B6F34100FA635E /* JosefinSlab-SemiBoldItalic.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 9D15D3B918B6F34100FA635E /* JosefinSlab-SemiBoldItalic.ttf */; };
 		9D15D3C418B6F34100FA635E /* JosefinSlab-Thin.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 9D15D3BA18B6F34100FA635E /* JosefinSlab-Thin.ttf */; };
 		9D15D3C518B6F34100FA635E /* JosefinSlab-ThinItalic.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 9D15D3BB18B6F34100FA635E /* JosefinSlab-ThinItalic.ttf */; };
+		9D15D3C818B7233F00FA635E /* DTSignupViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 9D15D3C718B7233F00FA635E /* DTSignupViewController.m */; };
+		9D15D3CF18B724DF00FA635E /* DTTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 9D15D3CE18B724DF00FA635E /* DTTableViewController.m */; };
+		9D15D3D118B72A0C00FA635E /* MapKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 9D15D3D018B72A0C00FA635E /* MapKit.framework */; };
 		9D2E92A718B5A49F00509F23 /* DTNavigationBar.m in Sources */ = {isa = PBXBuildFile; fileRef = 9D2E92A618B5A49F00509F23 /* DTNavigationBar.m */; };
 		9DE9D52218B462B50035519D /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 9DE9D52118B462B50035519D /* Foundation.framework */; };
 		9DE9D52418B462B50035519D /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 9DE9D52318B462B50035519D /* CoreGraphics.framework */; };
@@ -59,6 +62,11 @@
 		9D15D3B918B6F34100FA635E /* JosefinSlab-SemiBoldItalic.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "JosefinSlab-SemiBoldItalic.ttf"; sourceTree = "<group>"; };
 		9D15D3BA18B6F34100FA635E /* JosefinSlab-Thin.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "JosefinSlab-Thin.ttf"; sourceTree = "<group>"; };
 		9D15D3BB18B6F34100FA635E /* JosefinSlab-ThinItalic.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "JosefinSlab-ThinItalic.ttf"; sourceTree = "<group>"; };
+		9D15D3C618B7233F00FA635E /* DTSignupViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = DTSignupViewController.h; path = Files/DTSignupViewController.h; sourceTree = "<group>"; };
+		9D15D3C718B7233F00FA635E /* DTSignupViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = DTSignupViewController.m; path = Files/DTSignupViewController.m; sourceTree = "<group>"; };
+		9D15D3CD18B724DF00FA635E /* DTTableViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = DTTableViewController.h; path = Files/DTTableViewController.h; sourceTree = "<group>"; };
+		9D15D3CE18B724DF00FA635E /* DTTableViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = DTTableViewController.m; path = Files/DTTableViewController.m; sourceTree = "<group>"; };
+		9D15D3D018B72A0C00FA635E /* MapKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = MapKit.framework; path = System/Library/Frameworks/MapKit.framework; sourceTree = SDKROOT; };
 		9D2E92A518B5A49F00509F23 /* DTNavigationBar.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = DTNavigationBar.h; path = Files/DTNavigationBar.h; sourceTree = "<group>"; };
 		9D2E92A618B5A49F00509F23 /* DTNavigationBar.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = DTNavigationBar.m; path = Files/DTNavigationBar.m; sourceTree = "<group>"; };
 		9DE9D51E18B462B50035519D /* Parkly.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Parkly.app; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -89,6 +97,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				9D15D3D118B72A0C00FA635E /* MapKit.framework in Frameworks */,
 				9DE9D52418B462B50035519D /* CoreGraphics.framework in Frameworks */,
 				9DE9D52618B462B50035519D /* UIKit.framework in Frameworks */,
 				9DE9D52218B462B50035519D /* Foundation.framework in Frameworks */,
@@ -108,6 +117,15 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		9D15D3C918B7234500FA635E /* DTSignup */ = {
+			isa = PBXGroup;
+			children = (
+				9D15D3C618B7233F00FA635E /* DTSignupViewController.h */,
+				9D15D3C718B7233F00FA635E /* DTSignupViewController.m */,
+			);
+			name = DTSignup;
+			sourceTree = "<group>";
+		};
 		9D2E92A418B5A48300509F23 /* DTUIElements */ = {
 			isa = PBXGroup;
 			children = (
@@ -115,6 +133,8 @@
 				9D2E92A618B5A49F00509F23 /* DTNavigationBar.m */,
 				9D15D3AF18B5B33300FA635E /* DTRoundedImageView.h */,
 				9D15D3B018B5B33300FA635E /* DTRoundedImageView.m */,
+				9D15D3CD18B724DF00FA635E /* DTTableViewController.h */,
+				9D15D3CE18B724DF00FA635E /* DTTableViewController.m */,
 			);
 			name = DTUIElements;
 			sourceTree = "<group>";
@@ -141,6 +161,7 @@
 		9DE9D52018B462B50035519D /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				9D15D3D018B72A0C00FA635E /* MapKit.framework */,
 				9DE9D52118B462B50035519D /* Foundation.framework */,
 				9DE9D52318B462B50035519D /* CoreGraphics.framework */,
 				9DE9D52518B462B50035519D /* UIKit.framework */,
@@ -154,11 +175,12 @@
 			children = (
 				9DE9D53018B462B50035519D /* DTAppDelegate.h */,
 				9DE9D53118B462B50035519D /* DTAppDelegate.m */,
+				9DE9D53918B462B50035519D /* Images.xcassets */,
+				9DE9D55618B53C810035519D /* DTLogin */,
+				9DE9D55A18B53CCF0035519D /* DTLotFinder */,
+				9D15D3C918B7234500FA635E /* DTSignup */,
 				9D2E92A418B5A48300509F23 /* DTUIElements */,
 				9DE9D53318B462B50035519D /* Main.storyboard */,
-				9DE9D55A18B53CCF0035519D /* DTLotFinder */,
-				9DE9D55618B53C810035519D /* DTLogin */,
-				9DE9D53918B462B50035519D /* Images.xcassets */,
 				9DE9D52818B462B50035519D /* Supporting Files */,
 			);
 			path = Parkly;
@@ -330,11 +352,13 @@
 			buildActionMask = 2147483647;
 			files = (
 				9D2E92A718B5A49F00509F23 /* DTNavigationBar.m in Sources */,
+				9D15D3CF18B724DF00FA635E /* DTTableViewController.m in Sources */,
 				9DE9D55D18B53CF10035519D /* DTLotFinderViewController.m in Sources */,
 				9DE9D53218B462B50035519D /* DTAppDelegate.m in Sources */,
 				9DE9D55918B53CC10035519D /* DTLoginViewController.m in Sources */,
 				9D15D3B118B5B33300FA635E /* DTRoundedImageView.m in Sources */,
 				9DE9D52E18B462B50035519D /* main.m in Sources */,
+				9D15D3C818B7233F00FA635E /* DTSignupViewController.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

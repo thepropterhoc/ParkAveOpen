@@ -24,15 +24,6 @@
 	<string>1.0</string>
 	<key>LSRequiresIPhoneOS</key>
 	<true/>
-	<key>UIAppFonts</key>
-	<array>
-		<string>JosefinSlab-Bold</string>
-		<string>JosefinSlab-BoldItalic</string>
-		<string>JosefinSlab-Italic</string>
-		<string>JosefinSlab-Light</string>
-		<string>JosefinSlab-LightItalic</string>
-		<string>JosefinSlab-Regular</string>
-	</array>
 	<key>UIMainStoryboardFile</key>
 	<string>Main</string>
 	<key>UIRequiredDeviceCapabilities</key>
@@ -45,7 +36,5 @@
 		<string>UIInterfaceOrientationLandscapeLeft</string>
 		<string>UIInterfaceOrientationLandscapeRight</string>
 	</array>
-	<key>UIViewControllerBasedStatusBarAppearance</key>
-	<false/>
 </dict>
 </plist>
