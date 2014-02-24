@@ -6,14 +6,14 @@
 //  Copyright (c) 2014 DevTeam14. All rights reserved.
 //
 
-#import "DTTableViewController.h"
+#import "DTLotTableViewController.h"
 #import "DTTableCell.h"
 
-@interface DTTableViewController ()
+@interface DTLotTableViewController ()
 
 @end
 
-@implementation DTTableViewController
+@implementation DTLotTableViewController
 
 - (id)initWithNibName:(NSString *)nibNameOrNil bundle:(NSBundle *)nibBundleOrNil
 {
@@ -79,6 +79,7 @@
 -(void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath
 {
   [self.delegate tableViewDidSelectRowAtIndexPath:indexPath];
+  [tableView deselectRowAtIndexPath:indexPath animated:YES];
 }
 
 @end

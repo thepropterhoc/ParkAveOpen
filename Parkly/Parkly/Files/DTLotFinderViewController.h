@@ -8,9 +8,9 @@
 
 #import <UIKit/UIKit.h>
 #import <MapKit/MapKit.h>
-#import "DTTableViewController.h"
+#import "DTLotTableViewController.h"
 
-@interface DTLotFinderViewController : UIViewController <MKMapViewDelegate, DTTableViewControllerDelegate>
+@interface DTLotFinderViewController : UIViewController <MKMapViewDelegate, DTLotTableViewControllerDelegate>
 
 
 @property (strong, nonatomic) IBOutlet MKMapView *theMap;

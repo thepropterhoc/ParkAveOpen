@@ -50,13 +50,14 @@
 -(void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender
 {
   if([[segue identifier] isEqualToString:@"embed"]){
-    DTTableViewController *dest = [segue destinationViewController];
+    DTLotTableViewController *dest = [segue destinationViewController];
     dest.delegate = self;
   }
 }
 
 -(void)tableViewDidSelectRowAtIndexPath:(NSIndexPath *)indexPath
 {
+  [self performSegueWithIdentifier:@"pushToDetail" sender:self];
   NSLog(@"Received update about push of index at path : %d", indexPath.row);
 }
 @end
