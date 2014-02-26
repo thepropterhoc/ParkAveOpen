@@ -1,18 +1,18 @@
 //
-//  DTDetailViewController.m
+//  DTReviewTableViewController.m
 //  Parkly
 //
-//  Created by Shelby Vanhooser on 2/21/14.
+//  Created by Shelby Vanhooser on 2/25/14.
 //  Copyright (c) 2014 DevTeam14. All rights reserved.
 //
 
-#import "DTDetailViewController.h"
+#import "DTReviewTableViewController.h"
 
-@interface DTDetailViewController ()
+@interface DTReviewTableViewController ()
 
 @end
 
-@implementation DTDetailViewController
+@implementation DTReviewTableViewController
 
 - (id)initWithNibName:(NSString *)nibNameOrNil bundle:(NSBundle *)nibBundleOrNil
 {
@@ -35,6 +35,4 @@
     // Dispose of any resources that can be recreated.
 }
 
-- (IBAction)bookSpot:(id)sender {
-}
 @end

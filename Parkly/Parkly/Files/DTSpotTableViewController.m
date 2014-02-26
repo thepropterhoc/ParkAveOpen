@@ -1,18 +1,18 @@
 //
-//  DTDetailViewController.m
+//  DTSpotTableViewController.m
 //  Parkly
 //
-//  Created by Shelby Vanhooser on 2/21/14.
+//  Created by Shelby Vanhooser on 2/25/14.
 //  Copyright (c) 2014 DevTeam14. All rights reserved.
 //
 
-#import "DTDetailViewController.h"
+#import "DTSpotTableViewController.h"
 
-@interface DTDetailViewController ()
+@interface DTSpotTableViewController ()
 
 @end
 
-@implementation DTDetailViewController
+@implementation DTSpotTableViewController
 
 - (id)initWithNibName:(NSString *)nibNameOrNil bundle:(NSBundle *)nibBundleOrNil
 {
@@ -35,6 +35,19 @@
     // Dispose of any resources that can be recreated.
 }
 
-- (IBAction)bookSpot:(id)sender {
+-(NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section
+{
+  
 }
+
+-(NSInteger)numberOfSectionsInTableView:(UITableView *)tableView
+{
+  
+}
+
+-(UITableViewCell*)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath
+{
+  
+}
+
 @end
