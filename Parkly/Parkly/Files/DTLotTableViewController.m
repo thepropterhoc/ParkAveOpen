@@ -7,7 +7,7 @@
 //
 
 #import "DTLotTableViewController.h"
-#import "DTTableCell.h"
+#import "DTLotTableCell.h"
 
 @interface DTLotTableViewController ()
 
@@ -50,9 +50,9 @@
 {
   NSLog(@"Fetching cell for row : %d", indexPath.row);
   static NSString* identifier = @"cell";
-  DTTableCell *cell = [tableView dequeueReusableCellWithIdentifier:identifier forIndexPath:indexPath];
+  DTLotTableCell *cell = [tableView dequeueReusableCellWithIdentifier:identifier forIndexPath:indexPath];
   if(!cell){
-    cell = [[DTTableCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:identifier];
+    cell = [[DTLotTableCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:identifier];
   }
   if(indexPath.row == 0){
     cell.titleLabel.text = @"Moe's Garage";

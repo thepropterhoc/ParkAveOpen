@@ -383,7 +383,7 @@
                                 <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 <prototypes>
-                                    <tableViewCell contentMode="scaleToFill" restorationIdentifier="cell" selectionStyle="blue" accessoryType="disclosureIndicator" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" reuseIdentifier="cell" rowHeight="105" id="D3n-ew-55B" customClass="DTTableCell">
+                                    <tableViewCell contentMode="scaleToFill" restorationIdentifier="cell" selectionStyle="blue" accessoryType="disclosureIndicator" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" reuseIdentifier="cell" rowHeight="105" id="D3n-ew-55B" customClass="DTLotTableCell">
                                         <rect key="frame" x="0.0" y="22" width="320" height="105"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="D3n-ew-55B" id="sPj-nU-sji">
@@ -450,11 +450,11 @@
                                             </constraints>
                                         </tableViewCellContentView>
                                         <connections>
-                                            <outlet property="distanceLabel" destination="dc4-Ms-hca" id="n5C-DN-mDz"/>
-                                            <outlet property="priceLabel" destination="pGu-Zx-MNf" id="Ldg-uN-4xr"/>
-                                            <outlet property="ratingLabel" destination="wkX-hg-908" id="96f-tF-6SJ"/>
-                                            <outlet property="surfaceTypeLabel" destination="nct-cC-f3c" id="7ki-OL-jCL"/>
-                                            <outlet property="titleLabel" destination="nW9-Lz-4wj" id="mzO-NW-wCC"/>
+                                            <outlet property="distanceLabel" destination="dc4-Ms-hca" id="Eqc-J8-KFc"/>
+                                            <outlet property="priceLabel" destination="pGu-Zx-MNf" id="gvC-ON-kLl"/>
+                                            <outlet property="ratingLabel" destination="wkX-hg-908" id="8Hl-OT-ltL"/>
+                                            <outlet property="surfaceTypeLabel" destination="nct-cC-f3c" id="lOw-D7-Vg4"/>
+                                            <outlet property="titleLabel" destination="nW9-Lz-4wj" id="uCM-I3-8Id"/>
                                         </connections>
                                     </tableViewCell>
                                 </prototypes>

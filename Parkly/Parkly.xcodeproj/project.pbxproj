@@ -20,7 +20,7 @@
 		9D15D3C518B6F34100FA635E /* JosefinSlab-ThinItalic.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 9D15D3BB18B6F34100FA635E /* JosefinSlab-ThinItalic.ttf */; };
 		9D15D3C818B7233F00FA635E /* DTSignupViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 9D15D3C718B7233F00FA635E /* DTSignupViewController.m */; };
 		9D15D3D118B72A0C00FA635E /* MapKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 9D15D3D018B72A0C00FA635E /* MapKit.framework */; };
-		9D15D3D418B7405D00FA635E /* DTTableCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 9D15D3D318B7405D00FA635E /* DTTableCell.m */; };
+		9D15D3D418B7405D00FA635E /* DTLotTableCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 9D15D3D318B7405D00FA635E /* DTLotTableCell.m */; };
 		9D15D3D818B7F79100FA635E /* DTParkingLot.m in Sources */ = {isa = PBXBuildFile; fileRef = 9D15D3D718B7F79100FA635E /* DTParkingLot.m */; };
 		9D15D3DB18B7F79F00FA635E /* DTParkingSpot.m in Sources */ = {isa = PBXBuildFile; fileRef = 9D15D3DA18B7F79F00FA635E /* DTParkingSpot.m */; };
 		9D15D3E418B7FF3F00FA635E /* DTUser.m in Sources */ = {isa = PBXBuildFile; fileRef = 9D15D3E318B7FF3F00FA635E /* DTUser.m */; };
@@ -72,8 +72,8 @@
 		9D15D3CD18B724DF00FA635E /* DTLotTableViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = DTLotTableViewController.h; path = Files/DTLotTableViewController.h; sourceTree = "<group>"; };
 		9D15D3CE18B724DF00FA635E /* DTLotTableViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = DTLotTableViewController.m; path = Files/DTLotTableViewController.m; sourceTree = "<group>"; };
 		9D15D3D018B72A0C00FA635E /* MapKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = MapKit.framework; path = System/Library/Frameworks/MapKit.framework; sourceTree = SDKROOT; };
-		9D15D3D218B7405D00FA635E /* DTTableCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = DTTableCell.h; path = Files/DTTableCell.h; sourceTree = "<group>"; };
-		9D15D3D318B7405D00FA635E /* DTTableCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = DTTableCell.m; path = Files/DTTableCell.m; sourceTree = "<group>"; };
+		9D15D3D218B7405D00FA635E /* DTLotTableCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = DTLotTableCell.h; path = Files/DTLotTableCell.h; sourceTree = "<group>"; };
+		9D15D3D318B7405D00FA635E /* DTLotTableCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = DTLotTableCell.m; path = Files/DTLotTableCell.m; sourceTree = "<group>"; };
 		9D15D3D618B7F79100FA635E /* DTParkingLot.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = DTParkingLot.h; path = Files/DTParkingLot.h; sourceTree = "<group>"; };
 		9D15D3D718B7F79100FA635E /* DTParkingLot.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = DTParkingLot.m; path = Files/DTParkingLot.m; sourceTree = "<group>"; };
 		9D15D3D918B7F79F00FA635E /* DTParkingSpot.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = DTParkingSpot.h; path = Files/DTParkingSpot.h; sourceTree = "<group>"; };
@@ -172,8 +172,8 @@
 				9D15D3B018B5B33300FA635E /* DTRoundedImageView.m */,
 				9D15D3CD18B724DF00FA635E /* DTLotTableViewController.h */,
 				9D15D3CE18B724DF00FA635E /* DTLotTableViewController.m */,
-				9D15D3D218B7405D00FA635E /* DTTableCell.h */,
-				9D15D3D318B7405D00FA635E /* DTTableCell.m */,
+				9D15D3D218B7405D00FA635E /* DTLotTableCell.h */,
+				9D15D3D318B7405D00FA635E /* DTLotTableCell.m */,
 			);
 			name = DTUIElements;
 			sourceTree = "<group>";
@@ -394,7 +394,7 @@
 			files = (
 				9D15D3E618B807EC00FA635E /* DTLotTableViewController.m in Sources */,
 				9D2E92A718B5A49F00509F23 /* DTNavigationBar.m in Sources */,
-				9D15D3D418B7405D00FA635E /* DTTableCell.m in Sources */,
+				9D15D3D418B7405D00FA635E /* DTLotTableCell.m in Sources */,
 				9D15D3D818B7F79100FA635E /* DTParkingLot.m in Sources */,
 				9D15D3EA18B809F400FA635E /* DTDetailViewController.m in Sources */,
 				9DE9D55D18B53CF10035519D /* DTLotFinderViewController.m in Sources */,

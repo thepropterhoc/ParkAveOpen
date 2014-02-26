@@ -8,7 +8,7 @@
 
 #import <UIKit/UIKit.h>
 
-@interface DTTableCell : UITableViewCell
+@interface DTLotTableCell : UITableViewCell
 @property (strong, nonatomic) IBOutlet UILabel *ratingLabel;
 @property (strong, nonatomic) IBOutlet UILabel *surfaceTypeLabel;
 @property (strong, nonatomic) IBOutlet UILabel *distanceLabel;

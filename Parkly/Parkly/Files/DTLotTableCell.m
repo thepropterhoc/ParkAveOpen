@@ -6,9 +6,9 @@
 //  Copyright (c) 2014 DevTeam14. All rights reserved.
 //
 
-#import "DTTableCell.h"
+#import "DTLotTableCell.h"
 
-@implementation DTTableCell
+@implementation DTLotTableCell
 
 - (id)initWithStyle:(UITableViewCellStyle)style reuseIdentifier:(NSString *)reuseIdentifier
 {
