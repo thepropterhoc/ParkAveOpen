@@ -26,4 +26,12 @@
     // Configure the view for the selected state
 }
 
+
+-(void)initWithParkingSpot:(DTParkingSpot*)spot
+{
+  self.price.text = [NSString stringWithFormat:@"$ %.2f", [spot.price floatValue]];
+  self.spotDate.text = [NSString stringWithFormat:@"%@", [NSDateFormatter localizedStringFromDate:spot.date dateStyle:NSDateFormatterShortStyle timeStyle:NSDateFormatterNoStyle]];
+  self.spotType.text = spot.spotType;
+}
+
 @end

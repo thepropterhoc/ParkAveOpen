@@ -7,7 +7,15 @@
 //
 
 #import <UIKit/UIKit.h>
+#import "DTParkingSpot.h"
 
 @interface DTSpotTableCell : UITableViewCell
+
+-(void)initWithParkingSpot:(DTParkingSpot*)spot;
+
+@property (strong, nonatomic) IBOutlet UILabel *price;
+@property (strong, nonatomic) IBOutlet UILabel *spotType;
+@property (strong, nonatomic) IBOutlet UILabel *spotDate;
+
 
 @end

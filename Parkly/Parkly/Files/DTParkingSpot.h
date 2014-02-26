@@ -18,5 +18,6 @@
 @property (strong, nonatomic) NSArray *buyerIDs;
 @property (strong, nonatomic) NSNumber *price;
 @property (strong, nonatomic) NSString *eventID;
+@property (strong, nonatomic) NSString *spotType;
 
 @end

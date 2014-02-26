@@ -7,8 +7,12 @@
 //
 
 #import "DTSpotTableViewController.h"
+#import "DTSpotTableCell.h"
+#import "DTParkingSpot.h"
 
 @interface DTSpotTableViewController ()
+
+@property (strong, nonatomic) NSArray *spots;
 
 @end
 
@@ -25,7 +29,12 @@
 
 - (void)viewDidLoad
 {
-    [super viewDidLoad];
+  [super viewDidLoad];
+  DTParkingSpot *spot = [[DTParkingSpot alloc] init];
+  [spot setPrice:@4];
+  [spot setDate:[NSDate date]];
+  [spot setSpotType: @"Asphalt"];
+  self.spots = @[spot];
 	// Do any additional setup after loading the view.
 }
 
@@ -37,17 +46,19 @@
 
 -(NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section
 {
-  
+  return [self.spots count];
 }
 
 -(NSInteger)numberOfSectionsInTableView:(UITableView *)tableView
 {
-  
+  return 1;
 }
 
 -(UITableViewCell*)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath
 {
-  
+  DTSpotTableCell *cell = [tableView dequeueReusableCellWithIdentifier:@"cell" forIndexPath:indexPath];
+  [cell initWithParkingSpot:self.spots[indexPath.row]];
+  return cell;
 }
 
 @end
