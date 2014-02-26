@@ -175,25 +175,57 @@
 			name = DTDetail;
 			sourceTree = "<group>";
 		};
-		9D2E92A418B5A48300509F23 /* DTUIElements */ = {
+		9D15D4A118BDA2DF00FA635E /* DTLots */ = {
+			isa = PBXGroup;
+			children = (
+				9D15D3CD18B724DF00FA635E /* DTLotTableViewController.h */,
+				9D15D3CE18B724DF00FA635E /* DTLotTableViewController.m */,
+				9D15D3D218B7405D00FA635E /* DTLotTableCell.h */,
+				9D15D3D318B7405D00FA635E /* DTLotTableCell.m */,
+			);
+			name = DTLots;
+			sourceTree = "<group>";
+		};
+		9D15D4A218BDA2F100FA635E /* DTReviews */ = {
+			isa = PBXGroup;
+			children = (
+				9D15D49518BD89BF00FA635E /* DTReviewTableViewController.h */,
+				9D15D49618BD89BF00FA635E /* DTReviewTableViewController.m */,
+				9D15D49818BD8A0C00FA635E /* DTReviewTableCell.h */,
+				9D15D49918BD8A0C00FA635E /* DTReviewTableCell.m */,
+			);
+			name = DTReviews;
+			sourceTree = "<group>";
+		};
+		9D15D4A318BDA2FD00FA635E /* DTSpots */ = {
+			isa = PBXGroup;
+			children = (
+				9D15D49B18BD952E00FA635E /* DTSpotTableViewController.h */,
+				9D15D49C18BD952E00FA635E /* DTSpotTableViewController.m */,
+				9D15D49E18BD954400FA635E /* DTSpotTableCell.h */,
+				9D15D49F18BD954400FA635E /* DTSpotTableCell.m */,
+			);
+			name = DTSpots;
+			sourceTree = "<group>";
+		};
+		9D15D4A418BDA30700FA635E /* DTGeneral */ = {
 			isa = PBXGroup;
 			children = (
 				9D2E92A518B5A49F00509F23 /* DTNavigationBar.h */,
 				9D2E92A618B5A49F00509F23 /* DTNavigationBar.m */,
 				9D15D3AF18B5B33300FA635E /* DTRoundedImageView.h */,
 				9D15D3B018B5B33300FA635E /* DTRoundedImageView.m */,
-				9D15D3CD18B724DF00FA635E /* DTLotTableViewController.h */,
-				9D15D3CE18B724DF00FA635E /* DTLotTableViewController.m */,
-				9D15D3D218B7405D00FA635E /* DTLotTableCell.h */,
-				9D15D3D318B7405D00FA635E /* DTLotTableCell.m */,
-				9D15D49518BD89BF00FA635E /* DTReviewTableViewController.h */,
-				9D15D49618BD89BF00FA635E /* DTReviewTableViewController.m */,
-				9D15D49818BD8A0C00FA635E /* DTReviewTableCell.h */,
-				9D15D49918BD8A0C00FA635E /* DTReviewTableCell.m */,
-				9D15D49B18BD952E00FA635E /* DTSpotTableViewController.h */,
-				9D15D49C18BD952E00FA635E /* DTSpotTableViewController.m */,
-				9D15D49E18BD954400FA635E /* DTSpotTableCell.h */,
-				9D15D49F18BD954400FA635E /* DTSpotTableCell.m */,
+			);
+			name = DTGeneral;
+			sourceTree = "<group>";
+		};
+		9D2E92A418B5A48300509F23 /* DTUIElements */ = {
+			isa = PBXGroup;
+			children = (
+				9D15D4A418BDA30700FA635E /* DTGeneral */,
+				9D15D4A118BDA2DF00FA635E /* DTLots */,
+				9D15D4A218BDA2F100FA635E /* DTReviews */,
+				9D15D4A318BDA2FD00FA635E /* DTSpots */,
 			);
 			name = DTUIElements;
 			sourceTree = "<group>";
@@ -232,16 +264,16 @@
 		9DE9D52718B462B50035519D /* Parkly */ = {
 			isa = PBXGroup;
 			children = (
-				9D15D3E718B809DC00FA635E /* DTDetail */,
-				9D15D3D518B7F77800FA635E /* DTDataTypes */,
 				9DE9D53018B462B50035519D /* DTAppDelegate.h */,
 				9DE9D53118B462B50035519D /* DTAppDelegate.m */,
-				9DE9D53918B462B50035519D /* Images.xcassets */,
+				9D15D3E718B809DC00FA635E /* DTDetail */,
+				9D15D3D518B7F77800FA635E /* DTDataTypes */,
 				9DE9D55618B53C810035519D /* DTLogin */,
 				9DE9D55A18B53CCF0035519D /* DTLotFinder */,
 				9D15D3C918B7234500FA635E /* DTSignup */,
 				9D2E92A418B5A48300509F23 /* DTUIElements */,
 				9DE9D53318B462B50035519D /* Main.storyboard */,
+				9DE9D53918B462B50035519D /* Images.xcassets */,
 				9DE9D52818B462B50035519D /* Supporting Files */,
 			);
 			path = Parkly;
