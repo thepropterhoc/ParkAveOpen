@@ -26,4 +26,17 @@
     // Configure the view for the selected state
 }
 
+-(void)initWithLot:(DTParkingLot*)lot
+{
+  self.ratingLabel.text = lot.rating;
+  self.distanceLabel.text = [NSString stringWithFormat:@"%.2f", lot.distance.floatValue];
+  self.titleLabel.text = lot.user_id;
+  self.priceLabel.text = [NSString stringWithFormat:@"%.2f", [self averagePriceForLot:lot]];
+}
+
+-(float)averagePriceForLot:(DTParkingLot*)lot
+{
+  return 20.0f;
+}
+
 @end

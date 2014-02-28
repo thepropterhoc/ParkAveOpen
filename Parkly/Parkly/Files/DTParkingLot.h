@@ -20,7 +20,9 @@
 @property (strong, nonatomic) NSNumber *zipcode;
 @property (strong, nonatomic) NSNumber *latitude;
 @property (strong, nonatomic) NSNumber *longitude;
-@property (strong, nonatomic) NSString *pavementType;
 @property (strong, nonatomic) NSString *imagePath;
+@property (strong, nonatomic) NSNumber *numSpots;
+@property (strong, nonatomic) NSNumber *distance;
+@property (strong, nonatomic) NSString *rating;
 
 @end

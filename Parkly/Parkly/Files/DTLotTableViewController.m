@@ -8,8 +8,11 @@
 
 #import "DTLotTableViewController.h"
 #import "DTLotTableCell.h"
+#import "DTParkingLot.h"
 
 @interface DTLotTableViewController ()
+
+@property (strong, nonatomic) NSArray *theLots;
 
 @end
 
@@ -27,7 +30,22 @@
 - (void)viewDidLoad
 {
   [super viewDidLoad];
-	// Do any additional setup after loading the view.
+  DTParkingLot *lot1 = [[DTParkingLot alloc] init];
+  lot1.user_id = @"Moe's Garage";
+  lot1.distance = @4.0;
+  lot1.rating = @"3 / 5";
+  
+  DTParkingLot *lot2 = [[DTParkingLot alloc] init];
+  lot2.user_id = @"A Mentlegen's Lot";
+  lot2.distance = @2.0;
+  lot2.rating = @"2 / 5";
+  
+  DTParkingLot *lot3 = [[DTParkingLot alloc] init];
+  lot3.user_id = @"The Bat Cave";
+  lot3.distance = @0.5;
+  lot3.rating = @"4 / 5";
+  
+  self.theLots = @[lot1, lot2, lot3];
 }
 
 - (void)didReceiveMemoryWarning
@@ -36,9 +54,14 @@
     // Dispose of any resources that can be recreated.
 }
 
+-(float)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath
+{
+  return 60.0f;
+}
+
 -(NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section
 {
-  return 3;
+  return [self.theLots count];
 }
 
 -(NSInteger)numberOfSectionsInTableView:(UITableView *)tableView
@@ -51,28 +74,7 @@
   NSLog(@"Fetching cell for row : %d", indexPath.row);
   static NSString* identifier = @"cell";
   DTLotTableCell *cell = [tableView dequeueReusableCellWithIdentifier:identifier forIndexPath:indexPath];
-  if(!cell){
-    cell = [[DTLotTableCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:identifier];
-  }
-  if(indexPath.row == 0){
-    cell.titleLabel.text = @"Moe's Garage";
-    cell.priceLabel.text = @"$20.00";
-    cell.distanceLabel.text = @"1.0 mi";
-    cell.surfaceTypeLabel.text = @"Gravel";
-    cell.ratingLabel.text = @"3 / 5";
-  } else if(indexPath.row == 1){
-    cell.titleLabel.text = @"A Mentlegen's Lot";
-    cell.priceLabel.text = @"$15.00";
-    cell.distanceLabel.text = @"2.0 mi";
-    cell.surfaceTypeLabel.text = @"Dirt";
-    cell.ratingLabel.text = @"2 / 5";
-  } else {
-    cell.titleLabel.text = @"The Bat Cave";
-    cell.priceLabel.text = @"$10.00";
-    cell.distanceLabel.text = @"0.5 mi";
-    cell.surfaceTypeLabel.text = @"Asphalt";
-    cell.ratingLabel.text = @"4 / 5";
-  }
+  [cell initWithLot:self.theLots[indexPath.row]]; 
   return cell;
 }
 
@@ -80,6 +82,26 @@
 {
   [self.delegate tableViewDidSelectRowAtIndexPath:indexPath];
   [tableView deselectRowAtIndexPath:indexPath animated:YES];
+}
+
+-(void)sortByPrice
+{
+  
+}
+
+-(void)sortByDistance
+{
+  
+}
+
+-(void)sortByType
+{
+  
+}
+
+-(void)sortByReview
+{
+  
 }
 
 @end

@@ -26,6 +26,7 @@
 - (void)viewDidLoad
 {
   [super viewDidLoad];
+  [self.view layoutSubviews];
 	// Do any additional setup after loading the view.
 }
 

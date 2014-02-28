@@ -61,4 +61,19 @@
   return cell;
 }
 
+-(float)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath
+{
+  return 60.0f;
+}
+
+-(void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath
+{
+  [((DTSpotTableCell*) [tableView cellForRowAtIndexPath:indexPath]) setEditing:YES animated:YES];
+}
+
+-(void)tableView:(UITableView *)tableView didDeselectRowAtIndexPath:(NSIndexPath *)indexPath
+{
+  [((DTSpotTableCell*) [tableView cellForRowAtIndexPath:indexPath]) setEditing:NO animated:YES];
+}
+
 @end
