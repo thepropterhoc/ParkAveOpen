@@ -23,6 +23,10 @@
 @property (strong, nonatomic) NSString *imagePath;
 @property (strong, nonatomic) NSNumber *numSpots;
 @property (strong, nonatomic) NSNumber *distance;
+
 @property (strong, nonatomic) NSString *rating;
+@property (strong, nonatomic) NSNumber *averagePrice;
+@property (strong, nonatomic) NSNumber *averageRating;
+
 
 @end

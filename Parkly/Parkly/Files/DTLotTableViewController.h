@@ -18,4 +18,11 @@
 
 @property (weak) id <DTLotTableViewControllerDelegate> delegate;
 
+@property (strong, nonatomic) IBOutlet UITableView *theTable;
+@property (strong, nonatomic) NSArray *theLots;
+
+-(void)sortByReview;
+-(void)sortByPrice;
+-(void)sortByDistance;
+
 @end

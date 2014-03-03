@@ -7,15 +7,16 @@
 //
 
 #import <UIKit/UIKit.h>
+#import "DTParkingLot.h"
 
 @interface DTDetailViewController : UIViewController
 - (IBAction)bookSpot:(id)sender;
-@property (strong, nonatomic) IBOutlet UILabel *lotTitle;
+
+@property (strong, nonatomic) DTParkingLot *lot;
+
 @property (strong, nonatomic) IBOutlet UILabel *lotOwner;
 @property (strong, nonatomic) IBOutlet UILabel *distanceToVenue;
-@property (strong, nonatomic) IBOutlet UILabel *surfaceType;
 @property (strong, nonatomic) IBOutlet UILabel *averageReview;
-
-
+@property (strong, nonatomic) IBOutlet UILabel *averagePrice;
 
 @end

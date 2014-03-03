@@ -27,7 +27,7 @@
 {
   [super viewDidLoad];
   
-  [[UIApplication sharedApplication] setStatusBarStyle:UIStatusBarStyleLightContent];
+  [[UIApplication sharedApplication] setStatusBarHidden:YES];
 	// Do any additional setup after loading the view.
 }
 
@@ -36,12 +36,12 @@
     [super didReceiveMemoryWarning];
     // Dispose of any resources that can be recreated.
 }
-- (IBAction)loginButtonPressed:(id)sender {
-  [self performSegueWithIdentifier:@"goToMain" sender:self];
-}
 
-- (IBAction)signupButtonPressed:(id)sender {
-  
+-(void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender
+{
+  if([[segue identifier] isEqualToString:@"profile"]){
+    
+  }
 }
 
 

@@ -7,8 +7,12 @@
 //
 
 #import "DTLotFinderViewController.h"
+#import "DTDetailViewController.h"
 
 @interface DTLotFinderViewController ()
+
+@property (strong, nonatomic) DTLotTableViewController *lotTable;
+@property (strong, nonatomic) DTProfileViewController *profileViewController;
 
 @end
 
@@ -39,26 +43,46 @@
 - (IBAction)didSelectSegment:(UISegmentedControl *)sender {
   if(sender.selectedSegmentIndex == 0){
     //Sort elements of table by price
+    [self.lotTable sortByPrice];
   } else if(sender.selectedSegmentIndex == 1){
     //Sort elements of table by distance
-  } else if(sender.selectedSegmentIndex == 2){
-    //Sort elements of table by surface type
-  } else {
+    [self.lotTable sortByDistance];
+  }else {
     //Sort elements of table by review rank
+    [self.lotTable sortByReview];
   }
 }
 
 -(void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender
 {
   if([[segue identifier] isEqualToString:@"embed"]){
-    DTLotTableViewController *dest = [segue destinationViewController];
-    dest.delegate = self;
+    self.lotTable = [segue destinationViewController];
+    self.lotTable.delegate = self;
+  } else if([[segue identifier] isEqualToString:@"profile"]){
+    self.profileViewController = [segue destinationViewController];
+    self.profileViewController.delegate = self;
+  } else if([[segue identifier] isEqualToString:@"pushToDetail"]){
+    ((DTDetailViewController*) [segue destinationViewController]).lot = self.lotTable.theLots[self.lotTable.theTable.indexPathForSelectedRow.row];
   }
 }
 
 -(void)tableViewDidSelectRowAtIndexPath:(NSIndexPath *)indexPath
 {
   [self performSegueWithIdentifier:@"pushToDetail" sender:self];
-  NSLog(@"Received update about push of index at path : %d", indexPath.row);
 }
+
+-(void)dismissProfileViewControllerSuccess
+{
+  [self dismissViewControllerAnimated:YES completion:^{
+    
+  }];
+}
+
+-(void)dismissProfileViewControllerCanceled
+{
+  [self dismissViewControllerAnimated:YES completion:^{
+    
+  }];
+}
+
 @end

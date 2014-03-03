@@ -7,10 +7,16 @@
 //
 
 #import <UIKit/UIKit.h>
+#import "DTReview.h"
 
 @interface DTReviewTableCell : UITableViewCell
-@property (strong, nonatomic) IBOutlet UILabel *reviewText;
+
+@property (strong, nonatomic) IBOutlet UITextView *reviewText;
 @property (strong, nonatomic) IBOutlet UILabel *reviewTitle;
 @property (strong, nonatomic) IBOutlet UILabel *reviewValue;
+@property (strong, nonatomic) IBOutlet UILabel *dateLabel;
+@property (strong, nonatomic) IBOutlet UILabel *authorLabel;
+
+-(void)initWithReview:(DTReview*)review;
 
 @end

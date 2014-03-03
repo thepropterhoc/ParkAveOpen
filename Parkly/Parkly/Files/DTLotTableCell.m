@@ -31,7 +31,7 @@
   self.ratingLabel.text = lot.rating;
   self.distanceLabel.text = [NSString stringWithFormat:@"%.2f", lot.distance.floatValue];
   self.titleLabel.text = lot.user_id;
-  self.priceLabel.text = [NSString stringWithFormat:@"%.2f", [self averagePriceForLot:lot]];
+  self.priceLabel.text = [NSString stringWithFormat:@"$%.2f", lot.averagePrice.floatValue];
 }
 
 -(float)averagePriceForLot:(DTParkingLot*)lot

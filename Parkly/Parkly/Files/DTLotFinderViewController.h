@@ -9,12 +9,12 @@
 #import <UIKit/UIKit.h>
 #import <MapKit/MapKit.h>
 #import "DTLotTableViewController.h"
+#import "DTProfileViewController.h"
 
-@interface DTLotFinderViewController : UIViewController <MKMapViewDelegate, DTLotTableViewControllerDelegate>
+@interface DTLotFinderViewController : UIViewController <MKMapViewDelegate, DTLotTableViewControllerDelegate, DTProfileViewControllerDelegate>
 
 
 @property (strong, nonatomic) IBOutlet MKMapView *theMap;
 - (IBAction)didSelectSegment:(UISegmentedControl *)sender;
-@property (strong, nonatomic) IBOutlet UIView *tableSuperView;
 
 @end

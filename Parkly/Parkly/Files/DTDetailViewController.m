@@ -25,7 +25,10 @@
 
 - (void)viewDidLoad
 {
-    [super viewDidLoad];
+  [super viewDidLoad];
+  if(self.lot){
+    [self initialize];
+  }
 	// Do any additional setup after loading the view.
 }
 
@@ -35,6 +38,15 @@
     // Dispose of any resources that can be recreated.
 }
 
+-(void)initialize
+{
+  self.lotOwner.text = [NSString stringWithFormat:@"%@", self.lot.user_id];
+  self.distanceToVenue.text = [NSString stringWithFormat:@"%.1f mi", self.lot.distance.floatValue];
+  self.averageReview.text = [NSString stringWithFormat:@"%.1f", self.lot.averageRating.floatValue];
+  self.averagePrice.text = [NSString stringWithFormat:@"$%.2f", self.lot.averagePrice.floatValue];
+}
+
 - (IBAction)bookSpot:(id)sender {
+  
 }
 @end

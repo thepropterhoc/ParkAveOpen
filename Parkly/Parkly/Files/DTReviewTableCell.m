@@ -26,6 +26,13 @@
     // Configure the view for the selected state
 }
 
--(void)initWithReview:(DT)
+-(void)initWithReview:(DTReview*)review
+{
+  self.reviewText.text = review.body;
+  self.reviewTitle.text = review.title;
+  self.reviewValue.text = review.stars;
+  self.dateLabel.text = review.date;
+  self.authorLabel.text = [NSString stringWithFormat:@"- %@", review.reviewer_id];
+}
 
 @end
