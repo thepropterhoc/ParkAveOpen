@@ -26,4 +26,6 @@
     // Configure the view for the selected state
 }
 
+-(void)initWithReview:(DT)
+
 @end
