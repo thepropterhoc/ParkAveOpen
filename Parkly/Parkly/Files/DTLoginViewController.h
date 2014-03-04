@@ -7,7 +7,8 @@
 //
 
 #import <UIKit/UIKit.h>
+#import "DTProfileViewController.h"
 
-@interface DTLoginViewController : UIViewController
+@interface DTLoginViewController : UIViewController <DTProfileViewControllerDelegate>
 
 @end

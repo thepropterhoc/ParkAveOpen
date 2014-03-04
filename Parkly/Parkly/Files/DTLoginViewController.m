@@ -66,7 +66,17 @@
             NSLog(@"%@", error);
         }];
     }*/
-[self performSegueWithIdentifier:@"goToMain" sender:self];
+  [self performSegueWithIdentifier:@"goToMain" sender:self];
+}
+
+-(void)dismissProfileViewControllerCanceled
+{
+  
+}
+
+-(void)dismissProfileViewControllerSuccess
+{
+  
 }
 
 @end
