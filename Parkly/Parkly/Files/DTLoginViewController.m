@@ -44,5 +44,9 @@
   }
 }
 
+- (IBAction)loginButtonPressed:(id)sender
+{
+  [self performSegueWithIdentifier:@"goToMain" sender:self];
+}
 
 @end

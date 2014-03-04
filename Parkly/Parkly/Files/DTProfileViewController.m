@@ -9,13 +9,14 @@
 #import "DTProfileViewController.h"
 
 @interface DTProfileViewController ()
-@property (strong, nonatomic) IBOutlet UITextField *nameField;
+@property (strong, nonatomic) IBOutlet UITextField *firstNameField;
 @property (strong, nonatomic) IBOutlet UITextField *usernameField;
 @property (strong, nonatomic) IBOutlet UITextField *passwordField;
 @property (strong, nonatomic) IBOutlet UITextField *monthField;
 @property (strong, nonatomic) IBOutlet UITextField *dayField;
 @property (strong, nonatomic) IBOutlet UITextField *yearField;
 @property (strong, nonatomic) IBOutlet UITextField *phoneField;
+@property (strong, nonatomic) IBOutlet UITextField *lastNameField;
 
 @property CGRect startFrame;
 
@@ -53,14 +54,22 @@
 -(DTUser*)updatedUserInfo
 {
   DTUser *newUser = [[DTUser alloc] init];
-  newUser.name = self.nameField.text;
-  newUser.username = self.usernameField.text;
+  newUser.firstName = self.firstNameField.text;
+  newUser.lastName = self.lastNameField.text;
+  //newUser.username = self.usernameField.text;
   newUser.password = self.passwordField.text;
   NSDateComponents *components = [[NSDateComponents alloc] init];
+  [components setCalendar:[[NSCalendar alloc] initWithCalendarIdentifier:@"gregorian"]];
   [components setMonth:[self.monthField.text integerValue]];
   [components setDay:[self.dayField.text integerValue]];
-  [components setYear:[self.dayField.text integerValue]];
-  newUser.dateOfBirth = [components date];
+  [components setYear:[self.yearField.text integerValue]];
+  //[components setMinute:0];
+  //[components setHour:0];
+  //[components setSecond:0];
+  NSDateFormatter *formatter = [[NSDateFormatter alloc] init];
+  [formatter setDateFormat:@"YYYY-MM-DD'T'HH:MMZ"];
+  NSLog(@"date : %@", [formatter stringFromDate:[components date]]);
+#warning Fix date formatting here
   newUser.phone = self.phoneField.text;
   return newUser;
 }
@@ -68,6 +77,7 @@
 - (IBAction)done:(id)sender
 {
   [self.delegate dismissProfileViewControllerSuccess];
+  NSLog(@"%@", [self updatedUserInfo]);
 #warning Need to update the model with the user info with [self updatedUserInfo];
 }
 
@@ -77,7 +87,8 @@
 }
 
 - (IBAction)tap:(id)sender {
-  [self.nameField resignFirstResponder];
+  [self.firstNameField resignFirstResponder];
+  [self.lastNameField resignFirstResponder];
   [self.usernameField resignFirstResponder];
   [self.passwordField resignFirstResponder];
   [self.monthField resignFirstResponder];

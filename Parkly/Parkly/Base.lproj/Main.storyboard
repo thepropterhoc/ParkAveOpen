@@ -45,7 +45,7 @@
                                                     <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
                                                 </state>
                                                 <connections>
-                                                    <action selector="loginButtonPressed:" destination="vXZ-lx-hvc" eventType="touchUpInside" id="2LJ-nb-cyp"/>
+                                                    <action selector="loginButtonPressed:" destination="vXZ-lx-hvc" eventType="touchUpInside" id="pfQ-k2-zDf"/>
                                                 </connections>
                                             </button>
                                         </subviews>
@@ -133,7 +133,7 @@
                     </view>
                     <navigationItem key="navigationItem" id="aXK-6M-bGz"/>
                     <connections>
-                        <segue destination="fKf-OU-47F" kind="modal" identifier="goToMain" modalTransitionStyle="crossDissolve" id="3zc-qn-70T"/>
+                        <segue destination="fKf-OU-47F" kind="modal" identifier="goToMain" id="TSS-gO-iD3"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="x5A-6p-PRh" sceneMemberID="firstResponder"/>
@@ -409,14 +409,22 @@
                                     <action selector="done:" destination="pwE-RB-6ll" eventType="touchUpInside" id="ME1-E4-O8C"/>
                                 </connections>
                             </button>
-                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="name" textAlignment="center" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="Nev-Mw-OaN">
-                                <rect key="frame" x="20" y="97" width="280" height="30"/>
+                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="first" textAlignment="center" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="Nev-Mw-OaN">
+                                <rect key="frame" x="20" y="97" width="130" height="30"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <color key="backgroundColor" white="0.33333333333333331" alpha="1" colorSpace="calibratedWhite"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="30" id="Elv-E8-nZS"/>
-                                    <constraint firstAttribute="width" constant="280" id="ofG-rR-z2V"/>
+                                    <constraint firstAttribute="width" constant="130" id="ofG-rR-z2V"/>
                                 </constraints>
+                                <color key="textColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                <textInputTraits key="textInputTraits" enablesReturnKeyAutomatically="YES"/>
+                            </textField>
+                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="last" textAlignment="center" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="DER-Jx-agB">
+                                <rect key="frame" x="171" y="97" width="130" height="30"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <color key="backgroundColor" white="0.33333333333333331" alpha="1" colorSpace="calibratedWhite"/>
                                 <color key="textColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                 <textInputTraits key="textInputTraits" enablesReturnKeyAutomatically="YES"/>
@@ -583,7 +591,9 @@
                             <constraint firstItem="TpH-Hl-3bM" firstAttribute="top" secondItem="1RI-vm-YSh" secondAttribute="bottom" constant="20" id="Ef0-P9-O2W"/>
                             <constraint firstItem="Pz0-dI-Cnt" firstAttribute="leading" secondItem="hfX-mu-b3b" secondAttribute="leading" id="HZy-CV-X5X"/>
                             <constraint firstItem="NOU-Tj-TfD" firstAttribute="leading" secondItem="w5G-UB-3mQ" secondAttribute="leading" id="Hco-e9-6hZ"/>
+                            <constraint firstAttribute="trailing" secondItem="DER-Jx-agB" secondAttribute="trailing" constant="19" id="HvV-wR-SeX"/>
                             <constraint firstItem="FKc-gQ-Mnz" firstAttribute="top" secondItem="2si-wa-kEX" secondAttribute="bottom" constant="8" id="JaT-f2-M1k"/>
+                            <constraint firstItem="DER-Jx-agB" firstAttribute="top" secondItem="Nev-Mw-OaN" secondAttribute="top" id="Kom-o3-2JX"/>
                             <constraint firstAttribute="trailing" secondItem="Fbs-HZ-qHi" secondAttribute="trailing" constant="20" id="Lll-Dj-0L8"/>
                             <constraint firstItem="w5G-UB-3mQ" firstAttribute="top" secondItem="QES-Gk-Y1q" secondAttribute="bottom" constant="12" id="Lwe-GH-VGg"/>
                             <constraint firstItem="NOU-Tj-TfD" firstAttribute="top" secondItem="w5G-UB-3mQ" secondAttribute="bottom" constant="8" id="MCd-IU-msV"/>
@@ -601,10 +611,12 @@
                             <constraint firstItem="Nev-Mw-OaN" firstAttribute="top" secondItem="pMX-zR-T4w" secondAttribute="bottom" constant="8" id="hZg-B2-qnj"/>
                             <constraint firstItem="2si-wa-kEX" firstAttribute="top" secondItem="Nev-Mw-OaN" secondAttribute="bottom" constant="12" id="jCM-3Y-e9P"/>
                             <constraint firstItem="kgi-oL-xM3" firstAttribute="leading" secondItem="hfX-mu-b3b" secondAttribute="leading" id="mUn-Df-1ng"/>
+                            <constraint firstItem="DER-Jx-agB" firstAttribute="height" secondItem="Nev-Mw-OaN" secondAttribute="height" id="nPk-sv-cPd"/>
                             <constraint firstItem="w5G-UB-3mQ" firstAttribute="leading" secondItem="QES-Gk-Y1q" secondAttribute="leading" id="o4R-lZ-F69"/>
                             <constraint firstItem="pMX-zR-T4w" firstAttribute="leading" secondItem="3v1-El-VKq" secondAttribute="leading" constant="20" id="tCj-Tf-1XO"/>
                             <constraint firstItem="pMX-zR-T4w" firstAttribute="top" secondItem="6bb-gQ-ab4" secondAttribute="bottom" constant="-2" id="tXd-p1-RSx"/>
                             <constraint firstItem="kgi-oL-xM3" firstAttribute="leading" secondItem="FKc-gQ-Mnz" secondAttribute="leading" id="vTH-Z9-mZn"/>
+                            <constraint firstItem="DER-Jx-agB" firstAttribute="width" secondItem="Nev-Mw-OaN" secondAttribute="width" id="wMi-cS-olb"/>
                             <constraint firstItem="VnI-m6-qIY" firstAttribute="leading" secondItem="3v1-El-VKq" secondAttribute="leading" constant="20" id="z3w-Lj-U1D"/>
                         </constraints>
                         <connections>
@@ -613,8 +625,9 @@
                     </view>
                     <connections>
                         <outlet property="dayField" destination="G3Y-fi-bge" id="8BV-NM-bR7"/>
+                        <outlet property="firstNameField" destination="Nev-Mw-OaN" id="643-70-aVU"/>
+                        <outlet property="lastNameField" destination="DER-Jx-agB" id="xJi-Da-tkQ"/>
                         <outlet property="monthField" destination="QES-Gk-Y1q" id="Niy-bc-DeC"/>
-                        <outlet property="nameField" destination="Nev-Mw-OaN" id="yJt-fV-3mt"/>
                         <outlet property="passwordField" destination="hfX-mu-b3b" id="2Xa-tk-jhO"/>
                         <outlet property="phoneField" destination="NOU-Tj-TfD" id="VTR-0V-ez1"/>
                         <outlet property="usernameField" destination="FKc-gQ-Mnz" id="Pzl-45-g5h"/>
