@@ -9,6 +9,8 @@
 #import "DTModel.h"
 #import "DTUser.h"
 #import "DTParkingSpot.h"
+#import "DTParkingLot.h"
+#import "PDKeychainBindings.h"
 
 @interface DTModel ()
 
@@ -16,6 +18,7 @@
 @property (weak, nonatomic) DTNetworkManager* networkManager;
 
 - (NSArray*) parseJSON:(id)json toArrayOfClass:(__unsafe_unretained Class)theClass;
+- (void) setDefaultEmail:(NSString*)email;
 
 @end
 
@@ -47,6 +50,9 @@
             responseObject = @"error";
         } else {
             [[[self dataManager] currentUser] setValuesForKeysWithDictionary:responseObject];
+            #warning check if the email and password are already stored
+            [self setDefaultEmail:email];
+            [[PDKeychainBindings sharedKeychainBindings] setString:password forKey:@"password"];
         }
         success(task, responseObject);
     } failure:^(NSURLSessionDataTask *task, NSError *error) {
@@ -62,7 +68,7 @@
     }];
 }
 
-- (void) getSpotsForLotWithId:(NSString*)lotID success: (void (^)(NSURLSessionDataTask *task, id responseObject))success failure:(void (^)(NSURLSessionDataTask *task, NSError *error))failure {
+- (void) getSpotsForLot:(DTParkingLot*)lot success: (void (^)(NSURLSessionDataTask *task, id responseObject))success failure:(void (^)(NSURLSessionDataTask *task, NSError *error))failure {
     //0. check if we already have the spots in memory
     //1. create parameters dictionary
     //2. call network manager
@@ -76,11 +82,11 @@
     //NSDictionary* parameters = [NSDictionary dictionaryWithObject:lotID forKey:@"_id"];
     
     //2
-    [self.networkManager getFrom:@"lots" who:lotID what:@"spots" parameters:nil success:^(NSURLSessionDataTask *task, id responseObject) {
+    [self.networkManager getFrom:@"users" who:[lot user_id] what:@"spots" parameters:nil success:^(NSURLSessionDataTask *task, id responseObject) {
         //if success, first parse JSON into objects
         NSArray* spotArray = [self parseJSON:responseObject toArrayOfClass:[DTParkingSpot class]];
         //update the dataManager
-        [self.dataManager updateSpots:spotArray withLotId:lotID];
+        //[self.dataManager updateSpots:spotArray withLotId:lotID];
         
         //do whatever the user wants with the array of spots
         success(task, spotArray);
@@ -108,8 +114,33 @@
     }];
 }
 
+- (void) getAllLots: (void (^)(NSURLSessionDataTask *task, NSArray* allLots))success failure:(void (^)(NSURLSessionDataTask *task, NSError *error))failure {
+    [self.networkManager getFrom:@"lots" parameters:nil success:^(NSURLSessionDataTask *task, id responseObject) {
+        success(task, [self parseJSON:responseObject toArrayOfClass:[DTParkingLot class]]);
+    } failure:^(NSURLSessionDataTask *task, NSError *error) {
+        failure(task, error);
+    }];
+}
+
+#pragma mark - Pseudo-properties
+
 - (DTUser*) currentUser {
     return [self.dataManager currentUser];
+}
+
+- (NSString*) defaultEmail {
+    return [[NSUserDefaults standardUserDefaults] objectForKey:@"email"];
+}
+- (NSString*) defaultPassword {
+    return [[PDKeychainBindings sharedKeychainBindings] objectForKey:@"password"];
+}
+- (BOOL) defaultsExist {
+    return ([[NSUserDefaults standardUserDefaults] objectForKey:@"email"] != nil);
+}
+
+- (void) setDefaultEmail:(NSString*)email {
+    [[NSUserDefaults standardUserDefaults] setObject:email forKey:@"email"];
+    [[NSUserDefaults standardUserDefaults] synchronize];
 }
 
 #pragma mark - Helper Methods

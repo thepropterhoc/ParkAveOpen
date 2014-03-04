@@ -9,6 +9,7 @@
 #import "DTLotTableViewController.h"
 #import "DTLotTableCell.h"
 #import "DTParkingLot.h"
+#import "DTModel.h"
 
 @interface DTLotTableViewController ()
 
@@ -29,7 +30,7 @@
 - (void)viewDidLoad
 {
   [super viewDidLoad];
-  DTParkingLot *lot1 = [[DTParkingLot alloc] init];
+  /*DTParkingLot *lot1 = [[DTParkingLot alloc] init];
   lot1.user_id = @"Moe's Garage";
   lot1.distance = @4.0;
   lot1.averageRating = @3;
@@ -45,9 +46,18 @@
   lot3.user_id = @"The Bat Cave";
   lot3.distance = @0.5;
   lot3.averageRating = @4;
-  lot3.averagePrice = @15.5;
+  lot3.averagePrice = @15.5;*/
+    
+    
   
-  self.theLots = @[lot1, lot2, lot3];
+  //self.theLots = @[lot1, lot2, lot3];
+#warning /lots not implemented in API
+    NSLog(@"/lots not implemented in API");
+    [[DTModel sharedInstance] getAllLots:^(NSURLSessionDataTask *task, NSArray *allLots) {
+        self.theLots = allLots;
+    } failure:^(NSURLSessionDataTask *task, NSError *error) {
+        NSLog(@"%@", error);
+    }];
 }
 
 - (void)didReceiveMemoryWarning

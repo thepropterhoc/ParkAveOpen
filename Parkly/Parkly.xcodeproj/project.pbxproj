@@ -7,6 +7,9 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		594A7C4A18C57C94008C077C /* Security.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 594A7C4918C57C94008C077C /* Security.framework */; };
+		594A7C5318C580C3008C077C /* PDKeychainBindings.m in Sources */ = {isa = PBXBuildFile; fileRef = 594A7C5018C580C3008C077C /* PDKeychainBindings.m */; };
+		594A7C5418C580C3008C077C /* PDKeychainBindingsController.m in Sources */ = {isa = PBXBuildFile; fileRef = 594A7C5218C580C3008C077C /* PDKeychainBindingsController.m */; };
 		9D15D3B118B5B33300FA635E /* DTRoundedImageView.m in Sources */ = {isa = PBXBuildFile; fileRef = 9D15D3B018B5B33300FA635E /* DTRoundedImageView.m */; };
 		9D15D3BC18B6F34100FA635E /* JosefinSlab-Bold.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 9D15D3B218B6F34100FA635E /* JosefinSlab-Bold.ttf */; };
 		9D15D3BD18B6F34100FA635E /* JosefinSlab-BoldItalic.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 9D15D3B318B6F34100FA635E /* JosefinSlab-BoldItalic.ttf */; };
@@ -73,6 +76,11 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		594A7C4918C57C94008C077C /* Security.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Security.framework; path = System/Library/Frameworks/Security.framework; sourceTree = SDKROOT; };
+		594A7C4F18C580C3008C077C /* PDKeychainBindings.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PDKeychainBindings.h; sourceTree = "<group>"; };
+		594A7C5018C580C3008C077C /* PDKeychainBindings.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PDKeychainBindings.m; sourceTree = "<group>"; };
+		594A7C5118C580C3008C077C /* PDKeychainBindingsController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PDKeychainBindingsController.h; sourceTree = "<group>"; };
+		594A7C5218C580C3008C077C /* PDKeychainBindingsController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PDKeychainBindingsController.m; sourceTree = "<group>"; };
 		9D15D3AF18B5B33300FA635E /* DTRoundedImageView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = DTRoundedImageView.h; path = Files/DTRoundedImageView.h; sourceTree = "<group>"; };
 		9D15D3B018B5B33300FA635E /* DTRoundedImageView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = DTRoundedImageView.m; path = Files/DTRoundedImageView.m; sourceTree = "<group>"; };
 		9D15D3B218B6F34100FA635E /* JosefinSlab-Bold.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "JosefinSlab-Bold.ttf"; sourceTree = "<group>"; };
@@ -169,6 +177,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				594A7C4A18C57C94008C077C /* Security.framework in Frameworks */,
 				9D15D3D118B72A0C00FA635E /* MapKit.framework in Frameworks */,
 				9DE9D52418B462B50035519D /* CoreGraphics.framework in Frameworks */,
 				9DE9D52618B462B50035519D /* UIKit.framework in Frameworks */,
@@ -189,6 +198,17 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		594A7C4B18C57F04008C077C /* Security */ = {
+			isa = PBXGroup;
+			children = (
+				594A7C4F18C580C3008C077C /* PDKeychainBindings.h */,
+				594A7C5018C580C3008C077C /* PDKeychainBindings.m */,
+				594A7C5118C580C3008C077C /* PDKeychainBindingsController.h */,
+				594A7C5218C580C3008C077C /* PDKeychainBindingsController.m */,
+			);
+			name = Security;
+			sourceTree = "<group>";
+		};
 		9D15D3C918B7234500FA635E /* DTSignup */ = {
 			isa = PBXGroup;
 			children = (
@@ -309,6 +329,7 @@
 		9DE9D52018B462B50035519D /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				594A7C4918C57C94008C077C /* Security.framework */,
 				9D15D3D018B72A0C00FA635E /* MapKit.framework */,
 				9DE9D52118B462B50035519D /* Foundation.framework */,
 				9DE9D52318B462B50035519D /* CoreGraphics.framework */,
@@ -323,6 +344,7 @@
 			children = (
 				9DE9D53018B462B50035519D /* DTAppDelegate.h */,
 				9DE9D53118B462B50035519D /* DTAppDelegate.m */,
+				594A7C4B18C57F04008C077C /* Security */,
 				9DF5B44A18C55B1100E1D1D7 /* DTNetworking */,
 				9D15D3E718B809DC00FA635E /* DTDetail */,
 				9D15D3D518B7F77800FA635E /* DTDataTypes */,
@@ -552,6 +574,7 @@
 				9DF5B46F18C55B2000E1D1D7 /* DTDataManager.m in Sources */,
 				9DE9D53218B462B50035519D /* DTAppDelegate.m in Sources */,
 				9DF5B44918C55AFE00E1D1D7 /* DTUser.m in Sources */,
+				594A7C5418C580C3008C077C /* PDKeychainBindingsController.m in Sources */,
 				9DE9D55918B53CC10035519D /* DTLoginViewController.m in Sources */,
 				9DF5B46718C55B2000E1D1D7 /* AFHTTPRequestOperationManager.m in Sources */,
 				9D284C9518C51FCE0044F89D /* DTProfileViewController.m in Sources */,
@@ -565,6 +588,7 @@
 				9DF5B44818C55AFE00E1D1D7 /* DTReview.m in Sources */,
 				9DF5B44618C55AFE00E1D1D7 /* DTParkingLot.m in Sources */,
 				9DE9D52E18B462B50035519D /* main.m in Sources */,
+				594A7C5318C580C3008C077C /* PDKeychainBindings.m in Sources */,
 				9D15D3C818B7233F00FA635E /* DTSignupViewController.m in Sources */,
 				9D15D49718BD89BF00FA635E /* DTReviewTableViewController.m in Sources */,
 			);

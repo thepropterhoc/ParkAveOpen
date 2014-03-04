@@ -7,6 +7,8 @@
 //
 
 #import "DTLoginViewController.h"
+#import "DTModel.h"
+#import "DTUser.h"
 
 @interface DTLoginViewController ()
 
@@ -25,9 +27,9 @@
 
 - (void)viewDidLoad
 {
-  [super viewDidLoad];
-  
-  [[UIApplication sharedApplication] setStatusBarHidden:YES];
+    [super viewDidLoad];
+    
+    [[UIApplication sharedApplication] setStatusBarHidden:YES];
 	// Do any additional setup after loading the view.
 }
 
@@ -39,14 +41,31 @@
 
 -(void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender
 {
-  if([[segue identifier] isEqualToString:@"profile"]){
-    
-  }
+    if([[segue identifier] isEqualToString:@"profile"]){
+        
+    }
 }
 
 - (IBAction)loginButtonPressed:(id)sender
 {
-  [self performSegueWithIdentifier:@"goToMain" sender:self];
+    if(![[DTModel sharedInstance] defaultsExist]) {
+        [[DTModel sharedInstance] authenticateUser:@"jrohan@yahoo.com" withPassword:@"soba" success:^(NSURLSessionDataTask *task, id responseObject) {
+            
+            NSLog(@"Hello, %@", [[[DTModel sharedInstance] currentUser] firstName]);
+            [self performSegueWithIdentifier:@"goToMain" sender:self];
+        } failure:^(NSURLSessionDataTask *task, NSError *error) {
+            NSLog(@"%@", error);
+        }];
+    } else {
+        [[DTModel sharedInstance] authenticateUser:[[DTModel sharedInstance] defaultEmail] withPassword:[[DTModel sharedInstance] defaultPassword] success:^(NSURLSessionDataTask *task, id responseObject) {
+            
+            NSLog(@"Welcome back, %@", [[[DTModel sharedInstance] currentUser] firstName]);
+            [self performSegueWithIdentifier:@"goToMain" sender:self];
+        } failure:^(NSURLSessionDataTask *task, NSError *error) {
+            NSLog(@"%@", error);
+        }];
+    }
+
 }
 
 @end
