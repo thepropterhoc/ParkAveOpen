@@ -23,7 +23,8 @@
 *.tar
 *.zip
 node_modules
-Parkly/Parkly.xcodeproj/project.xcworkspace/xcuserdata/shelbyvanhoooser.xcuserdatad/UserInterfaceState.xcuserstate
+Parkly/Parkly.xcodeproj/xcuserdata/*
+Parkly/Parkly.xcodeproj/project.xcworkspace/xcuserdata/*
 
 # Logs and databases #
 ######################
