@@ -8,6 +8,10 @@
 
 #import <Foundation/Foundation.h>
 #import "DTUser.h"
+#import "DTParkingLot.h"
+#import "DTParkingSpot.h"
+#import "DTReview.h"
+#import "DTCar.h"
 
 @interface DTDataManager : NSObject
 

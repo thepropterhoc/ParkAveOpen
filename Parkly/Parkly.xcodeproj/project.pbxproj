@@ -10,6 +10,7 @@
 		594A7C4A18C57C94008C077C /* Security.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 594A7C4918C57C94008C077C /* Security.framework */; };
 		594A7C5318C580C3008C077C /* PDKeychainBindings.m in Sources */ = {isa = PBXBuildFile; fileRef = 594A7C5018C580C3008C077C /* PDKeychainBindings.m */; };
 		594A7C5418C580C3008C077C /* PDKeychainBindingsController.m in Sources */ = {isa = PBXBuildFile; fileRef = 594A7C5218C580C3008C077C /* PDKeychainBindingsController.m */; };
+		594A7C5718C59315008C077C /* DTCar.m in Sources */ = {isa = PBXBuildFile; fileRef = 594A7C5618C59315008C077C /* DTCar.m */; };
 		9D15D3B118B5B33300FA635E /* DTRoundedImageView.m in Sources */ = {isa = PBXBuildFile; fileRef = 9D15D3B018B5B33300FA635E /* DTRoundedImageView.m */; };
 		9D15D3BC18B6F34100FA635E /* JosefinSlab-Bold.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 9D15D3B218B6F34100FA635E /* JosefinSlab-Bold.ttf */; };
 		9D15D3BD18B6F34100FA635E /* JosefinSlab-BoldItalic.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 9D15D3B318B6F34100FA635E /* JosefinSlab-BoldItalic.ttf */; };
@@ -81,6 +82,8 @@
 		594A7C5018C580C3008C077C /* PDKeychainBindings.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PDKeychainBindings.m; sourceTree = "<group>"; };
 		594A7C5118C580C3008C077C /* PDKeychainBindingsController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PDKeychainBindingsController.h; sourceTree = "<group>"; };
 		594A7C5218C580C3008C077C /* PDKeychainBindingsController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PDKeychainBindingsController.m; sourceTree = "<group>"; };
+		594A7C5518C59315008C077C /* DTCar.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DTCar.h; sourceTree = "<group>"; };
+		594A7C5618C59315008C077C /* DTCar.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DTCar.m; sourceTree = "<group>"; };
 		9D15D3AF18B5B33300FA635E /* DTRoundedImageView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = DTRoundedImageView.h; path = Files/DTRoundedImageView.h; sourceTree = "<group>"; };
 		9D15D3B018B5B33300FA635E /* DTRoundedImageView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = DTRoundedImageView.m; path = Files/DTRoundedImageView.m; sourceTree = "<group>"; };
 		9D15D3B218B6F34100FA635E /* JosefinSlab-Bold.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "JosefinSlab-Bold.ttf"; sourceTree = "<group>"; };
@@ -229,6 +232,8 @@
 				9DF5B44318C55AFE00E1D1D7 /* DTReview.m */,
 				9DF5B44418C55AFE00E1D1D7 /* DTUser.h */,
 				9DF5B44518C55AFE00E1D1D7 /* DTUser.m */,
+				594A7C5518C59315008C077C /* DTCar.h */,
+				594A7C5618C59315008C077C /* DTCar.m */,
 			);
 			name = DTDataTypes;
 			sourceTree = "<group>";
@@ -572,6 +577,7 @@
 				9D15D3EA18B809F400FA635E /* DTDetailViewController.m in Sources */,
 				9DE9D55D18B53CF10035519D /* DTLotFinderViewController.m in Sources */,
 				9DF5B46F18C55B2000E1D1D7 /* DTDataManager.m in Sources */,
+				594A7C5718C59315008C077C /* DTCar.m in Sources */,
 				9DE9D53218B462B50035519D /* DTAppDelegate.m in Sources */,
 				9DF5B44918C55AFE00E1D1D7 /* DTUser.m in Sources */,
 				594A7C5418C580C3008C077C /* PDKeychainBindingsController.m in Sources */,

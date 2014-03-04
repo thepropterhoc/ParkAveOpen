@@ -48,7 +48,8 @@
 
 - (IBAction)loginButtonPressed:(id)sender
 {
-    if(![[DTModel sharedInstance] defaultsExist]) {
+    //this will work if you pass it a DTUser
+    /*if(![[DTModel sharedInstance] defaultsExist]) {
         [[DTModel sharedInstance] authenticateUser:@"jrohan@yahoo.com" withPassword:@"soba" success:^(NSURLSessionDataTask *task, id responseObject) {
             
             NSLog(@"Hello, %@", [[[DTModel sharedInstance] currentUser] firstName]);
@@ -64,8 +65,8 @@
         } failure:^(NSURLSessionDataTask *task, NSError *error) {
             NSLog(@"%@", error);
         }];
-    }
-
+    }*/
+[self performSegueWithIdentifier:@"goToMain" sender:self];
 }
 
 @end

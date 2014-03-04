@@ -34,6 +34,35 @@ static NSString * const apiBaseURL = @"http://parking.alihm.net/api/";
     return self;
 }
 
+- (void) call:(NSString*)action one:(NSString*)one parameters:(NSDictionary*)parameters success: (void (^)(NSURLSessionDataTask *task, id responseObject))success failure:(void (^)(NSURLSessionDataTask *task, NSError *error))failure {
+    [self genericCall:action path:one parameters:parameters success:success failure:failure];
+}
+
+- (void) call:(NSString*)action one:(NSString*)one two:(NSString*)two parameters:(NSDictionary*)parameters success: (void (^)(NSURLSessionDataTask *task, id responseObject))success failure:(void (^)(NSURLSessionDataTask *task, NSError *error))failure {
+    NSString* path = [NSString stringWithFormat:@"%@/%@", one, two];
+    [self genericCall:action path:path parameters:parameters success:success failure:failure];
+}
+
+- (void) call:(NSString*)action one:(NSString*)one two:(NSString*)two three:(NSString*)three parameters:(NSDictionary*)parameters success: (void (^)(NSURLSessionDataTask *task, id responseObject))success failure:(void (^)(NSURLSessionDataTask *task, NSError *error))failure {
+        NSString* path = [NSString stringWithFormat:@"%@/%@/%@", one, two, three];
+    [self genericCall:action path:path parameters:parameters success:success failure:failure];
+}
+
+- (void) call:(NSString*)action one:(NSString*)one two:(NSString*)two three:(NSString*)three four:(NSString*)four parameters:(NSDictionary*)parameters success: (void (^)(NSURLSessionDataTask *task, id responseObject))success failure:(void (^)(NSURLSessionDataTask *task, NSError *error))failure {
+        NSString* path = [NSString stringWithFormat:@"%@/%@/%@/%@", one, two, three, four];
+    [self genericCall:action path:path parameters:parameters success:success failure:failure];
+}
+
+- (void) call:(NSString*)action one:(NSString*)one two:(NSString*)two three:(NSString*)three four:(NSString*)four five:(NSString*)five parameters:(NSDictionary*)parameters success: (void (^)(NSURLSessionDataTask *task, id responseObject))success failure:(void (^)(NSURLSessionDataTask *task, NSError *error))failure {
+    NSString* path = [NSString stringWithFormat:@"%@/%@/%@/%@/%@", one, two, three, four, five];
+    [self genericCall:action path:path parameters:parameters success:success failure:failure];
+}
+
+- (void) call:(NSString*)action one:(NSString*)one two:(NSString*)two three:(NSString*)three four:(NSString*)four five:(NSString*)five six:(NSString*)six parameters:(NSDictionary*)parameters success: (void (^)(NSURLSessionDataTask *task, id responseObject))success failure:(void (^)(NSURLSessionDataTask *task, NSError *error))failure {
+    NSString* path = [NSString stringWithFormat:@"%@/%@/%@/%@/%@/%@", one, two, three, four, five, six];
+    [self genericCall:action path:path parameters:parameters success:success failure:failure];
+}
+
 #pragma mark - GET
 
 //GET-> 1 Parameter
@@ -150,6 +179,20 @@ static NSString * const apiBaseURL = @"http://parking.alihm.net/api/";
 }
 
 #pragma mark - Helper Methods
+
+- (void) genericCall:(NSString*)action path:(NSString*) path parameters:(NSDictionary *)parameters success:(void (^)(NSURLSessionDataTask *, id))success failure:(void (^)(NSURLSessionDataTask *, NSError *))failure {
+    if([action isEqualToString:@"get"]) {
+        [self genericGet:path parameters:parameters success:success failure:failure];
+    } else if ([action isEqualToString:@"post"]) {
+        [self genericPost:path parameters:parameters success:success failure:failure];
+    } else if ([action isEqualToString:@"put"]) {
+        [self genericPut:path parameters:parameters success:success failure:failure];
+    } else if ([action isEqualToString:@"delete"]) {
+        [self genericDelete:path parameters:parameters success:success failure:failure];
+    } else {
+        NSLog(@"%@ isn't an action", action);
+    }
+}
 
 - (void) genericGet:(NSString*)pathString parameters:(NSDictionary*)parameters success: (void (^)(NSURLSessionDataTask *task, id responseObject))success failure:(void (^)(NSURLSessionDataTask *task, NSError *error))failure {
     [self GET:pathString parameters:parameters success:^(NSURLSessionDataTask *task, id responseObject) {

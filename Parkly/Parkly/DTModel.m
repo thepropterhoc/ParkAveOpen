@@ -7,9 +7,6 @@
 //
 
 #import "DTModel.h"
-#import "DTUser.h"
-#import "DTParkingSpot.h"
-#import "DTParkingLot.h"
 #import "PDKeychainBindings.h"
 
 @interface DTModel ()
@@ -38,21 +35,26 @@
     return sharedInstance;
 }
 
-#pragma mark - Network Calls
+#pragma mark - Users
 
-- (void) authenticateUser:(NSString*)email withPassword:(NSString*)password success: (void (^)(NSURLSessionDataTask *task, id responseObject))success failure:(void (^)(NSURLSessionDataTask *task, NSError *error))failure {
+- (void) authenticateUser:(DTUser*)user success: (void (^)(NSURLSessionDataTask *task, id responseObject))success failure:(void (^)(NSURLSessionDataTask *task, NSError *error))failure {
+    
+    NSString* email = [user email];
+    NSString* password = [user password];
     
     NSDictionary* parameters = @{@"email": email,
                                  @"password": password};
     
-    [self.networkManager postTo:@"users" what:@"session" parameters:parameters success:^(NSURLSessionDataTask *task, id responseObject) {
+    [self.networkManager call:@"post" one:@"users" two:@"session" parameters:parameters success:^(NSURLSessionDataTask *task, id responseObject) {
         if([[responseObject valueForKey:@"err"] isEqualToString:@"nomatch"]) {
             responseObject = @"error";
         } else {
             [[[self dataManager] currentUser] setValuesForKeysWithDictionary:responseObject];
-            #warning check if the email and password are already stored
-            [self setDefaultEmail:email];
-            [[PDKeychainBindings sharedKeychainBindings] setString:password forKey:@"password"];
+            //set the defaults for next time if they aren't the same
+            if(![[self defaultEmail] isEqualToString:email]) {
+                [self setDefaultEmail:email];
+                [[PDKeychainBindings sharedKeychainBindings] setString:password forKey:@"password"];
+            }
         }
         success(task, responseObject);
     } failure:^(NSURLSessionDataTask *task, NSError *error) {
@@ -61,12 +63,47 @@
 }
 
 - (void) getAllUsers: (void (^)(NSURLSessionDataTask *task, NSArray* allUsers))success failure:(void (^)(NSURLSessionDataTask *task, NSError *error))failure {
-    [self.networkManager getFrom:@"users" parameters:nil success:^(NSURLSessionDataTask *task, id responseObject) {
+    [self.networkManager call:@"get" one:@"users" parameters:nil success:^(NSURLSessionDataTask *task, id responseObject) {
         success(task, [self parseJSON:responseObject toArrayOfClass:[DTUser class]]);
     } failure:^(NSURLSessionDataTask *task, NSError *error) {
         failure(task, error);
     }];
 }
+
+- (void) getUserWithId:(NSString*)userID success: (void (^)(NSURLSessionDataTask *task, id responseObject))success failure:(void (^)(NSURLSessionDataTask *task, NSError *error))failure {
+    //NSDictionary* parameters = [NSDictionary dictionaryWithObject:userID forKey:@"_id"];
+    
+    //2
+    
+    [self.networkManager call:@"get" one:@"users" two:userID parameters:nil success:^(NSURLSessionDataTask *task, id responseObject) {
+        //if success, first parse JSON into objects
+        NSArray* spotArray = [self parseJSON:responseObject toArrayOfClass:[DTParkingSpot class]];
+        //update the dataManager
+        //[self.dataManager updateSpots:spotArray withLotId:userID];
+        
+        //do whatever the user wants with the array of spots
+        success(task, spotArray);
+    } failure:^(NSURLSessionDataTask *task, NSError *error) {
+        failure(task, error);
+    }];
+}
+
+#pragma mark - Lots
+
+- (void) getAllLots: (void (^)(NSURLSessionDataTask *task, NSArray* allLots))success failure:(void (^)(NSURLSessionDataTask *task, NSError *error))failure {
+    [self.networkManager call:@"get" one:@"lots" parameters:nil success:^(NSURLSessionDataTask *task, id responseObject) {
+        success(task, [self parseJSON:responseObject toArrayOfClass:[DTParkingLot class]]);
+    } failure:^(NSURLSessionDataTask *task, NSError *error) {
+        failure(task, error);
+    }];
+}
+
+- (void) getLotsNearLatitude:(CGFloat*)latitude andLongitude:(CGFloat*)longitude success:(void (^)(NSURLSessionDataTask *task, NSArray* allLots))success failure:(void (^)(NSURLSessionDataTask *task, NSError *error))failure {
+    #warning fix this later
+    [self getAllLots:success failure:failure];
+}
+
+#pragma mark - Spots
 
 - (void) getSpotsForLot:(DTParkingLot*)lot success: (void (^)(NSURLSessionDataTask *task, id responseObject))success failure:(void (^)(NSURLSessionDataTask *task, NSError *error))failure {
     //0. check if we already have the spots in memory
@@ -82,7 +119,7 @@
     //NSDictionary* parameters = [NSDictionary dictionaryWithObject:lotID forKey:@"_id"];
     
     //2
-    [self.networkManager getFrom:@"users" who:[lot user_id] what:@"spots" parameters:nil success:^(NSURLSessionDataTask *task, id responseObject) {
+    [self.networkManager call:@"get" one:@"users" two:[lot user_id] three:@"spots" parameters:nil success:^(NSURLSessionDataTask *task, id responseObject) {
         //if success, first parse JSON into objects
         NSArray* spotArray = [self parseJSON:responseObject toArrayOfClass:[DTParkingSpot class]];
         //update the dataManager
@@ -96,31 +133,16 @@
     }];
 }
 
-- (void) getUserWithId:(NSString*)userID success: (void (^)(NSURLSessionDataTask *task, id responseObject))success failure:(void (^)(NSURLSessionDataTask *task, NSError *error))failure {
-    //NSDictionary* parameters = [NSDictionary dictionaryWithObject:userID forKey:@"_id"];
-    
-    //2
+#pragma mark - Cars
 
-    [self.networkManager getFrom:@"users" what:userID parameters:nil success:^(NSURLSessionDataTask *task, id responseObject) {
-        //if success, first parse JSON into objects
-        NSArray* spotArray = [self parseJSON:responseObject toArrayOfClass:[DTParkingSpot class]];
-        //update the dataManager
-        //[self.dataManager updateSpots:spotArray withLotId:userID];
-        
-        //do whatever the user wants with the array of spots
-        success(task, spotArray);
+- (void) createCar:(DTCar*)car success: (void (^)(NSURLSessionDataTask *task, id responseObject))success failure:(void (^)(NSURLSessionDataTask *task, NSError *error))failure {
+    [self.networkManager call:@"post" one:@"users" two:[car user_id] three:@"cars" parameters:[car dictionaryRepresentation] success:^(NSURLSessionDataTask *task, id responseObject) {
+        success(task, responseObject);
     } failure:^(NSURLSessionDataTask *task, NSError *error) {
         failure(task, error);
     }];
 }
 
-- (void) getAllLots: (void (^)(NSURLSessionDataTask *task, NSArray* allLots))success failure:(void (^)(NSURLSessionDataTask *task, NSError *error))failure {
-    [self.networkManager getFrom:@"lots" parameters:nil success:^(NSURLSessionDataTask *task, id responseObject) {
-        success(task, [self parseJSON:responseObject toArrayOfClass:[DTParkingLot class]]);
-    } failure:^(NSURLSessionDataTask *task, NSError *error) {
-        failure(task, error);
-    }];
-}
 
 #pragma mark - Pseudo-properties
 

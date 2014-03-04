@@ -14,7 +14,19 @@
 
 + (instancetype) sharedInstance;
 
+- (void) call:(NSString*)action one:(NSString*)one parameters:(NSDictionary*)parameters success: (void (^)(NSURLSessionDataTask *task, id responseObject))success failure:(void (^)(NSURLSessionDataTask *task, NSError *error))failure;
 
+- (void) call:(NSString*)action one:(NSString*)one two:(NSString*)two parameters:(NSDictionary*)parameters success: (void (^)(NSURLSessionDataTask *task, id responseObject))success failure:(void (^)(NSURLSessionDataTask *task, NSError *error))failure;
+
+- (void) call:(NSString*)action one:(NSString*)one two:(NSString*)two three:(NSString*)three parameters:(NSDictionary*)parameters success: (void (^)(NSURLSessionDataTask *task, id responseObject))success failure:(void (^)(NSURLSessionDataTask *task, NSError *error))failure;
+
+- (void) call:(NSString*)action one:(NSString*)one two:(NSString*)two three:(NSString*)three four:(NSString*)four parameters:(NSDictionary*)parameters success: (void (^)(NSURLSessionDataTask *task, id responseObject))success failure:(void (^)(NSURLSessionDataTask *task, NSError *error))failure;
+
+- (void) call:(NSString*)action one:(NSString*)one two:(NSString*)two three:(NSString*)three four:(NSString*)four five:(NSString*)five parameters:(NSDictionary*)parameters success: (void (^)(NSURLSessionDataTask *task, id responseObject))success failure:(void (^)(NSURLSessionDataTask *task, NSError *error))failure;
+
+- (void) call:(NSString*)action one:(NSString*)one two:(NSString*)two three:(NSString*)three four:(NSString*)four five:(NSString*)five six:(NSString*)six parameters:(NSDictionary*)parameters success: (void (^)(NSURLSessionDataTask *task, id responseObject))success failure:(void (^)(NSURLSessionDataTask *task, NSError *error))failure;
+
+/*
 #pragma mark - GET
 
 //GET-> 1 Parameter
@@ -28,7 +40,6 @@
 
 //GET-> 4 Parameters
 - (void) getFrom:(NSString*)fromWhere who:(NSString*)whoYouWantItFrom what:(NSString*)whatYouWant which:(NSString*)whichOne parameters:(NSDictionary*)parameters success: (void (^)(NSURLSessionDataTask *task, id responseObject))success failure:(void (^)(NSURLSessionDataTask *task, NSError *error))failure;
-
 
 #pragma mark - POST
 
@@ -74,9 +85,11 @@
 //DELETE-> 4 Parameters
 - (void) deleteFrom:(NSString*)fromWhere who:(NSString*)whoYouWantItFrom what:(NSString*)whatYouWant which:(NSString*)whichOne parameters:(NSDictionary*)parameters success: (void (^)(NSURLSessionDataTask *task, id responseObject))success failure:(void (^)(NSURLSessionDataTask *task, NSError *error))failure;
 
-
+*/
 
 #pragma mark - Helper Methods
+
+- (void) genericCall:(NSString*)action path:(NSString*)path parameters:(NSDictionary*)parameters success: (void (^)(NSURLSessionDataTask *task, id responseObject))success failure:(void (^)(NSURLSessionDataTask *task, NSError *error))failure;
 
 - (void) genericGet:(NSString*)pathString parameters:(NSDictionary*)parameters success: (void (^)(NSURLSessionDataTask *task, id responseObject))success failure:(void (^)(NSURLSessionDataTask *task, NSError *error))failure;
 
