@@ -51,6 +51,7 @@
     
   
   //self.theLots = @[lot1, lot2, lot3];
+  
 #warning /lots not implemented in API
     NSLog(@"/lots not implemented in API");
     [[DTModel sharedInstance] getAllLots:^(NSURLSessionDataTask *task, NSArray *allLots) {
@@ -66,9 +67,9 @@
     // Dispose of any resources that can be recreated.
 }
 
--(double)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath
+-(float)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath
 {
-  return 60.0;
+  return 60.0f;
 }
 
 -(NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section
@@ -83,7 +84,6 @@
 
 -(UITableViewCell*)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath
 {
-  NSLog(@"Fetching cell for row : %d", (int) indexPath.row);
   static NSString* identifier = @"cell";
   DTLotTableCell *cell = [tableView dequeueReusableCellWithIdentifier:identifier forIndexPath:indexPath];
   [cell initWithLot:self.theLots[indexPath.row]]; 
@@ -98,7 +98,6 @@
 
 -(void)sortByPrice
 {
-  NSLog(@"Sorted by price");
   self.theLots = [self.theLots sortedArrayUsingComparator:^NSComparisonResult(id obj1, id obj2) {
     return [((DTParkingLot*) obj1).averagePrice compare:((DTParkingLot *) obj2).averagePrice];
   }];
@@ -107,7 +106,6 @@
 
 -(void)sortByDistance
 {
-  NSLog(@"Sorted by distance");
   self.theLots = [self.theLots sortedArrayUsingComparator:^NSComparisonResult(id obj1, id obj2) {
     return [((DTParkingLot*) obj1).distance compare:((DTParkingLot *) obj2).distance];
   }];
@@ -116,7 +114,6 @@
 
 -(void)sortByReview
 {
-  NSLog(@"Sorted by average review");
   self.theLots = [self.theLots sortedArrayUsingComparator:^NSComparisonResult(id obj1, id obj2) {
     return [((DTParkingLot*) obj1).averageRating compare:((DTParkingLot *) obj2).averageRating];
   }];
