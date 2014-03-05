@@ -224,6 +224,8 @@
 		9D15D3D518B7F77800FA635E /* DTDataTypes */ = {
 			isa = PBXGroup;
 			children = (
+				9DF5B46218C55B2000E1D1D7 /* DTModel.h */,
+				9DF5B46318C55B2000E1D1D7 /* DTModel.m */,
 				9DF5B43E18C55AFE00E1D1D7 /* DTParkingLot.h */,
 				9DF5B43F18C55AFE00E1D1D7 /* DTParkingLot.m */,
 				9DF5B44018C55AFE00E1D1D7 /* DTParkingSpot.h */,
@@ -447,8 +449,6 @@
 				9DF5B45F18C55B2000E1D1D7 /* DTDataManager.m */,
 				9DF5B46018C55B2000E1D1D7 /* DTLoginViewController.h */,
 				9DF5B46118C55B2000E1D1D7 /* DTLoginViewController.m */,
-				9DF5B46218C55B2000E1D1D7 /* DTModel.h */,
-				9DF5B46318C55B2000E1D1D7 /* DTModel.m */,
 				9DF5B46418C55B2000E1D1D7 /* DTNetworkManager.h */,
 				9DF5B46518C55B2000E1D1D7 /* DTNetworkManager.m */,
 			);

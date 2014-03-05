@@ -19,7 +19,6 @@
 @interface DTProfileViewController : UIViewController <UITextFieldDelegate>
 
 @property (weak, nonatomic) id<DTProfileViewControllerDelegate> delegate;
-
--(void)initWithUser:(DTUser*)user;
+@property (strong, nonatomic) DTUser *theUser;
 
 @end

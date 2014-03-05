@@ -7,6 +7,8 @@
 //
 
 #import "DTDetailViewController.h"
+#import "DTReviewTableViewController.h"
+#import "DTModel.h"
 
 @interface DTDetailViewController ()
 
@@ -49,4 +51,15 @@
 - (IBAction)bookSpot:(id)sender {
   
 }
+
+-(void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender
+{
+  [[DTModel sharedInstance] getUserWithId:self.lot.user_id success:^(NSURLSessionDataTask *task, id responseObject) {
+    
+  } failure:^(NSURLSessionDataTask *task, NSError *error) {
+    
+  }];
+}
+
+
 @end

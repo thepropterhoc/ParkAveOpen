@@ -570,6 +570,21 @@
                                 <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 <nil key="highlightedColor"/>
                             </label>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="02e-or-8eo">
+                                <rect key="frame" x="256" y="29" width="45" height="41"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="45" id="B74-ze-cWy"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" name="AvenirNext-DemiBold" family="Avenir Next" pointSize="15"/>
+                                <state key="normal" title="Edit">
+                                    <color key="titleColor" red="0.40000000600000002" green="0.40000000600000002" blue="1" alpha="1" colorSpace="calibratedRGB"/>
+                                    <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                                </state>
+                                <connections>
+                                    <action selector="editButtonPressed:" destination="pwE-RB-6ll" eventType="touchUpInside" id="L6A-ii-Odi"/>
+                                </connections>
+                            </button>
                         </subviews>
                         <color key="backgroundColor" white="0.1320996807" alpha="1" colorSpace="calibratedWhite"/>
                         <gestureRecognizers/>
@@ -597,9 +612,12 @@
                             <constraint firstAttribute="centerX" secondItem="G3Y-fi-bge" secondAttribute="centerX" id="NVF-d6-wSW"/>
                             <constraint firstItem="QES-Gk-Y1q" firstAttribute="leading" secondItem="3v1-El-VKq" secondAttribute="leading" constant="20" id="Pkc-DL-G8L"/>
                             <constraint firstItem="2si-wa-kEX" firstAttribute="leading" secondItem="FKc-gQ-Mnz" secondAttribute="leading" id="Q2W-2J-EAB"/>
+                            <constraint firstItem="02e-or-8eo" firstAttribute="height" secondItem="6bb-gQ-ab4" secondAttribute="height" constant="1" id="Vp6-jf-2rX"/>
+                            <constraint firstAttribute="trailing" secondItem="02e-or-8eo" secondAttribute="trailing" constant="19" id="XO1-eN-Q9Z"/>
                             <constraint firstItem="G3Y-fi-bge" firstAttribute="top" secondItem="Pz0-dI-Cnt" secondAttribute="bottom" constant="8" id="Xxt-uO-zzc"/>
                             <constraint firstItem="2si-wa-kEX" firstAttribute="leading" secondItem="Nev-Mw-OaN" secondAttribute="leading" id="Yia-E7-R42"/>
                             <constraint firstItem="VnI-m6-qIY" firstAttribute="width" secondItem="1RI-vm-YSh" secondAttribute="width" id="cLs-ZL-HiE"/>
+                            <constraint firstItem="02e-or-8eo" firstAttribute="top" secondItem="6bb-gQ-ab4" secondAttribute="top" constant="-1" id="cdc-fJ-Rbe"/>
                             <constraint firstItem="Pz0-dI-Cnt" firstAttribute="top" secondItem="hfX-mu-b3b" secondAttribute="bottom" constant="12" id="d6E-hC-otf"/>
                             <constraint firstAttribute="centerX" secondItem="6bb-gQ-ab4" secondAttribute="centerX" id="exU-bV-xhh"/>
                             <constraint firstItem="VnI-m6-qIY" firstAttribute="height" secondItem="1RI-vm-YSh" secondAttribute="height" id="f5G-Sp-S0H"/>
@@ -621,6 +639,7 @@
                     </view>
                     <connections>
                         <outlet property="dayField" destination="G3Y-fi-bge" id="8BV-NM-bR7"/>
+                        <outlet property="editButton" destination="02e-or-8eo" id="aiQ-9t-jiy"/>
                         <outlet property="firstNameField" destination="Nev-Mw-OaN" id="643-70-aVU"/>
                         <outlet property="lastNameField" destination="DER-Jx-agB" id="xJi-Da-tkQ"/>
                         <outlet property="monthField" destination="QES-Gk-Y1q" id="Niy-bc-DeC"/>
@@ -628,6 +647,14 @@
                         <outlet property="phoneField" destination="NOU-Tj-TfD" id="VTR-0V-ez1"/>
                         <outlet property="usernameField" destination="FKc-gQ-Mnz" id="Pzl-45-g5h"/>
                         <outlet property="yearField" destination="Fbs-HZ-qHi" id="pQi-wA-f9m"/>
+                        <outletCollection property="allFields" destination="NOU-Tj-TfD" id="f7F-dP-wkS"/>
+                        <outletCollection property="allFields" destination="Fbs-HZ-qHi" id="Z2r-nj-ZjH"/>
+                        <outletCollection property="allFields" destination="G3Y-fi-bge" id="zdV-UA-kEu"/>
+                        <outletCollection property="allFields" destination="QES-Gk-Y1q" id="JND-Gf-13A"/>
+                        <outletCollection property="allFields" destination="hfX-mu-b3b" id="3kB-vK-h5M"/>
+                        <outletCollection property="allFields" destination="FKc-gQ-Mnz" id="Fc1-Rs-wM1"/>
+                        <outletCollection property="allFields" destination="DER-Jx-agB" id="1Lq-iN-dRM"/>
+                        <outletCollection property="allFields" destination="Nev-Mw-OaN" id="tDN-IY-vhy"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Kmc-4p-oVB" userLabel="First Responder" sceneMemberID="firstResponder"/>

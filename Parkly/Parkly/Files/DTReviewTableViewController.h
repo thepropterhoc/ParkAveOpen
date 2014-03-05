@@ -7,7 +7,10 @@
 //
 
 #import <UIKit/UIKit.h>
+#import "DTUser.h"
 
 @interface DTReviewTableViewController : UIViewController <UITableViewDataSource, UITableViewDelegate>
+
+@property (strong, nonatomic) DTUser *theUser;
 
 @end

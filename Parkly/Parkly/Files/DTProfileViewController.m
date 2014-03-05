@@ -9,6 +9,7 @@
 #import "DTProfileViewController.h"
 
 @interface DTProfileViewController ()
+
 @property (strong, nonatomic) IBOutlet UITextField *firstNameField;
 @property (strong, nonatomic) IBOutlet UITextField *usernameField;
 @property (strong, nonatomic) IBOutlet UITextField *passwordField;
@@ -18,6 +19,10 @@
 @property (strong, nonatomic) IBOutlet UITextField *phoneField;
 @property (strong, nonatomic) IBOutlet UITextField *lastNameField;
 
+@property (strong, nonatomic) IBOutletCollection(UITextField) NSArray *allFields;
+
+@property (strong, nonatomic) IBOutlet UIButton *editButton;
+
 @property CGRect startFrame;
 
 @end
@@ -26,17 +31,22 @@
 
 - (id)initWithNibName:(NSString *)nibNameOrNil bundle:(NSBundle *)nibBundleOrNil
 {
-    self = [super initWithNibName:nibNameOrNil bundle:nibBundleOrNil];
-    if (self) {
-        // Custom initialization
-    }
-    return self;
+  self = [super initWithNibName:nibNameOrNil bundle:nibBundleOrNil];
+  if (self) {
+      // Custom initialization
+  }
+  return self;
 }
 
 - (void)viewDidLoad
 {
-    [super viewDidLoad];
+  [super viewDidLoad];
   self.startFrame = self.view.frame;
+  if(!self.theUser){
+    [self enableAllFields];
+  } else {
+    [self fillWithUpdatedUserInfo];
+  }
 	// Do any additional setup after loading the view.
 }
 
@@ -46,9 +56,11 @@
     // Dispose of any resources that can be recreated.
 }
 
--(void)initWithUser:(DTUser *)user
+-(void)fillWithUpdatedUserInfo
 {
-  
+  self.firstNameField.text = self.theUser.firstName;
+  self.lastNameField.text = self.theUser.lastName;
+  self.usernameField.text = self.theUser.email;
 }
 
 -(DTUser*)updatedUserInfo
@@ -70,6 +82,7 @@
   [formatter setDateFormat:@"YYYY-MM-DD'T'HH:MMZ"];
   NSLog(@"date : %@", [formatter stringFromDate:[components date]]);
 #warning Fix date formatting here
+  
   newUser.phone = self.phoneField.text;
   return newUser;
 }
@@ -105,6 +118,35 @@
 -(void)textFieldDidEndEditing:(UITextField *)textField
 {
   [self.view setFrame:self.startFrame];
+}
+
+- (IBAction)editButtonPressed:(id)sender
+{
+  if([self.editButton.titleLabel.text isEqualToString:@"Edit"]){
+    [self.editButton setTitle:@"Done" forState:UIControlStateNormal];
+    [self enableAllFields];
+  } else {
+    [self.editButton setTitle:@"Edit" forState:UIControlStateNormal];
+    [self disableAllFields];
+  }
+}
+
+-(void)enableAllFields
+{
+  for(UITextField *field in self.allFields){
+    [field setEnabled:YES];
+    [field setBackgroundColor:[UIColor darkGrayColor]];
+    [field setTextColor:[UIColor whiteColor]];
+  }
+}
+
+-(void)disableAllFields
+{
+  for(UITextField *field in self.allFields){
+    [field setEnabled:NO];
+    [field setBackgroundColor:[UIColor clearColor]];
+    [field setTextColor:[UIColor lightGrayColor]];
+  }
 }
 
 @end

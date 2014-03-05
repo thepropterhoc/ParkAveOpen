@@ -8,6 +8,8 @@
 
 #import "DTReviewTableViewController.h"
 #import "DTReviewTableCell.h"
+#import "DTUser.h"
+#import "DTModel.h"
 
 @interface DTReviewTableViewController ()
 
@@ -29,6 +31,9 @@
 - (void)viewDidLoad
 {
     [super viewDidLoad];
+  [self refreshData];
+  
+  /*
   DTReview *newReview = [[DTReview alloc] init];
   newReview.title = @"Meh";
   newReview.body = @" Lorem ipsum dolor sit amet foo bar  Lorem ipsum dolor sit amet foo bar  Lorem ipsum dolor sit amet foo bar  Lorem ipsum dolor sit amet foo bar  Lorem ipsum dolor sit amet foo bar  Lorem ipsum dolor sit amet foo bar ";
@@ -44,6 +49,9 @@
   anotherReview.reviewer_id = @"Moe";
   self.reviews = @[newReview, anotherReview];
 	// Do any additional setup after loading the view.
+   */
+  
+  
 }
 
 - (void)didReceiveMemoryWarning
@@ -64,6 +72,11 @@
   return 1;
 }
 
+-(NSString*)tableView:(UITableView *)tableView titleForHeaderInSection:(NSInteger)section
+{
+  return [NSString stringWithFormat:@"Reviews for %@ %@", self.theUser.firstName, self.theUser.lastName];
+}
+
 -(UITableViewCell*)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath
 {
   static NSString *identifier = @"cell";
@@ -72,8 +85,7 @@
   return cell;
 }
 
-
--(double)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath
+-(float)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath
 {
   DTReview *review = self.reviews[indexPath.row];
   return MAX(120.0, [self heightForText:review.body]);
@@ -87,6 +99,19 @@
   textView.font = [UIFont fontWithName:@"AvenirNext-MediumItalic" size:14.0f];
   [textView sizeToFit];
   return textView.frame.size.height;
+}
+
+#pragma mark - Data Fetching and populating methods
+
+-(void)refreshData
+{
+  [[DTModel sharedInstance] getReviewsForUser:self.theUser success:^(NSURLSessionDataTask *task, id responseObject) {
+    self.reviews = responseObject;
+  } failure:^(NSURLSessionDataTask *task, NSError *error) {
+    self.reviews = nil;
+    NSLog(@"Failed to get reviews for user : %@", self.theUser);
+    [[[UIAlertView alloc] initWithTitle:@"Error" message:@"Unable to fetch reviews.  Check the network connection" delegate:nil cancelButtonTitle:@"OK" otherButtonTitles:nil] show];
+  }];
 }
 
 @end
