@@ -38,28 +38,6 @@
   [self.theTable addSubview:refresher];
   
   [self fetchData];
-  
-  /*DTParkingLot *lot1 = [[DTParkingLot alloc] init];
-  lot1.user_id = @"Moe's Garage";
-  lot1.distance = @4.0;
-  lot1.averageRating = @3;
-  lot1.averagePrice = @30.5;
-  
-  DTParkingLot *lot2 = [[DTParkingLot alloc] init];
-  lot2.user_id = @"A Mentlegen's Lot";
-  lot2.distance = @2.0;
-  lot2.averageRating = @2;
-  lot2.averagePrice = @20.5;
-  
-  DTParkingLot *lot3 = [[DTParkingLot alloc] init];
-  lot3.user_id = @"The Bat Cave";
-  lot3.distance = @0.5;
-  lot3.averageRating = @4;
-  lot3.averagePrice = @15.5;*/
-    
-    
-  
-  //self.theLots = @[lot1, lot2, lot3];
 }
 
 - (void)didReceiveMemoryWarning
@@ -141,6 +119,29 @@
 
 -(void)fetchData
 {
+  
+  DTParkingLot *lot1 = [[DTParkingLot alloc] init];
+  lot1.user_id = @"Moe's Garage";
+
+  lot1.distance = @4.0;
+  lot1.averageRating = @3;
+  lot1.averagePrice = @30.5;
+
+  DTParkingLot *lot2 = [[DTParkingLot alloc] init];
+  lot2.user_id = @"A Mentlegen's Lot";
+  lot2.distance = @2.0;
+  lot2.averageRating = @2;
+  lot2.averagePrice = @20.5;
+
+  DTParkingLot *lot3 = [[DTParkingLot alloc] init];
+  lot3.user_id = @"The Bat Cave";
+  lot3.distance = @0.5;
+  lot3.averageRating = @4;
+  lot3.averagePrice = @15.5;
+  
+  self.theLots = @[lot1, lot2, lot3];
+  
+  /*
   #warning /lots not implemented in API
   NSLog(@"/lots not implemented in API");
   [[DTModel sharedInstance] getAllLots:^(NSURLSessionDataTask *task, NSArray *allLots) {
@@ -149,6 +150,7 @@
     NSLog(@"%@", error);
     [[[UIAlertView alloc] initWithTitle:@"Error" message:@"Unable to fetch lots.  Check the network connection" delegate:nil cancelButtonTitle:@"OK" otherButtonTitles:nil] show];
   }];
+   */
 }
 
 @end

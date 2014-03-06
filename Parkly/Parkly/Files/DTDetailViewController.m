@@ -54,11 +54,16 @@
 
 -(void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender
 {
+  DTReviewTableViewController *reviewController = [segue destinationViewController];
+  //reviewController.theUser = self.lot.user_id
+#warning Needs to be implemented
+  /*
   [[DTModel sharedInstance] getUserWithId:self.lot.user_id success:^(NSURLSessionDataTask *task, id responseObject) {
-    
+    reviewController.theUser = responseObject;
   } failure:^(NSURLSessionDataTask *task, NSError *error) {
-    
+   
   }];
+   */
 }
 
 

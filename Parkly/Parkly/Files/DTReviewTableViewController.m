@@ -30,28 +30,8 @@
 
 - (void)viewDidLoad
 {
-    [super viewDidLoad];
+  [super viewDidLoad];
   [self refreshData];
-  
-  /*
-  DTReview *newReview = [[DTReview alloc] init];
-  newReview.title = @"Meh";
-  newReview.body = @" Lorem ipsum dolor sit amet foo bar  Lorem ipsum dolor sit amet foo bar  Lorem ipsum dolor sit amet foo bar  Lorem ipsum dolor sit amet foo bar  Lorem ipsum dolor sit amet foo bar  Lorem ipsum dolor sit amet foo bar ";
-  newReview.stars = @"2 / 5";
-  newReview.date = @"11/5/13";
-  newReview.reviewer_id = @"Bob";
-  
-  DTReview *anotherReview = [[DTReview alloc] init];
-  anotherReview.title = @"Why is this lot so bad???";
-  anotherReview.body = @"Meow";
-  anotherReview.stars = @"4 / 5";
-  anotherReview.date = @"11/5/13";
-  anotherReview.reviewer_id = @"Moe";
-  self.reviews = @[newReview, anotherReview];
-	// Do any additional setup after loading the view.
-   */
-  
-  
 }
 
 - (void)didReceiveMemoryWarning
@@ -105,6 +85,8 @@
 
 -(void)refreshData
 {
+  
+  /*
   [[DTModel sharedInstance] getReviewsForUser:self.theUser success:^(NSURLSessionDataTask *task, id responseObject) {
     self.reviews = responseObject;
   } failure:^(NSURLSessionDataTask *task, NSError *error) {
@@ -112,6 +94,24 @@
     NSLog(@"Failed to get reviews for user : %@", self.theUser);
     [[[UIAlertView alloc] initWithTitle:@"Error" message:@"Unable to fetch reviews.  Check the network connection" delegate:nil cancelButtonTitle:@"OK" otherButtonTitles:nil] show];
   }];
+   */
+  
+  
+   DTReview *newReview = [[DTReview alloc] init];
+   newReview.title = @"Meh";
+   newReview.body = @" Lorem ipsum dolor sit amet foo bar  Lorem ipsum dolor sit amet foo bar  Lorem ipsum dolor sit amet foo bar  Lorem ipsum dolor sit amet foo bar  Lorem ipsum dolor sit amet foo bar  Lorem ipsum dolor sit amet foo bar ";
+   newReview.stars = @"2 / 5";
+   newReview.date = @"11/5/13";
+   newReview.reviewer_id = @"Bob";
+   
+   DTReview *anotherReview = [[DTReview alloc] init];
+   anotherReview.title = @"Why is this lot so bad???";
+   anotherReview.body = @"Meow";
+   anotherReview.stars = @"4 / 5";
+   anotherReview.date = @"11/5/13";
+   anotherReview.reviewer_id = @"Moe";
+   self.reviews = @[newReview, anotherReview];
+   
 }
 
 @end
