@@ -447,10 +447,10 @@
 				9DF5B45D18C55B2000E1D1D7 /* AFURLSessionManager.m */,
 				9DF5B45E18C55B2000E1D1D7 /* DTDataManager.h */,
 				9DF5B45F18C55B2000E1D1D7 /* DTDataManager.m */,
-				9DF5B46018C55B2000E1D1D7 /* DTLoginViewController.h */,
-				9DF5B46118C55B2000E1D1D7 /* DTLoginViewController.m */,
 				9DF5B46418C55B2000E1D1D7 /* DTNetworkManager.h */,
 				9DF5B46518C55B2000E1D1D7 /* DTNetworkManager.m */,
+				9DF5B46018C55B2000E1D1D7 /* DTLoginViewController.h */,
+				9DF5B46118C55B2000E1D1D7 /* DTLoginViewController.m */,
 			);
 			name = DTNetworking;
 			sourceTree = "<group>";

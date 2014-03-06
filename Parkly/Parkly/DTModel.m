@@ -88,6 +88,32 @@
     }];
 }
 
+- (void) createUser:(DTUser*)user success: (void (^)(NSURLSessionDataTask *task, id responseObject))success failure:(void (^)(NSURLSessionDataTask *task, NSError *error))failure {
+    /*[[self networkManager] call:@"post" one:@"users" parameters:[user dictionaryRepresentation] success:^(NSURLSessionDataTask *task, id responseObject) {
+        success(task, responseObject);
+    } failure:^(NSURLSessionDataTask *task, NSError *error) {
+        failure(task, error);
+    }];*/
+    
+    //then query the database to get the id
+}
+
+- (void) updateUser:(DTUser*)user success: (void (^)(NSURLSessionDataTask *task, id responseObject))success failure:(void (^)(NSURLSessionDataTask *task, NSError *error))failure {
+    /*[[self networkManager] call:@"put" one:@"users" two:[user _id] parameters:[user dictionaryRepresentation] success:^(NSURLSessionDataTask *task, id responseObject) {
+     success(task, responseObject);
+     } failure:^(NSURLSessionDataTask *task, NSError *error) {
+     failure(task, error);
+     }];*/
+}
+
+- (void) deleteUser:(DTUser*)user success: (void (^)(NSURLSessionDataTask *task, id responseObject))success failure:(void (^)(NSURLSessionDataTask *task, NSError *error))failure {
+    /*[[self networkManager] call:@"delete" one:@"users" two:[user _id] parameters:[user dictionaryRepresentation] success:^(NSURLSessionDataTask *task, id responseObject) {
+     success(task, responseObject);
+     } failure:^(NSURLSessionDataTask *task, NSError *error) {
+     failure(task, error);
+     }];*/
+}
+
 #pragma mark - Lots
 
 - (void) getAllLots: (void (^)(NSURLSessionDataTask *task, NSArray* allLots))success failure:(void (^)(NSURLSessionDataTask *task, NSError *error))failure {
@@ -103,9 +129,25 @@
     [self getAllLots:success failure:failure];
 }
 
+- (void) getLot:(DTParkingLot*)lot success: (void (^)(NSURLSessionDataTask *task, id responseObject))success failure:(void (^)(NSURLSessionDataTask *task, NSError *error))failure {
+    NSLog(@"%@ not implemented", NSStringFromSelector(_cmd));
+}
+
+- (void) createLot:(DTParkingLot*)lot success: (void (^)(NSURLSessionDataTask *task, id responseObject))success failure:(void (^)(NSURLSessionDataTask *task, NSError *error))failure {
+        NSLog(@"%@ not implemented", NSStringFromSelector(_cmd));
+}
+
+- (void) updateLot:(DTParkingLot*)lot success: (void (^)(NSURLSessionDataTask *task, id responseObject))success failure:(void (^)(NSURLSessionDataTask *task, NSError *error))failure {
+        NSLog(@"%@ not implemented", NSStringFromSelector(_cmd));
+}
+
+- (void) deleteLot:(DTParkingLot*)lot success: (void (^)(NSURLSessionDataTask *task, id responseObject))success failure:(void (^)(NSURLSessionDataTask *task, NSError *error))failure {
+        NSLog(@"%@ not implemented", NSStringFromSelector(_cmd));
+}
+
 #pragma mark - Spots
 
-- (void) getSpotsForLot:(DTParkingLot*)lot success: (void (^)(NSURLSessionDataTask *task, id responseObject))success failure:(void (^)(NSURLSessionDataTask *task, NSError *error))failure {
+- (void) getSpotsForLot:(DTParkingLot*)lot success: (void (^)(NSURLSessionDataTask *task, NSArray* spots))success failure:(void (^)(NSURLSessionDataTask *task, NSError *error))failure {
     //0. check if we already have the spots in memory
     //1. create parameters dictionary
     //2. call network manager
@@ -119,7 +161,7 @@
     //NSDictionary* parameters = [NSDictionary dictionaryWithObject:lotID forKey:@"_id"];
     
     //2
-    [self.networkManager call:@"get" one:@"users" two:[lot user_id] three:@"spots" parameters:nil success:^(NSURLSessionDataTask *task, id responseObject) {
+    [self.networkManager call:@"get" one:@"users" two:[lot user_id] three:@"lots" four:[lot _id] five:@"spots" parameters:nil success:^(NSURLSessionDataTask *task, id responseObject) {
         //if success, first parse JSON into objects
         NSArray* spotArray = [self parseJSON:responseObject toArrayOfClass:[DTParkingSpot class]];
         //update the dataManager
@@ -133,7 +175,27 @@
     }];
 }
 
+- (void) getSpot:(DTParkingSpot*)spot success: (void (^)(NSURLSessionDataTask *task, id responseObject))success failure:(void (^)(NSURLSessionDataTask *task, NSError *error))failure {
+        NSLog(@"%@ not implemented", NSStringFromSelector(_cmd));
+}
+
+- (void) createSpot:(DTParkingSpot*)spot success: (void (^)(NSURLSessionDataTask *task, id responseObject))success failure:(void (^)(NSURLSessionDataTask *task, NSError *error))failure {
+        NSLog(@"%@ not implemented", NSStringFromSelector(_cmd));
+}
+
+- (void) updateSpot:(DTParkingSpot*)spot success: (void (^)(NSURLSessionDataTask *task, id responseObject))success failure:(void (^)(NSURLSessionDataTask *task, NSError *error))failure {
+        NSLog(@"%@ not implemented", NSStringFromSelector(_cmd));
+}
+
+- (void) deleteSpot:(DTParkingSpot*)spot success: (void (^)(NSURLSessionDataTask *task, id responseObject))success failure:(void (^)(NSURLSessionDataTask *task, NSError *error))failure {
+        NSLog(@"%@ not implemented", NSStringFromSelector(_cmd));
+}
+
 #pragma mark - Cars
+
+- (void) getCar:(DTCar*)car success: (void (^)(NSURLSessionDataTask *task, id responseObject))success failure:(void (^)(NSURLSessionDataTask *task, NSError *error))failure {
+        NSLog(@"%@ not implemented", NSStringFromSelector(_cmd));
+}
 
 - (void) createCar:(DTCar*)car success: (void (^)(NSURLSessionDataTask *task, id responseObject))success failure:(void (^)(NSURLSessionDataTask *task, NSError *error))failure {
     [self.networkManager call:@"post" one:@"users" two:[car user_id] three:@"cars" parameters:[car dictionaryRepresentation] success:^(NSURLSessionDataTask *task, id responseObject) {
@@ -143,6 +205,50 @@
     }];
 }
 
+- (void) updateCar:(DTCar*)car success: (void (^)(NSURLSessionDataTask *task, id responseObject))success failure:(void (^)(NSURLSessionDataTask *task, NSError *error))failure {
+    [self.networkManager call:@"post" one:@"users" two:[car user_id] three:@"cars" four:[car _id] parameters:[car dictionaryRepresentation] success:^(NSURLSessionDataTask *task, id responseObject) {
+        success(task, responseObject);
+    } failure:^(NSURLSessionDataTask *task, NSError *error) {
+        failure(task, error);
+    }];
+}
+
+- (void) deleteCar:(DTCar*)car success: (void (^)(NSURLSessionDataTask *task, id responseObject))success failure:(void (^)(NSURLSessionDataTask *task, NSError *error))failure {
+    [self.networkManager call:@"delete" one:@"users" two:[car user_id] three:@"cars" four:[car _id] parameters:[car dictionaryRepresentation] success:^(NSURLSessionDataTask *task, id responseObject) {
+        success(task, responseObject);
+    } failure:^(NSURLSessionDataTask *task, NSError *error) {
+        failure(task, error);
+    }];
+}
+#pragma mark - Reviews
+
+- (void) getAllReviews: (void (^)(NSURLSessionDataTask *task, id responseObject))success failure:(void (^)(NSURLSessionDataTask *task, NSError *error))failure {
+    [self.networkManager call:@"get" one:@"reviews" parameters:nil success:^(NSURLSessionDataTask *task, id responseObject) {
+        success(task, responseObject);
+    } failure:^(NSURLSessionDataTask *task, NSError *error) {
+        failure(task, error);
+    }];
+}
+
+- (void) getReviewsForUser:(DTUser*)user success: (void (^)(NSURLSessionDataTask *task, id responseObject))success failure:(void (^)(NSURLSessionDataTask *task, NSError *error))failure {
+        NSLog(@"%@ not implemented", NSStringFromSelector(_cmd));
+}
+
+- (void) getReview:(DTReview*)review success: (void (^)(NSURLSessionDataTask *task, id responseObject))success failure:(void (^)(NSURLSessionDataTask *task, NSError *error))failure {
+        NSLog(@"%@ not implemented", NSStringFromSelector(_cmd));
+}
+
+- (void) createReview:(DTReview*)review success: (void (^)(NSURLSessionDataTask *task, id responseObject))success failure:(void (^)(NSURLSessionDataTask *task, NSError *error))failure {
+    NSLog(@"%@ not implemented", NSStringFromSelector(_cmd));
+}
+
+- (void) updateReview:(DTReview*)review success: (void (^)(NSURLSessionDataTask *task, id responseObject))success failure:(void (^)(NSURLSessionDataTask *task, NSError *error))failure {
+        NSLog(@"%@ not implemented", NSStringFromSelector(_cmd));
+}
+
+- (void) deleteReview:(DTReview*)review success: (void (^)(NSURLSessionDataTask *task, id responseObject))success failure:(void (^)(NSURLSessionDataTask *task, NSError *error))failure {
+        NSLog(@"%@ not implemented", NSStringFromSelector(_cmd));
+}
 
 #pragma mark - Pseudo-properties
 
