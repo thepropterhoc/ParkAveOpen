@@ -42,9 +42,7 @@
 {
   [super viewDidLoad];
   self.startFrame = self.view.frame;
-  if(!self.theUser){
-    [self enableAllFields];
-  } else {
+  if(self.theUser){
     [self fillWithUpdatedUserInfo];
   }
 	// Do any additional setup after loading the view.
@@ -120,33 +118,5 @@
   [self.view setFrame:self.startFrame];
 }
 
-- (IBAction)editButtonPressed:(id)sender
-{
-  if([self.editButton.titleLabel.text isEqualToString:@"Edit"]){
-    [self.editButton setTitle:@"Done" forState:UIControlStateNormal];
-    [self enableAllFields];
-  } else {
-    [self.editButton setTitle:@"Edit" forState:UIControlStateNormal];
-    [self disableAllFields];
-  }
-}
-
--(void)enableAllFields
-{
-  for(UITextField *field in self.allFields){
-    [field setEnabled:YES];
-    [field setBackgroundColor:[UIColor darkGrayColor]];
-    [field setTextColor:[UIColor whiteColor]];
-  }
-}
-
--(void)disableAllFields
-{
-  for(UITextField *field in self.allFields){
-    [field setEnabled:NO];
-    [field setBackgroundColor:[UIColor clearColor]];
-    [field setTextColor:[UIColor lightGrayColor]];
-  }
-}
 
 @end
