@@ -9,6 +9,7 @@
 #import "DTSpotTableViewController.h"
 #import "DTSpotTableCell.h"
 #import "DTParkingSpot.h"
+#import "DTModel.h"
 
 @interface DTSpotTableViewController ()
 
@@ -30,11 +31,11 @@
 - (void)viewDidLoad
 {
   [super viewDidLoad];
-  DTParkingSpot *spot = [[DTParkingSpot alloc] init];
-  [spot setPrice:@4];
-  [spot setDate:[NSDate date]];
-  [spot setSpotType: @"Asphalt"];
-  self.spots = @[spot];
+  [self fetchSpots];
+  
+  UIRefreshControl *refreshControl = [[UIRefreshControl alloc] init];
+  [refreshControl addTarget:self action:@selector(refresh:) forControlEvents:UIControlEventValueChanged];
+  [self.theTable addSubview:refreshControl];
 	// Do any additional setup after loading the view.
 }
 
@@ -61,7 +62,7 @@
   return cell;
 }
 
--(double)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath
+-(float)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath
 {
   return 60.0;
 }
@@ -79,6 +80,23 @@
 -(NSString*)tableView:(UITableView *)tableView titleForHeaderInSection:(NSInteger)section
 {
   return @"Available Spots";
+}
+
+-(void)refresh:(UIRefreshControl*)refresher
+{
+  [refresher endRefreshing];
+  [self fetchSpots];
+}
+
+-(void)fetchSpots
+{
+  [[DTModel sharedInstance] getSpotsForLot:self.theLot success:^(NSURLSessionDataTask *task, NSArray *spots) {
+    self.spots = spots;
+    [self.theTable reloadData];
+  } failure:^(NSURLSessionDataTask *task, NSError *error) {
+    self.spots = nil;
+    [self.theTable reloadData];
+  }];
 }
 
 @end

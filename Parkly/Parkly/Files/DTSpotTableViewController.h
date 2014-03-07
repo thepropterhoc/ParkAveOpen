@@ -7,7 +7,11 @@
 //
 
 #import <UIKit/UIKit.h>
+#import "DTParkingLot.h"
 
 @interface DTSpotTableViewController : UIViewController <UITableViewDelegate, UITableViewDataSource>
+
+@property (strong, nonatomic) DTParkingLot *theLot;
+@property (strong, nonatomic) IBOutlet UITableView *theTable;
 
 @end

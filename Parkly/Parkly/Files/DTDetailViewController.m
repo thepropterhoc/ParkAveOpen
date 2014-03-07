@@ -8,6 +8,7 @@
 
 #import "DTDetailViewController.h"
 #import "DTReviewTableViewController.h"
+#import "DTSpotTableViewController.h"
 #import "DTModel.h"
 
 @interface DTDetailViewController ()
@@ -42,10 +43,12 @@
 
 -(void)initialize
 {
-  self.lotOwner.text = [NSString stringWithFormat:@"%@", self.lot.user_id];
-  self.distanceToVenue.text = [NSString stringWithFormat:@"%.1f mi", self.lot.distance.floatValue];
-  self.averageReview.text = [NSString stringWithFormat:@"%.1f", self.lot.averageRating.floatValue];
-  self.averagePrice.text = [NSString stringWithFormat:@"$%.2f", self.lot.averagePrice.floatValue];
+  self.lotOwner.text = [NSString stringWithFormat:@"%@", self.lot.title];
+  //self.distanceToVenue.text = [NSString stringWithFormat:@"%.1f mi", self.lot.distance.floatValue];
+  //self.averageReview.text = [NSString stringWithFormat:@"%.1f", self.lot.averageRating.floatValue];
+  //self.averagePrice.text = [NSString stringWithFormat:@"$%.2f", self.lot.averagePrice.floatValue];
+  UIImage *theImage = [UIImage imageWithData:[NSData dataWithContentsOfURL:[NSURL URLWithString:self.lot.imagePath]]];
+  [self.imageView setImage:theImage];
 }
 
 - (IBAction)bookSpot:(id)sender {
@@ -54,16 +57,18 @@
 
 -(void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender
 {
-  DTReviewTableViewController *reviewController = [segue destinationViewController];
-  //reviewController.theUser = self.lot.user_id
-#warning Needs to be implemented
-  /*
-  [[DTModel sharedInstance] getUserWithId:self.lot.user_id success:^(NSURLSessionDataTask *task, id responseObject) {
-    reviewController.theUser = responseObject;
-  } failure:^(NSURLSessionDataTask *task, NSError *error) {
-   
-  }];
-   */
+  if([[segue identifier] isEqualToString:@"goToReview"]){
+    DTReviewTableViewController *reviewController = [segue destinationViewController];
+    
+    [[DTModel sharedInstance] getUserWithId:self.lot.user_id success:^(NSURLSessionDataTask *task, id responseObject) {
+      reviewController.theUser = responseObject;
+    } failure:^(NSURLSessionDataTask *task, NSError *error) {
+      reviewController.theUser = nil;
+    }];
+  } else if([[segue identifier] isEqualToString:@"embed"]){
+    DTSpotTableViewController *spotController = [segue destinationViewController];
+    spotController.theLot = self.lot;
+  }
 }
 
 

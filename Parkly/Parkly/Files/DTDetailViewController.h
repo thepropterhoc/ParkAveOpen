@@ -18,5 +18,6 @@
 @property (strong, nonatomic) IBOutlet UILabel *distanceToVenue;
 @property (strong, nonatomic) IBOutlet UILabel *averageReview;
 @property (strong, nonatomic) IBOutlet UILabel *averagePrice;
+@property (strong, nonatomic) IBOutlet UIImageView *imageView;
 
 @end

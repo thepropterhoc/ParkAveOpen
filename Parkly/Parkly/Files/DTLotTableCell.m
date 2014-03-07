@@ -7,6 +7,13 @@
 //
 
 #import "DTLotTableCell.h"
+#import "DTModel.h"
+
+@interface DTLotTableCell ()
+
+@property (strong, nonatomic) NSArray *theSpots;
+
+@end
 
 @implementation DTLotTableCell
 
@@ -28,15 +35,31 @@
 
 -(void)initWithLot:(DTParkingLot*)lot
 {
-  self.ratingLabel.text = [NSString stringWithFormat:@"%.2f", lot.averageRating.floatValue];
-  self.distanceLabel.text = [NSString stringWithFormat:@"%.2f", lot.distance.floatValue];
-  self.titleLabel.text = lot.user_id;
-  self.priceLabel.text = [NSString stringWithFormat:@"$%.2f", lot.averagePrice.floatValue];
+  //self.ratingLabel.text = [NSString stringWithFormat:@"%.2f", lot.averageRating.floatValue];
+  //self.distanceLabel.text = [NSString stringWithFormat:@"%.2f", lot.distance.floatValue];
+  self.titleLabel.text = lot.title;
+  //self.priceLabel.text = [NSString stringWithFormat:@"$%.2f", lot.averagePrice.floatValue];
 }
 
 -(float)averagePriceForLot:(DTParkingLot*)lot
 {
-  return 20.0f;
+  NSArray *theSpots = nil;
+  [[DTModel sharedInstance] getSpotsForLot:lot success:^(NSURLSessionDataTask *task, NSArray *spots) {
+    self.theSpots = spots;
+    
+  } failure:^(NSURLSessionDataTask *task, NSError *error) {
+    self.theSpots = nil;
+  }];
+  
+  if(theSpots){
+    float average = 0.0f;
+    for(DTParkingSpot *spot in self.theSpots){
+      average = spot.price.floatValue;
+    }
+    return average/([self.theSpots count]);
+  } else {
+    return -1.0f;
+  }
 }
 
 @end

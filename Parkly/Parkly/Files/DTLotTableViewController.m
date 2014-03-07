@@ -121,7 +121,6 @@
 {
   [[DTModel sharedInstance] getAllLots:^(NSURLSessionDataTask *task, NSArray *allLots) {
     self.theLots = allLots;
-    NSLog(@"It worked");
     [self.theTable reloadData];
   } failure:^(NSURLSessionDataTask *task, NSError *error) {
     NSLog(@"%@", error);
