@@ -121,6 +121,8 @@
 {
   [[DTModel sharedInstance] getAllLots:^(NSURLSessionDataTask *task, NSArray *allLots) {
     self.theLots = allLots;
+    NSLog(@"It worked");
+    [self.theTable reloadData];
   } failure:^(NSURLSessionDataTask *task, NSError *error) {
     NSLog(@"%@", error);
     [[[UIAlertView alloc] initWithTitle:@"Error" message:@"Unable to fetch lots.  Check the network connection" delegate:nil cancelButtonTitle:@"OK" otherButtonTitles:nil] show];
