@@ -19,5 +19,7 @@
 @property (strong, nonatomic) NSString *password;
 @property (strong, nonatomic) NSString *birthdate;
 @property (strong, nonatomic) NSString *phone;
+@property (strong, nonatomic) NSArray* reservedSpots;
+@property (strong, nonatomic) NSArray* spotHistory;
 
 @end

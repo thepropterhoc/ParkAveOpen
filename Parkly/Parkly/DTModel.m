@@ -70,19 +70,12 @@
     }];
 }
 
-- (void) getUserWithId:(NSString*)userID success: (void (^)(NSURLSessionDataTask *task, id responseObject))success failure:(void (^)(NSURLSessionDataTask *task, NSError *error))failure {
-    //NSDictionary* parameters = [NSDictionary dictionaryWithObject:userID forKey:@"_id"];
-    
-    //2
-    
+- (void) getUserWithId:(NSString*)userID success: (void (^)(NSURLSessionDataTask *task, DTUser* user))success failure:(void (^)(NSURLSessionDataTask *task, NSError *error))failure {
     [self.networkManager call:@"get" one:@"users" two:userID parameters:nil success:^(NSURLSessionDataTask *task, id responseObject) {
-        //if success, first parse JSON into objects
-        NSArray* spotArray = [self parseJSON:responseObject toArrayOfClass:[DTParkingSpot class]];
-        //update the dataManager
-        //[self.dataManager updateSpots:spotArray withLotId:userID];
-        
-        //do whatever the user wants with the array of spots
-        success(task, spotArray);
+      DTUser* newUser = [[DTUser alloc] init];
+      NSLog(@"%@", responseObject);
+      [newUser setValuesForKeysWithDictionary:responseObject];
+      success(task, newUser);
     } failure:^(NSURLSessionDataTask *task, NSError *error) {
         failure(task, error);
     }];
