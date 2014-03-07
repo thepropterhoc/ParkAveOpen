@@ -141,7 +141,6 @@
 
 -(void)fetchData
 {
-  #warning /lots not implemented in API
   [[DTModel sharedInstance] getAllLots:^(NSURLSessionDataTask *task, NSArray *allLots) {
     self.theLots = allLots;
   } failure:^(NSURLSessionDataTask *task, NSError *error) {

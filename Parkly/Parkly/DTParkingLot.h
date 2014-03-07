@@ -14,19 +14,23 @@
 
 @property (strong, nonatomic) NSString *_id;
 @property (strong, nonatomic) NSString *user_id;
+
+@property (strong, nonatomic) NSString *title;
+@property (strong, nonatomic) NSString* lat;
+@property (strong, nonatomic) NSString* lng;
+
+@property (strong, nonatomic) NSDictionary* address;
+
 @property (strong, nonatomic) NSString *address1;
 @property (strong, nonatomic) NSString *address2;
 @property (strong, nonatomic) NSString *city;
 @property (strong, nonatomic) NSString *state;
-@property (strong, nonatomic) NSNumber *zipcode;
-@property (strong, nonatomic) NSNumber *latitude;
-@property (strong, nonatomic) NSNumber *longitude;
+@property (strong, nonatomic) NSString *zip;
 @property (strong, nonatomic) NSString *pavementType;
 @property (strong, nonatomic) NSString *imagePath;
 
 @property (strong, nonatomic) NSNumber *averageRating;
 @property (strong, nonatomic) NSNumber *averagePrice;
 @property (strong, nonatomic) NSNumber *distance;
-
 
 @end
