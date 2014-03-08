@@ -37,10 +37,10 @@
 
 #pragma mark - Local User Session
 - (void) logoutUser {
-    
+    [self.dataManager logoutUser];
 }
 - (BOOL) userIsLoggedIn {
-    return [self.dataManager currentUser] != nil;
+    return [self.dataManager isUserLoggedIn];
 }
 - (BOOL) userHasAccount {
     return [self defaultsExist];

@@ -10,9 +10,26 @@
 
 @implementation DTUser
 
+- (id) init {
+    self = [super init];
+    if (self) {
+        self._id = [[NSString alloc] init];
+        self.__v = [[NSString alloc] init];
+        self.firstName = [[NSString alloc] init];
+        self.lastName = [[NSString alloc] init];
+        self.email = [[NSString alloc] init];
+        self.password = [[NSString alloc] init];
+        self.birthdate = [[NSString alloc] init];
+        self.phone = [[NSString alloc] init];
+        self.reservedSpots = [[NSArray alloc] init];
+        self.spotHistory = [[NSArray alloc] init];
+    }
+    return self;
+    
+}
 
 - (NSDictionary*) dictionaryRepresentation {
-    return @{@"_id": self._id,
+    return @{
              @"firstName": self.firstName,
              @"lastName": self.lastName,
              @"email": self.email,

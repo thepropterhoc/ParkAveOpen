@@ -23,7 +23,10 @@
 
 - (void) logoutUser;
 
+- (BOOL) isUserLoggedIn;
+
 - (void) updateSpots:(NSArray*)spotArray withLotId:(NSString*)lotID;
+
 
 
 @end

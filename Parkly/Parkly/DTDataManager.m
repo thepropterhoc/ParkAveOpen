@@ -18,7 +18,8 @@
         sharedInstance = [[[self class] alloc] init];
         
         // Do any other initialisation stuff here
-        sharedInstance.currentUser = nil;
+        sharedInstance.currentUser = [[DTUser alloc] init];
+        sharedInstance.currentUser._id = @"-1";
         
         //sharedInstance.dataManager = [DTDataManager sharedInstance];
         //sharedInstance.networkManager = [DTNetworkManager sharedInstance];
@@ -32,7 +33,12 @@
 
 - (void) logoutUser {
 #warning this needs to be different
-    self.currentUser = nil;
+    self.currentUser = [[DTUser alloc]init];
+    self.currentUser._id = @"-1";
+}
+
+- (BOOL) isUserLoggedIn {
+    return [self.currentUser._id isEqualToString:@"-1"];
 }
 
 - (void) updateSpots:(NSArray*)spotArray withLotId:(NSString*)lotID {
