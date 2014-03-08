@@ -19,6 +19,11 @@
 
 + (instancetype) sharedInstance;
 
+#pragma mark - Local User Session
+- (void) logoutUser;
+- (BOOL) userIsLoggedIn;
+- (BOOL) userHasAccount;
+
 //most of these are not yet implemented
 
 #pragma mark - Users

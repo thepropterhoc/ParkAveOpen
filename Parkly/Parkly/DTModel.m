@@ -288,22 +288,31 @@
     return array;
 }
 - (NSArray*) sortLots:(NSMutableArray*)array byDistanceFromLatitude:(CGFloat)latitude andLongitude:(CGFloat)longitude isAscending:(BOOL)isAscending {
-    NSLog(@"this does nothing yet");
-    /*[[array mutableCopy] sortUsingComparator:^NSComparisonResult(id obj1, id obj2) {
-     DTParkingLot* lotA = obj1;
-     DTParkingLot* lotB = obj2;
-     
-     if([lotA averageRating] > [lotB averageRating]) {
-     return NSOrderedAscending;
-     } else if ([lotA averageRating] < [lotB averageRating]) {
-     return NSOrderedDescending;
-     }
-     return NSOrderedSame;
-     }];*/
+    NSLog(@"asc/desc may not work correctly");
+    [[array mutableCopy] sortUsingComparator:^NSComparisonResult(id obj1, id obj2) {
+        DTParkingLot* lotA = obj1;
+        CGFloat latA = [lotA.lat floatValue];
+        CGFloat lonA = [lotA.lon floatValue];
+        
+        CGFloat distanceA = sqrt((latitude - latA)*(latitude - latA) + (longitude - lonA)*(longitude - lonA));
+        
+        DTParkingLot* lotB = obj2;
+        CGFloat latB = [lotB.lat floatValue];
+        CGFloat lonB = [lotB.lon floatValue];
+        
+        CGFloat distanceB = sqrt((latitude - latB)*(latitude - latB) + (longitude - lonB)*(longitude - lonB));
+
+        if(distanceA > distanceB) {
+            return NSOrderedAscending;
+        } else if (distanceA < distanceB) {
+            return NSOrderedDescending;
+        }
+        return NSOrderedSame;
+    }];
     return array;
 }
 - (NSArray*) sortLotsByPrice:(NSMutableArray*)array isAscending:(BOOL)isAscending {
-    NSLog(@"this may need to be fixed");
+    NSLog(@"asc/desc may not work correctly");
     [[array mutableCopy] sortUsingComparator:^NSComparisonResult(id obj1, id obj2) {
         DTParkingLot* lotA = obj1;
         DTParkingLot* lotB = obj2;
