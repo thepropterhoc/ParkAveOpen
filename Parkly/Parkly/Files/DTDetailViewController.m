@@ -61,7 +61,15 @@
 - (IBAction)bookSpot:(id)sender
 {
   if(self.spotTable.theTable.indexPathForSelectedRow){
-    [self performSegueWithIdentifier:@"bookIt" sender:self];
+    if([[DTModel sharedInstance] userHasAccount]){
+      if([[DTModel sharedInstance] userIsLoggedIn]){
+        [self performSegueWithIdentifier:@"bookIt" sender:self];
+      } else {
+        [self logIn];
+      }
+    } else {
+      [self createAccount];
+    }
   }
 }
 
@@ -93,6 +101,16 @@
 {
   [self.bookItButton setEnabled:NO];
   [self.bookItButton setAlpha:0.4f];
+}
+
+-(void)logIn
+{
+  
+}
+
+-(void)createAccount
+{
+  
 }
 
 @end
