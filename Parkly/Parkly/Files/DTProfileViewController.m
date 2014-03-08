@@ -7,6 +7,7 @@
 //
 
 #import "DTProfileViewController.h"
+#import "DTModel.h"
 
 @interface DTProfileViewController ()
 
@@ -88,8 +89,14 @@
 - (IBAction)done:(id)sender
 {
   [self.delegate dismissProfileViewControllerSuccess];
-  NSLog(@"%@", [self updatedUserInfo]);
-#warning Need to update the model with the user info with [self updatedUserInfo];
+  [[DTModel sharedInstance] updateUser:[self updatedUserInfo] success:^(NSURLSessionDataTask *task, id responseObject) {
+    NSLog(@"Successfully updated user's info");
+  } failure:^(NSURLSessionDataTask *task, NSError *error) {
+    [[[UIAlertView alloc] initWithTitle:@"ERROR" message:@"Unable to update user info.  Check the network connection?" delegate:Nil cancelButtonTitle:@"Dismiss" otherButtonTitles: nil] show];
+  }];
+  if([[DTModel sharedInstance] userIsLoggedIn]){
+    NSLog(@"User has updated info and successfully logged in");
+  }
 }
 
 - (IBAction)cancel:(id)sender
