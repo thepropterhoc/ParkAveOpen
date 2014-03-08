@@ -95,6 +95,12 @@
 - (NSString*) defaultPassword;
 - (BOOL) defaultsExist;
 
+#pragma mark - Sorting
+
+- (NSArray*) sortLotsByRating:(NSArray*)array isAscending:(BOOL)isAscending;
+- (NSArray*) sortLots:(NSMutableArray*)array byDistanceFromLatitude:(CGFloat)latitude andLongitude:(CGFloat)longitude isDescending:(BOOL)isDescending;
+- (NSArray*) sortLotsByPrice:(NSArray*)array isAscending:(BOOL)isAscending;
+
 #pragma mark - Helper Methods
 
 - (NSArray*) parseJSON:(id)json toArrayOfClass:(__unsafe_unretained Class)theClass;
