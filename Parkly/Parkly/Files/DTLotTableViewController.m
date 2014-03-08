@@ -50,11 +50,13 @@
 
 #pragma mark - Table View implementation methods
 
+/*
 -(float)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath
 {
-  return 60.0f;
+  return 93.0f;
 }
-
+*/
+ 
 -(NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section
 {
   return [self.theLots count];
@@ -93,6 +95,10 @@
 
 -(void)sortByDistance
 {
+  /*
+  [[DTModel sharedInstance] sortLots:[NSMutableArray arrayWithArray:self.theLots] byDistanceFromLatitude:1.0f andLongitude:1.0f isDescending:YES];
+  */
+  
   self.theLots = [self.theLots sortedArrayUsingComparator:^NSComparisonResult(id obj1, id obj2) {
     return [((DTParkingLot*) obj1).distance compare:((DTParkingLot *) obj2).distance];
   }];
@@ -101,8 +107,20 @@
 
 -(void)sortByReview
 {
+  /*
+  self.theLots = [[DTModel sharedInstance] sortLotsByRating:self.theLots isAscending:YES];
+  */
+  
   self.theLots = [self.theLots sortedArrayUsingComparator:^NSComparisonResult(id obj1, id obj2) {
     return [((DTParkingLot*) obj1).averageRating compare:((DTParkingLot *) obj2).averageRating];
+  }];
+  [self.theTable reloadData];
+}
+
+-(void)sortByName
+{
+  self.theLots = [self.theLots sortedArrayUsingComparator:^NSComparisonResult(id obj1, id obj2) {
+    return [((DTParkingLot*) obj1).title compare:((DTParkingLot *) obj2).title];
   }];
   [self.theTable reloadData];
 }

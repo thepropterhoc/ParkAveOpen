@@ -24,5 +24,6 @@
 -(void)sortByReview;
 -(void)sortByPrice;
 -(void)sortByDistance;
+-(void)sortByName;
 
 @end

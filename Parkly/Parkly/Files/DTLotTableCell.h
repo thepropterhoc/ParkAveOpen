@@ -10,10 +10,10 @@
 #import "DTParkingLot.h"
 
 @interface DTLotTableCell : UITableViewCell
-//@property (strong, nonatomic) IBOutlet UILabel *ratingLabel;
-//@property (strong, nonatomic) IBOutlet UILabel *distanceLabel;
+@property (strong, nonatomic) IBOutlet UILabel *ratingLabel;
+@property (strong, nonatomic) IBOutlet UILabel *distanceLabel;
 @property (strong, nonatomic) IBOutlet UILabel *titleLabel;
-//@property (strong, nonatomic) IBOutlet UILabel *priceLabel;
+@property (strong, nonatomic) IBOutlet UILabel *priceLabel;
 
 -(void)initWithLot:(DTParkingLot*)lot;
 

@@ -30,7 +30,7 @@
 {
   self.reviewText.text = review.body;
   self.reviewTitle.text = review.title;
-  self.reviewValue.text = [NSString stringWithFormat:@"%d", review.stars];
+  self.reviewValue.text = [NSString stringWithFormat:@"%@", review.stars];
   self.dateLabel.text = review.date;
   self.authorLabel.text = [NSString stringWithFormat:@"- %@", review.reviewer_id];
 }

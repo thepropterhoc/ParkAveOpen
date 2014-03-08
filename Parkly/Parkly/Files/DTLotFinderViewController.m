@@ -41,15 +41,18 @@
 }
 
 - (IBAction)didSelectSegment:(UISegmentedControl *)sender {
+  
   if(sender.selectedSegmentIndex == 0){
-    //Sort elements of table by price
-    [self.lotTable sortByPrice];
-  } else if(sender.selectedSegmentIndex == 1){
     //Sort elements of table by distance
     [self.lotTable sortByDistance];
-  }else {
+  }else if(sender.selectedSegmentIndex == 1){
     //Sort elements of table by review rank
     [self.lotTable sortByReview];
+  } else if(sender.selectedSegmentIndex == 2){
+  //Sort elements of table by price
+    [self.lotTable sortByPrice];
+  } else if(sender.selectedSegmentIndex == 3){
+    [self.lotTable sortByName];
   }
 }
 

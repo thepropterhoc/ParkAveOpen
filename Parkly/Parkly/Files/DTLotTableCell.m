@@ -35,10 +35,16 @@
 
 -(void)initWithLot:(DTParkingLot*)lot
 {
-  //self.ratingLabel.text = [NSString stringWithFormat:@"%.2f", lot.averageRating.floatValue];
-  //self.distanceLabel.text = [NSString stringWithFormat:@"%.2f", lot.distance.floatValue];
+  if(lot.averagePrice && lot.averageRating && lot.distance){
+    self.ratingLabel.text = [NSString stringWithFormat:@"%.2f", lot.averageRating.floatValue];
+    self.distanceLabel.text = [NSString stringWithFormat:@"%.2f", lot.distance.floatValue];
+    self.priceLabel.text = [NSString stringWithFormat:@"$%.2f", lot.averagePrice.floatValue];
+  } else {
+    self.ratingLabel.text = @"None";
+    self.distanceLabel.text = @"None";
+    self.priceLabel.text = @"None";
+  }
   self.titleLabel.text = lot.title;
-  //self.priceLabel.text = [NSString stringWithFormat:@"$%.2f", lot.averagePrice.floatValue];
 }
 
 -(float)averagePriceForLot:(DTParkingLot*)lot
