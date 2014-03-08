@@ -48,10 +48,7 @@
 
 #pragma mark - Users
 
-- (void) authenticateUser:(DTUser*)user success: (void (^)(NSURLSessionDataTask *task, id responseObject))success failure:(void (^)(NSURLSessionDataTask *task, NSError *error))failure {
-    
-    NSString* email = [user email];
-    NSString* password = [user password];
+- (void) authenticateUserWithEmail:(NSString*)email andPassword:(NSString*)password success: (void (^)(NSURLSessionDataTask *task, DTUser* user))success failure:(void (^)(NSURLSessionDataTask *task, NSError *error))failure {
     
     NSDictionary* parameters = @{@"email": email,
                                  @"password": password};
@@ -68,6 +65,14 @@
             }
         }
         success(task, responseObject);
+    } failure:^(NSURLSessionDataTask *task, NSError *error) {
+        failure(task, error);
+    }];
+}
+
+- (void) authenticateUser:(DTUser*)user success: (void (^)(NSURLSessionDataTask *task, DTUser* aUser))success failure:(void (^)(NSURLSessionDataTask *task, NSError *error))failure {
+    [self authenticateUserWithEmail:[user email] andPassword:[user password] success:^(NSURLSessionDataTask *task, DTUser *user) {
+        success(task, user);
     } failure:^(NSURLSessionDataTask *task, NSError *error) {
         failure(task, error);
     }];
@@ -94,14 +99,19 @@
 
 - (void) createUser:(DTUser*)user success: (void (^)(NSURLSessionDataTask *task, DTUser* newUser))success failure:(void (^)(NSURLSessionDataTask *task, NSError *error))failure {
     [[self networkManager] call:@"post" one:@"users" parameters:[user dictionaryRepresentation] success:^(NSURLSessionDataTask *task, id responseObject) {
+        
         DTUser* newUser;
         [newUser dictionaryWithValuesForKeys:responseObject];
-     success(task, newUser);
-     } failure:^(NSURLSessionDataTask *task, NSError *error) {
-     failure(task, error);
-     }];
-    
-    //then query the database to get the id
+        
+        //Login with that new user
+        [self authenticateUser:newUser success:^(NSURLSessionDataTask *task, DTUser *aUser) {
+            success(task, newUser);
+        } failure:^(NSURLSessionDataTask *task, NSError *error) {
+            failure(task, error);
+        }];
+    } failure:^(NSURLSessionDataTask *task, NSError *error) {
+        failure(task, error);
+    }];
 }
 
 - (void) updateUser:(DTUser*)user success: (void (^)(NSURLSessionDataTask *task, id responseObject))success failure:(void (^)(NSURLSessionDataTask *task, NSError *error))failure {
@@ -273,6 +283,10 @@
 
 - (DTUser*) currentUser {
     return [self.dataManager currentUser];
+}
+
+- (DTUser*) defaultUser {
+    return [self.dataManager defaultUser];
 }
 
 - (NSString*) defaultEmail {

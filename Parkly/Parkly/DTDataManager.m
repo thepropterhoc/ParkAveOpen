@@ -41,8 +41,6 @@
     return [self.currentUser._id isEqualToString:@"-1"];
 }
 
-- (void) updateSpots:(NSArray*)spotArray withLotId:(NSString*)lotID {
-    
-}
+
 
 @end

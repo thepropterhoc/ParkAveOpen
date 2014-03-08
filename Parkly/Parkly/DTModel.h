@@ -28,7 +28,9 @@
 
 #pragma mark - Users
 
-- (void) authenticateUser:(DTUser*)user success: (void (^)(NSURLSessionDataTask *task, id responseObject))success failure:(void (^)(NSURLSessionDataTask *task, NSError *error))failure;
+- (void) authenticateUser:(DTUser*)user success: (void (^)(NSURLSessionDataTask *task, DTUser* aUser))success failure:(void (^)(NSURLSessionDataTask *task, NSError *error))failure;
+
+- (void) authenticateUserWithEmail:(NSString*)email andPassword:(NSString*)password success: (void (^)(NSURLSessionDataTask *task, DTUser* user))success failure:(void (^)(NSURLSessionDataTask *task, NSError *error))failure;
 
 - (void) getAllUsers: (void (^)(NSURLSessionDataTask *task, NSArray* allUsers))success failure:(void (^)(NSURLSessionDataTask *task, NSError *error))failure;
 
@@ -95,6 +97,8 @@
 #pragma mark - Pseudo-properties
 
 - (DTUser*) currentUser;
+
+- (DTUser*) defaultUser;
 
 - (NSString*) defaultEmail;
 - (NSString*) defaultPassword;
