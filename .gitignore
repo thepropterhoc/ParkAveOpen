@@ -25,6 +25,7 @@
 node_modules
 Parkly/Parkly.xcodeproj/xcuserdata/*
 Parkly/Parkly.xcodeproj/project.xcworkspace/xcuserdata/*
+*.userstate
 
 # Logs and databases #
 ######################
