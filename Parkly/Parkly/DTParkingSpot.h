@@ -22,5 +22,7 @@
 @property (strong, nonatomic) NSString *endDate;
 @property (strong, nonatomic) NSArray *buyer_list;
 @property (strong, nonatomic) NSString *surface;
+@property (strong, nonatomic) NSString* description;
+@property (nonatomic) BOOL blocked;
 
 @end
