@@ -61,15 +61,15 @@
 - (IBAction)bookSpot:(id)sender
 {
   if(self.spotTable.theTable.indexPathForSelectedRow){
-    //if([[DTModel sharedInstance] userHasAccount]){
-      //if([[DTModel sharedInstance] userIsLoggedIn]){
+    if([[DTModel sharedInstance] userHasAccount]){
+      if([[DTModel sharedInstance] userIsLoggedIn]){
         [self performSegueWithIdentifier:@"bookIt" sender:self];
-     // } else {
-    ////    [self logIn];
-  //    }
-   // } else {
-    //  [self createAccount];
-   // }
+      } else {
+        [self logIn];
+      }
+    } else {
+      [self createAccount];
+    }
   }
 }
 
@@ -105,12 +105,12 @@
 
 -(void)logIn
 {
-  
+#warning Prompt for password, authenticate, then push to next view if successful.
 }
 
 -(void)createAccount
 {
-  
+#warning Create account, log in, then if successful, push to next view
 }
 
 @end

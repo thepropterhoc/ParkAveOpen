@@ -30,5 +30,6 @@
 @property (strong, nonatomic) IBOutlet UILabel *spotDateLabel;
 @property (strong, nonatomic) IBOutlet UILabel *spotPriceLabel;
 
+- (IBAction)reserve:(id)sender;
 
 @end

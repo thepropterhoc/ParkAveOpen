@@ -67,7 +67,7 @@
   DTUser *newUser = [[DTUser alloc] init];
   newUser.firstName = self.firstNameField.text;
   newUser.lastName = self.lastNameField.text;
-  //newUser.username = self.usernameField.text;
+  newUser.email = self.usernameField.text;
   newUser.password = self.passwordField.text;
   NSDateComponents *components = [[NSDateComponents alloc] init];
   [components setCalendar:[[NSCalendar alloc] initWithCalendarIdentifier:@"gregorian"]];

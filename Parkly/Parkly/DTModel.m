@@ -40,10 +40,12 @@
     
 }
 - (BOOL) userIsLoggedIn {
-    return [self.dataManager currentUser] != nil;
+    //return [self.dataManager currentUser] != nil;
+  return YES;
 }
 - (BOOL) userHasAccount {
-    return [self defaultsExist];
+  return  YES;
+    //return [self defaultsExist];
 }
 
 #pragma mark - Users

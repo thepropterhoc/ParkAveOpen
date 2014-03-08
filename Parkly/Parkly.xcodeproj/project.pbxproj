@@ -47,8 +47,9 @@
 		9DE9D54318B462B50035519D /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 9DE9D52518B462B50035519D /* UIKit.framework */; };
 		9DE9D54B18B462B50035519D /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = 9DE9D54918B462B50035519D /* InfoPlist.strings */; };
 		9DE9D54D18B462B50035519D /* ParklyTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 9DE9D54C18B462B50035519D /* ParklyTests.m */; };
-		9DE9D55918B53CC10035519D /* DTLoginViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 9DE9D55818B53CC10035519D /* DTLoginViewController.m */; };
 		9DE9D55D18B53CF10035519D /* DTLotFinderViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 9DE9D55C18B53CF10035519D /* DTLotFinderViewController.m */; };
+		9DF5994C18CBD56F00A0FFBE /* DTLoginViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 9DF5994B18CBD56F00A0FFBE /* DTLoginViewController.m */; };
+		9DF5995118CBD82100A0FFBE /* DTReceiptViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 9DF5995018CBD82100A0FFBE /* DTReceiptViewController.m */; };
 		9DF5B44618C55AFE00E1D1D7 /* DTParkingLot.m in Sources */ = {isa = PBXBuildFile; fileRef = 9DF5B43F18C55AFE00E1D1D7 /* DTParkingLot.m */; };
 		9DF5B44718C55AFE00E1D1D7 /* DTParkingSpot.m in Sources */ = {isa = PBXBuildFile; fileRef = 9DF5B44118C55AFE00E1D1D7 /* DTParkingSpot.m */; };
 		9DF5B44818C55AFE00E1D1D7 /* DTReview.m in Sources */ = {isa = PBXBuildFile; fileRef = 9DF5B44318C55AFE00E1D1D7 /* DTReview.m */; };
@@ -137,10 +138,12 @@
 		9DE9D54818B462B50035519D /* ParklyTests-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = "ParklyTests-Info.plist"; sourceTree = "<group>"; };
 		9DE9D54A18B462B50035519D /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/InfoPlist.strings; sourceTree = "<group>"; };
 		9DE9D54C18B462B50035519D /* ParklyTests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ParklyTests.m; sourceTree = "<group>"; };
-		9DE9D55718B53CC10035519D /* DTLoginViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = DTLoginViewController.h; path = Files/DTLoginViewController.h; sourceTree = "<group>"; };
-		9DE9D55818B53CC10035519D /* DTLoginViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = DTLoginViewController.m; path = Files/DTLoginViewController.m; sourceTree = "<group>"; };
 		9DE9D55B18B53CF10035519D /* DTLotFinderViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = DTLotFinderViewController.h; path = Files/DTLotFinderViewController.h; sourceTree = "<group>"; };
 		9DE9D55C18B53CF10035519D /* DTLotFinderViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = DTLotFinderViewController.m; path = Files/DTLotFinderViewController.m; sourceTree = "<group>"; };
+		9DF5994A18CBD56F00A0FFBE /* DTLoginViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = DTLoginViewController.h; path = Files/DTLoginViewController.h; sourceTree = "<group>"; };
+		9DF5994B18CBD56F00A0FFBE /* DTLoginViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = DTLoginViewController.m; path = Files/DTLoginViewController.m; sourceTree = "<group>"; };
+		9DF5994F18CBD82100A0FFBE /* DTReceiptViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = DTReceiptViewController.h; path = Files/DTReceiptViewController.h; sourceTree = "<group>"; };
+		9DF5995018CBD82100A0FFBE /* DTReceiptViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = DTReceiptViewController.m; path = Files/DTReceiptViewController.m; sourceTree = "<group>"; };
 		9DF5B43E18C55AFE00E1D1D7 /* DTParkingLot.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DTParkingLot.h; sourceTree = "<group>"; };
 		9DF5B43F18C55AFE00E1D1D7 /* DTParkingLot.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DTParkingLot.m; sourceTree = "<group>"; };
 		9DF5B44018C55AFE00E1D1D7 /* DTParkingSpot.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DTParkingSpot.h; sourceTree = "<group>"; };
@@ -317,9 +320,10 @@
 		9D2E92A418B5A48300509F23 /* DTUIElements */ = {
 			isa = PBXGroup;
 			children = (
+				9DF5994E18CBD80D00A0FFBE /* DTReceipt */,
+				9DF5994918CBD56000A0FFBE /* DTLogin */,
 				9D035C2618CB80AC007E331D /* DTBuy */,
 				9D15D3C918B7234500FA635E /* DTSignup */,
-				9DE9D55618B53C810035519D /* DTLogin */,
 				9DE9D55A18B53CCF0035519D /* DTLotFinder */,
 				9D15D3E718B809DC00FA635E /* DTDetail */,
 				9D284C9218C51FB60044F89D /* DTProfile */,
@@ -418,15 +422,6 @@
 			name = "Supporting Files";
 			sourceTree = "<group>";
 		};
-		9DE9D55618B53C810035519D /* DTLogin */ = {
-			isa = PBXGroup;
-			children = (
-				9DE9D55718B53CC10035519D /* DTLoginViewController.h */,
-				9DE9D55818B53CC10035519D /* DTLoginViewController.m */,
-			);
-			name = DTLogin;
-			sourceTree = "<group>";
-		};
 		9DE9D55A18B53CCF0035519D /* DTLotFinder */ = {
 			isa = PBXGroup;
 			children = (
@@ -434,6 +429,24 @@
 				9DE9D55C18B53CF10035519D /* DTLotFinderViewController.m */,
 			);
 			name = DTLotFinder;
+			sourceTree = "<group>";
+		};
+		9DF5994918CBD56000A0FFBE /* DTLogin */ = {
+			isa = PBXGroup;
+			children = (
+				9DF5994A18CBD56F00A0FFBE /* DTLoginViewController.h */,
+				9DF5994B18CBD56F00A0FFBE /* DTLoginViewController.m */,
+			);
+			name = DTLogin;
+			sourceTree = "<group>";
+		};
+		9DF5994E18CBD80D00A0FFBE /* DTReceipt */ = {
+			isa = PBXGroup;
+			children = (
+				9DF5994F18CBD82100A0FFBE /* DTReceiptViewController.h */,
+				9DF5995018CBD82100A0FFBE /* DTReceiptViewController.m */,
+			);
+			name = DTReceipt;
 			sourceTree = "<group>";
 		};
 		9DF5B44A18C55B1100E1D1D7 /* DTNetworking */ = {
@@ -583,6 +596,7 @@
 				9D15D3D418B7405D00FA635E /* DTLotTableCell.m in Sources */,
 				9DF5B46B18C55B2000E1D1D7 /* AFURLConnectionOperation.m in Sources */,
 				9DF5B47118C55B2000E1D1D7 /* DTModel.m in Sources */,
+				9DF5995118CBD82100A0FFBE /* DTReceiptViewController.m in Sources */,
 				9DF5B46A18C55B2000E1D1D7 /* AFSecurityPolicy.m in Sources */,
 				9D15D4A018BD954400FA635E /* DTSpotTableCell.m in Sources */,
 				9DF5B46818C55B2000E1D1D7 /* AFHTTPSessionManager.m in Sources */,
@@ -595,13 +609,13 @@
 				9DE9D53218B462B50035519D /* DTAppDelegate.m in Sources */,
 				9DF5B44918C55AFE00E1D1D7 /* DTUser.m in Sources */,
 				594A7C5418C580C3008C077C /* PDKeychainBindingsController.m in Sources */,
-				9DE9D55918B53CC10035519D /* DTLoginViewController.m in Sources */,
 				9DF5B46718C55B2000E1D1D7 /* AFHTTPRequestOperationManager.m in Sources */,
 				9D284C9518C51FCE0044F89D /* DTProfileViewController.m in Sources */,
 				9DF5B46618C55B2000E1D1D7 /* AFHTTPRequestOperation.m in Sources */,
 				9DF5B46E18C55B2000E1D1D7 /* AFURLSessionManager.m in Sources */,
 				9D15D3B118B5B33300FA635E /* DTRoundedImageView.m in Sources */,
 				9DF5B46918C55B2000E1D1D7 /* AFNetworkReachabilityManager.m in Sources */,
+				9DF5994C18CBD56F00A0FFBE /* DTLoginViewController.m in Sources */,
 				9DF5B46D18C55B2000E1D1D7 /* AFURLResponseSerialization.m in Sources */,
 				9DF5B46C18C55B2000E1D1D7 /* AFURLRequestSerialization.m in Sources */,
 				9D15D49D18BD952E00FA635E /* DTSpotTableViewController.m in Sources */,

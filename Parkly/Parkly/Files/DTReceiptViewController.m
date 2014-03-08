@@ -1,19 +1,19 @@
 //
-//  DTLoginViewController.m
+//  DTReceiptViewController.m
 //  Parkly
 //
 //  Created by Shelby Vanhooser on 3/8/14.
 //  Copyright (c) 2014 DevTeam14. All rights reserved.
 //
 
-#import "DTLoginViewController.h"
-#import "DTModel.h"
+#import "DTReceiptViewController.h"
 
-@interface DTLoginViewController ()
+@interface DTReceiptViewController ()
+@property (strong, nonatomic) IBOutlet UITextView *theTextView;
 
 @end
 
-@implementation DTLoginViewController
+@implementation DTReceiptViewController
 
 - (id)initWithNibName:(NSString *)nibNameOrNil bundle:(NSBundle *)nibBundleOrNil
 {
@@ -27,6 +27,7 @@
 - (void)viewDidLoad
 {
     [super viewDidLoad];
+  [self.theTextView setText:self.receipt];
 	// Do any additional setup after loading the view.
 }
 
@@ -36,15 +37,9 @@
     // Dispose of any resources that can be recreated.
 }
 
-- (IBAction)logIn:(id)sender
-{
-  //[DTModel sharedInstance] authenticateUser:[[DTModel sharedInstance] ] success:<#^(NSURLSessionDataTask *task, id responseObject)success#> failure:<#^(NSURLSessionDataTask *task, NSError *error)failure#>
+- (IBAction)done:(id)sender {
+  [self.navigationController popToRootViewControllerAnimated:YES];
 }
 
-- (IBAction)tap:(id)sender
-{
-  [self.emailTextField resignFirstResponder];
-  [self.passwordTextField resignFirstResponder];
-}
 
 @end
