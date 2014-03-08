@@ -19,7 +19,6 @@
 @property (strong, nonatomic) NSString *title;
 @property (strong, nonatomic) NSString* lat;
 @property (strong, nonatomic) NSString* lon;
-@property (strong, nonatomic) NSString* lng;
 
 @property (strong, nonatomic) NSDictionary* address;
 

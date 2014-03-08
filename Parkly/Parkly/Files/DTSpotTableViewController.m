@@ -13,7 +13,6 @@
 
 @interface DTSpotTableViewController ()
 
-@property (strong, nonatomic) NSArray *spots;
 
 @end
 

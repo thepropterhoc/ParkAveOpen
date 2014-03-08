@@ -13,5 +13,6 @@
 
 @property (strong, nonatomic) DTParkingLot *theLot;
 @property (strong, nonatomic) IBOutlet UITableView *theTable;
+@property (strong, nonatomic) NSArray *spots;
 
 @end

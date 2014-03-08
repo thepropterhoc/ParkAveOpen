@@ -11,6 +11,7 @@
 		594A7C5318C580C3008C077C /* PDKeychainBindings.m in Sources */ = {isa = PBXBuildFile; fileRef = 594A7C5018C580C3008C077C /* PDKeychainBindings.m */; };
 		594A7C5418C580C3008C077C /* PDKeychainBindingsController.m in Sources */ = {isa = PBXBuildFile; fileRef = 594A7C5218C580C3008C077C /* PDKeychainBindingsController.m */; };
 		594A7C5718C59315008C077C /* DTCar.m in Sources */ = {isa = PBXBuildFile; fileRef = 594A7C5618C59315008C077C /* DTCar.m */; };
+		9D035C2918CB81AD007E331D /* DTBuyViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 9D035C2818CB81AD007E331D /* DTBuyViewController.m */; };
 		9D15D3B118B5B33300FA635E /* DTRoundedImageView.m in Sources */ = {isa = PBXBuildFile; fileRef = 9D15D3B018B5B33300FA635E /* DTRoundedImageView.m */; };
 		9D15D3BC18B6F34100FA635E /* JosefinSlab-Bold.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 9D15D3B218B6F34100FA635E /* JosefinSlab-Bold.ttf */; };
 		9D15D3BD18B6F34100FA635E /* JosefinSlab-BoldItalic.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 9D15D3B318B6F34100FA635E /* JosefinSlab-BoldItalic.ttf */; };
@@ -84,6 +85,8 @@
 		594A7C5218C580C3008C077C /* PDKeychainBindingsController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PDKeychainBindingsController.m; sourceTree = "<group>"; };
 		594A7C5518C59315008C077C /* DTCar.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DTCar.h; sourceTree = "<group>"; };
 		594A7C5618C59315008C077C /* DTCar.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DTCar.m; sourceTree = "<group>"; };
+		9D035C2718CB81AD007E331D /* DTBuyViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = DTBuyViewController.h; path = Files/DTBuyViewController.h; sourceTree = "<group>"; };
+		9D035C2818CB81AD007E331D /* DTBuyViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = DTBuyViewController.m; path = Files/DTBuyViewController.m; sourceTree = "<group>"; };
 		9D15D3AF18B5B33300FA635E /* DTRoundedImageView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = DTRoundedImageView.h; path = Files/DTRoundedImageView.h; sourceTree = "<group>"; };
 		9D15D3B018B5B33300FA635E /* DTRoundedImageView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = DTRoundedImageView.m; path = Files/DTRoundedImageView.m; sourceTree = "<group>"; };
 		9D15D3B218B6F34100FA635E /* JosefinSlab-Bold.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "JosefinSlab-Bold.ttf"; sourceTree = "<group>"; };
@@ -212,6 +215,15 @@
 			name = Security;
 			sourceTree = "<group>";
 		};
+		9D035C2618CB80AC007E331D /* DTBuy */ = {
+			isa = PBXGroup;
+			children = (
+				9D035C2718CB81AD007E331D /* DTBuyViewController.h */,
+				9D035C2818CB81AD007E331D /* DTBuyViewController.m */,
+			);
+			name = DTBuy;
+			sourceTree = "<group>";
+		};
 		9D15D3C918B7234500FA635E /* DTSignup */ = {
 			isa = PBXGroup;
 			children = (
@@ -305,6 +317,7 @@
 		9D2E92A418B5A48300509F23 /* DTUIElements */ = {
 			isa = PBXGroup;
 			children = (
+				9D035C2618CB80AC007E331D /* DTBuy */,
 				9D15D3C918B7234500FA635E /* DTSignup */,
 				9DE9D55618B53C810035519D /* DTLogin */,
 				9DE9D55A18B53CCF0035519D /* DTLotFinder */,
@@ -563,6 +576,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				9D035C2918CB81AD007E331D /* DTBuyViewController.m in Sources */,
 				9D15D3E618B807EC00FA635E /* DTLotTableViewController.m in Sources */,
 				9DF5B44718C55AFE00E1D1D7 /* DTParkingSpot.m in Sources */,
 				9D2E92A718B5A49F00509F23 /* DTNavigationBar.m in Sources */,

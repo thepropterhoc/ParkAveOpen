@@ -13,6 +13,8 @@
 
 @interface DTDetailViewController ()
 
+@property (strong, nonatomic) DTSpotTableViewController *spotTable;
+
 @end
 
 @implementation DTDetailViewController
@@ -54,8 +56,11 @@
   [self.imageView setImage:theImage];
 }
 
-- (IBAction)bookSpot:(id)sender {
-  
+- (IBAction)bookSpot:(id)sender
+{
+  if(self.spotTable.theTable.indexPathForSelectedRow){
+    NSLog(@"Table has selected row");
+  }
 }
 
 -(void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender
@@ -64,8 +69,11 @@
     DTReviewTableViewController *reviewController = [segue destinationViewController];
     reviewController.userID = self.lot.user_id;
   } else if([[segue identifier] isEqualToString:@"embed"]){
-    DTSpotTableViewController *spotTable = [segue destinationViewController];
-    spotTable.theLot = self.lot;
+    self.spotTable  = [segue destinationViewController];
+    self.spotTable.theLot = self.lot;
+  } else if([[segue identifier] isEqualToString:@"bookIt"]){
+     DTParkingSpot *selectedSpot = self.spotTable.spots[self.spotTable.theTable.indexPathForSelectedRow.row];
+    
   }
 }
 
