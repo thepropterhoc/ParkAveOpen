@@ -35,6 +35,17 @@
     return sharedInstance;
 }
 
+#pragma mark - Local User Session
+- (void) logoutUser {
+    
+}
+- (BOOL) userIsLoggedIn {
+    return [self.dataManager currentUser] != nil;
+}
+- (BOOL) userHasAccount {
+    return [self defaultsExist];
+}
+
 #pragma mark - Users
 
 - (void) authenticateUser:(DTUser*)user success: (void (^)(NSURLSessionDataTask *task, id responseObject))success failure:(void (^)(NSURLSessionDataTask *task, NSError *error))failure {
@@ -81,30 +92,32 @@
     }];
 }
 
-- (void) createUser:(DTUser*)user success: (void (^)(NSURLSessionDataTask *task, id responseObject))success failure:(void (^)(NSURLSessionDataTask *task, NSError *error))failure {
-    /*[[self networkManager] call:@"post" one:@"users" parameters:[user dictionaryRepresentation] success:^(NSURLSessionDataTask *task, id responseObject) {
-     success(task, responseObject);
+- (void) createUser:(DTUser*)user success: (void (^)(NSURLSessionDataTask *task, DTUser* newUser))success failure:(void (^)(NSURLSessionDataTask *task, NSError *error))failure {
+    [[self networkManager] call:@"post" one:@"users" parameters:[user dictionaryRepresentation] success:^(NSURLSessionDataTask *task, id responseObject) {
+        DTUser* newUser;
+        [newUser dictionaryWithValuesForKeys:responseObject];
+     success(task, newUser);
      } failure:^(NSURLSessionDataTask *task, NSError *error) {
      failure(task, error);
-     }];*/
+     }];
     
     //then query the database to get the id
 }
 
 - (void) updateUser:(DTUser*)user success: (void (^)(NSURLSessionDataTask *task, id responseObject))success failure:(void (^)(NSURLSessionDataTask *task, NSError *error))failure {
-    /*[[self networkManager] call:@"put" one:@"users" two:[user _id] parameters:[user dictionaryRepresentation] success:^(NSURLSessionDataTask *task, id responseObject) {
+    [[self networkManager] call:@"put" one:@"users" two:[user _id] parameters:[user dictionaryRepresentation] success:^(NSURLSessionDataTask *task, id responseObject) {
      success(task, responseObject);
      } failure:^(NSURLSessionDataTask *task, NSError *error) {
      failure(task, error);
-     }];*/
+     }];
 }
 
 - (void) deleteUser:(DTUser*)user success: (void (^)(NSURLSessionDataTask *task, id responseObject))success failure:(void (^)(NSURLSessionDataTask *task, NSError *error))failure {
-    /*[[self networkManager] call:@"delete" one:@"users" two:[user _id] parameters:[user dictionaryRepresentation] success:^(NSURLSessionDataTask *task, id responseObject) {
+    [[self networkManager] call:@"delete" one:@"users" two:[user _id] parameters:[user dictionaryRepresentation] success:^(NSURLSessionDataTask *task, id responseObject) {
      success(task, responseObject);
      } failure:^(NSURLSessionDataTask *task, NSError *error) {
      failure(task, error);
-     }];*/
+     }];
 }
 
 #pragma mark - Lots
@@ -185,6 +198,14 @@
 }
 
 #pragma mark - Cars
+
+- (void) getCarsForUser:(DTUser *)user success:(void (^)(NSURLSessionDataTask *, id))success failure:(void (^)(NSURLSessionDataTask *, NSError *))failure {
+    [self.networkManager call:@"get" one:@"users" two:[user _id] three:@"cars" parameters:nil success:^(NSURLSessionDataTask *task, id responseObject) {
+        success(task, [self parseJSON:responseObject toArrayOfClass:[DTCar class]]);
+    } failure:^(NSURLSessionDataTask *task, NSError *error) {
+        failure(task, error);
+    }];
+}
 
 - (void) getCar:(DTCar*)car success: (void (^)(NSURLSessionDataTask *task, id responseObject))success failure:(void (^)(NSURLSessionDataTask *task, NSError *error))failure {
     NSLog(@"%@ not implemented", NSStringFromSelector(_cmd));

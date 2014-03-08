@@ -34,7 +34,7 @@
 
 - (void) getUserWithId:(NSString*)userID success: (void (^)(NSURLSessionDataTask *task, DTUser* user))success failure:(void (^)(NSURLSessionDataTask *task, NSError *error))failure;
 
-- (void) createUser:(DTUser*)user success: (void (^)(NSURLSessionDataTask *task, id responseObject))success failure:(void (^)(NSURLSessionDataTask *task, NSError *error))failure;
+- (void) createUser:(DTUser*)user success: (void (^)(NSURLSessionDataTask *task, DTUser* newUser))success failure:(void (^)(NSURLSessionDataTask *task, NSError *error))failure;
 
 - (void) updateUser:(DTUser*)user success: (void (^)(NSURLSessionDataTask *task, id responseObject))success failure:(void (^)(NSURLSessionDataTask *task, NSError *error))failure;
 
@@ -103,7 +103,7 @@
 #pragma mark - Sorting
 
 - (NSArray*) sortLotsByRating:(NSArray*)array isAscending:(BOOL)isAscending;
-- (NSArray*) sortLots:(NSMutableArray*)array byDistanceFromLatitude:(CGFloat)latitude andLongitude:(CGFloat)longitude isDescending:(BOOL)isDescending;
+- (NSArray*) sortLots:(NSMutableArray*)array byDistanceFromLatitude:(CGFloat)latitude andLongitude:(CGFloat)longitude isAscending:(BOOL)isDescending;
 - (NSArray*) sortLotsByPrice:(NSArray*)array isAscending:(BOOL)isAscending;
 
 #pragma mark - Helper Methods
