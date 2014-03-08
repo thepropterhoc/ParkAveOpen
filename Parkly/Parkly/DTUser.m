@@ -10,4 +10,18 @@
 
 @implementation DTUser
 
+
+- (NSDictionary*) dictionaryRepresentation {
+    return @{@"_id": self._id,
+             @"firstName": self.firstName,
+             @"lastName": self.lastName,
+             @"email": self.email,
+             @"password": self.password,
+             @"birthdate": self.birthdate,
+             @"phone": self.phone,
+             @"reservedSpots": self.reservedSpots,
+             @"spotHistory": self.spotHistory,
+             };
+}
+
 @end

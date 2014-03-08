@@ -22,4 +22,6 @@
 @property (strong, nonatomic) NSArray* reservedSpots;
 @property (strong, nonatomic) NSArray* spotHistory;
 
+- (NSDictionary*) dictionaryRepresentation;
+
 @end
