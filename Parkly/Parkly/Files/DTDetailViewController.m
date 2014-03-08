@@ -9,6 +9,7 @@
 #import "DTDetailViewController.h"
 #import "DTReviewTableViewController.h"
 #import "DTSpotTableViewController.h"
+#import "DTBuyViewController.h"
 #import "DTModel.h"
 
 @interface DTDetailViewController ()
@@ -54,12 +55,21 @@
   //self.averagePrice.text = [NSString stringWithFormat:@"$%.2f", self.lot.averagePrice.floatValue];
   UIImage *theImage = [UIImage imageWithData:[NSData dataWithContentsOfURL:[NSURL URLWithString:self.lot.imagePath]]];
   [self.imageView setImage:theImage];
+  [self didDeselectRow];
 }
 
 - (IBAction)bookSpot:(id)sender
 {
   if(self.spotTable.theTable.indexPathForSelectedRow){
-    NSLog(@"Table has selected row");
+    if([[DTModel sharedInstance] userHasAccount]){
+      if([[DTModel sharedInstance] userIsLoggedIn]){
+        [self performSegueWithIdentifier:@"bookIt" sender:self];
+      } else {
+        [self logIn];
+      }
+    } else {
+      [self createAccount];
+    }
   }
 }
 
@@ -71,10 +81,36 @@
   } else if([[segue identifier] isEqualToString:@"embed"]){
     self.spotTable  = [segue destinationViewController];
     self.spotTable.theLot = self.lot;
+    self.spotTable.delegate = self;
   } else if([[segue identifier] isEqualToString:@"bookIt"]){
      DTParkingSpot *selectedSpot = self.spotTable.spots[self.spotTable.theTable.indexPathForSelectedRow.row];
-    
+    DTBuyViewController *buyViewController = [segue destinationViewController];
+    buyViewController.theLot = self.lot;
+    buyViewController.theSpot = selectedSpot;
   }
+}
+
+-(void)didSelectRow
+{
+  [self.bookItButton setEnabled:YES];
+  
+  [self.bookItButton setAlpha:1.0f];
+}
+
+-(void)didDeselectRow
+{
+  [self.bookItButton setEnabled:NO];
+  [self.bookItButton setAlpha:0.4f];
+}
+
+-(void)logIn
+{
+  
+}
+
+-(void)createAccount
+{
+  
 }
 
 @end
