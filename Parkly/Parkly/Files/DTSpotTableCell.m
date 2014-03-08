@@ -30,8 +30,8 @@
 -(void)initWithParkingSpot:(DTParkingSpot*)spot
 {
   self.price.text = [NSString stringWithFormat:@"$ %.2f", [spot.price floatValue]];
-  self.spotDate.text = [NSString stringWithFormat:@"%@", [NSDateFormatter localizedStringFromDate:spot.date dateStyle:NSDateFormatterShortStyle timeStyle:NSDateFormatterNoStyle]];
-  self.spotType.text = spot.spotType;
+  self.spotDate.text = [spot startDate];
+  self.spotType.text = spot.surface;
 }
 
 @end

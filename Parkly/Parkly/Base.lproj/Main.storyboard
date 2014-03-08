@@ -1128,6 +1128,9 @@
                     </view>
                     <toolbarItems/>
                     <navigationItem key="navigationItem" title="Reviews" id="gdP-9i-wrw"/>
+                    <connections>
+                        <outlet property="tableView" destination="0hU-RO-gtT" id="sBf-H8-4dw"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="7o8-A6-7da" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>

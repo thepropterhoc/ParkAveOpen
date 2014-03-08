@@ -31,6 +31,9 @@
   [super viewDidLoad];
   if(self.lot){
     [self initialize];
+    [self.imageView setImage:[UIImage imageWithData:[NSData dataWithContentsOfURL:[NSURL URLWithString:[NSString stringWithFormat:@"http://maps.googleapis.com/maps/api/streetview?size=320x220&location=%.3f,%.3f&fov=90&heading=235&pitch=10&sensor=false", self.lot.lat.floatValue, self.lot.lon.floatValue]]]]];
+  } else {
+    NSLog(@"Lot doesn't exist");
   }
 	// Do any additional setup after loading the view.
 }
@@ -59,17 +62,11 @@
 {
   if([[segue identifier] isEqualToString:@"goToReview"]){
     DTReviewTableViewController *reviewController = [segue destinationViewController];
-    
-    [[DTModel sharedInstance] getUserWithId:self.lot.user_id success:^(NSURLSessionDataTask *task, id responseObject) {
-      reviewController.theUser = responseObject;
-    } failure:^(NSURLSessionDataTask *task, NSError *error) {
-      reviewController.theUser = nil;
-    }];
+    reviewController.userID = self.lot.user_id;
   } else if([[segue identifier] isEqualToString:@"embed"]){
-    DTSpotTableViewController *spotController = [segue destinationViewController];
-    spotController.theLot = self.lot;
+    DTSpotTableViewController *spotTable = [segue destinationViewController];
+    spotTable.theLot = self.lot;
   }
 }
-
 
 @end

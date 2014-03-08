@@ -90,12 +90,15 @@
 
 -(void)fetchSpots
 {
+  NSLog(@"%@", self.theLot);
   [[DTModel sharedInstance] getSpotsForLot:self.theLot success:^(NSURLSessionDataTask *task, NSArray *spots) {
     self.spots = spots;
     [self.theTable reloadData];
+    NSLog(@"Loaded spots : %@", spots);
   } failure:^(NSURLSessionDataTask *task, NSError *error) {
     self.spots = nil;
     [self.theTable reloadData];
+    NSLog(@"Failure to load spots. %@", error);
   }];
 }
 

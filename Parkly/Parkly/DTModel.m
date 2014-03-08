@@ -223,8 +223,13 @@
     }];
 }
 
-- (void) getReviewsForUser:(DTUser*)user success: (void (^)(NSURLSessionDataTask *task, id responseObject))success failure:(void (^)(NSURLSessionDataTask *task, NSError *error))failure {
-        NSLog(@"%@ not implemented", NSStringFromSelector(_cmd));
+- (void) getReviewsForUser:(DTUser*)user success: (void (^)(NSURLSessionDataTask *task, NSArray* reviews))success failure:(void (^)(NSURLSessionDataTask *task, NSError *error))failure {
+  NSLog(@"%@", user._id);
+  [self.networkManager call:@"get" one:@"users" two:[user _id] three:@"reviews" parameters:nil success:^(NSURLSessionDataTask *task, id responseObject) {
+    success(task, [self parseJSON:responseObject toArrayOfClass:[DTReview class]]);
+  } failure:^(NSURLSessionDataTask *task, NSError *error) {
+    failure(task, error);
+  }];
 }
 
 - (void) getReview:(DTReview*)review success: (void (^)(NSURLSessionDataTask *task, id responseObject))success failure:(void (^)(NSURLSessionDataTask *task, NSError *error))failure {

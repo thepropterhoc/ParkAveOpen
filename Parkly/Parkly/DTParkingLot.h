@@ -31,6 +31,7 @@
 @property (strong, nonatomic) NSString *pavementType;
 @property (strong, nonatomic) NSString *imagePath;
 
+#warning Need to be implemented
 @property (strong, nonatomic) NSNumber *averageRating;
 @property (strong, nonatomic) NSNumber *averagePrice;
 @property (strong, nonatomic) NSNumber *distance;

@@ -12,5 +12,8 @@
 @interface DTReviewTableViewController : UIViewController <UITableViewDataSource, UITableViewDelegate>
 
 @property (strong, nonatomic) DTUser *theUser;
+@property (strong, nonatomic) NSString *userID;
+
+@property (strong, nonatomic) IBOutlet UITableView *tableView;
 
 @end
