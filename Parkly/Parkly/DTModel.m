@@ -72,10 +72,10 @@
 
 - (void) getUserWithId:(NSString*)userID success: (void (^)(NSURLSessionDataTask *task, DTUser* user))success failure:(void (^)(NSURLSessionDataTask *task, NSError *error))failure {
     [self.networkManager call:@"get" one:@"users" two:userID parameters:nil success:^(NSURLSessionDataTask *task, id responseObject) {
-      DTUser* newUser = [[DTUser alloc] init];
-      NSLog(@"%@", responseObject);
-      [newUser setValuesForKeysWithDictionary:responseObject];
-      success(task, newUser);
+        DTUser* newUser = [[DTUser alloc] init];
+        NSLog(@"%@", responseObject);
+        [newUser setValuesForKeysWithDictionary:responseObject];
+        success(task, newUser);
     } failure:^(NSURLSessionDataTask *task, NSError *error) {
         failure(task, error);
     }];
@@ -83,10 +83,10 @@
 
 - (void) createUser:(DTUser*)user success: (void (^)(NSURLSessionDataTask *task, id responseObject))success failure:(void (^)(NSURLSessionDataTask *task, NSError *error))failure {
     /*[[self networkManager] call:@"post" one:@"users" parameters:[user dictionaryRepresentation] success:^(NSURLSessionDataTask *task, id responseObject) {
-        success(task, responseObject);
-    } failure:^(NSURLSessionDataTask *task, NSError *error) {
-        failure(task, error);
-    }];*/
+     success(task, responseObject);
+     } failure:^(NSURLSessionDataTask *task, NSError *error) {
+     failure(task, error);
+     }];*/
     
     //then query the database to get the id
 }
@@ -118,7 +118,7 @@
 }
 
 - (void) getLotsNearLatitude:(CGFloat*)latitude andLongitude:(CGFloat*)longitude success:(void (^)(NSURLSessionDataTask *task, NSArray* allLots))success failure:(void (^)(NSURLSessionDataTask *task, NSError *error))failure {
-    #warning fix this later
+#warning fix this later
     [self getAllLots:success failure:failure];
 }
 
@@ -127,15 +127,15 @@
 }
 
 - (void) createLot:(DTParkingLot*)lot success: (void (^)(NSURLSessionDataTask *task, id responseObject))success failure:(void (^)(NSURLSessionDataTask *task, NSError *error))failure {
-        NSLog(@"%@ not implemented", NSStringFromSelector(_cmd));
+    NSLog(@"%@ not implemented", NSStringFromSelector(_cmd));
 }
 
 - (void) updateLot:(DTParkingLot*)lot success: (void (^)(NSURLSessionDataTask *task, id responseObject))success failure:(void (^)(NSURLSessionDataTask *task, NSError *error))failure {
-        NSLog(@"%@ not implemented", NSStringFromSelector(_cmd));
+    NSLog(@"%@ not implemented", NSStringFromSelector(_cmd));
 }
 
 - (void) deleteLot:(DTParkingLot*)lot success: (void (^)(NSURLSessionDataTask *task, id responseObject))success failure:(void (^)(NSURLSessionDataTask *task, NSError *error))failure {
-        NSLog(@"%@ not implemented", NSStringFromSelector(_cmd));
+    NSLog(@"%@ not implemented", NSStringFromSelector(_cmd));
 }
 
 #pragma mark - Spots
@@ -169,25 +169,25 @@
 }
 
 - (void) getSpot:(DTParkingSpot*)spot success: (void (^)(NSURLSessionDataTask *task, id responseObject))success failure:(void (^)(NSURLSessionDataTask *task, NSError *error))failure {
-        NSLog(@"%@ not implemented", NSStringFromSelector(_cmd));
+    NSLog(@"%@ not implemented", NSStringFromSelector(_cmd));
 }
 
 - (void) createSpot:(DTParkingSpot*)spot success: (void (^)(NSURLSessionDataTask *task, id responseObject))success failure:(void (^)(NSURLSessionDataTask *task, NSError *error))failure {
-        NSLog(@"%@ not implemented", NSStringFromSelector(_cmd));
+    NSLog(@"%@ not implemented", NSStringFromSelector(_cmd));
 }
 
 - (void) updateSpot:(DTParkingSpot*)spot success: (void (^)(NSURLSessionDataTask *task, id responseObject))success failure:(void (^)(NSURLSessionDataTask *task, NSError *error))failure {
-        NSLog(@"%@ not implemented", NSStringFromSelector(_cmd));
+    NSLog(@"%@ not implemented", NSStringFromSelector(_cmd));
 }
 
 - (void) deleteSpot:(DTParkingSpot*)spot success: (void (^)(NSURLSessionDataTask *task, id responseObject))success failure:(void (^)(NSURLSessionDataTask *task, NSError *error))failure {
-        NSLog(@"%@ not implemented", NSStringFromSelector(_cmd));
+    NSLog(@"%@ not implemented", NSStringFromSelector(_cmd));
 }
 
 #pragma mark - Cars
 
 - (void) getCar:(DTCar*)car success: (void (^)(NSURLSessionDataTask *task, id responseObject))success failure:(void (^)(NSURLSessionDataTask *task, NSError *error))failure {
-        NSLog(@"%@ not implemented", NSStringFromSelector(_cmd));
+    NSLog(@"%@ not implemented", NSStringFromSelector(_cmd));
 }
 
 - (void) createCar:(DTCar*)car success: (void (^)(NSURLSessionDataTask *task, id responseObject))success failure:(void (^)(NSURLSessionDataTask *task, NSError *error))failure {
@@ -224,16 +224,16 @@
 }
 
 - (void) getReviewsForUser:(DTUser*)user success: (void (^)(NSURLSessionDataTask *task, NSArray* reviews))success failure:(void (^)(NSURLSessionDataTask *task, NSError *error))failure {
-  NSLog(@"%@", user._id);
-  [self.networkManager call:@"get" one:@"users" two:[user _id] three:@"reviews" parameters:nil success:^(NSURLSessionDataTask *task, id responseObject) {
-    success(task, [self parseJSON:responseObject toArrayOfClass:[DTReview class]]);
-  } failure:^(NSURLSessionDataTask *task, NSError *error) {
-    failure(task, error);
-  }];
+    NSLog(@"%@", user._id);
+    [self.networkManager call:@"get" one:@"users" two:[user _id] three:@"reviews" parameters:nil success:^(NSURLSessionDataTask *task, id responseObject) {
+        success(task, [self parseJSON:responseObject toArrayOfClass:[DTReview class]]);
+    } failure:^(NSURLSessionDataTask *task, NSError *error) {
+        failure(task, error);
+    }];
 }
 
 - (void) getReview:(DTReview*)review success: (void (^)(NSURLSessionDataTask *task, id responseObject))success failure:(void (^)(NSURLSessionDataTask *task, NSError *error))failure {
-        NSLog(@"%@ not implemented", NSStringFromSelector(_cmd));
+    NSLog(@"%@ not implemented", NSStringFromSelector(_cmd));
 }
 
 - (void) createReview:(DTReview*)review success: (void (^)(NSURLSessionDataTask *task, id responseObject))success failure:(void (^)(NSURLSessionDataTask *task, NSError *error))failure {
@@ -241,11 +241,11 @@
 }
 
 - (void) updateReview:(DTReview*)review success: (void (^)(NSURLSessionDataTask *task, id responseObject))success failure:(void (^)(NSURLSessionDataTask *task, NSError *error))failure {
-        NSLog(@"%@ not implemented", NSStringFromSelector(_cmd));
+    NSLog(@"%@ not implemented", NSStringFromSelector(_cmd));
 }
 
 - (void) deleteReview:(DTReview*)review success: (void (^)(NSURLSessionDataTask *task, id responseObject))success failure:(void (^)(NSURLSessionDataTask *task, NSError *error))failure {
-        NSLog(@"%@ not implemented", NSStringFromSelector(_cmd));
+    NSLog(@"%@ not implemented", NSStringFromSelector(_cmd));
 }
 
 #pragma mark - Pseudo-properties
@@ -269,6 +269,65 @@
     [[NSUserDefaults standardUserDefaults] synchronize];
 }
 
+#pragma mark - Sorting
+
+- (NSArray*) sortLotsByRating:(NSArray*)array isAscending:(BOOL)isAscending {
+    [[array mutableCopy] sortUsingComparator:^NSComparisonResult(id obj1, id obj2) {
+        DTParkingLot* lotA = obj1;
+        DTParkingLot* lotB = obj2;
+        CGFloat ratingA = [lotA.averageRating floatValue];
+        CGFloat ratingB = [lotB.averageRating floatValue];
+        
+        if (ratingA > ratingB) {
+            return isAscending ? NSOrderedAscending : NSOrderedDescending;
+        } else if (ratingA < ratingB) {
+            return isAscending ? NSOrderedDescending : NSOrderedAscending;
+        }
+        return NSOrderedSame;
+    }];
+    return array;
+}
+- (NSArray*) sortLots:(NSMutableArray*)array byDistanceFromLatitude:(CGFloat)latitude andLongitude:(CGFloat)longitude isAscending:(BOOL)isAscending {
+    NSLog(@"asc/desc may not work correctly");
+    [[array mutableCopy] sortUsingComparator:^NSComparisonResult(id obj1, id obj2) {
+        DTParkingLot* lotA = obj1;
+        CGFloat latA = [lotA.lat floatValue];
+        CGFloat lonA = [lotA.lon floatValue];
+        
+        CGFloat distanceA = sqrt((latitude - latA)*(latitude - latA) + (longitude - lonA)*(longitude - lonA));
+        
+        DTParkingLot* lotB = obj2;
+        CGFloat latB = [lotB.lat floatValue];
+        CGFloat lonB = [lotB.lon floatValue];
+        
+        CGFloat distanceB = sqrt((latitude - latB)*(latitude - latB) + (longitude - lonB)*(longitude - lonB));
+
+        if(distanceA > distanceB) {
+            return NSOrderedAscending;
+        } else if (distanceA < distanceB) {
+            return NSOrderedDescending;
+        }
+        return NSOrderedSame;
+    }];
+    return array;
+}
+- (NSArray*) sortLotsByPrice:(NSMutableArray*)array isAscending:(BOOL)isAscending {
+    NSLog(@"asc/desc may not work correctly");
+    [[array mutableCopy] sortUsingComparator:^NSComparisonResult(id obj1, id obj2) {
+        DTParkingLot* lotA = obj1;
+        DTParkingLot* lotB = obj2;
+        CGFloat priceA = [lotA.averagePrice floatValue];
+        CGFloat priceB = [lotB.averagePrice floatValue];
+        
+        if (priceA > priceB) {
+            return isAscending ? NSOrderedAscending : NSOrderedDescending;
+        } else if (priceA < priceB) {
+            return isAscending ? NSOrderedDescending : NSOrderedAscending;
+        }
+        return NSOrderedSame;
+    }];
+    return array;
+}
 #pragma mark - Helper Methods
 
 - (NSArray*) parseJSON:(id)json toArrayOfClass:(__unsafe_unretained Class)theClass {

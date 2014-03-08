@@ -19,6 +19,11 @@
 
 + (instancetype) sharedInstance;
 
+#pragma mark - Local User Session
+- (void) logoutUser;
+- (BOOL) userIsLoggedIn;
+- (BOOL) userHasAccount;
+
 //most of these are not yet implemented
 
 #pragma mark - Users
@@ -94,6 +99,12 @@
 - (NSString*) defaultEmail;
 - (NSString*) defaultPassword;
 - (BOOL) defaultsExist;
+
+#pragma mark - Sorting
+
+- (NSArray*) sortLotsByRating:(NSArray*)array isAscending:(BOOL)isAscending;
+- (NSArray*) sortLots:(NSMutableArray*)array byDistanceFromLatitude:(CGFloat)latitude andLongitude:(CGFloat)longitude isDescending:(BOOL)isDescending;
+- (NSArray*) sortLotsByPrice:(NSArray*)array isAscending:(BOOL)isAscending;
 
 #pragma mark - Helper Methods
 
