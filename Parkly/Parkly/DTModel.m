@@ -275,10 +275,12 @@
     [[array mutableCopy] sortUsingComparator:^NSComparisonResult(id obj1, id obj2) {
         DTParkingLot* lotA = obj1;
         DTParkingLot* lotB = obj2;
+        CGFloat ratingA = [lotA.averageRating floatValue];
+        CGFloat ratingB = [lotB.averageRating floatValue];
         
-        if ([lotA averageRating] > [lotB averageRating]) {
+        if (ratingA > ratingB) {
             return isAscending ? NSOrderedAscending : NSOrderedDescending;
-        } else if ([lotA averageRating] < [lotB averageRating]) {
+        } else if (ratingA < ratingB) {
             return isAscending ? NSOrderedDescending : NSOrderedAscending;
         }
         return NSOrderedSame;
@@ -305,10 +307,12 @@
     [[array mutableCopy] sortUsingComparator:^NSComparisonResult(id obj1, id obj2) {
         DTParkingLot* lotA = obj1;
         DTParkingLot* lotB = obj2;
+        CGFloat priceA = [lotA.averagePrice floatValue];
+        CGFloat priceB = [lotB.averagePrice floatValue];
         
-        if ([lotA averagePrice] > [lotB averagePrice]) {
+        if (priceA > priceB) {
             return isAscending ? NSOrderedAscending : NSOrderedDescending;
-        } else if ([lotA averagePrice] < [lotB averagePrice]) {
+        } else if (priceA < priceB) {
             return isAscending ? NSOrderedDescending : NSOrderedAscending;
         }
         return NSOrderedSame;
