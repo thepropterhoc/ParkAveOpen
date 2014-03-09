@@ -14,7 +14,7 @@
 
 @end
 
-@interface DTSignupViewController : UIViewController
+@interface DTSignupViewController : UIViewController <UITextFieldDelegate>
 
 @property (weak, nonatomic) id<DTSignupViewControllerDelegate> delegate;
 

@@ -21,6 +21,8 @@
 @property (strong, nonatomic) IBOutlet UITextField *yearField;
 @property (strong, nonatomic) IBOutlet UITextField *phoneField;
 
+@property (strong, nonatomic) IBOutlet UIScrollView *theScrollView;
+
 @end
 
 @implementation DTSignupViewController
@@ -37,6 +39,12 @@
 - (void)viewDidLoad
 {
     [super viewDidLoad];
+  [self.theScrollView setContentSize:CGSizeMake(320, 800)];
+  NSLog(@"Frame : %.f, %.f, %.f, %.f\nContent : %.f, %.f", self.theScrollView.frame.origin.x
+        , self.theScrollView.frame.origin.y, self.theScrollView.frame.size.width, self.theScrollView.frame.size.height, self.theScrollView.contentSize.width, self.theScrollView.contentSize.height);
+  [self.theScrollView setScrollEnabled:YES];
+  //[self.theScrollView setBounds:self.theScrollView.frame];
+  
 	// Do any additional setup after loading the view.
 }
 
@@ -72,6 +80,23 @@
 - (IBAction)cancel:(id)sender
 {
   [self.delegate dismissSignupViewController];
+}
+
+-(void)textFieldDidBeginEditing:(UITextField *)textField
+{
+  [self.theScrollView setContentOffset:CGPointMake(0, textField.frame.origin.y - 30.0f) animated:YES];
+}
+- (IBAction)tap:(id)sender
+{
+  [self.firstNameField resignFirstResponder];
+  [self.lastNameField resignFirstResponder];
+  [self.emailField resignFirstResponder];
+  [self.passwordField resignFirstResponder];
+  [self.monthField resignFirstResponder];
+  [self.dayField resignFirstResponder];
+  [self.yearField resignFirstResponder];
+  [self.phoneField resignFirstResponder];
+  [self.theScrollView setContentOffset:CGPointMake(0.0f, 0.0f) animated:YES];
 }
 
 @end

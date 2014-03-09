@@ -619,8 +619,8 @@
                         <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                         <subviews>
-                            <scrollView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="KR9-hn-YdR">
-                                <rect key="frame" x="0.0" y="81" width="320" height="420"/>
+                            <scrollView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" directionalLockEnabled="YES" alwaysBounceVertical="YES" translatesAutoresizingMaskIntoConstraints="NO" id="KR9-hn-YdR">
+                                <rect key="frame" x="0.0" y="67" width="320" height="434"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <subviews>
                                     <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="XXX-XXX-XXXX" textAlignment="center" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="8ZP-II-c3A">
@@ -631,7 +631,7 @@
                                         <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                         <textInputTraits key="textInputTraits" keyboardType="phonePad" enablesReturnKeyAutomatically="YES"/>
                                         <connections>
-                                            <outlet property="delegate" destination="pwE-RB-6ll" id="oWf-hn-gup"/>
+                                            <outlet property="delegate" destination="3OT-FQ-bKD" id="neN-zw-FYj"/>
                                         </connections>
                                     </textField>
                                     <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Phone" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="uxd-vM-jrQ">
@@ -652,7 +652,7 @@
                                         <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                         <textInputTraits key="textInputTraits" keyboardType="phonePad" enablesReturnKeyAutomatically="YES"/>
                                         <connections>
-                                            <outlet property="delegate" destination="pwE-RB-6ll" id="XM5-R3-LWK"/>
+                                            <outlet property="delegate" destination="3OT-FQ-bKD" id="ER8-wK-O26"/>
                                         </connections>
                                     </textField>
                                     <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="DD" textAlignment="center" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="Zks-Ch-2lg">
@@ -663,7 +663,7 @@
                                         <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                         <textInputTraits key="textInputTraits" keyboardType="phonePad" enablesReturnKeyAutomatically="YES"/>
                                         <connections>
-                                            <outlet property="delegate" destination="pwE-RB-6ll" id="zpE-HR-Xlt"/>
+                                            <outlet property="delegate" destination="3OT-FQ-bKD" id="S3E-PZ-c49"/>
                                         </connections>
                                     </textField>
                                     <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="YYYY" textAlignment="center" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="vAK-ue-2HT">
@@ -674,7 +674,7 @@
                                         <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                         <textInputTraits key="textInputTraits" keyboardType="phonePad" enablesReturnKeyAutomatically="YES"/>
                                         <connections>
-                                            <outlet property="delegate" destination="pwE-RB-6ll" id="xW2-X4-wJn"/>
+                                            <outlet property="delegate" destination="3OT-FQ-bKD" id="BeR-Hg-kor"/>
                                         </connections>
                                     </textField>
                                     <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Date of Birth" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="KT2-HU-3Xi">
@@ -692,7 +692,7 @@
                                         <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                         <textInputTraits key="textInputTraits" enablesReturnKeyAutomatically="YES" secureTextEntry="YES"/>
                                         <connections>
-                                            <outlet property="delegate" destination="pwE-RB-6ll" id="9ei-Mp-vG5"/>
+                                            <outlet property="delegate" destination="3OT-FQ-bKD" id="Q63-2r-Mx0"/>
                                         </connections>
                                     </textField>
                                     <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Password" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="VkO-Yp-Yxc">
@@ -712,6 +712,9 @@
                                         <color key="textColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
                                         <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                         <textInputTraits key="textInputTraits" enablesReturnKeyAutomatically="YES"/>
+                                        <connections>
+                                            <outlet property="delegate" destination="3OT-FQ-bKD" id="sSO-iA-DTV"/>
+                                        </connections>
                                     </textField>
                                     <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Email" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="I5g-F5-6cT">
                                         <rect key="frame" x="20" y="101" width="128" height="24"/>
@@ -730,6 +733,9 @@
                                         <color key="textColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
                                         <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                         <textInputTraits key="textInputTraits" enablesReturnKeyAutomatically="YES"/>
+                                        <connections>
+                                            <outlet property="delegate" destination="3OT-FQ-bKD" id="vC5-Z4-db0"/>
+                                        </connections>
                                     </textField>
                                     <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="last" textAlignment="center" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="e8G-ub-Brf">
                                         <rect key="frame" x="171" y="59" width="130" height="30"/>
@@ -738,9 +744,12 @@
                                         <color key="textColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
                                         <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                         <textInputTraits key="textInputTraits" enablesReturnKeyAutomatically="YES"/>
+                                        <connections>
+                                            <outlet property="delegate" destination="3OT-FQ-bKD" id="4IJ-TB-LL3"/>
+                                        </connections>
                                     </textField>
                                     <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Name" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="F5i-F6-NrQ">
-                                        <rect key="frame" x="20" y="30" width="128" height="21"/>
+                                        <rect key="frame" x="20" y="20" width="128" height="31"/>
                                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                         <constraints>
                                             <constraint firstAttribute="width" constant="128" id="PyW-8w-pIe"/>
@@ -750,6 +759,7 @@
                                         <nil key="highlightedColor"/>
                                     </label>
                                 </subviews>
+                                <gestureRecognizers/>
                                 <constraints>
                                     <constraint firstItem="8ZP-II-c3A" firstAttribute="top" secondItem="uxd-vM-jrQ" secondAttribute="bottom" constant="8" symbolic="YES" id="0S8-e0-0zr"/>
                                     <constraint firstItem="I5g-F5-6cT" firstAttribute="leading" secondItem="pjV-JU-QYK" secondAttribute="leading" id="19I-YT-Dip"/>
@@ -789,13 +799,16 @@
                                     <constraint firstItem="Zks-Ch-2lg" firstAttribute="leading" secondItem="8Yt-7q-qjX" secondAttribute="trailing" constant="20" id="p69-sr-v6m"/>
                                     <constraint firstItem="uxd-vM-jrQ" firstAttribute="top" secondItem="8Yt-7q-qjX" secondAttribute="bottom" constant="12" id="pge-hw-icD"/>
                                     <constraint firstItem="KT2-HU-3Xi" firstAttribute="top" secondItem="Vwn-nQ-Nit" secondAttribute="bottom" constant="12" id="phk-UH-rZ7"/>
-                                    <constraint firstAttribute="bottom" secondItem="8ZP-II-c3A" secondAttribute="bottom" constant="44" id="rqd-8d-Ihl"/>
+                                    <constraint firstAttribute="bottom" secondItem="8ZP-II-c3A" secondAttribute="bottom" constant="58" id="rqd-8d-Ihl"/>
                                     <constraint firstItem="Zks-Ch-2lg" firstAttribute="bottom" secondItem="8Yt-7q-qjX" secondAttribute="bottom" id="s39-Cl-jLk"/>
                                     <constraint firstAttribute="trailing" secondItem="pjV-JU-QYK" secondAttribute="trailing" constant="20" symbolic="YES" id="sxx-ch-mWH"/>
                                     <constraint firstItem="vAK-ue-2HT" firstAttribute="top" secondItem="Vwn-nQ-Nit" secondAttribute="bottom" constant="41" id="wDw-Lz-K1j"/>
-                                    <constraint firstItem="F5i-F6-NrQ" firstAttribute="top" secondItem="KR9-hn-YdR" secondAttribute="top" constant="30" id="xAV-hz-ZOc"/>
+                                    <constraint firstItem="F5i-F6-NrQ" firstAttribute="top" secondItem="KR9-hn-YdR" secondAttribute="top" constant="20" id="xAV-hz-ZOc"/>
                                     <constraint firstItem="Vwn-nQ-Nit" firstAttribute="top" secondItem="VkO-Yp-Yxc" secondAttribute="bottom" constant="8" symbolic="YES" id="yfn-Vt-8CH"/>
                                 </constraints>
+                                <connections>
+                                    <outletCollection property="gestureRecognizers" destination="18G-uY-MRS" appends="YES" id="Y6P-X3-Vtk"/>
+                                </connections>
                             </scrollView>
                             <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Sign Up" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="vYO-fD-dyZ">
                                 <rect key="frame" x="44" y="20" width="233" height="39"/>
@@ -848,16 +861,17 @@
                             <constraint firstItem="Bqo-Ad-vwW" firstAttribute="width" secondItem="l2J-RN-dHK" secondAttribute="width" constant="-2" id="6Th-11-Qm6"/>
                             <constraint firstItem="l2J-RN-dHK" firstAttribute="leading" secondItem="Bqo-Ad-vwW" secondAttribute="trailing" constant="20" id="6Yt-lM-Tnk"/>
                             <constraint firstItem="Ufq-5x-yAr" firstAttribute="top" secondItem="Bqo-Ad-vwW" secondAttribute="bottom" constant="20" id="Aad-yu-mUJ"/>
+                            <constraint firstItem="KR9-hn-YdR" firstAttribute="top" secondItem="vYO-fD-dyZ" secondAttribute="bottom" constant="8" id="D4q-29-GtH"/>
                             <constraint firstItem="Bqo-Ad-vwW" firstAttribute="leading" secondItem="Z2X-zL-nmT" secondAttribute="leading" constant="20" id="DSo-eF-PPl"/>
                             <constraint firstAttribute="centerX" secondItem="KR9-hn-YdR" secondAttribute="centerX" id="U1A-Tq-dzB"/>
                             <constraint firstAttribute="trailing" secondItem="KR9-hn-YdR" secondAttribute="trailing" id="UUa-5g-Oxv"/>
                             <constraint firstAttribute="centerX" secondItem="vYO-fD-dyZ" secondAttribute="centerX" constant="-0.5" id="XXg-ed-d5J"/>
                             <constraint firstAttribute="trailing" secondItem="l2J-RN-dHK" secondAttribute="trailing" constant="20" id="Y8A-pP-xTx"/>
-                            <constraint firstItem="Uzq-BQ-Tre" firstAttribute="top" secondItem="vYO-fD-dyZ" secondAttribute="bottom" constant="-39" id="dke-KV-rfX"/>
                             <constraint firstItem="Bqo-Ad-vwW" firstAttribute="bottom" secondItem="l2J-RN-dHK" secondAttribute="bottom" id="hIB-sm-JfN"/>
                             <constraint firstItem="KR9-hn-YdR" firstAttribute="leading" secondItem="Z2X-zL-nmT" secondAttribute="leading" id="m13-kZ-txY"/>
+                            <constraint firstItem="Uzq-BQ-Tre" firstAttribute="top" secondItem="vYO-fD-dyZ" secondAttribute="bottom" constant="-39" id="mGz-4z-Avm"/>
                             <constraint firstItem="Ufq-5x-yAr" firstAttribute="top" secondItem="KR9-hn-YdR" secondAttribute="bottom" constant="67" id="oFV-WG-m6j"/>
-                            <constraint firstItem="KR9-hn-YdR" firstAttribute="top" secondItem="vYO-fD-dyZ" secondAttribute="bottom" constant="22" id="xYM-Fk-Dxt"/>
+                            <constraint firstAttribute="centerX" secondItem="vYO-fD-dyZ" secondAttribute="centerX" constant="-0.5" id="vWY-qv-3uf"/>
                         </constraints>
                     </view>
                     <connections>
@@ -868,10 +882,16 @@
                         <outlet property="monthField" destination="8Yt-7q-qjX" id="zDY-CZ-iaL"/>
                         <outlet property="passwordField" destination="Vwn-nQ-Nit" id="Cgx-f8-yZa"/>
                         <outlet property="phoneField" destination="8ZP-II-c3A" id="d7w-2d-dwH"/>
+                        <outlet property="theScrollView" destination="KR9-hn-YdR" id="SuS-J3-ska"/>
                         <outlet property="yearField" destination="vAK-ue-2HT" id="AtJ-3a-i3d"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="YET-4u-Pc4" userLabel="First Responder" sceneMemberID="firstResponder"/>
+                <tapGestureRecognizer id="18G-uY-MRS">
+                    <connections>
+                        <action selector="tap:" destination="3OT-FQ-bKD" id="bbv-o8-iw0"/>
+                    </connections>
+                </tapGestureRecognizer>
             </objects>
             <point key="canvasLocation" x="2482" y="1538"/>
         </scene>
