@@ -1152,6 +1152,7 @@
                     <navigationItem key="navigationItem" id="RBI-9P-Y3l"/>
                     <connections>
                         <outlet property="theTextView" destination="jEG-CW-S1Y" id="Mbp-xD-QW8"/>
+                        <segue destination="fKf-OU-47F" kind="modal" identifier="goToMain" modalTransitionStyle="crossDissolve" id="55O-Fy-UEt"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="b6d-oi-PT3" userLabel="First Responder" sceneMemberID="firstResponder"/>
