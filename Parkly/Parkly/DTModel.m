@@ -300,8 +300,10 @@
 #pragma mark - Directions
 
 - (void) openDirectionsInMapsToLatitude:(CGFloat)latitude andLongitude:(CGFloat)longitude {
+    
     // Create a region centered on the starting point with a 10km span
-    MKCoordinateRegion region = MKCoordinateRegionMakeWithDistance(fromLocation.coordinate, 10000, 10000);
+    CLLocation* currentLocation = [[[CLLocationManager alloc] init] location];
+    MKCoordinateRegion region = MKCoordinateRegionMakeWithDistance(currentLocation.coordinate, 10000, 10000);
     
     CLLocation* location = [[CLLocation alloc] initWithLatitude:latitude longitude:longitude];
     
