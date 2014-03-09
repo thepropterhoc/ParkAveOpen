@@ -136,6 +136,7 @@
 
 - (void) getAllLots: (void (^)(NSURLSessionDataTask *task, NSArray* allLots))success failure:(void (^)(NSURLSessionDataTask *task, NSError *error))failure {
     [self.networkManager call:@"get" one:@"lots" parameters:nil success:^(NSURLSessionDataTask *task, id responseObject) {
+        NSLog(@"%@", responseObject);
         success(task, [self parseJSON:responseObject toArrayOfClass:[DTParkingLot class]]);
     } failure:^(NSURLSessionDataTask *task, NSError *error) {
         failure(task, error);
@@ -297,6 +298,24 @@
     }];
 }
 
+#pragma mark - Directions
+
+- (void) openDirectionsInMapsToLatitude:(CGFloat)latitude andLongitude:(CGFloat)longitude {
+    
+    // Create a region centered on the starting point with a 10km span
+    CLLocation* currentLocation = [[[CLLocationManager alloc] init] location];
+    MKCoordinateRegion region = MKCoordinateRegionMakeWithDistance(currentLocation.coordinate, 10000, 10000);
+    
+    CLLocation* location = [[CLLocation alloc] initWithLatitude:latitude longitude:longitude];
+    
+    // Open the item in Maps, specifying the map region to display.
+    [MKMapItem openMapsWithItems:[NSArray arrayWithObject:location]
+                   launchOptions:[NSDictionary dictionaryWithObjectsAndKeys:
+                                  [NSValue valueWithMKCoordinate:region.center], MKLaunchOptionsMapCenterKey,
+                                  [NSValue valueWithMKCoordinateSpan:region.span], MKLaunchOptionsMapSpanKey, nil]];
+}
+
+
 
 #pragma mark - Pseudo-properties
 
@@ -370,8 +389,8 @@
     [[array mutableCopy] sortUsingComparator:^NSComparisonResult(id obj1, id obj2) {
         DTParkingLot* lotA = obj1;
         DTParkingLot* lotB = obj2;
-        CGFloat priceA = [lotA.averagePrice floatValue];
-        CGFloat priceB = [lotB.averagePrice floatValue];
+        CGFloat priceA = [lotA.minimumPrice floatValue];
+        CGFloat priceB = [lotB.minimumPrice floatValue];
         
         if (priceA > priceB) {
             return isAscending ? NSOrderedAscending : NSOrderedDescending;
