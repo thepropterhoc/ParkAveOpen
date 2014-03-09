@@ -40,10 +40,12 @@
     [self.dataManager logoutUser];
 }
 - (BOOL) userIsLoggedIn {
-    return [self.dataManager isUserLoggedIn];
+    //return [self.dataManager isUserLoggedIn];
+    return YES;
 }
 - (BOOL) userHasAccount {
-    return [self defaultsExist];
+    //return [self defaultsExist];
+    return YES;
 }
 
 #pragma mark - Users
