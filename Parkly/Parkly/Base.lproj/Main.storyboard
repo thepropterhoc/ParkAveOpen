@@ -963,11 +963,11 @@
                                 <nil key="highlightedColor"/>
                             </label>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="CSm-PH-zvK">
-                                <rect key="frame" x="95" y="509" width="131" height="39"/>
+                                <rect key="frame" x="20" y="509" width="280" height="39"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <color key="backgroundColor" red="0.40000000600000002" green="0.40000000600000002" blue="1" alpha="1" colorSpace="calibratedRGB"/>
                                 <constraints>
-                                    <constraint firstAttribute="width" constant="131" id="Brf-rd-sei"/>
+                                    <constraint firstAttribute="width" constant="280" id="Brf-rd-sei"/>
                                     <constraint firstAttribute="height" constant="39" id="Ms4-RM-q3x"/>
                                 </constraints>
                                 <fontDescription key="fontDescription" name="AvenirNext-Bold" family="Avenir Next" pointSize="15"/>
@@ -977,6 +977,42 @@
                                 </state>
                                 <connections>
                                     <action selector="tryToReserve:" destination="atI-zE-ycy" eventType="touchUpInside" id="v0g-yL-Qr2"/>
+                                </connections>
+                            </button>
+                            <button opaque="NO" contentMode="scaleToFill" ambiguous="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="wwo-uv-MGU">
+                                <rect key="frame" x="169" y="450" width="131" height="39"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="131" id="2fu-eU-uHt"/>
+                                    <constraint firstAttribute="height" constant="39" id="pax-l0-mkw"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" name="AvenirNext-Bold" family="Avenir Next" pointSize="15"/>
+                                <state key="normal" title="Log In">
+                                    <color key="titleColor" red="0.40000000600000002" green="0.40000000600000002" blue="1" alpha="1" colorSpace="calibratedRGB"/>
+                                    <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                                </state>
+                                <connections>
+                                    <action selector="logIn:" destination="atI-zE-ycy" eventType="touchUpInside" id="KCJ-Fg-Xx1"/>
+                                    <action selector="tryToReserve:" destination="atI-zE-ycy" eventType="touchUpInside" id="fJ0-vI-ZWz"/>
+                                </connections>
+                            </button>
+                            <button opaque="NO" contentMode="scaleToFill" ambiguous="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="shP-hn-0YS">
+                                <rect key="frame" x="20" y="450" width="131" height="39"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <color key="backgroundColor" cocoaTouchSystemColor="darkTextColor"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="39" id="AiM-rg-5p7"/>
+                                    <constraint firstAttribute="width" constant="131" id="Ln6-OR-n65"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" name="AvenirNext-Bold" family="Avenir Next" pointSize="15"/>
+                                <state key="normal" title="Sign Up">
+                                    <color key="titleColor" white="0.66666666666666663" alpha="1" colorSpace="calibratedWhite"/>
+                                    <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                                </state>
+                                <connections>
+                                    <action selector="signup:" destination="atI-zE-ycy" eventType="touchUpInside" id="0qQ-kZ-8iq"/>
+                                    <action selector="tryToReserve:" destination="atI-zE-ycy" eventType="touchUpInside" id="KrC-y5-8BH"/>
                                 </connections>
                             </button>
                             <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="03/25/14" textAlignment="center" lineBreakMode="middleTruncation" numberOfLines="2" baselineAdjustment="alignBaselines" minimumScaleFactor="0.5" preferredMaxLayoutWidth="140" translatesAutoresizingMaskIntoConstraints="NO" id="MSD-i6-fvn">
@@ -1079,7 +1115,7 @@
                                 <nil key="highlightedColor"/>
                             </label>
                         </subviews>
-                        <color key="backgroundColor" white="0.1320996807" alpha="1" colorSpace="calibratedWhite"/>
+                        <color key="backgroundColor" white="0.1721886405109489" alpha="1" colorSpace="calibratedWhite"/>
                         <constraints>
                             <constraint firstItem="Znb-Hk-dc2" firstAttribute="top" secondItem="gKy-Mz-1P6" secondAttribute="bottom" constant="6" id="2Kl-oA-Au8"/>
                             <constraint firstItem="eGv-ea-c3D" firstAttribute="leading" secondItem="LZP-v4-1sr" secondAttribute="leading" id="3PO-QE-r15"/>

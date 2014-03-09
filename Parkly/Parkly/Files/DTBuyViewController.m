@@ -96,6 +96,7 @@
     DTReceiptViewController *dest = [segue destinationViewController];
     [self purchaseLot];
     dest.theReceipt = [self generateReceipt];
+    dest.theItem = [self mapItem];
   } else if([[segue identifier] isEqualToString:@"pushToLogin"]) {
     self.loginViewController = [segue destinationViewController];
     self.loginViewController.delegate = self;
@@ -103,6 +104,26 @@
     self.signupViewController = [segue destinationViewController];
     self.signupViewController.delegate = self;
   }
+}
+
+-(MKMapItem*)mapItem
+{
+  CLLocationCoordinate2D coordinate = CLLocationCoordinate2DMake(self.theLot.lat.floatValue, self.theLot.lon.floatValue);
+  MKPlacemark *placemark = [[MKPlacemark alloc] initWithCoordinate:coordinate addressDictionary:nil];
+  MKMapItem *item = [[MKMapItem alloc] initWithPlacemark:placemark];
+  item.name = self.theLot.title;
+  [item openInMapsWithLaunchOptions:nil];
+  return item;
+}
+
+- (IBAction)logIn:(id)sender
+{
+  [self performSegueWithIdentifier:@"pushToLogin" sender:self];
+}
+
+- (IBAction)signup:(id)sender
+{
+  [self performSegueWithIdentifier:@"pushToSignup" sender:self];
 }
 
 -(void)dismissLoginViewController

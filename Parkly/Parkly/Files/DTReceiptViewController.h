@@ -7,9 +7,11 @@
 //
 
 #import <UIKit/UIKit.h>
+#import <MapKit/MapKit.h>
 
 @interface DTReceiptViewController : UIViewController
 
 @property (strong, nonatomic) NSString *theReceipt;
+@property (strong, nonatomic) MKMapItem *theItem;
 
 @end

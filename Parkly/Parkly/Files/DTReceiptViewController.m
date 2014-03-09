@@ -40,6 +40,7 @@
 - (IBAction)done:(id)sender
 {
   [self performSegueWithIdentifier:@"goToMain" sender:self];
+  [self.theItem openInMapsWithLaunchOptions:nil];
 }
 
 @end
