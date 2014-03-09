@@ -44,7 +44,7 @@
 -(void)populateFields
 {
   self.lotNameLabel.text = self.theLot.title;
-  self.lotOwnerLabel.text = self.theLot.user_id;
+  self.lotOwnerLabel.text =  self.theLot.user_id;
   self.lotDistanceLabel.text = [NSString stringWithFormat:@"%.1f", self.theLot.distance.floatValue];
   self.lotRatingLabel.text = [NSString stringWithFormat:@"%d / 5", self.theLot.averageRating.intValue];
   self.spotTypeLabel.text = self.theSpot.surface;
@@ -54,21 +54,22 @@
 
 - (IBAction)tryToReserve:(id)sender
 {
+#warning Check for login needs to happen here
   //
-  if([[DTModel sharedInstance] userHasAccount] && [[DTModel sharedInstance] userIsLoggedIn]){
+  //if([[DTModel sharedInstance] userHasAccount] && [[DTModel sharedInstance] userIsLoggedIn]){
     //
     [self performSegueWithIdentifier:@"goToReceipt" sender:self];
-  }
+  //}
   
   //
-  else if([[DTModel sharedInstance] userHasAccount] && ![[DTModel sharedInstance] userIsLoggedIn]){
-      [self performSegueWithIdentifier:@"pushToLogin" sender:self];
-  }
+  //else if([[DTModel sharedInstance] userHasAccount] && ![[DTModel sharedInstance] userIsLoggedIn]){
+   //   [self performSegueWithIdentifier:@"pushToLogin" sender:self];
+ // }
 
   //
-  else {
-      [self performSegueWithIdentifier:@"pushToSignup" sender:self];
-  }
+  //else {
+  //    [self performSegueWithIdentifier:@"pushToSignup" sender:self];
+ // }
 }
 
 -(void)purchaseLot
@@ -114,7 +115,7 @@
   MKPlacemark *placemark = [[MKPlacemark alloc] initWithCoordinate:coordinate addressDictionary:nil];
   MKMapItem *item = [[MKMapItem alloc] initWithPlacemark:placemark];
   item.name = self.theLot.title;
-  [item openInMapsWithLaunchOptions:nil];
+  //[item openInMapsWithLaunchOptions:nil];
   return item;
 }
 

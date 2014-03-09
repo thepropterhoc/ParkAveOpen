@@ -41,7 +41,7 @@
 {
   [self performSegueWithIdentifier:@"goToMain" sender:self];
   NSDictionary *options = @{
-                            //MKLaunchOptionsDirectionsModeKey : MKLaunchOptionsDirectionsModeDriving,
+                            MKLaunchOptionsDirectionsModeKey : MKLaunchOptionsDirectionsModeDriving,
                             MKLaunchOptionsMapTypeKey : @0,
                             MKLaunchOptionsMapCenterKey : [NSValue valueWithMKCoordinate: self.coordinate],
                             MKLaunchOptionsMapSpanKey : [NSValue valueWithMKCoordinateSpan: self.span]
