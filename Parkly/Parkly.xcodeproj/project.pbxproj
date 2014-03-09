@@ -175,8 +175,6 @@
 		9DF5B45D18C55B2000E1D1D7 /* AFURLSessionManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AFURLSessionManager.m; sourceTree = "<group>"; };
 		9DF5B45E18C55B2000E1D1D7 /* DTDataManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DTDataManager.h; sourceTree = "<group>"; };
 		9DF5B45F18C55B2000E1D1D7 /* DTDataManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DTDataManager.m; sourceTree = "<group>"; };
-		9DF5B46018C55B2000E1D1D7 /* DTLoginViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DTLoginViewController.h; sourceTree = "<group>"; };
-		9DF5B46118C55B2000E1D1D7 /* DTLoginViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DTLoginViewController.m; sourceTree = "<group>"; };
 		9DF5B46218C55B2000E1D1D7 /* DTModel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DTModel.h; sourceTree = "<group>"; };
 		9DF5B46318C55B2000E1D1D7 /* DTModel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DTModel.m; sourceTree = "<group>"; };
 		9DF5B46418C55B2000E1D1D7 /* DTNetworkManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DTNetworkManager.h; sourceTree = "<group>"; };
@@ -220,6 +218,19 @@
 			name = Security;
 			sourceTree = "<group>";
 		};
+		59EA93A718CD018F00638048 /* Data Model */ = {
+			isa = PBXGroup;
+			children = (
+				9DF5B46218C55B2000E1D1D7 /* DTModel.h */,
+				9DF5B46318C55B2000E1D1D7 /* DTModel.m */,
+				9DF5B45E18C55B2000E1D1D7 /* DTDataManager.h */,
+				9DF5B45F18C55B2000E1D1D7 /* DTDataManager.m */,
+				9DF5B46418C55B2000E1D1D7 /* DTNetworkManager.h */,
+				9DF5B46518C55B2000E1D1D7 /* DTNetworkManager.m */,
+			);
+			name = "Data Model";
+			sourceTree = "<group>";
+		};
 		9D035C2618CB80AC007E331D /* DTBuy */ = {
 			isa = PBXGroup;
 			children = (
@@ -241,8 +252,6 @@
 		9D15D3D518B7F77800FA635E /* DTDataTypes */ = {
 			isa = PBXGroup;
 			children = (
-				9DF5B46218C55B2000E1D1D7 /* DTModel.h */,
-				9DF5B46318C55B2000E1D1D7 /* DTModel.m */,
 				9DF5B43E18C55AFE00E1D1D7 /* DTParkingLot.h */,
 				9DF5B43F18C55AFE00E1D1D7 /* DTParkingLot.m */,
 				9DF5B44018C55AFE00E1D1D7 /* DTParkingSpot.h */,
@@ -401,6 +410,7 @@
 				9D3411F718CCF9EA00B1508B /* DTResources */,
 				9DE9D53018B462B50035519D /* DTAppDelegate.h */,
 				9DE9D53118B462B50035519D /* DTAppDelegate.m */,
+				59EA93A718CD018F00638048 /* Data Model */,
 				594A7C4B18C57F04008C077C /* Security */,
 				9DF5B44A18C55B1100E1D1D7 /* DTNetworking */,
 				9D15D3D518B7F77800FA635E /* DTDataTypes */,
@@ -491,12 +501,6 @@
 				9DF5B45B18C55B2000E1D1D7 /* AFURLResponseSerialization.m */,
 				9DF5B45C18C55B2000E1D1D7 /* AFURLSessionManager.h */,
 				9DF5B45D18C55B2000E1D1D7 /* AFURLSessionManager.m */,
-				9DF5B45E18C55B2000E1D1D7 /* DTDataManager.h */,
-				9DF5B45F18C55B2000E1D1D7 /* DTDataManager.m */,
-				9DF5B46418C55B2000E1D1D7 /* DTNetworkManager.h */,
-				9DF5B46518C55B2000E1D1D7 /* DTNetworkManager.m */,
-				9DF5B46018C55B2000E1D1D7 /* DTLoginViewController.h */,
-				9DF5B46118C55B2000E1D1D7 /* DTLoginViewController.m */,
 			);
 			name = DTNetworking;
 			sourceTree = "<group>";
