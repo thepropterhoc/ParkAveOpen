@@ -387,6 +387,7 @@
     [[array mutableCopy] sortUsingComparator:^NSComparisonResult(id obj1, id obj2) {
         DTParkingLot* lotA = obj1;
         DTParkingLot* lotB = obj2;
+        
         CGFloat priceA = [lotA.minimumPrice floatValue];
         CGFloat priceB = [lotB.minimumPrice floatValue];
         
