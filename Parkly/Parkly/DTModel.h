@@ -106,7 +106,6 @@
 #pragma mark - Pseudo-properties
 
 - (DTUser*) currentUser;
-
 - (DTUser*) defaultUser;
 
 - (NSString*) defaultEmail;

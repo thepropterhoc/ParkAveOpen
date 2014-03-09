@@ -7,8 +7,15 @@
 //
 
 #import <UIKit/UIKit.h>
-#import "DTProfileViewController.h"
 
-@interface DTLoginViewController : UIViewController <DTProfileViewControllerDelegate>
+@protocol DTLoginViewControllerDelegate <NSObject>
+
+-(void)dismissLoginViewController;
+
+@end
+
+@interface DTLoginViewController : UIViewController
+
+@property (weak, nonatomic) id<DTLoginViewControllerDelegate> delegate;
 
 @end

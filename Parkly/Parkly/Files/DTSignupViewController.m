@@ -2,7 +2,7 @@
 //  DTSignupViewController.m
 //  Parkly
 //
-//  Created by Shelby Vanhooser on 2/21/14.
+//  Created by Shelby Vanhooser on 3/9/14.
 //  Copyright (c) 2014 DevTeam14. All rights reserved.
 //
 
@@ -35,9 +35,4 @@
     // Dispose of any resources that can be recreated.
 }
 
-- (IBAction)didPressSignupButton:(id)sender {
-}
-
-- (IBAction)didPressCancelButton:(id)sender {
-}
 @end
