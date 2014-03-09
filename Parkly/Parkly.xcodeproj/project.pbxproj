@@ -8,11 +8,6 @@
 
 /* Begin PBXBuildFile section */
 		594A7C4A18C57C94008C077C /* Security.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 594A7C4918C57C94008C077C /* Security.framework */; };
-		594A7C5318C580C3008C077C /* PDKeychainBindings.m in Sources */ = {isa = PBXBuildFile; fileRef = 594A7C5018C580C3008C077C /* PDKeychainBindings.m */; };
-		594A7C5418C580C3008C077C /* PDKeychainBindingsController.m in Sources */ = {isa = PBXBuildFile; fileRef = 594A7C5218C580C3008C077C /* PDKeychainBindingsController.m */; };
-		594A7C5718C59315008C077C /* DTCar.m in Sources */ = {isa = PBXBuildFile; fileRef = 594A7C5618C59315008C077C /* DTCar.m */; };
-		9D035C2918CB81AD007E331D /* DTBuyViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 9D035C2818CB81AD007E331D /* DTBuyViewController.m */; };
-		9D15D3B118B5B33300FA635E /* DTRoundedImageView.m in Sources */ = {isa = PBXBuildFile; fileRef = 9D15D3B018B5B33300FA635E /* DTRoundedImageView.m */; };
 		9D15D3BC18B6F34100FA635E /* JosefinSlab-Bold.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 9D15D3B218B6F34100FA635E /* JosefinSlab-Bold.ttf */; };
 		9D15D3BD18B6F34100FA635E /* JosefinSlab-BoldItalic.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 9D15D3B318B6F34100FA635E /* JosefinSlab-BoldItalic.ttf */; };
 		9D15D3BE18B6F34100FA635E /* JosefinSlab-Italic.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 9D15D3B418B6F34100FA635E /* JosefinSlab-Italic.ttf */; };
@@ -23,24 +18,47 @@
 		9D15D3C318B6F34100FA635E /* JosefinSlab-SemiBoldItalic.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 9D15D3B918B6F34100FA635E /* JosefinSlab-SemiBoldItalic.ttf */; };
 		9D15D3C418B6F34100FA635E /* JosefinSlab-Thin.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 9D15D3BA18B6F34100FA635E /* JosefinSlab-Thin.ttf */; };
 		9D15D3C518B6F34100FA635E /* JosefinSlab-ThinItalic.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 9D15D3BB18B6F34100FA635E /* JosefinSlab-ThinItalic.ttf */; };
-		9D15D3C818B7233F00FA635E /* DTSignupViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 9D15D3C718B7233F00FA635E /* DTSignupViewController.m */; };
 		9D15D3D118B72A0C00FA635E /* MapKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 9D15D3D018B72A0C00FA635E /* MapKit.framework */; };
-		9D15D3D418B7405D00FA635E /* DTLotTableCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 9D15D3D318B7405D00FA635E /* DTLotTableCell.m */; };
-		9D15D3E618B807EC00FA635E /* DTLotTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 9D15D3CE18B724DF00FA635E /* DTLotTableViewController.m */; };
-		9D15D3EA18B809F400FA635E /* DTDetailViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 9D15D3E918B809F400FA635E /* DTDetailViewController.m */; };
-		9D15D49718BD89BF00FA635E /* DTReviewTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 9D15D49618BD89BF00FA635E /* DTReviewTableViewController.m */; };
-		9D15D49A18BD8A0C00FA635E /* DTReviewTableCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 9D15D49918BD8A0C00FA635E /* DTReviewTableCell.m */; };
-		9D15D49D18BD952E00FA635E /* DTSpotTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 9D15D49C18BD952E00FA635E /* DTSpotTableViewController.m */; };
-		9D15D4A018BD954400FA635E /* DTSpotTableCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 9D15D49F18BD954400FA635E /* DTSpotTableCell.m */; };
-		9D284C9518C51FCE0044F89D /* DTProfileViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 9D284C9418C51FCE0044F89D /* DTProfileViewController.m */; };
-		9D2E92A718B5A49F00509F23 /* DTNavigationBar.m in Sources */ = {isa = PBXBuildFile; fileRef = 9D2E92A618B5A49F00509F23 /* DTNavigationBar.m */; };
-		9D7B727118CCC45A00D5D15C /* DTReceiptViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 9D7B727018CCC45A00D5D15C /* DTReceiptViewController.m */; };
+		9D7E8A7718CCD9AC00F4D9C0 /* PDKeychainBindings.m in Sources */ = {isa = PBXBuildFile; fileRef = 594A7C5018C580C3008C077C /* PDKeychainBindings.m */; };
+		9D7E8A7818CCD9AC00F4D9C0 /* PDKeychainBindingsController.m in Sources */ = {isa = PBXBuildFile; fileRef = 594A7C5218C580C3008C077C /* PDKeychainBindingsController.m */; };
+		9D7E8A7918CCD9AC00F4D9C0 /* AFHTTPRequestOperation.m in Sources */ = {isa = PBXBuildFile; fileRef = 9DF5B44C18C55B2000E1D1D7 /* AFHTTPRequestOperation.m */; };
+		9D7E8A7A18CCD9AC00F4D9C0 /* AFHTTPRequestOperationManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 9DF5B44E18C55B2000E1D1D7 /* AFHTTPRequestOperationManager.m */; };
+		9D7E8A7B18CCD9AC00F4D9C0 /* AFHTTPSessionManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 9DF5B45018C55B2000E1D1D7 /* AFHTTPSessionManager.m */; };
+		9D7E8A7C18CCD9AC00F4D9C0 /* AFNetworkReachabilityManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 9DF5B45318C55B2000E1D1D7 /* AFNetworkReachabilityManager.m */; };
+		9D7E8A7D18CCD9AC00F4D9C0 /* AFSecurityPolicy.m in Sources */ = {isa = PBXBuildFile; fileRef = 9DF5B45518C55B2000E1D1D7 /* AFSecurityPolicy.m */; };
+		9D7E8A7E18CCD9AC00F4D9C0 /* AFURLConnectionOperation.m in Sources */ = {isa = PBXBuildFile; fileRef = 9DF5B45718C55B2000E1D1D7 /* AFURLConnectionOperation.m */; };
+		9D7E8A7F18CCD9AC00F4D9C0 /* AFURLRequestSerialization.m in Sources */ = {isa = PBXBuildFile; fileRef = 9DF5B45918C55B2000E1D1D7 /* AFURLRequestSerialization.m */; };
+		9D7E8A8018CCD9AC00F4D9C0 /* AFURLResponseSerialization.m in Sources */ = {isa = PBXBuildFile; fileRef = 9DF5B45B18C55B2000E1D1D7 /* AFURLResponseSerialization.m */; };
+		9D7E8A8118CCD9AC00F4D9C0 /* AFURLSessionManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 9DF5B45D18C55B2000E1D1D7 /* AFURLSessionManager.m */; };
+		9D7E8A8218CCD9AC00F4D9C0 /* DTDataManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 9DF5B45F18C55B2000E1D1D7 /* DTDataManager.m */; };
+		9D7E8A8318CCD9AC00F4D9C0 /* DTNetworkManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 9DF5B46518C55B2000E1D1D7 /* DTNetworkManager.m */; };
+		9D7E8A8518CCD9AC00F4D9C0 /* DTModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 9DF5B46318C55B2000E1D1D7 /* DTModel.m */; };
+		9D7E8A8618CCD9AC00F4D9C0 /* DTParkingLot.m in Sources */ = {isa = PBXBuildFile; fileRef = 9DF5B43F18C55AFE00E1D1D7 /* DTParkingLot.m */; };
+		9D7E8A8718CCD9AC00F4D9C0 /* DTParkingSpot.m in Sources */ = {isa = PBXBuildFile; fileRef = 9DF5B44118C55AFE00E1D1D7 /* DTParkingSpot.m */; };
+		9D7E8A8818CCD9AC00F4D9C0 /* DTReview.m in Sources */ = {isa = PBXBuildFile; fileRef = 9DF5B44318C55AFE00E1D1D7 /* DTReview.m */; };
+		9D7E8A8918CCD9AC00F4D9C0 /* DTUser.m in Sources */ = {isa = PBXBuildFile; fileRef = 9DF5B44518C55AFE00E1D1D7 /* DTUser.m */; };
+		9D7E8A8A18CCD9AC00F4D9C0 /* DTCar.m in Sources */ = {isa = PBXBuildFile; fileRef = 594A7C5618C59315008C077C /* DTCar.m */; };
+		9D7E8A8B18CCD9AC00F4D9C0 /* DTSignupViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 9D7E8A7518CCD28E00F4D9C0 /* DTSignupViewController.m */; };
+		9D7E8A8C18CCD9AC00F4D9C0 /* DTReceiptViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 9D7B727018CCC45A00D5D15C /* DTReceiptViewController.m */; };
+		9D7E8A8D18CCD9AC00F4D9C0 /* DTBuyViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 9D035C2818CB81AD007E331D /* DTBuyViewController.m */; };
+		9D7E8A8F18CCD9AC00F4D9C0 /* DTLoginViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 9DE9D55818B53CC10035519D /* DTLoginViewController.m */; };
+		9D7E8A9018CCD9AC00F4D9C0 /* DTLotFinderViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 9DE9D55C18B53CF10035519D /* DTLotFinderViewController.m */; };
+		9D7E8A9118CCD9AC00F4D9C0 /* DTDetailViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 9D15D3E918B809F400FA635E /* DTDetailViewController.m */; };
+		9D7E8A9218CCD9AC00F4D9C0 /* DTProfileViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 9D284C9418C51FCE0044F89D /* DTProfileViewController.m */; };
+		9D7E8A9318CCD9AC00F4D9C0 /* DTNavigationBar.m in Sources */ = {isa = PBXBuildFile; fileRef = 9D2E92A618B5A49F00509F23 /* DTNavigationBar.m */; };
+		9D7E8A9418CCD9AC00F4D9C0 /* DTRoundedImageView.m in Sources */ = {isa = PBXBuildFile; fileRef = 9D15D3B018B5B33300FA635E /* DTRoundedImageView.m */; };
+		9D7E8A9518CCD9AC00F4D9C0 /* DTLotTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 9D15D3CE18B724DF00FA635E /* DTLotTableViewController.m */; };
+		9D7E8A9618CCD9AC00F4D9C0 /* DTLotTableCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 9D15D3D318B7405D00FA635E /* DTLotTableCell.m */; };
+		9D7E8A9718CCD9AC00F4D9C0 /* DTReviewTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 9D15D49618BD89BF00FA635E /* DTReviewTableViewController.m */; };
+		9D7E8A9818CCD9AC00F4D9C0 /* DTReviewTableCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 9D15D49918BD8A0C00FA635E /* DTReviewTableCell.m */; };
+		9D7E8A9918CCD9AC00F4D9C0 /* DTSpotTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 9D15D49C18BD952E00FA635E /* DTSpotTableViewController.m */; };
+		9D7E8A9A18CCD9AC00F4D9C0 /* DTSpotTableCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 9D15D49F18BD954400FA635E /* DTSpotTableCell.m */; };
+		9D7E8A9C18CCDA7400F4D9C0 /* DTAppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 9DE9D53118B462B50035519D /* DTAppDelegate.m */; };
 		9DE9D52218B462B50035519D /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 9DE9D52118B462B50035519D /* Foundation.framework */; };
 		9DE9D52418B462B50035519D /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 9DE9D52318B462B50035519D /* CoreGraphics.framework */; };
 		9DE9D52618B462B50035519D /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 9DE9D52518B462B50035519D /* UIKit.framework */; };
 		9DE9D52C18B462B50035519D /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = 9DE9D52A18B462B50035519D /* InfoPlist.strings */; };
 		9DE9D52E18B462B50035519D /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 9DE9D52D18B462B50035519D /* main.m */; };
-		9DE9D53218B462B50035519D /* DTAppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 9DE9D53118B462B50035519D /* DTAppDelegate.m */; };
 		9DE9D53518B462B50035519D /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 9DE9D53318B462B50035519D /* Main.storyboard */; };
 		9DE9D53A18B462B50035519D /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 9DE9D53918B462B50035519D /* Images.xcassets */; };
 		9DE9D54118B462B50035519D /* XCTest.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 9DE9D54018B462B50035519D /* XCTest.framework */; };
@@ -48,24 +66,6 @@
 		9DE9D54318B462B50035519D /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 9DE9D52518B462B50035519D /* UIKit.framework */; };
 		9DE9D54B18B462B50035519D /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = 9DE9D54918B462B50035519D /* InfoPlist.strings */; };
 		9DE9D54D18B462B50035519D /* ParklyTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 9DE9D54C18B462B50035519D /* ParklyTests.m */; };
-		9DE9D55918B53CC10035519D /* DTLoginViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 9DE9D55818B53CC10035519D /* DTLoginViewController.m */; };
-		9DE9D55D18B53CF10035519D /* DTLotFinderViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 9DE9D55C18B53CF10035519D /* DTLotFinderViewController.m */; };
-		9DF5B44618C55AFE00E1D1D7 /* DTParkingLot.m in Sources */ = {isa = PBXBuildFile; fileRef = 9DF5B43F18C55AFE00E1D1D7 /* DTParkingLot.m */; };
-		9DF5B44718C55AFE00E1D1D7 /* DTParkingSpot.m in Sources */ = {isa = PBXBuildFile; fileRef = 9DF5B44118C55AFE00E1D1D7 /* DTParkingSpot.m */; };
-		9DF5B44818C55AFE00E1D1D7 /* DTReview.m in Sources */ = {isa = PBXBuildFile; fileRef = 9DF5B44318C55AFE00E1D1D7 /* DTReview.m */; };
-		9DF5B44918C55AFE00E1D1D7 /* DTUser.m in Sources */ = {isa = PBXBuildFile; fileRef = 9DF5B44518C55AFE00E1D1D7 /* DTUser.m */; };
-		9DF5B46618C55B2000E1D1D7 /* AFHTTPRequestOperation.m in Sources */ = {isa = PBXBuildFile; fileRef = 9DF5B44C18C55B2000E1D1D7 /* AFHTTPRequestOperation.m */; };
-		9DF5B46718C55B2000E1D1D7 /* AFHTTPRequestOperationManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 9DF5B44E18C55B2000E1D1D7 /* AFHTTPRequestOperationManager.m */; };
-		9DF5B46818C55B2000E1D1D7 /* AFHTTPSessionManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 9DF5B45018C55B2000E1D1D7 /* AFHTTPSessionManager.m */; };
-		9DF5B46918C55B2000E1D1D7 /* AFNetworkReachabilityManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 9DF5B45318C55B2000E1D1D7 /* AFNetworkReachabilityManager.m */; };
-		9DF5B46A18C55B2000E1D1D7 /* AFSecurityPolicy.m in Sources */ = {isa = PBXBuildFile; fileRef = 9DF5B45518C55B2000E1D1D7 /* AFSecurityPolicy.m */; };
-		9DF5B46B18C55B2000E1D1D7 /* AFURLConnectionOperation.m in Sources */ = {isa = PBXBuildFile; fileRef = 9DF5B45718C55B2000E1D1D7 /* AFURLConnectionOperation.m */; };
-		9DF5B46C18C55B2000E1D1D7 /* AFURLRequestSerialization.m in Sources */ = {isa = PBXBuildFile; fileRef = 9DF5B45918C55B2000E1D1D7 /* AFURLRequestSerialization.m */; };
-		9DF5B46D18C55B2000E1D1D7 /* AFURLResponseSerialization.m in Sources */ = {isa = PBXBuildFile; fileRef = 9DF5B45B18C55B2000E1D1D7 /* AFURLResponseSerialization.m */; };
-		9DF5B46E18C55B2000E1D1D7 /* AFURLSessionManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 9DF5B45D18C55B2000E1D1D7 /* AFURLSessionManager.m */; };
-		9DF5B46F18C55B2000E1D1D7 /* DTDataManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 9DF5B45F18C55B2000E1D1D7 /* DTDataManager.m */; };
-		9DF5B47118C55B2000E1D1D7 /* DTModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 9DF5B46318C55B2000E1D1D7 /* DTModel.m */; };
-		9DF5B47218C55B2000E1D1D7 /* DTNetworkManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 9DF5B46518C55B2000E1D1D7 /* DTNetworkManager.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -123,6 +123,8 @@
 		9D2E92A618B5A49F00509F23 /* DTNavigationBar.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = DTNavigationBar.m; path = Files/DTNavigationBar.m; sourceTree = "<group>"; };
 		9D7B726F18CCC45A00D5D15C /* DTReceiptViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = DTReceiptViewController.h; path = Files/DTReceiptViewController.h; sourceTree = "<group>"; };
 		9D7B727018CCC45A00D5D15C /* DTReceiptViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = DTReceiptViewController.m; path = Files/DTReceiptViewController.m; sourceTree = "<group>"; };
+		9D7E8A7418CCD28E00F4D9C0 /* DTSignupViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = DTSignupViewController.h; path = Files/DTSignupViewController.h; sourceTree = "<group>"; };
+		9D7E8A7518CCD28E00F4D9C0 /* DTSignupViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = DTSignupViewController.m; path = Files/DTSignupViewController.m; sourceTree = "<group>"; };
 		9DE9D51E18B462B50035519D /* Parkly.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Parkly.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		9DE9D52118B462B50035519D /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
 		9DE9D52318B462B50035519D /* CoreGraphics.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreGraphics.framework; path = System/Library/Frameworks/CoreGraphics.framework; sourceTree = SDKROOT; };
@@ -320,6 +322,7 @@
 		9D2E92A418B5A48300509F23 /* DTUIElements */ = {
 			isa = PBXGroup;
 			children = (
+				9D7E8A7318CCD27200F4D9C0 /* DTSignup */,
 				9D7B726E18CCC44700D5D15C /* DTReceipts */,
 				9D035C2618CB80AC007E331D /* DTBuy */,
 				9D15D3C918B7234500FA635E /* DTSignup */,
@@ -342,6 +345,15 @@
 				9D7B727018CCC45A00D5D15C /* DTReceiptViewController.m */,
 			);
 			name = DTReceipts;
+			sourceTree = "<group>";
+		};
+		9D7E8A7318CCD27200F4D9C0 /* DTSignup */ = {
+			isa = PBXGroup;
+			children = (
+				9D7E8A7418CCD28E00F4D9C0 /* DTSignupViewController.h */,
+				9D7E8A7518CCD28E00F4D9C0 /* DTSignupViewController.m */,
+			);
+			name = DTSignup;
 			sourceTree = "<group>";
 		};
 		9DE9D51518B462B50035519D = {
@@ -589,42 +601,42 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				9D035C2918CB81AD007E331D /* DTBuyViewController.m in Sources */,
-				9D15D3E618B807EC00FA635E /* DTLotTableViewController.m in Sources */,
-				9DF5B44718C55AFE00E1D1D7 /* DTParkingSpot.m in Sources */,
-				9D2E92A718B5A49F00509F23 /* DTNavigationBar.m in Sources */,
-				9D15D3D418B7405D00FA635E /* DTLotTableCell.m in Sources */,
-				9DF5B46B18C55B2000E1D1D7 /* AFURLConnectionOperation.m in Sources */,
-				9DF5B47118C55B2000E1D1D7 /* DTModel.m in Sources */,
-				9D7B727118CCC45A00D5D15C /* DTReceiptViewController.m in Sources */,
-				9DF5B46A18C55B2000E1D1D7 /* AFSecurityPolicy.m in Sources */,
-				9D15D4A018BD954400FA635E /* DTSpotTableCell.m in Sources */,
-				9DF5B46818C55B2000E1D1D7 /* AFHTTPSessionManager.m in Sources */,
-				9D15D49A18BD8A0C00FA635E /* DTReviewTableCell.m in Sources */,
-				9DF5B47218C55B2000E1D1D7 /* DTNetworkManager.m in Sources */,
-				9D15D3EA18B809F400FA635E /* DTDetailViewController.m in Sources */,
-				9DE9D55D18B53CF10035519D /* DTLotFinderViewController.m in Sources */,
-				9DF5B46F18C55B2000E1D1D7 /* DTDataManager.m in Sources */,
-				594A7C5718C59315008C077C /* DTCar.m in Sources */,
-				9DE9D53218B462B50035519D /* DTAppDelegate.m in Sources */,
-				9DF5B44918C55AFE00E1D1D7 /* DTUser.m in Sources */,
-				594A7C5418C580C3008C077C /* PDKeychainBindingsController.m in Sources */,
-				9DE9D55918B53CC10035519D /* DTLoginViewController.m in Sources */,
-				9DF5B46718C55B2000E1D1D7 /* AFHTTPRequestOperationManager.m in Sources */,
-				9D284C9518C51FCE0044F89D /* DTProfileViewController.m in Sources */,
-				9DF5B46618C55B2000E1D1D7 /* AFHTTPRequestOperation.m in Sources */,
-				9DF5B46E18C55B2000E1D1D7 /* AFURLSessionManager.m in Sources */,
-				9D15D3B118B5B33300FA635E /* DTRoundedImageView.m in Sources */,
-				9DF5B46918C55B2000E1D1D7 /* AFNetworkReachabilityManager.m in Sources */,
-				9DF5B46D18C55B2000E1D1D7 /* AFURLResponseSerialization.m in Sources */,
-				9DF5B46C18C55B2000E1D1D7 /* AFURLRequestSerialization.m in Sources */,
-				9D15D49D18BD952E00FA635E /* DTSpotTableViewController.m in Sources */,
-				9DF5B44818C55AFE00E1D1D7 /* DTReview.m in Sources */,
-				9DF5B44618C55AFE00E1D1D7 /* DTParkingLot.m in Sources */,
+				9D7E8A9C18CCDA7400F4D9C0 /* DTAppDelegate.m in Sources */,
+				9D7E8A7718CCD9AC00F4D9C0 /* PDKeychainBindings.m in Sources */,
+				9D7E8A7818CCD9AC00F4D9C0 /* PDKeychainBindingsController.m in Sources */,
+				9D7E8A7918CCD9AC00F4D9C0 /* AFHTTPRequestOperation.m in Sources */,
+				9D7E8A7A18CCD9AC00F4D9C0 /* AFHTTPRequestOperationManager.m in Sources */,
+				9D7E8A7B18CCD9AC00F4D9C0 /* AFHTTPSessionManager.m in Sources */,
+				9D7E8A7C18CCD9AC00F4D9C0 /* AFNetworkReachabilityManager.m in Sources */,
+				9D7E8A7D18CCD9AC00F4D9C0 /* AFSecurityPolicy.m in Sources */,
+				9D7E8A7E18CCD9AC00F4D9C0 /* AFURLConnectionOperation.m in Sources */,
+				9D7E8A7F18CCD9AC00F4D9C0 /* AFURLRequestSerialization.m in Sources */,
+				9D7E8A8018CCD9AC00F4D9C0 /* AFURLResponseSerialization.m in Sources */,
+				9D7E8A8118CCD9AC00F4D9C0 /* AFURLSessionManager.m in Sources */,
+				9D7E8A8218CCD9AC00F4D9C0 /* DTDataManager.m in Sources */,
+				9D7E8A8318CCD9AC00F4D9C0 /* DTNetworkManager.m in Sources */,
+				9D7E8A8518CCD9AC00F4D9C0 /* DTModel.m in Sources */,
+				9D7E8A8618CCD9AC00F4D9C0 /* DTParkingLot.m in Sources */,
+				9D7E8A8718CCD9AC00F4D9C0 /* DTParkingSpot.m in Sources */,
+				9D7E8A8818CCD9AC00F4D9C0 /* DTReview.m in Sources */,
+				9D7E8A8918CCD9AC00F4D9C0 /* DTUser.m in Sources */,
+				9D7E8A8A18CCD9AC00F4D9C0 /* DTCar.m in Sources */,
+				9D7E8A8B18CCD9AC00F4D9C0 /* DTSignupViewController.m in Sources */,
+				9D7E8A8C18CCD9AC00F4D9C0 /* DTReceiptViewController.m in Sources */,
+				9D7E8A8D18CCD9AC00F4D9C0 /* DTBuyViewController.m in Sources */,
+				9D7E8A8F18CCD9AC00F4D9C0 /* DTLoginViewController.m in Sources */,
+				9D7E8A9018CCD9AC00F4D9C0 /* DTLotFinderViewController.m in Sources */,
+				9D7E8A9118CCD9AC00F4D9C0 /* DTDetailViewController.m in Sources */,
+				9D7E8A9218CCD9AC00F4D9C0 /* DTProfileViewController.m in Sources */,
+				9D7E8A9318CCD9AC00F4D9C0 /* DTNavigationBar.m in Sources */,
+				9D7E8A9418CCD9AC00F4D9C0 /* DTRoundedImageView.m in Sources */,
+				9D7E8A9518CCD9AC00F4D9C0 /* DTLotTableViewController.m in Sources */,
+				9D7E8A9618CCD9AC00F4D9C0 /* DTLotTableCell.m in Sources */,
+				9D7E8A9718CCD9AC00F4D9C0 /* DTReviewTableViewController.m in Sources */,
+				9D7E8A9818CCD9AC00F4D9C0 /* DTReviewTableCell.m in Sources */,
+				9D7E8A9918CCD9AC00F4D9C0 /* DTSpotTableViewController.m in Sources */,
+				9D7E8A9A18CCD9AC00F4D9C0 /* DTSpotTableCell.m in Sources */,
 				9DE9D52E18B462B50035519D /* main.m in Sources */,
-				594A7C5318C580C3008C077C /* PDKeychainBindings.m in Sources */,
-				9D15D3C818B7233F00FA635E /* DTSignupViewController.m in Sources */,
-				9D15D49718BD89BF00FA635E /* DTReviewTableViewController.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
