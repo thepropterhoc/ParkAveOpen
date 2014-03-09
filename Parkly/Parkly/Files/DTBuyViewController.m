@@ -54,25 +54,21 @@
 
 - (IBAction)tryToReserve:(id)sender
 {
-  if([[DTModel sharedInstance] userHasAccount]){
-    if([[DTModel sharedInstance] userIsLoggedIn]){
-      [self performSegueWithIdentifier:@"goToReceipt" sender:self];
-    } else {
-      [self pushToLoginViewController];
-    }
-  } else {
-    [self pushToSignupViewController];
+  //
+  if([[DTModel sharedInstance] userHasAccount] && [[DTModel sharedInstance] userIsLoggedIn]){
+    //
+    [self performSegueWithIdentifier:@"goToReceipt" sender:self];
   }
-}
+  
+  //
+  else if([[DTModel sharedInstance] userHasAccount] && ![[DTModel sharedInstance] userIsLoggedIn]){
+      [self performSegueWithIdentifier:@"pushToLogin" sender:self];
+  }
 
--(void)pushToLoginViewController
-{
-  [self performSegueWithIdentifier:@"pushToLogin" sender:self];
-}
-
--(void)pushToSignupViewController
-{
-  [self performSegueWithIdentifier:@"pushToSignup" sender:self];
+  //
+  else {
+      [self performSegueWithIdentifier:@"pushToSignup" sender:self];
+  }
 }
 
 -(void)purchaseLot
