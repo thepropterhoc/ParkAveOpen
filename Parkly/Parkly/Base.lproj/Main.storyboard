@@ -282,7 +282,7 @@
                     </connections>
                 </tapGestureRecognizer>
             </objects>
-            <point key="canvasLocation" x="1411" y="-759"/>
+            <point key="canvasLocation" x="1411" y="-715"/>
         </scene>
         <!--Lot Table View Controller - DTTableViewController-->
         <scene sceneID="5TJ-g6-A21">
@@ -1274,7 +1274,7 @@
                         </constraints>
                     </view>
                     <navigationItem key="navigationItem" id="6PY-c2-E7v">
-                        <barButtonItem key="rightBarButtonItem" title="Reviews" id="6SI-lG-aUC">
+                        <barButtonItem key="rightBarButtonItem" image="Comment" id="6SI-lG-aUC">
                             <connections>
                                 <segue destination="YKG-gJ-cO9" kind="push" identifier="goToReview" id="cwW-R4-Ieu"/>
                             </connections>
@@ -1520,6 +1520,7 @@
         </scene>
     </scenes>
     <resources>
+        <image name="Comment" width="25" height="25"/>
         <image name="LotTestImage" width="816" height="612"/>
         <image name="Profile" width="25" height="25"/>
     </resources>

@@ -338,6 +338,13 @@
 			name = DTUIElements;
 			sourceTree = "<group>";
 		};
+		9D3411F718CCF9EA00B1508B /* DTResources */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			name = DTResources;
+			sourceTree = "<group>";
+		};
 		9D7B726E18CCC44700D5D15C /* DTReceipts */ = {
 			isa = PBXGroup;
 			children = (
@@ -391,6 +398,7 @@
 		9DE9D52718B462B50035519D /* Parkly */ = {
 			isa = PBXGroup;
 			children = (
+				9D3411F718CCF9EA00B1508B /* DTResources */,
 				9DE9D53018B462B50035519D /* DTAppDelegate.h */,
 				9DE9D53118B462B50035519D /* DTAppDelegate.m */,
 				594A7C4B18C57F04008C077C /* Security */,
