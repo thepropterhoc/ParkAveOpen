@@ -39,7 +39,7 @@
 
 - (IBAction)done:(id)sender
 {
-  [self.navigationController popToRootViewControllerAnimated:YES];
+  [self performSegueWithIdentifier:@"goToMain" sender:self];
 }
 
 @end
