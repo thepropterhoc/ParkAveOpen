@@ -297,6 +297,22 @@
     }];
 }
 
+#pragma mark - Directions
+
+- (void) openDirectionsInMapsToLatitude:(CGFloat)latitude andLongitude:(CGFloat)longitude {
+    // Create a region centered on the starting point with a 10km span
+    MKCoordinateRegion region = MKCoordinateRegionMakeWithDistance(fromLocation.coordinate, 10000, 10000);
+    
+    CLLocation* location = [[CLLocation alloc] initWithLatitude:latitude longitude:longitude];
+    
+    // Open the item in Maps, specifying the map region to display.
+    [MKMapItem openMapsWithItems:[NSArray arrayWithObject:location]
+                   launchOptions:[NSDictionary dictionaryWithObjectsAndKeys:
+                                  [NSValue valueWithMKCoordinate:region.center], MKLaunchOptionsMapCenterKey,
+                                  [NSValue valueWithMKCoordinateSpan:region.span], MKLaunchOptionsMapSpanKey, nil]];
+}
+
+
 
 #pragma mark - Pseudo-properties
 
