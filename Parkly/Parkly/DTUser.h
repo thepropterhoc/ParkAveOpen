@@ -21,6 +21,7 @@
 @property (strong, nonatomic) NSString *phone;
 @property (strong, nonatomic) NSArray* reservedSpots;
 @property (strong, nonatomic) NSArray* spotHistory;
+@property (strong, nonatomic) NSNumber* averageRating;
 
 - (NSDictionary*) dictionaryRepresentation;
 

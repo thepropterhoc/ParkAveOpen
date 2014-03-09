@@ -23,6 +23,7 @@
         self.phone = [[NSString alloc] init];
         self.reservedSpots = [[NSArray alloc] init];
         self.spotHistory = [[NSArray alloc] init];
+        self.averageRating = [[NSNumber alloc] init];
     }
     return self;
     
@@ -38,6 +39,7 @@
              @"phone": self.phone,
              @"reservedSpots": self.reservedSpots,
              @"spotHistory": self.spotHistory,
+             @"averageRating": self.averageRating,
              };
 }
 
