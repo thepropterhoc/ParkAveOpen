@@ -19,6 +19,7 @@
 		9D15D3C418B6F34100FA635E /* JosefinSlab-Thin.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 9D15D3BA18B6F34100FA635E /* JosefinSlab-Thin.ttf */; };
 		9D15D3C518B6F34100FA635E /* JosefinSlab-ThinItalic.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 9D15D3BB18B6F34100FA635E /* JosefinSlab-ThinItalic.ttf */; };
 		9D15D3D118B72A0C00FA635E /* MapKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 9D15D3D018B72A0C00FA635E /* MapKit.framework */; };
+		9D7A3ED818CD2043003F6E62 /* DTInitialViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 9D7A3ED718CD2043003F6E62 /* DTInitialViewController.m */; };
 		9D7E8A7718CCD9AC00F4D9C0 /* PDKeychainBindings.m in Sources */ = {isa = PBXBuildFile; fileRef = 594A7C5018C580C3008C077C /* PDKeychainBindings.m */; };
 		9D7E8A7818CCD9AC00F4D9C0 /* PDKeychainBindingsController.m in Sources */ = {isa = PBXBuildFile; fileRef = 594A7C5218C580C3008C077C /* PDKeychainBindingsController.m */; };
 		9D7E8A7918CCD9AC00F4D9C0 /* AFHTTPRequestOperation.m in Sources */ = {isa = PBXBuildFile; fileRef = 9DF5B44C18C55B2000E1D1D7 /* AFHTTPRequestOperation.m */; };
@@ -121,6 +122,8 @@
 		9D284C9418C51FCE0044F89D /* DTProfileViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = DTProfileViewController.m; path = Files/DTProfileViewController.m; sourceTree = "<group>"; };
 		9D2E92A518B5A49F00509F23 /* DTNavigationBar.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = DTNavigationBar.h; path = Files/DTNavigationBar.h; sourceTree = "<group>"; };
 		9D2E92A618B5A49F00509F23 /* DTNavigationBar.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = DTNavigationBar.m; path = Files/DTNavigationBar.m; sourceTree = "<group>"; };
+		9D7A3ED618CD2043003F6E62 /* DTInitialViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = DTInitialViewController.h; path = Files/DTInitialViewController.h; sourceTree = "<group>"; };
+		9D7A3ED718CD2043003F6E62 /* DTInitialViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = DTInitialViewController.m; path = Files/DTInitialViewController.m; sourceTree = "<group>"; };
 		9D7B726F18CCC45A00D5D15C /* DTReceiptViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = DTReceiptViewController.h; path = Files/DTReceiptViewController.h; sourceTree = "<group>"; };
 		9D7B727018CCC45A00D5D15C /* DTReceiptViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = DTReceiptViewController.m; path = Files/DTReceiptViewController.m; sourceTree = "<group>"; };
 		9D7E8A7418CCD28E00F4D9C0 /* DTSignupViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = DTSignupViewController.h; path = Files/DTSignupViewController.h; sourceTree = "<group>"; };
@@ -331,6 +334,7 @@
 		9D2E92A418B5A48300509F23 /* DTUIElements */ = {
 			isa = PBXGroup;
 			children = (
+				9D7A3ED518CD2033003F6E62 /* DTInitial */,
 				9D7E8A7318CCD27200F4D9C0 /* DTSignup */,
 				9D7B726E18CCC44700D5D15C /* DTReceipts */,
 				9D035C2618CB80AC007E331D /* DTBuy */,
@@ -352,6 +356,15 @@
 			children = (
 			);
 			name = DTResources;
+			sourceTree = "<group>";
+		};
+		9D7A3ED518CD2033003F6E62 /* DTInitial */ = {
+			isa = PBXGroup;
+			children = (
+				9D7A3ED618CD2043003F6E62 /* DTInitialViewController.h */,
+				9D7A3ED718CD2043003F6E62 /* DTInitialViewController.m */,
+			);
+			name = DTInitial;
 			sourceTree = "<group>";
 		};
 		9D7B726E18CCC44700D5D15C /* DTReceipts */ = {
@@ -615,6 +628,7 @@
 			files = (
 				9D7E8A9C18CCDA7400F4D9C0 /* DTAppDelegate.m in Sources */,
 				9D7E8A7718CCD9AC00F4D9C0 /* PDKeychainBindings.m in Sources */,
+				9D7A3ED818CD2043003F6E62 /* DTInitialViewController.m in Sources */,
 				9D7E8A7818CCD9AC00F4D9C0 /* PDKeychainBindingsController.m in Sources */,
 				9D7E8A7918CCD9AC00F4D9C0 /* AFHTTPRequestOperation.m in Sources */,
 				9D7E8A7A18CCD9AC00F4D9C0 /* AFHTTPRequestOperationManager.m in Sources */,
