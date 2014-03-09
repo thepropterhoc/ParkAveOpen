@@ -54,8 +54,22 @@
   if([[DTModel sharedInstance] userHasAccount]){
     if([[DTModel sharedInstance] userIsLoggedIn]){
       [self performSegueWithIdentifier:@"goToReceipt" sender:self];
+    } else {
+      [self pushToLoginViewController];
     }
+  } else {
+    [self pushToSignupViewController];
   }
+}
+
+-(void)pushToLoginViewController
+{
+  
+}
+
+-(void)pushToSignupViewController
+{
+  
 }
 
 -(NSString*)generateReceipt
