@@ -60,9 +60,10 @@
 
 -(NSString*)generateReceipt
 {
-  //[NSDateFormatter]
-  //return [NSString stringWithFormat:@"Purchaser : %@\nSeller : %@\nDate of Purchase : %@\nAmount of Purchase : %@\nLot Name : %@\nLot Location : %@\nSpot Surface Type : %@", [DTModel sharedInstance].currentUser._id, self.theLot.user_id, ];
-  return @"";
+  NSDateFormatter *formatter = [[NSDateFormatter alloc] init];
+  [formatter setDateStyle:NSDateFormatterMediumStyle];
+  NSString *currentDate = [formatter stringFromDate:[NSDate date]];
+  return [NSString stringWithFormat:@"Purchaser : %@\nSeller : %@\nDate of Purchase : %@\nAmount of Purchase : %@\nDate of Reservation : %@\nLot Name : %@\nLot Location : %@\nSpot Surface Type : %@", [DTModel sharedInstance].currentUser._id, self.theLot.user_id, currentDate, [NSString stringWithFormat:@"%.2f", self.theSpot.price.floatValue], self.theSpot.startDate, self.theLot.title, [NSString stringWithFormat:@"%.4f, %.4f", self.theLot.lat.floatValue, self.theLot.lon.floatValue], self.theSpot.surface];
 }
 
 -(void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender
