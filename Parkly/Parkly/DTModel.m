@@ -279,6 +279,23 @@
     NSLog(@"%@ not implemented", NSStringFromSelector(_cmd));
 }
 
+#pragma mark - Purchase
+
+- (void) purchaseSpot:(DTParkingSpot*)spot forUser:(DTUser*)user success: (void (^)(NSURLSessionDataTask *task, id responseObject))success failure:(void (^)(NSURLSessionDataTask *task, NSError *error))failure {
+    
+    NSDictionary* parameters = @{@"user_id": [user _id],
+                                 @"spot_id": [spot _id]
+                                 };
+    
+    [self.networkManager call:@"post" one:@"purchase" parameters:parameters success:^(NSURLSessionDataTask *task, id responseObject) {
+        NSLog(@"do something in purchaseSpot");
+        success(task, responseObject);
+    } failure:^(NSURLSessionDataTask *task, NSError *error) {
+        failure(task, error);
+    }];
+}
+
+
 #pragma mark - Pseudo-properties
 
 - (DTUser*) currentUser {
