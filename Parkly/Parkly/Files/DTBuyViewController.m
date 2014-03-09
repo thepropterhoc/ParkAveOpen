@@ -97,6 +97,8 @@
     [self purchaseLot];
     dest.theReceipt = [self generateReceipt];
     dest.theItem = [self mapItem];
+    dest.span = MKCoordinateSpanMake(self.theLot.distance.floatValue, self.theLot.distance.floatValue);
+    dest.coordinate = CLLocationCoordinate2DMake(self.theLot.lat.floatValue, self.theLot.lon.floatValue);
   } else if([[segue identifier] isEqualToString:@"pushToLogin"]) {
     self.loginViewController = [segue destinationViewController];
     self.loginViewController.delegate = self;

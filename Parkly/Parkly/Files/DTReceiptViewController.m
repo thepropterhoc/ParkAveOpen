@@ -40,7 +40,13 @@
 - (IBAction)done:(id)sender
 {
   [self performSegueWithIdentifier:@"goToMain" sender:self];
-  [self.theItem openInMapsWithLaunchOptions:nil];
+  NSDictionary *options = @{
+                            //MKLaunchOptionsDirectionsModeKey : MKLaunchOptionsDirectionsModeDriving,
+                            MKLaunchOptionsMapTypeKey : @0,
+                            MKLaunchOptionsMapCenterKey : [NSValue valueWithMKCoordinate: self.coordinate],
+                            MKLaunchOptionsMapSpanKey : [NSValue valueWithMKCoordinateSpan: self.span]
+                            };
+  [self.theItem openInMapsWithLaunchOptions:options];
 }
 
 @end
