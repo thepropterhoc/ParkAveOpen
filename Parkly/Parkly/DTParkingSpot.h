@@ -23,6 +23,8 @@
 @property (strong, nonatomic) NSArray *buyer_list;
 @property (strong, nonatomic) NSString *surface;
 @property (strong, nonatomic) NSString* description;
+@property (strong, nonatomic) NSString* event_id;
+@property (strong, nonatomic) NSString* size;
 @property (nonatomic) BOOL blocked;
 
 @end
