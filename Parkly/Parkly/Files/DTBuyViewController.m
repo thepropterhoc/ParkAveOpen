@@ -7,6 +7,8 @@
 //
 
 #import "DTBuyViewController.h"
+#import "DTReceiptViewController.h"
+#import "DTModel.h"
 
 @interface DTBuyViewController ()
 
@@ -47,9 +49,29 @@
   self.spotPriceLabel.text = [NSString stringWithFormat:@"%.2f", self.theSpot.price.floatValue];
 }
 
--(void)buyTheSpot
+- (IBAction)tryToReserve:(id)sender
 {
-  
+  if([[DTModel sharedInstance] userHasAccount]){
+    if([[DTModel sharedInstance] userIsLoggedIn]){
+      [self performSegueWithIdentifier:@"goToReceipt" sender:self];
+    }
+  }
+}
+
+-(NSString*)generateReceipt
+{
+  NSDateFormatter *formatter = [[NSDateFormatter alloc] init];
+  [formatter setDateStyle:NSDateFormatterMediumStyle];
+  NSString *currentDate = [formatter stringFromDate:[NSDate date]];
+  return [NSString stringWithFormat:@"Purchaser : %@\nSeller : %@\nDate of Purchase : %@\nAmount of Purchase : %@\nDate of Reservation : %@\nLot Name : %@\nLot Location : %@\nSpot Surface Type : %@", [DTModel sharedInstance].currentUser._id, self.theLot.user_id, currentDate, [NSString stringWithFormat:@"%.2f", self.theSpot.price.floatValue], self.theSpot.startDate, self.theLot.title, [NSString stringWithFormat:@"%.4f, %.4f", self.theLot.lat.floatValue, self.theLot.lon.floatValue], self.theSpot.surface];
+}
+
+-(void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender
+{
+  if([[segue identifier] isEqualToString:@"goToReceipt"]){
+    DTReceiptViewController *dest = [segue destinationViewController];
+    dest.theReceipt = [self generateReceipt];
+  }
 }
 
 @end

@@ -34,6 +34,7 @@
 		9D15D4A018BD954400FA635E /* DTSpotTableCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 9D15D49F18BD954400FA635E /* DTSpotTableCell.m */; };
 		9D284C9518C51FCE0044F89D /* DTProfileViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 9D284C9418C51FCE0044F89D /* DTProfileViewController.m */; };
 		9D2E92A718B5A49F00509F23 /* DTNavigationBar.m in Sources */ = {isa = PBXBuildFile; fileRef = 9D2E92A618B5A49F00509F23 /* DTNavigationBar.m */; };
+		9D7B727118CCC45A00D5D15C /* DTReceiptViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 9D7B727018CCC45A00D5D15C /* DTReceiptViewController.m */; };
 		9DE9D52218B462B50035519D /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 9DE9D52118B462B50035519D /* Foundation.framework */; };
 		9DE9D52418B462B50035519D /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 9DE9D52318B462B50035519D /* CoreGraphics.framework */; };
 		9DE9D52618B462B50035519D /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 9DE9D52518B462B50035519D /* UIKit.framework */; };
@@ -120,6 +121,8 @@
 		9D284C9418C51FCE0044F89D /* DTProfileViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = DTProfileViewController.m; path = Files/DTProfileViewController.m; sourceTree = "<group>"; };
 		9D2E92A518B5A49F00509F23 /* DTNavigationBar.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = DTNavigationBar.h; path = Files/DTNavigationBar.h; sourceTree = "<group>"; };
 		9D2E92A618B5A49F00509F23 /* DTNavigationBar.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = DTNavigationBar.m; path = Files/DTNavigationBar.m; sourceTree = "<group>"; };
+		9D7B726F18CCC45A00D5D15C /* DTReceiptViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = DTReceiptViewController.h; path = Files/DTReceiptViewController.h; sourceTree = "<group>"; };
+		9D7B727018CCC45A00D5D15C /* DTReceiptViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = DTReceiptViewController.m; path = Files/DTReceiptViewController.m; sourceTree = "<group>"; };
 		9DE9D51E18B462B50035519D /* Parkly.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Parkly.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		9DE9D52118B462B50035519D /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
 		9DE9D52318B462B50035519D /* CoreGraphics.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreGraphics.framework; path = System/Library/Frameworks/CoreGraphics.framework; sourceTree = SDKROOT; };
@@ -317,6 +320,7 @@
 		9D2E92A418B5A48300509F23 /* DTUIElements */ = {
 			isa = PBXGroup;
 			children = (
+				9D7B726E18CCC44700D5D15C /* DTReceipts */,
 				9D035C2618CB80AC007E331D /* DTBuy */,
 				9D15D3C918B7234500FA635E /* DTSignup */,
 				9DE9D55618B53C810035519D /* DTLogin */,
@@ -329,6 +333,15 @@
 				9D15D4A318BDA2FD00FA635E /* DTSpots */,
 			);
 			name = DTUIElements;
+			sourceTree = "<group>";
+		};
+		9D7B726E18CCC44700D5D15C /* DTReceipts */ = {
+			isa = PBXGroup;
+			children = (
+				9D7B726F18CCC45A00D5D15C /* DTReceiptViewController.h */,
+				9D7B727018CCC45A00D5D15C /* DTReceiptViewController.m */,
+			);
+			name = DTReceipts;
 			sourceTree = "<group>";
 		};
 		9DE9D51518B462B50035519D = {
@@ -583,6 +596,7 @@
 				9D15D3D418B7405D00FA635E /* DTLotTableCell.m in Sources */,
 				9DF5B46B18C55B2000E1D1D7 /* AFURLConnectionOperation.m in Sources */,
 				9DF5B47118C55B2000E1D1D7 /* DTModel.m in Sources */,
+				9D7B727118CCC45A00D5D15C /* DTReceiptViewController.m in Sources */,
 				9DF5B46A18C55B2000E1D1D7 /* AFSecurityPolicy.m in Sources */,
 				9D15D4A018BD954400FA635E /* DTSpotTableCell.m in Sources */,
 				9DF5B46818C55B2000E1D1D7 /* AFHTTPSessionManager.m in Sources */,
