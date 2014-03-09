@@ -29,6 +29,7 @@
 @property (strong, nonatomic) NSString *zip;
 @property (strong, nonatomic) NSString *pavementType;
 @property (strong, nonatomic) NSString *imagePath;
+@property (strong, nonatomic) NSNumber *minimumPrice;
 
 #warning Need to be implemented
 @property (strong, nonatomic) NSNumber *averageRating;

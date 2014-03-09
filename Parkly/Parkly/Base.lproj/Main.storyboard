@@ -515,7 +515,7 @@
                                         <rect key="frame" x="83" y="184" width="154" height="30"/>
                                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                         <fontDescription key="fontDescription" type="system" pointSize="14"/>
-                                        <textInputTraits key="textInputTraits"/>
+                                        <textInputTraits key="textInputTraits" secureTextEntry="YES"/>
                                     </textField>
                                     <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Email" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="z8S-sn-TQO">
                                         <rect key="frame" x="128" y="83" width="64" height="21"/>
@@ -822,6 +822,7 @@
                                 </state>
                                 <connections>
                                     <action selector="login:" destination="9hH-lh-DPK" eventType="touchUpInside" id="su1-L0-E6T"/>
+                                    <action selector="signup:" destination="3OT-FQ-bKD" eventType="touchUpInside" id="fF9-h6-OE4"/>
                                 </connections>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Bqo-Ad-vwW">
@@ -838,6 +839,7 @@
                                 </state>
                                 <connections>
                                     <action selector="cancel:" destination="9hH-lh-DPK" eventType="touchUpInside" id="f04-Or-Csb"/>
+                                    <action selector="cancel:" destination="3OT-FQ-bKD" eventType="touchUpInside" id="pRd-Bp-0uL"/>
                                 </connections>
                             </button>
                         </subviews>
@@ -858,6 +860,16 @@
                             <constraint firstItem="KR9-hn-YdR" firstAttribute="top" secondItem="vYO-fD-dyZ" secondAttribute="bottom" constant="22" id="xYM-Fk-Dxt"/>
                         </constraints>
                     </view>
+                    <connections>
+                        <outlet property="dayField" destination="Zks-Ch-2lg" id="AsM-Az-IFl"/>
+                        <outlet property="emailField" destination="pjV-JU-QYK" id="RfV-9o-Ezm"/>
+                        <outlet property="firstNameField" destination="T4W-RM-Hpi" id="rpe-9k-aPf"/>
+                        <outlet property="lastNameField" destination="e8G-ub-Brf" id="Olg-b4-5Ge"/>
+                        <outlet property="monthField" destination="8Yt-7q-qjX" id="zDY-CZ-iaL"/>
+                        <outlet property="passwordField" destination="Vwn-nQ-Nit" id="Cgx-f8-yZa"/>
+                        <outlet property="phoneField" destination="8ZP-II-c3A" id="d7w-2d-dwH"/>
+                        <outlet property="yearField" destination="vAK-ue-2HT" id="AtJ-3a-i3d"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="YET-4u-Pc4" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
