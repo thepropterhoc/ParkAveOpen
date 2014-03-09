@@ -136,6 +136,7 @@
 
 - (void) getAllLots: (void (^)(NSURLSessionDataTask *task, NSArray* allLots))success failure:(void (^)(NSURLSessionDataTask *task, NSError *error))failure {
     [self.networkManager call:@"get" one:@"lots" parameters:nil success:^(NSURLSessionDataTask *task, id responseObject) {
+        NSLog(@"%@", responseObject);
         success(task, [self parseJSON:responseObject toArrayOfClass:[DTParkingLot class]]);
     } failure:^(NSURLSessionDataTask *task, NSError *error) {
         failure(task, error);
@@ -388,8 +389,13 @@
     [[array mutableCopy] sortUsingComparator:^NSComparisonResult(id obj1, id obj2) {
         DTParkingLot* lotA = obj1;
         DTParkingLot* lotB = obj2;
+<<<<<<< HEAD
         CGFloat priceA = [lotA.minumumPrice floatValue];
         CGFloat priceB = [lotB.minumumPrice floatValue];
+=======
+        CGFloat priceA = [lotA.minimumPrice floatValue];
+        CGFloat priceB = [lotB.minimumPrice floatValue];
+>>>>>>> 7a10fc017119cbabbab93bc0fb7f3bd3e068bc9b
         
         if (priceA > priceB) {
             return isAscending ? NSOrderedAscending : NSOrderedDescending;

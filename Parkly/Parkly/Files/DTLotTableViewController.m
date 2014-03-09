@@ -88,7 +88,7 @@
 -(void)sortByPrice
 {
   self.theLots = [self.theLots sortedArrayUsingComparator:^NSComparisonResult(id obj1, id obj2) {
-    return [((DTParkingLot*) obj1).minumumPrice compare:((DTParkingLot *) obj2).minimumPrice];
+    return [((DTParkingLot*) obj1).minimumPrice compare:((DTParkingLot *) obj2).minimumPrice];
   }];
   [self.theTable reloadData];
 }

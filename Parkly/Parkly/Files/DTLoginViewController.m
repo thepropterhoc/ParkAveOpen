@@ -11,6 +11,8 @@
 #import "DTUser.h"
 
 @interface DTLoginViewController ()
+@property (strong, nonatomic) IBOutlet UITextField *emailField;
+@property (strong, nonatomic) IBOutlet UITextField *passwordField;
 
 @end
 
@@ -27,10 +29,13 @@
 
 - (void)viewDidLoad
 {
-    [super viewDidLoad];
-    
-    [[UIApplication sharedApplication] setStatusBarHidden:YES];
+  [super viewDidLoad];
 	// Do any additional setup after loading the view.
+}
+
+-(void)viewDidAppear:(BOOL)animated
+{
+  [self.emailField becomeFirstResponder];
 }
 
 - (void)didReceiveMemoryWarning
@@ -39,44 +44,25 @@
     // Dispose of any resources that can be recreated.
 }
 
--(void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender
+- (IBAction)tap:(id)sender
 {
-    if([[segue identifier] isEqualToString:@"profile"]){
-        
-    }
+  [self.emailField resignFirstResponder];
+  [self.passwordField resignFirstResponder];
 }
 
-- (IBAction)loginButtonPressed:(id)sender
+- (IBAction)login:(id)sender
 {
-    //this will work if you pass it a DTUser
-    /*if(![[DTModel sharedInstance] defaultsExist]) {
-        [[DTModel sharedInstance] authenticateUser:@"jrohan@yahoo.com" withPassword:@"soba" success:^(NSURLSessionDataTask *task, id responseObject) {
-            
-            NSLog(@"Hello, %@", [[[DTModel sharedInstance] currentUser] firstName]);
-            [self performSegueWithIdentifier:@"goToMain" sender:self];
-        } failure:^(NSURLSessionDataTask *task, NSError *error) {
-            NSLog(@"%@", error);
-        }];
-    } else {
-        [[DTModel sharedInstance] authenticateUser:[[DTModel sharedInstance] defaultEmail] withPassword:[[DTModel sharedInstance] defaultPassword] success:^(NSURLSessionDataTask *task, id responseObject) {
-            
-            NSLog(@"Welcome back, %@", [[[DTModel sharedInstance] currentUser] firstName]);
-            [self performSegueWithIdentifier:@"goToMain" sender:self];
-        } failure:^(NSURLSessionDataTask *task, NSError *error) {
-            NSLog(@"%@", error);
-        }];
-    }*/
-  [self performSegueWithIdentifier:@"goToMain" sender:self];
+  [[DTModel sharedInstance] authenticateUserWithEmail:self.emailField.text andPassword:self.passwordField.text success:^(NSURLSessionDataTask *task, DTUser *user) {
+    [[[UIAlertView alloc] initWithTitle:@"Success" message:[NSString stringWithFormat:@"Successfully logged in %@ %@", user.firstName, user.lastName] delegate:Nil cancelButtonTitle:@"Dismiss" otherButtonTitles: nil] show];
+    [self.delegate dismissLoginViewController];
+  } failure:^(NSURLSessionDataTask *task, NSError *error) {
+    [[[UIAlertView alloc] initWithTitle:@"Error" message:@"Invalid login information" delegate:nil cancelButtonTitle:@"Dismiss" otherButtonTitles: nil] show];
+  }];
 }
 
--(void)dismissProfileViewControllerCanceled
+- (IBAction)cancel:(id)sender
 {
-  
-}
-
--(void)dismissProfileViewControllerSuccess
-{
-  
+  [self.delegate dismissLoginViewController];
 }
 
 @end

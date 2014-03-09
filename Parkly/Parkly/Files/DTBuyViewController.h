@@ -7,6 +7,8 @@
 //
 
 #import <UIKit/UIKit.h>
+#import "DTSignupViewController.h"
+#import "DTLoginViewController.h"
 #import "DTParkingSpot.h"
 #import "DTParkingLot.h"
 
@@ -17,7 +19,7 @@
 
 @end
 
-@interface DTBuyViewController : UIViewController
+@interface DTBuyViewController : UIViewController <DTLoginViewControllerDelegate, DTSignupViewControllerDelegate>
 
 @property (strong, nonatomic) DTParkingSpot *theSpot;
 @property (strong, nonatomic) DTParkingLot *theLot;
@@ -29,6 +31,5 @@
 @property (strong, nonatomic) IBOutlet UILabel *spotTypeLabel;
 @property (strong, nonatomic) IBOutlet UILabel *spotDateLabel;
 @property (strong, nonatomic) IBOutlet UILabel *spotPriceLabel;
-
 
 @end

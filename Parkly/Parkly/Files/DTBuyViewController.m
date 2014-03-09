@@ -12,6 +12,9 @@
 
 @interface DTBuyViewController ()
 
+@property (strong, nonatomic) DTLoginViewController *loginViewController;
+@property (strong, nonatomic) DTSignupViewController *signupViewController;
+
 @end
 
 @implementation DTBuyViewController
@@ -51,11 +54,32 @@
 
 - (IBAction)tryToReserve:(id)sender
 {
-  if([[DTModel sharedInstance] userHasAccount]){
-    if([[DTModel sharedInstance] userIsLoggedIn]){
-      [self performSegueWithIdentifier:@"goToReceipt" sender:self];
-    }
+  //
+  if([[DTModel sharedInstance] userHasAccount] && [[DTModel sharedInstance] userIsLoggedIn]){
+    //
+    [self performSegueWithIdentifier:@"goToReceipt" sender:self];
   }
+  
+  //
+  else if([[DTModel sharedInstance] userHasAccount] && ![[DTModel sharedInstance] userIsLoggedIn]){
+      [self performSegueWithIdentifier:@"pushToLogin" sender:self];
+  }
+
+  //
+  else {
+      [self performSegueWithIdentifier:@"pushToSignup" sender:self];
+  }
+}
+
+-(void)purchaseLot
+{
+    DTUser* currentUser = [[DTModel sharedInstance] currentUser];
+    [[DTModel sharedInstance] purchaseSpot:self.theSpot forUser:currentUser
+       success:^(NSURLSessionDataTask *task, id responseObject) {}
+       failure:^(NSURLSessionDataTask *task, id responseObject) {
+           NSLog(@"Unable to make reservation at this time. Please try again.");
+       }
+    ];
 }
 
 -(NSString*)generateReceipt
@@ -70,8 +94,25 @@
 {
   if([[segue identifier] isEqualToString:@"goToReceipt"]){
     DTReceiptViewController *dest = [segue destinationViewController];
+    [self purchaseLot];
     dest.theReceipt = [self generateReceipt];
+  } else if([[segue identifier] isEqualToString:@"pushToLogin"]) {
+    self.loginViewController = [segue destinationViewController];
+    self.loginViewController.delegate = self;
+  } else if([[segue identifier] isEqualToString:@"pushToSignup"]){
+    self.signupViewController = [segue destinationViewController];
+    self.signupViewController.delegate = self;
   }
+}
+
+-(void)dismissLoginViewController
+{
+  [self dismissViewControllerAnimated:YES completion:nil];
+}
+
+-(void)dismissSignupViewController
+{
+  [self dismissViewControllerAnimated:YES completion:nil];
 }
 
 @end
