@@ -32,7 +32,7 @@
 
 #warning Need to be implemented
 @property (strong, nonatomic) NSNumber *averageRating;
-@property (strong, nonatomic) NSNumber *averagePrice;
+@property (strong, nonatomic) NSNumber *minimumPrice;
 @property (strong, nonatomic) NSNumber *distance;
 
 @end

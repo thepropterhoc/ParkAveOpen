@@ -75,6 +75,17 @@
   [self performSegueWithIdentifier:@"pushToSignup" sender:self];
 }
 
+-(void)purchaseLot
+{
+    DTUser* currentUser = [[DTModel sharedInstance] currentUser];
+    [[DTModel sharedInstance] purchaseSpot:self.theSpot forUser:currentUser
+       success:^(NSURLSessionDataTask *task, id responseObject) {}
+       failure:^(NSURLSessionDataTask *task, id responseObject) {
+           NSLog(@"Unable to make reservation at this time. Please try again.");
+       }
+    ];
+}
+
 -(NSString*)generateReceipt
 {
   NSDateFormatter *formatter = [[NSDateFormatter alloc] init];
@@ -87,6 +98,7 @@
 {
   if([[segue identifier] isEqualToString:@"goToReceipt"]){
     DTReceiptViewController *dest = [segue destinationViewController];
+    [self purchaseLot];
     dest.theReceipt = [self generateReceipt];
   } else if([[segue identifier] isEqualToString:@"pushToLogin"]) {
     self.loginViewController = [segue destinationViewController];

@@ -98,12 +98,9 @@
 
 - (void) purchaseSpot:(DTParkingSpot*)spot forUser:(DTUser*)user success: (void (^)(NSURLSessionDataTask *task, id responseObject))success failure:(void (^)(NSURLSessionDataTask *task, NSError *error))failure;
 
-
-
 #pragma mark - Pseudo-properties
 
 - (DTUser*) currentUser;
-
 - (DTUser*) defaultUser;
 
 - (NSString*) defaultEmail;
