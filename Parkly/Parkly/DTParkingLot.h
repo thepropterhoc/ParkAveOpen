@@ -34,5 +34,6 @@
 @property (strong, nonatomic) NSNumber *averageRating;
 @property (strong, nonatomic) NSNumber *minumumPrice;
 @property (strong, nonatomic) NSNumber *distance;
+@property (strong, nonatomic) NSString *lotImage;
 
 @end

@@ -388,8 +388,8 @@
     [[array mutableCopy] sortUsingComparator:^NSComparisonResult(id obj1, id obj2) {
         DTParkingLot* lotA = obj1;
         DTParkingLot* lotB = obj2;
-        CGFloat priceA = [lotA.averagePrice floatValue];
-        CGFloat priceB = [lotB.averagePrice floatValue];
+        CGFloat priceA = [lotA.minumumPrice floatValue];
+        CGFloat priceB = [lotB.minumumPrice floatValue];
         
         if (priceA > priceB) {
             return isAscending ? NSOrderedAscending : NSOrderedDescending;
