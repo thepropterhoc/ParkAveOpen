@@ -66,6 +66,22 @@
     self.profileViewController.delegate = self;
   } else if([[segue identifier] isEqualToString:@"pushToDetail"]){
     ((DTDetailViewController*) [segue destinationViewController]).lot = self.lotTable.theLots[self.lotTable.theTable.indexPathForSelectedRow.row];
+    
+    
+    /*
+    DTParkingLot *theLot = self.lotTable.theLots[self.lotTable.theTable.indexPathForSelectedRow.row];
+    CLLocationCoordinate2D coordinate = CLLocationCoordinate2DMake(theLot.lat.floatValue, theLot.lon.floatValue);
+    MKPlacemark *placemark = [[MKPlacemark alloc] initWithCoordinate:coordinate addressDictionary:nil];
+    MKMapItem *item = [[MKMapItem alloc] initWithPlacemark:placemark];
+    item.name = theLot.title;
+    NSDictionary *options = @{
+                              MKLaunchOptionsDirectionsModeKey : MKLaunchOptionsDirectionsModeDriving,
+                              MKLaunchOptionsMapTypeKey : @0,
+                              MKLaunchOptionsMapCenterKey : [NSValue valueWithMKCoordinate: CLLocationCoordinate2DMake(theLot.lat.floatValue, theLot.lon.floatValue)],
+                              MKLaunchOptionsMapSpanKey : [NSValue valueWithMKCoordinateSpan: MKCoordinateSpanMake(theLot.distance.floatValue, theLot.distance.floatValue)]
+                              };
+    [item openInMapsWithLaunchOptions:options];
+     */
   }
 }
 
