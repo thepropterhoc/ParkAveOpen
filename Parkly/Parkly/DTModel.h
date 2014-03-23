@@ -99,6 +99,12 @@
 
 - (void) purchaseSpot:(DTParkingSpot*)spot forUser:(DTUser*)user success: (void (^)(NSURLSessionDataTask *task, id responseObject))success failure:(void (^)(NSURLSessionDataTask *task, NSError *error))failure;
 
+#pragma mark - My Spots
+
+#warning Nick, we need to implement this next
+-(void) addSpotToReservedSpots:(DTParkingSpot*)spot;
+-(NSArray*) allReservedSpots;
+
 #pragma mark - Directions
 
 - (void) openDirectionsInMapsToLatitude:(CGFloat)latitude andLongitude:(CGFloat)longitude;

@@ -19,6 +19,7 @@
 		9D15D3C418B6F34100FA635E /* JosefinSlab-Thin.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 9D15D3BA18B6F34100FA635E /* JosefinSlab-Thin.ttf */; };
 		9D15D3C518B6F34100FA635E /* JosefinSlab-ThinItalic.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 9D15D3BB18B6F34100FA635E /* JosefinSlab-ThinItalic.ttf */; };
 		9D15D3D118B72A0C00FA635E /* MapKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 9D15D3D018B72A0C00FA635E /* MapKit.framework */; };
+		9D27300F18DE6BB1004CF460 /* DTCache.m in Sources */ = {isa = PBXBuildFile; fileRef = 9D27300E18DE6BB1004CF460 /* DTCache.m */; };
 		9D7A3ED818CD2043003F6E62 /* DTInitialViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 9D7A3ED718CD2043003F6E62 /* DTInitialViewController.m */; };
 		9D7E8A7718CCD9AC00F4D9C0 /* PDKeychainBindings.m in Sources */ = {isa = PBXBuildFile; fileRef = 594A7C5018C580C3008C077C /* PDKeychainBindings.m */; };
 		9D7E8A7818CCD9AC00F4D9C0 /* PDKeychainBindingsController.m in Sources */ = {isa = PBXBuildFile; fileRef = 594A7C5218C580C3008C077C /* PDKeychainBindingsController.m */; };
@@ -118,6 +119,8 @@
 		9D15D49C18BD952E00FA635E /* DTSpotTableViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = DTSpotTableViewController.m; path = Files/DTSpotTableViewController.m; sourceTree = "<group>"; };
 		9D15D49E18BD954400FA635E /* DTSpotTableCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = DTSpotTableCell.h; path = Files/DTSpotTableCell.h; sourceTree = "<group>"; };
 		9D15D49F18BD954400FA635E /* DTSpotTableCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = DTSpotTableCell.m; path = Files/DTSpotTableCell.m; sourceTree = "<group>"; };
+		9D27300D18DE6BB1004CF460 /* DTCache.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = DTCache.h; path = Files/DTCache.h; sourceTree = "<group>"; };
+		9D27300E18DE6BB1004CF460 /* DTCache.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = DTCache.m; path = Files/DTCache.m; sourceTree = "<group>"; };
 		9D284C9318C51FCE0044F89D /* DTProfileViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = DTProfileViewController.h; path = Files/DTProfileViewController.h; sourceTree = "<group>"; };
 		9D284C9418C51FCE0044F89D /* DTProfileViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = DTProfileViewController.m; path = Files/DTProfileViewController.m; sourceTree = "<group>"; };
 		9D2E92A518B5A49F00509F23 /* DTNavigationBar.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = DTNavigationBar.h; path = Files/DTNavigationBar.h; sourceTree = "<group>"; };
@@ -128,21 +131,21 @@
 		9D7B727018CCC45A00D5D15C /* DTReceiptViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = DTReceiptViewController.m; path = Files/DTReceiptViewController.m; sourceTree = "<group>"; };
 		9D7E8A7418CCD28E00F4D9C0 /* DTSignupViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = DTSignupViewController.h; path = Files/DTSignupViewController.h; sourceTree = "<group>"; };
 		9D7E8A7518CCD28E00F4D9C0 /* DTSignupViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = DTSignupViewController.m; path = Files/DTSignupViewController.m; sourceTree = "<group>"; };
-		9DE9D51E18B462B50035519D /* Parkly.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Parkly.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		9DE9D51E18B462B50035519D /* Park Ave.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Park Ave.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		9DE9D52118B462B50035519D /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
 		9DE9D52318B462B50035519D /* CoreGraphics.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreGraphics.framework; path = System/Library/Frameworks/CoreGraphics.framework; sourceTree = SDKROOT; };
 		9DE9D52518B462B50035519D /* UIKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = UIKit.framework; path = System/Library/Frameworks/UIKit.framework; sourceTree = SDKROOT; };
-		9DE9D52918B462B50035519D /* Parkly-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = "Parkly-Info.plist"; sourceTree = "<group>"; };
+		9DE9D52918B462B50035519D /* Park Ave-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = "Park Ave-Info.plist"; sourceTree = "<group>"; };
 		9DE9D52B18B462B50035519D /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/InfoPlist.strings; sourceTree = "<group>"; };
 		9DE9D52D18B462B50035519D /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
-		9DE9D52F18B462B50035519D /* Parkly-Prefix.pch */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "Parkly-Prefix.pch"; sourceTree = "<group>"; };
+		9DE9D52F18B462B50035519D /* Park Ave-Prefix.pch */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "Park Ave-Prefix.pch"; sourceTree = "<group>"; };
 		9DE9D53018B462B50035519D /* DTAppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = DTAppDelegate.h; sourceTree = "<group>"; };
 		9DE9D53118B462B50035519D /* DTAppDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = DTAppDelegate.m; sourceTree = "<group>"; };
 		9DE9D53418B462B50035519D /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		9DE9D53918B462B50035519D /* Images.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Images.xcassets; sourceTree = "<group>"; };
-		9DE9D53F18B462B50035519D /* ParklyTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = ParklyTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
+		9DE9D53F18B462B50035519D /* Park AveTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = "Park AveTests.xctest"; sourceTree = BUILT_PRODUCTS_DIR; };
 		9DE9D54018B462B50035519D /* XCTest.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = XCTest.framework; path = Library/Frameworks/XCTest.framework; sourceTree = DEVELOPER_DIR; };
-		9DE9D54818B462B50035519D /* ParklyTests-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = "ParklyTests-Info.plist"; sourceTree = "<group>"; };
+		9DE9D54818B462B50035519D /* Park AveTests-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = "Park AveTests-Info.plist"; sourceTree = "<group>"; };
 		9DE9D54A18B462B50035519D /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/InfoPlist.strings; sourceTree = "<group>"; };
 		9DE9D54C18B462B50035519D /* ParklyTests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ParklyTests.m; sourceTree = "<group>"; };
 		9DE9D55718B53CC10035519D /* DTLoginViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = DTLoginViewController.h; path = Files/DTLoginViewController.h; sourceTree = "<group>"; };
@@ -210,7 +213,7 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
-		594A7C4B18C57F04008C077C /* Security */ = {
+		594A7C4B18C57F04008C077C /* DTSecurity */ = {
 			isa = PBXGroup;
 			children = (
 				594A7C4F18C580C3008C077C /* PDKeychainBindings.h */,
@@ -218,7 +221,7 @@
 				594A7C5118C580C3008C077C /* PDKeychainBindingsController.h */,
 				594A7C5218C580C3008C077C /* PDKeychainBindingsController.m */,
 			);
-			name = Security;
+			name = DTSecurity;
 			sourceTree = "<group>";
 		};
 		59EA93A718CD018F00638048 /* Data Model */ = {
@@ -226,6 +229,8 @@
 			children = (
 				9DF5B46218C55B2000E1D1D7 /* DTModel.h */,
 				9DF5B46318C55B2000E1D1D7 /* DTModel.m */,
+				9D27300D18DE6BB1004CF460 /* DTCache.h */,
+				9D27300E18DE6BB1004CF460 /* DTCache.m */,
 				9DF5B45E18C55B2000E1D1D7 /* DTDataManager.h */,
 				9DF5B45F18C55B2000E1D1D7 /* DTDataManager.m */,
 				9DF5B46418C55B2000E1D1D7 /* DTNetworkManager.h */,
@@ -278,7 +283,7 @@
 			name = DTDetail;
 			sourceTree = "<group>";
 		};
-		9D15D4A118BDA2DF00FA635E /* DTLots */ = {
+		9D15D4A118BDA2DF00FA635E /* DTLotTable */ = {
 			isa = PBXGroup;
 			children = (
 				9D15D3CD18B724DF00FA635E /* DTLotTableViewController.h */,
@@ -286,7 +291,7 @@
 				9D15D3D218B7405D00FA635E /* DTLotTableCell.h */,
 				9D15D3D318B7405D00FA635E /* DTLotTableCell.m */,
 			);
-			name = DTLots;
+			name = DTLotTable;
 			sourceTree = "<group>";
 		};
 		9D15D4A218BDA2F100FA635E /* DTReviews */ = {
@@ -344,7 +349,7 @@
 				9D15D3E718B809DC00FA635E /* DTDetail */,
 				9D284C9218C51FB60044F89D /* DTProfile */,
 				9D15D4A418BDA30700FA635E /* DTGeneral */,
-				9D15D4A118BDA2DF00FA635E /* DTLots */,
+				9D15D4A118BDA2DF00FA635E /* DTLotTable */,
 				9D15D4A218BDA2F100FA635E /* DTReviews */,
 				9D15D4A318BDA2FD00FA635E /* DTSpots */,
 			);
@@ -388,7 +393,7 @@
 		9DE9D51518B462B50035519D = {
 			isa = PBXGroup;
 			children = (
-				9DE9D52718B462B50035519D /* Parkly */,
+				9DE9D52718B462B50035519D /* Park Ave */,
 				9DE9D54618B462B50035519D /* ParklyTests */,
 				9DE9D52018B462B50035519D /* Frameworks */,
 				9DE9D51F18B462B50035519D /* Products */,
@@ -398,8 +403,8 @@
 		9DE9D51F18B462B50035519D /* Products */ = {
 			isa = PBXGroup;
 			children = (
-				9DE9D51E18B462B50035519D /* Parkly.app */,
-				9DE9D53F18B462B50035519D /* ParklyTests.xctest */,
+				9DE9D51E18B462B50035519D /* Park Ave.app */,
+				9DE9D53F18B462B50035519D /* Park AveTests.xctest */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -417,14 +422,14 @@
 			name = Frameworks;
 			sourceTree = "<group>";
 		};
-		9DE9D52718B462B50035519D /* Parkly */ = {
+		9DE9D52718B462B50035519D /* Park Ave */ = {
 			isa = PBXGroup;
 			children = (
 				9D3411F718CCF9EA00B1508B /* DTResources */,
 				9DE9D53018B462B50035519D /* DTAppDelegate.h */,
 				9DE9D53118B462B50035519D /* DTAppDelegate.m */,
 				59EA93A718CD018F00638048 /* Data Model */,
-				594A7C4B18C57F04008C077C /* Security */,
+				594A7C4B18C57F04008C077C /* DTSecurity */,
 				9DF5B44A18C55B1100E1D1D7 /* DTNetworking */,
 				9D15D3D518B7F77800FA635E /* DTDataTypes */,
 				9D2E92A418B5A48300509F23 /* DTUIElements */,
@@ -432,6 +437,7 @@
 				9DE9D53918B462B50035519D /* Images.xcassets */,
 				9DE9D52818B462B50035519D /* Supporting Files */,
 			);
+			name = "Park Ave";
 			path = Parkly;
 			sourceTree = "<group>";
 		};
@@ -448,10 +454,10 @@
 				9D15D3B918B6F34100FA635E /* JosefinSlab-SemiBoldItalic.ttf */,
 				9D15D3BA18B6F34100FA635E /* JosefinSlab-Thin.ttf */,
 				9D15D3BB18B6F34100FA635E /* JosefinSlab-ThinItalic.ttf */,
-				9DE9D52918B462B50035519D /* Parkly-Info.plist */,
+				9DE9D52918B462B50035519D /* Park Ave-Info.plist */,
 				9DE9D52A18B462B50035519D /* InfoPlist.strings */,
 				9DE9D52D18B462B50035519D /* main.m */,
-				9DE9D52F18B462B50035519D /* Parkly-Prefix.pch */,
+				9DE9D52F18B462B50035519D /* Park Ave-Prefix.pch */,
 			);
 			name = "Supporting Files";
 			sourceTree = "<group>";
@@ -468,7 +474,7 @@
 		9DE9D54718B462B50035519D /* Supporting Files */ = {
 			isa = PBXGroup;
 			children = (
-				9DE9D54818B462B50035519D /* ParklyTests-Info.plist */,
+				9DE9D54818B462B50035519D /* Park AveTests-Info.plist */,
 				9DE9D54918B462B50035519D /* InfoPlist.strings */,
 			);
 			name = "Supporting Files";
@@ -521,9 +527,9 @@
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
-		9DE9D51D18B462B50035519D /* Parkly */ = {
+		9DE9D51D18B462B50035519D /* Park Ave */ = {
 			isa = PBXNativeTarget;
-			buildConfigurationList = 9DE9D55018B462B50035519D /* Build configuration list for PBXNativeTarget "Parkly" */;
+			buildConfigurationList = 9DE9D55018B462B50035519D /* Build configuration list for PBXNativeTarget "Park Ave" */;
 			buildPhases = (
 				9DE9D51A18B462B50035519D /* Sources */,
 				9DE9D51B18B462B50035519D /* Frameworks */,
@@ -533,14 +539,14 @@
 			);
 			dependencies = (
 			);
-			name = Parkly;
+			name = "Park Ave";
 			productName = Parkly;
-			productReference = 9DE9D51E18B462B50035519D /* Parkly.app */;
+			productReference = 9DE9D51E18B462B50035519D /* Park Ave.app */;
 			productType = "com.apple.product-type.application";
 		};
-		9DE9D53E18B462B50035519D /* ParklyTests */ = {
+		9DE9D53E18B462B50035519D /* Park AveTests */ = {
 			isa = PBXNativeTarget;
-			buildConfigurationList = 9DE9D55318B462B50035519D /* Build configuration list for PBXNativeTarget "ParklyTests" */;
+			buildConfigurationList = 9DE9D55318B462B50035519D /* Build configuration list for PBXNativeTarget "Park AveTests" */;
 			buildPhases = (
 				9DE9D53B18B462B50035519D /* Sources */,
 				9DE9D53C18B462B50035519D /* Frameworks */,
@@ -551,9 +557,9 @@
 			dependencies = (
 				9DE9D54518B462B50035519D /* PBXTargetDependency */,
 			);
-			name = ParklyTests;
+			name = "Park AveTests";
 			productName = ParklyTests;
-			productReference = 9DE9D53F18B462B50035519D /* ParklyTests.xctest */;
+			productReference = 9DE9D53F18B462B50035519D /* Park AveTests.xctest */;
 			productType = "com.apple.product-type.bundle.unit-test";
 		};
 /* End PBXNativeTarget section */
@@ -563,7 +569,7 @@
 			isa = PBXProject;
 			attributes = {
 				CLASSPREFIX = DT;
-				LastUpgradeCheck = 0500;
+				LastUpgradeCheck = 0510;
 				ORGANIZATIONNAME = DevTeam14;
 				TargetAttributes = {
 					9DE9D53E18B462B50035519D = {
@@ -571,7 +577,7 @@
 					};
 				};
 			};
-			buildConfigurationList = 9DE9D51918B462B50035519D /* Build configuration list for PBXProject "Parkly" */;
+			buildConfigurationList = 9DE9D51918B462B50035519D /* Build configuration list for PBXProject "Park Ave" */;
 			compatibilityVersion = "Xcode 3.2";
 			developmentRegion = English;
 			hasScannedForEncodings = 0;
@@ -584,8 +590,8 @@
 			projectDirPath = "";
 			projectRoot = "";
 			targets = (
-				9DE9D51D18B462B50035519D /* Parkly */,
-				9DE9D53E18B462B50035519D /* ParklyTests */,
+				9DE9D51D18B462B50035519D /* Park Ave */,
+				9DE9D53E18B462B50035519D /* Park AveTests */,
 			);
 		};
 /* End PBXProject section */
@@ -658,6 +664,7 @@
 				9D7E8A9418CCD9AC00F4D9C0 /* DTRoundedImageView.m in Sources */,
 				9D7E8A9518CCD9AC00F4D9C0 /* DTLotTableViewController.m in Sources */,
 				9D7E8A9618CCD9AC00F4D9C0 /* DTLotTableCell.m in Sources */,
+				9D27300F18DE6BB1004CF460 /* DTCache.m in Sources */,
 				9D7E8A9718CCD9AC00F4D9C0 /* DTReviewTableViewController.m in Sources */,
 				9D7E8A9818CCD9AC00F4D9C0 /* DTReviewTableCell.m in Sources */,
 				9D7E8A9918CCD9AC00F4D9C0 /* DTSpotTableViewController.m in Sources */,
@@ -679,7 +686,7 @@
 /* Begin PBXTargetDependency section */
 		9DE9D54518B462B50035519D /* PBXTargetDependency */ = {
 			isa = PBXTargetDependency;
-			target = 9DE9D51D18B462B50035519D /* Parkly */;
+			target = 9DE9D51D18B462B50035519D /* Park Ave */;
 			targetProxy = 9DE9D54418B462B50035519D /* PBXContainerItemProxy */;
 		};
 /* End PBXTargetDependency section */
@@ -716,7 +723,6 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ALWAYS_SEARCH_USER_PATHS = NO;
-				ARCHS = "$(ARCHS_STANDARD_INCLUDING_64_BIT)";
 				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
 				CLANG_CXX_LIBRARY = "libc++";
 				CLANG_ENABLE_MODULES = YES;
@@ -755,7 +761,6 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ALWAYS_SEARCH_USER_PATHS = NO;
-				ARCHS = "$(ARCHS_STANDARD_INCLUDING_64_BIT)";
 				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
 				CLANG_CXX_LIBRARY = "libc++";
 				CLANG_ENABLE_MODULES = YES;
@@ -790,9 +795,9 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
-				GCC_PREFIX_HEADER = "Parkly/Parkly-Prefix.pch";
-				INFOPLIST_FILE = "Parkly/Parkly-Info.plist";
-				PRODUCT_NAME = "$(TARGET_NAME)";
+				GCC_PREFIX_HEADER = "Parkly/Park Ave-Prefix.pch";
+				INFOPLIST_FILE = "Parkly/Park Ave-Info.plist";
+				PRODUCT_NAME = "Park Ave";
 				WRAPPER_EXTENSION = app;
 			};
 			name = Debug;
@@ -803,9 +808,9 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
-				GCC_PREFIX_HEADER = "Parkly/Parkly-Prefix.pch";
-				INFOPLIST_FILE = "Parkly/Parkly-Info.plist";
-				PRODUCT_NAME = "$(TARGET_NAME)";
+				GCC_PREFIX_HEADER = "Parkly/Park Ave-Prefix.pch";
+				INFOPLIST_FILE = "Parkly/Park Ave-Info.plist";
+				PRODUCT_NAME = "Park Ave";
 				WRAPPER_EXTENSION = app;
 			};
 			name = Release;
@@ -813,7 +818,6 @@
 		9DE9D55418B462B50035519D /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
-				ARCHS = "$(ARCHS_STANDARD_INCLUDING_64_BIT)";
 				BUNDLE_LOADER = "$(BUILT_PRODUCTS_DIR)/Parkly.app/Parkly";
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(SDKROOT)/Developer/Library/Frameworks",
@@ -826,8 +830,8 @@
 					"DEBUG=1",
 					"$(inherited)",
 				);
-				INFOPLIST_FILE = "ParklyTests/ParklyTests-Info.plist";
-				PRODUCT_NAME = "$(TARGET_NAME)";
+				INFOPLIST_FILE = "ParklyTests/Park AveTests-Info.plist";
+				PRODUCT_NAME = "Park AveTests";
 				TEST_HOST = "$(BUNDLE_LOADER)";
 				WRAPPER_EXTENSION = xctest;
 			};
@@ -836,7 +840,6 @@
 		9DE9D55518B462B50035519D /* Release */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
-				ARCHS = "$(ARCHS_STANDARD_INCLUDING_64_BIT)";
 				BUNDLE_LOADER = "$(BUILT_PRODUCTS_DIR)/Parkly.app/Parkly";
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(SDKROOT)/Developer/Library/Frameworks",
@@ -845,8 +848,8 @@
 				);
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "Parkly/Parkly-Prefix.pch";
-				INFOPLIST_FILE = "ParklyTests/ParklyTests-Info.plist";
-				PRODUCT_NAME = "$(TARGET_NAME)";
+				INFOPLIST_FILE = "ParklyTests/Park AveTests-Info.plist";
+				PRODUCT_NAME = "Park AveTests";
 				TEST_HOST = "$(BUNDLE_LOADER)";
 				WRAPPER_EXTENSION = xctest;
 			};
@@ -855,7 +858,7 @@
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
-		9DE9D51918B462B50035519D /* Build configuration list for PBXProject "Parkly" */ = {
+		9DE9D51918B462B50035519D /* Build configuration list for PBXProject "Park Ave" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
 				9DE9D54E18B462B50035519D /* Debug */,
@@ -864,7 +867,7 @@
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
 		};
-		9DE9D55018B462B50035519D /* Build configuration list for PBXNativeTarget "Parkly" */ = {
+		9DE9D55018B462B50035519D /* Build configuration list for PBXNativeTarget "Park Ave" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
 				9DE9D55118B462B50035519D /* Debug */,
@@ -873,7 +876,7 @@
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
 		};
-		9DE9D55318B462B50035519D /* Build configuration list for PBXNativeTarget "ParklyTests" */ = {
+		9DE9D55318B462B50035519D /* Build configuration list for PBXNativeTarget "Park AveTests" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
 				9DE9D55418B462B50035519D /* Debug */,
