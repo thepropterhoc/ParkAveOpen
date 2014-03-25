@@ -11,7 +11,9 @@
 
 @interface DTCache ()
 
-@property NSCache *theCache;
+@property NSCache *lotsCache;
+@property NSCache *spotsCache;
+@property NSCache *reviewsCache;
 
 @end
 
@@ -24,7 +26,9 @@
   
   dispatch_once(&onceToken, ^{
     sharedInstance = [[[self class] alloc] init];
-    sharedInstance.theCache = [[NSCache alloc] init];
+    sharedInstance.lotsCache = [[NSCache alloc] init];
+    sharedInstance.spotsCache = [[NSCache alloc] init];
+    sharedInstance.reviewsCache = [[NSCache alloc] init];
   });
   
   return sharedInstance;
@@ -112,17 +116,17 @@
 
 -(NSArray*)spotsForLot:(DTParkingLot*)theLot
 {
-  return [self.theCache objectForKey:theLot];
+  return [self.spotsCache objectForKey:theLot];
 }
 
 -(NSArray*)allLots
 {
-  return [self.theCache objectForKey:@"allLots"];
+  return [self.lotsCache objectForKey:@"ALL"];
 }
 
 -(NSArray*)reviewsForUser:(DTUser*)theUser
 {
-  return [self.theCache objectForKey:theUser];
+  return [self.reviewsCache objectForKey:theUser];
 }
 
 
@@ -130,18 +134,26 @@
 
 -(void)removeSpotsForLot:(DTParkingLot *)theLot
 {
-  [self.theCache removeObjectForKey:theLot];
+  [self.spotsCache removeObjectForKey:theLot];
 }
 
 -(void)removeLot:(DTParkingLot *)theLot
 {
   [self removeSpotsForLot:theLot];
-  [self.theCache removeObjectForKey:theLot];
+  [self.lotsCache removeObjectForKey:theLot];
 }
 
 -(void)removeReviewsForUser:(DTUser *)theUser
 {
-  [self.theCache removeObjectForKey:theUser];
+  [self.reviewsCache removeObjectForKey:theUser];
+}
+
+-(void)removeAll
+{
+  [self.reviewsCache removeAllObjects];
+  [self.lotsCache removeAllObjects];
+  [self.spotsCache removeAllObjects];
+  NSLog(@"Scrubbed the caches");
 }
 
 @end

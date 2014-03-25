@@ -413,4 +413,11 @@
     return [newArray copy];
 }
 
+#pragma mark - Data Management Methods
+
+-(void)scrub
+{
+  [[DTCache sharedInstance] removeAll];
+}
+
 @end

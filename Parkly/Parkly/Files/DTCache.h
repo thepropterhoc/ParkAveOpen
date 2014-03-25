@@ -55,4 +55,6 @@
 -(void)removeLot:(DTParkingLot *)theLot;
 -(void)removeReviewsForUser:(DTUser *)theUser;
 
+-(void)removeAll;
+
 @end

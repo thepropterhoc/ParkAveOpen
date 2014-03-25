@@ -15,6 +15,7 @@
 #import "DTParkingSpot.h"
 #import "DTReview.h"
 #import "DTCar.h"
+#import "DTCache.h"
 
 @interface DTModel : NSObject
 
@@ -127,5 +128,9 @@
 #pragma mark - Helper Methods
 
 - (NSArray*) parseJSON:(id)json toArrayOfClass:(__unsafe_unretained Class)theClass;
+
+#pragma mark - Data Management Methods
+
+-(void) scrub;
 
 @end
