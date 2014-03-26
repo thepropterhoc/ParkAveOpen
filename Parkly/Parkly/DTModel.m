@@ -101,8 +101,7 @@
     [[self networkManager] call:@"post" one:@"users" parameters:[user dictionaryRepresentation] success:^(NSURLSessionDataTask *task, id responseObject) {
       NSLog(@"Response object from creation of user: %@", responseObject);
       DTUser* newUser;
-      [newUser dictionaryWithValuesForKeys:responseObject];
-      
+      [newUser setValuesForKeysWithDictionary:responseObject];
         //Login with that new user
         [self authenticateUser:newUser success:^(NSURLSessionDataTask *task, DTUser *aUser) {
             success(task, newUser);
