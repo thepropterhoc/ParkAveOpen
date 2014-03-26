@@ -63,6 +63,9 @@
   theUser.password = self.passwordField.text;
   theUser.birthdate = [NSString stringWithFormat:@"%d/%d/%d", self.monthField.text.intValue, self.dayField.text.intValue, self.yearField.text.intValue];
   theUser.phone = self.phoneField.text;
+  
+  theUser.averageRating = [[NSNumber alloc] initWithInt:-1];
+  
   return theUser;
 }
 
@@ -73,6 +76,7 @@
      ];
     [self.delegate dismissSignupViewController];
   } failure:^(NSURLSessionDataTask *task, NSError *error) {
+    NSLog(@"%@", error);
     [[[UIAlertView alloc] initWithTitle:@"Error" message:@"Error creating an account.  Perhaps there's a problem with the network connection?" delegate:nil cancelButtonTitle:@"Dismiss" otherButtonTitles: nil] show];
   }];
 }

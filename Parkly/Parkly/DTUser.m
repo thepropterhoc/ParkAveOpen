@@ -39,7 +39,7 @@
              @"phone": self.phone,
              @"reservedSpots": self.reservedSpots,
              @"spotHistory": self.spotHistory,
-             @"averageRating": self.averageRating,
+             @"averageRating": self.averageRating
              };
 }
 
