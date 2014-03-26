@@ -54,6 +54,10 @@
   return [self.reviewsCache objectForKey:theUser] != nil;
 }
 
+-(BOOL)hasLots
+{
+  return [self.lotsCache objectForKey:self.ALL_LOTS_KEY] != nil;
+}
 
 #pragma mark - Adding methods
 
@@ -107,6 +111,16 @@
 -(void)removeReviewsForUser:(DTUser *)theUser
 {
   [self.reviewsCache removeObjectForKey:theUser];
+}
+
+-(void)removeAllLots
+{
+  [self.lotsCache removeAllObjects];
+}
+
+-(void)removeAllSpots
+{
+  [self.spotsCache removeAllObjects];
 }
 
 -(void)removeAll

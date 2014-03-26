@@ -24,6 +24,7 @@
 -(BOOL)hasSpotsForLot:(DTParkingLot*)theLot;
 -(BOOL)hasLot:(DTParkingLot*)theLot;
 -(BOOL)hasReviewsForUser:(DTUser*)theUser;
+-(BOOL)hasLots;
 
 #pragma mark - Adding methods
 
@@ -42,6 +43,8 @@
 -(void)removeSpotsForLot:(DTParkingLot *)theLot;
 -(void)removeLot:(DTParkingLot *)theLot;
 -(void)removeReviewsForUser:(DTUser *)theUser;
+-(void)removeAllLots;
+-(void)removeAllSpots;
 
 -(void)removeAll;
 

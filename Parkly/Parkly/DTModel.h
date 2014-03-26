@@ -131,6 +131,8 @@
 
 #pragma mark - Data Management Methods
 
--(void) scrub;
+-(void)scrubTheCache;
+-(void)removeCachedLots;
+-(void)removeCachedSpots;
 
 @end

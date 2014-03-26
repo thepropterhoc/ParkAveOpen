@@ -96,7 +96,7 @@
 
 -(void)fetchSpots
 {
-  NSLog(@"%@", self.theLot);
+  [[DTModel sharedInstance] removeCachedSpots];
   [[DTModel sharedInstance] getSpotsForLot:self.theLot success:^(NSURLSessionDataTask *task, NSArray *spots) {
     self.spots = spots;
     [self.theTable reloadData];

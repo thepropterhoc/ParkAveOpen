@@ -137,6 +137,7 @@
 
 -(void)fetchData
 {
+  [[DTModel sharedInstance] removeCachedLots];
   [[DTModel sharedInstance] getAllLots:^(NSURLSessionDataTask *task, NSArray *allLots) {
     self.theLots = allLots;
     [self.theTable reloadData];

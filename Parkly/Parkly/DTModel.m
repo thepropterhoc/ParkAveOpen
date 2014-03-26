@@ -135,9 +135,19 @@
 #pragma mark - Lots
 
 - (void) getAllLots: (void (^)(NSURLSessionDataTask *task, NSArray* allLots))success failure:(void (^)(NSURLSessionDataTask *task, NSError *error))failure {
+  
+    if([[DTCache sharedInstance] hasLots]){
+      success(nil, [[DTCache sharedInstance] allLots]);
+      return;
+    }
+  
     [self.networkManager call:@"get" one:@"lots" parameters:nil success:^(NSURLSessionDataTask *task, id responseObject) {
-        NSLog(@"%@", responseObject);
-        success(task, [self parseJSON:responseObject toArrayOfClass:[DTParkingLot class]]);
+      
+        NSArray *resultArray = [self parseJSON:responseObject toArrayOfClass:[DTParkingLot class]];
+      
+        [[DTCache sharedInstance] addLots:resultArray];
+      
+        success(task, resultArray);
     } failure:^(NSURLSessionDataTask *task, NSError *error) {
         failure(task, error);
     }];
@@ -180,12 +190,20 @@
     //NSDictionary* parameters = [NSDictionary dictionaryWithObject:lotID forKey:@"_id"];
     
     //2
+  
+    if([[DTCache sharedInstance] hasSpotsForLot:lot]){
+      success(nil, [[DTCache sharedInstance] spotsForLot:lot]);
+      return;
+    }
+  
     [self.networkManager call:@"get" one:@"users" two:[lot user_id] three:@"lots" four:[lot _id] five:@"spots" parameters:nil success:^(NSURLSessionDataTask *task, id responseObject) {
         //if success, first parse JSON into objects
         NSArray* spotArray = [self parseJSON:responseObject toArrayOfClass:[DTParkingSpot class]];
         //update the dataManager
         //[self.dataManager updateSpots:spotArray withLotId:lotID];
-        
+      
+      [[DTCache sharedInstance] addSpots:spotArray forLot:lot];
+      
         //do whatever the user wants with the array of spots
         success(task, spotArray);
     } failure:^(NSURLSessionDataTask *task, NSError *error) {
@@ -417,7 +435,17 @@
 
 #pragma mark - Data Management Methods
 
--(void)scrub
+-(void)removeCachedLots
+{
+  [[DTCache sharedInstance] removeAllLots];
+}
+
+-(void)removeCachedSpots
+{
+  [[DTCache sharedInstance] removeAllSpots];
+}
+
+-(void)scrubTheCache
 {
   [[DTCache sharedInstance] removeAll];
 }
