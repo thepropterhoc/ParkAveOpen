@@ -54,15 +54,16 @@
                                  @"password": password};
     
     [self.networkManager call:@"post" one:@"users" two:@"session" parameters:parameters success:^(NSURLSessionDataTask *task, id responseObject) {
+                   NSLog(@"we're doin' it");
+        NSLog(@"%@",responseObject);
         if([[responseObject valueForKey:@"err"] isEqualToString:@"nomatch"]) {
             responseObject = @"error";
         } else {
             [[[self dataManager] currentUser] setValuesForKeysWithDictionary:responseObject];
             //set the defaults for next time if they aren't the same
-            if(![[self defaultEmail] isEqualToString:email]) {
                 [self setDefaultEmail:email];
+                NSLog(@"default email: %@", [self defaultEmail]);
                 [[PDKeychainBindings sharedKeychainBindings] setString:password forKey:@"password"];
-            }
         }
         success(task, responseObject);
     } failure:^(NSURLSessionDataTask *task, NSError *error) {

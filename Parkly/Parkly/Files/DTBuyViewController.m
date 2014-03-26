@@ -55,7 +55,7 @@
 - (IBAction)tryToReserve:(id)sender
 {
 #warning Check for login needs to happen here
-  
+    NSLog(@"user has account:%@\n user is logged in:%@", [[DTModel sharedInstance] userHasAccount], [[DTModel sharedInstance] userIsLoggedIn]);
   if([[DTModel sharedInstance] userHasAccount] && [[DTModel sharedInstance] userIsLoggedIn]){
     [[DTModel sharedInstance] purchaseSpot:self.theSpot forUser:[[DTModel sharedInstance] defaultUser]  success:^(NSURLSessionDataTask *task, id responseObject) {
       [self performSegueWithIdentifier:@"goToReceipt" sender:self];
