@@ -12,7 +12,7 @@
 #import "DTUser.h"
 #import "DTReview.h"
 
-#warning This object is not functional yet.  DO NOT USE IT.
+
 @interface DTCache : NSObject
 
 #pragma mark - Global instance
@@ -27,21 +27,9 @@
 
 #pragma mark - Adding methods
 
--(void)addSpot:(DTParkingSpot*)theSpot forLot:(DTParkingLot*)theLot;
--(void)addLot:(DTParkingLot*)theLot;
--(void)addReview:(DTReview*)theReview forUser:(DTUser*)theUser;
-
+-(void)addLots:(NSArray*)theLots;
 -(void)addSpots:(NSArray*)theSpots forLot:(DTParkingLot*)theLot;
 -(void)addReviews:(NSArray*)theReviews forUser:(DTUser*)theUser;
-
-#pragma mark - Updating methods
-
--(void)updateSpot:(DTParkingSpot*)theSpot forLot:(DTParkingLot*)theLot;
--(void)updateLot:(DTParkingLot*)theLot;
--(void)updateReview:(DTReview*)theReview forUser:(DTUser*)theUser;
-
--(void)updateSpots:(NSArray*)theSpots forLot:(DTParkingLot*)theLot;
--(void)updateReviews:(NSArray*)theReviews forUser:(DTUser*)theUser;
 
 #pragma mark - Fetching methods
 

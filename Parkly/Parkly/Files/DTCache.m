@@ -15,6 +15,7 @@
 @property NSCache *spotsCache;
 @property NSCache *reviewsCache;
 
+@property NSString *ALL_LOTS_KEY;
 @end
 
 @implementation DTCache
@@ -29,6 +30,7 @@
     sharedInstance.lotsCache = [[NSCache alloc] init];
     sharedInstance.spotsCache = [[NSCache alloc] init];
     sharedInstance.reviewsCache = [[NSCache alloc] init];
+    sharedInstance.ALL_LOTS_KEY = @"GET_ALL_LOTS";
   });
   
   return sharedInstance;
@@ -39,76 +41,35 @@
 
 -(BOOL)hasSpotsForLot:(DTParkingLot*)theLot
 {
-#warning Bad implementation
-  return YES;
+  return [self.spotsCache objectForKey:theLot] != nil;
 }
 
 -(BOOL)hasLot:(DTParkingLot*)theLot
 {
-#warning Bad implementation
-  return YES;
+  return [((NSArray *) [self.lotsCache objectForKey:self.ALL_LOTS_KEY]) containsObject:theLot];
 }
 
 -(BOOL)hasReviewsForUser:(DTUser*)theUser
 {
-#warning Bad implementation
-  return YES;
+  return [self.reviewsCache objectForKey:theUser] != nil;
 }
 
 
 #pragma mark - Adding methods
 
--(void)addSpot:(DTParkingSpot*)theSpot forLot:(DTParkingLot*)theLot
+-(void)addLots:(NSArray *)theLots
 {
-  
-}
-
--(void)addLot:(DTParkingLot*)theLot
-{
-  
-}
-
--(void)addReview:(DTReview*)theReview forUser:(DTUser*)theUser
-{
-  
+  [self.lotsCache setObject:theLots forKey:self.ALL_LOTS_KEY];
 }
 
 -(void)addSpots:(NSArray*)theSpots forLot:(DTParkingLot*)theLot
 {
-  
+  [self.spotsCache setObject:theSpots forKey:theLot];
 }
 
 -(void)addReviews:(NSArray*)theReviews forUser:(DTUser*)theUser
 {
-  
-}
-
-
-#pragma mark - Updating methods
-
--(void)updateSpot:(DTParkingSpot*)theSpot forLot:(DTParkingLot*)theLot
-{
-  
-}
-
--(void)updateLot:(DTParkingLot*)theLot
-{
-  
-}
-
--(void)updateReview:(DTReview*)theReview forUser:(DTUser*)theUser
-{
-  
-}
-
--(void)updateSpots:(NSArray*)theSpots forLot:(DTParkingLot*)theLot
-{
-  
-}
-
--(void)updateReviews:(NSArray*)theReviews forUser:(DTUser*)theUser
-{
-  
+  [self.reviewsCache setObject:theReviews forKey:theUser];
 }
 
 
@@ -121,7 +82,7 @@
 
 -(NSArray*)allLots
 {
-  return [self.lotsCache objectForKey:@"ALL"];
+  return [self.lotsCache objectForKey:self.ALL_LOTS_KEY];
 }
 
 -(NSArray*)reviewsForUser:(DTUser*)theUser
