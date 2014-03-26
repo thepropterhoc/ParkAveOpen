@@ -64,7 +64,7 @@
   theUser.birthdate = [NSString stringWithFormat:@"%d/%d/%d", self.monthField.text.intValue, self.dayField.text.intValue, self.yearField.text.intValue];
   theUser.phone = self.phoneField.text;
   
-  theUser.averageRating = [[NSNumber alloc] initWithInt:-1];
+  theUser.averageRating = [[NSNumber alloc] initWithInt:0];
   
   return theUser;
 }

@@ -100,15 +100,15 @@
 - (void) createUser:(DTUser*)user success: (void (^)(NSURLSessionDataTask *task, DTUser* newUser))success failure:(void (^)(NSURLSessionDataTask *task, NSError *error))failure {
     [[self networkManager] call:@"post" one:@"users" parameters:[user dictionaryRepresentation] success:^(NSURLSessionDataTask *task, id responseObject) {
       NSLog(@"Response object from creation of user: %@", responseObject);
-        DTUser* newUser;
-        [newUser dictionaryWithValuesForKeys:responseObject];
+      DTUser* newUser;
+      [newUser dictionaryWithValuesForKeys:responseObject];
       
-      NSLog(@"New user : %@", [newUser dictionaryRepresentation]);
         //Login with that new user
         [self authenticateUser:newUser success:^(NSURLSessionDataTask *task, DTUser *aUser) {
             success(task, newUser);
         } failure:^(NSURLSessionDataTask *task, NSError *error) {
           //Login with that new user
+          NSLog(@"Failed to authenticate new user");
             failure(task, error);
         }];
     } failure:^(NSURLSessionDataTask *task, NSError *error) {
