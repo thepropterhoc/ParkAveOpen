@@ -14,8 +14,8 @@
 @property NSCache *lotsCache;
 @property NSCache *spotsCache;
 @property NSCache *reviewsCache;
-
 @property NSString *ALL_LOTS_KEY;
+
 @end
 
 @implementation DTCache
