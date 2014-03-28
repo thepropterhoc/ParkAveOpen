@@ -318,7 +318,7 @@
                                                     <rect key="frame" x="20" y="42" width="66" height="21"/>
                                                     <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                                     <fontDescription key="fontDescription" name="AvenirNext-DemiBold" family="Avenir Next" pointSize="17"/>
-                                                    <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                                    <color key="textColor" red="0.94509803920000002" green="0.35294117650000001" blue="0.36078431370000003" alpha="1" colorSpace="calibratedRGB"/>
                                                     <nil key="highlightedColor"/>
                                                 </label>
                                                 <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="pfc-ia-JDP">
@@ -329,14 +329,14 @@
                                                         <constraint firstAttribute="height" constant="21" id="t4S-rJ-LZk"/>
                                                     </constraints>
                                                     <fontDescription key="fontDescription" name="AvenirNext-DemiBold" family="Avenir Next" pointSize="17"/>
-                                                    <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                                    <color key="textColor" red="0.94509803920000002" green="0.35294117650000001" blue="0.36078431370000003" alpha="1" colorSpace="calibratedRGB"/>
                                                     <nil key="highlightedColor"/>
                                                 </label>
                                                 <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="XGc-u4-trA">
                                                     <rect key="frame" x="201" y="42" width="66" height="21"/>
                                                     <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                                     <fontDescription key="fontDescription" name="AvenirNext-DemiBold" family="Avenir Next" pointSize="17"/>
-                                                    <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                                    <color key="textColor" red="0.94509803920000002" green="0.35294117650000001" blue="0.36078431370000003" alpha="1" colorSpace="calibratedRGB"/>
                                                     <nil key="highlightedColor"/>
                                                 </label>
                                                 <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Distance" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Kh0-yE-jzz">
@@ -1368,6 +1368,7 @@
                     </view>
                     <navigationItem key="navigationItem" id="6PY-c2-E7v">
                         <barButtonItem key="rightBarButtonItem" image="Comment" id="6SI-lG-aUC">
+                            <color key="tintColor" red="0.94509803920000002" green="0.35294117650000001" blue="0.36078431370000003" alpha="1" colorSpace="calibratedRGB"/>
                             <connections>
                                 <segue destination="YKG-gJ-cO9" kind="push" identifier="goToReview" id="cwW-R4-Ieu"/>
                             </connections>
@@ -1448,7 +1449,7 @@
                                     <segment title="Price"/>
                                     <segment title="Name"/>
                                 </segments>
-                                <color key="tintColor" red="0.40000000600000002" green="0.40000000600000002" blue="1" alpha="1" colorSpace="calibratedRGB"/>
+                                <color key="tintColor" red="0.94509803920000002" green="0.35294117650000001" blue="0.36078431370000003" alpha="1" colorSpace="calibratedRGB"/>
                                 <connections>
                                     <action selector="didSelectSegment:" destination="TCl-EB-kKd" eventType="valueChanged" id="c0S-Ig-5jx"/>
                                 </connections>
@@ -1469,13 +1470,13 @@
                     </view>
                     <navigationItem key="navigationItem" id="6bK-o6-HoI">
                         <barButtonItem key="leftBarButtonItem" title="Item" image="Profile" width="15" id="Utj-OL-UwG">
-                            <color key="tintColor" red="0.40000000600000002" green="0.40000000600000002" blue="1" alpha="1" colorSpace="calibratedRGB"/>
+                            <color key="tintColor" red="0.94509803921568625" green="0.3529411764705882" blue="0.36078431372549019" alpha="1" colorSpace="calibratedRGB"/>
                             <connections>
                                 <segue destination="pwE-RB-6ll" kind="modal" identifier="profile" modalTransitionStyle="coverVertical" id="qLP-9f-INo"/>
                             </connections>
                         </barButtonItem>
                         <barButtonItem key="rightBarButtonItem" title="Spots" id="ZPe-lb-5gs">
-                            <color key="tintColor" red="0.40000000600000002" green="0.40000000600000002" blue="1" alpha="1" colorSpace="calibratedRGB"/>
+                            <color key="tintColor" red="0.94509803921568625" green="0.3529411764705882" blue="0.36078431372549019" alpha="1" colorSpace="calibratedRGB"/>
                         </barButtonItem>
                     </navigationItem>
                     <connections>
@@ -1519,7 +1520,7 @@
                                                         <constraint firstAttribute="height" relation="lessThanOrEqual" constant="40" id="UGq-am-E81"/>
                                                     </constraints>
                                                     <fontDescription key="fontDescription" name="AvenirNext-DemiBold" family="Avenir Next" pointSize="17"/>
-                                                    <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                                    <color key="textColor" red="0.94509803920000002" green="0.35294117650000001" blue="0.36078431370000003" alpha="1" colorSpace="calibratedRGB"/>
                                                     <nil key="highlightedColor"/>
                                                 </label>
                                                 <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="3. 5 / 5" textAlignment="center" lineBreakMode="clip" baselineAdjustment="alignBaselines" minimumScaleFactor="0.5" translatesAutoresizingMaskIntoConstraints="NO" id="LIu-M0-9mD">

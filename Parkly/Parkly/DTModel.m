@@ -303,7 +303,7 @@
 #pragma mark - Purchase
 
 - (void) purchaseSpot:(DTParkingSpot*)spot forUser:(DTUser*)user success: (void (^)(NSURLSessionDataTask *task, id responseObject))success failure:(void (^)(NSURLSessionDataTask *task, NSError *error))failure {
-    
+#warning They updated this in the server Nick.  Can you take a look here?
     NSDictionary* parameters = @{@"user_id": [user _id],
                                  @"spot_id": [spot _id]
                                  };
@@ -431,6 +431,13 @@
         [newArray insertObject:newItem atIndex:[newArray count]];
     }
     return [newArray copy];
+}
+
+-(NSDate*)setDateFromString:(NSString *)date
+{
+  NSDateFormatter *formatter = [[NSDateFormatter alloc] init];
+  [formatter setDateStyle:NSDateFormatterFullStyle];
+  return [formatter dateFromString:date];
 }
 
 #pragma mark - Data Management Methods
