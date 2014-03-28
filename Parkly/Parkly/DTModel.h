@@ -26,7 +26,11 @@
 - (BOOL) userIsLoggedIn;
 - (BOOL) userHasAccount;
 
+#pragma mark - Paypal
+
+
 //most of these are not yet implemented
+- (void) makePaymentFromUser:(DTUser*)user success: (void (^)(NSURLSessionDataTask *task, DTUser* aUser))success failure:(void (^)(NSURLSessionDataTask *task, NSError *error))failure;
 
 #pragma mark - Users
 
