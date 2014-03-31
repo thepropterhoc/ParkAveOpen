@@ -31,5 +31,6 @@
 @property (strong, nonatomic) IBOutlet UILabel *spotTypeLabel;
 @property (strong, nonatomic) IBOutlet UILabel *spotDateLabel;
 @property (strong, nonatomic) IBOutlet UILabel *spotPriceLabel;
+@property (strong, nonatomic) IBOutlet UIButton *reserveButton;
 
 @end

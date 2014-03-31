@@ -13,6 +13,13 @@
 
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions
 {
+  if([[DTModel sharedInstance] defaultsExist]){
+    [[DTModel sharedInstance] authenticateUser:[[DTModel sharedInstance] defaultUser] success:^(NSURLSessionDataTask *task, DTUser *aUser) {
+      NSLog(@"DIDFINISHLAUNCHINGWITHOPTIONS : Successfully logged default user in");
+    } failure:^(NSURLSessionDataTask *task, NSError *error) {
+      NSLog(@"DIDFINISHLAUNCHINGWITHOPTIONS : Unable to log default user in");
+    }];
+  }
     // Override point for customization after application launch.
     return YES;
 }
@@ -28,23 +35,45 @@
   // Use this method to release shared resources, save user data, invalidate timers, and store enough application state information to restore your application to its current state in case it is terminated later. 
   // If your application supports background execution, this method is called instead of applicationWillTerminate: when the user quits.
   [[DTModel sharedInstance] scrubTheCache];
-  
+  if([[DTModel sharedInstance] userIsLoggedIn]){
+    [[DTModel sharedInstance] logoutUser];
+    NSLog(@"DIDENTERBACKGROUND : Logged user out");
+  }
 }
 
 - (void)applicationWillEnterForeground:(UIApplication *)application
 {
-  
+  if([[DTModel sharedInstance] defaultsExist]){
+    [[DTModel sharedInstance] authenticateUser:[[DTModel sharedInstance] defaultUser] success:^(NSURLSessionDataTask *task, DTUser *aUser) {
+      NSLog(@"WILLENTERFOREGROUND : Logged user in successfully");
+    } failure:^(NSURLSessionDataTask *task, NSError *error) {
+      NSLog(@"WILLENTERFOREGROUND : Unable to default log in");
+    }];
+  }
 }
 
 - (void)applicationDidBecomeActive:(UIApplication *)application
 {
   // Restart any tasks that were paused (or not yet started) while the application was inactive. If the application was previously in the background, optionally refresh the user interface.
+  
+  
+  if([[DTModel sharedInstance] defaultsExist] && [[DTModel sharedInstance] userHasAccount] && ![[DTModel sharedInstance] userIsLoggedIn]){
+    [[DTModel sharedInstance] authenticateUser:[[DTModel sharedInstance] defaultUser] success:^(NSURLSessionDataTask *task, DTUser *aUser) {
+      NSLog(@"DIDBECOMEACTIVE : Logged user in successfully");
+    } failure:^(NSURLSessionDataTask *task, NSError *error) {
+      NSLog(@"DIDBECOMEACTIVE : Unable to default log in");
+    }];
+  }
 }
 
 - (void)applicationWillTerminate:(UIApplication *)application
 {
   // Called when the application is about to terminate. Save data if appropriate. See also applicationDidEnterBackground:.
   [[DTModel sharedInstance] scrubTheCache];
+  if([[DTModel sharedInstance] userIsLoggedIn]){
+    [[DTModel sharedInstance] logoutUser];
+    NSLog(@"WILLTERMINATE : Logged user out");
+  }
 }
 
 @end

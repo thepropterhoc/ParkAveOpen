@@ -32,6 +32,7 @@
 {
   [super viewDidLoad];
   [self populateFields];
+  [self checkUserStatus];
 	// Do any additional setup after loading the view.
 }
 
@@ -114,6 +115,17 @@
   item.name = self.theLot.title;
   //[item openInMapsWithLaunchOptions:nil];
   return item;
+}
+
+-(void)checkUserStatus
+{
+  if([[DTModel sharedInstance] userHasAccount] && [[DTModel sharedInstance] userIsLoggedIn]){
+    [self.reserveButton setEnabled:YES];
+    [self.reserveButton setAlpha:1.0];
+  } else {
+    [self.reserveButton setEnabled:NO];
+    [self.reserveButton setAlpha:0.5];
+  }
 }
 
 - (IBAction)logIn:(id)sender

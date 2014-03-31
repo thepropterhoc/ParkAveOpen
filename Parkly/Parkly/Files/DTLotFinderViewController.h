@@ -10,8 +10,10 @@
 #import <MapKit/MapKit.h>
 #import "DTLotTableViewController.h"
 #import "DTProfileViewController.h"
+#import "DTSignupViewController.h"
+#import "DTLoginViewController.h"
 
-@interface DTLotFinderViewController : UIViewController <MKMapViewDelegate, DTLotTableViewControllerDelegate, DTProfileViewControllerDelegate>
+@interface DTLotFinderViewController : UIViewController <MKMapViewDelegate, DTLotTableViewControllerDelegate, DTProfileViewControllerDelegate, DTLoginViewControllerDelegate, DTSignupViewControllerDelegate>
 
 
 @property (strong, nonatomic) IBOutlet MKMapView *theMap;

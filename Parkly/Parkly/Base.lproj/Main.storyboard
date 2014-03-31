@@ -4,7 +4,7 @@
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="3733"/>
     </dependencies>
     <scenes>
-        <!--Profile View Controller-->
+        <!--Profile View Controller - Item-->
         <scene sceneID="37K-fd-dwF">
             <objects>
                 <viewController id="pwE-RB-6ll" customClass="DTProfileViewController" sceneMemberID="viewController">
@@ -255,6 +255,7 @@
                             <outletCollection property="gestureRecognizers" destination="0qz-vl-rwW" appends="YES" id="NW2-Fq-5UQ"/>
                         </connections>
                     </view>
+                    <tabBarItem key="tabBarItem" title="Item" id="YvN-B4-VPZ"/>
                     <connections>
                         <outlet property="dayField" destination="G3Y-fi-bge" id="8BV-NM-bR7"/>
                         <outlet property="firstNameField" destination="Nev-Mw-OaN" id="643-70-aVU"/>
@@ -281,7 +282,7 @@
                     </connections>
                 </tapGestureRecognizer>
             </objects>
-            <point key="canvasLocation" x="1411" y="-715"/>
+            <point key="canvasLocation" x="683" y="1623"/>
         </scene>
         <!--Lot Table View Controller - DTTableViewController-->
         <scene sceneID="5TJ-g6-A21">
@@ -298,7 +299,6 @@
                             <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="77" sectionHeaderHeight="22" sectionFooterHeight="22" translatesAutoresizingMaskIntoConstraints="NO" id="1cC-Ys-i5T">
                                 <rect key="frame" x="0.0" y="1" width="320" height="295"/>
                                 <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
-                                <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 <prototypes>
                                     <tableViewCell contentMode="scaleToFill" restorationIdentifier="cell" selectionStyle="blue" accessoryType="disclosureIndicator" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" reuseIdentifier="cell" rowHeight="77" id="D3n-ew-55B" customClass="DTLotTableCell">
                                         <rect key="frame" x="0.0" y="22" width="320" height="77"/>
@@ -318,7 +318,7 @@
                                                     <rect key="frame" x="20" y="42" width="66" height="21"/>
                                                     <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                                     <fontDescription key="fontDescription" name="AvenirNext-DemiBold" family="Avenir Next" pointSize="17"/>
-                                                    <color key="textColor" red="0.94509803920000002" green="0.35294117650000001" blue="0.36078431370000003" alpha="1" colorSpace="calibratedRGB"/>
+                                                    <color key="textColor" white="0.17218864049999999" alpha="1" colorSpace="calibratedWhite"/>
                                                     <nil key="highlightedColor"/>
                                                 </label>
                                                 <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="pfc-ia-JDP">
@@ -329,14 +329,14 @@
                                                         <constraint firstAttribute="height" constant="21" id="t4S-rJ-LZk"/>
                                                     </constraints>
                                                     <fontDescription key="fontDescription" name="AvenirNext-DemiBold" family="Avenir Next" pointSize="17"/>
-                                                    <color key="textColor" red="0.94509803920000002" green="0.35294117650000001" blue="0.36078431370000003" alpha="1" colorSpace="calibratedRGB"/>
+                                                    <color key="textColor" white="0.17218864049999999" alpha="1" colorSpace="calibratedWhite"/>
                                                     <nil key="highlightedColor"/>
                                                 </label>
                                                 <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="XGc-u4-trA">
                                                     <rect key="frame" x="201" y="42" width="66" height="21"/>
                                                     <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                                     <fontDescription key="fontDescription" name="AvenirNext-DemiBold" family="Avenir Next" pointSize="17"/>
-                                                    <color key="textColor" red="0.94509803920000002" green="0.35294117650000001" blue="0.36078431370000003" alpha="1" colorSpace="calibratedRGB"/>
+                                                    <color key="textColor" white="0.17218864049999999" alpha="1" colorSpace="calibratedWhite"/>
                                                     <nil key="highlightedColor"/>
                                                 </label>
                                                 <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Distance" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Kh0-yE-jzz">
@@ -347,7 +347,7 @@
                                                         <constraint firstAttribute="width" constant="40" id="gzm-Pk-qa0"/>
                                                     </constraints>
                                                     <fontDescription key="fontDescription" name="AvenirNext-Regular" family="Avenir Next" pointSize="10"/>
-                                                    <color key="textColor" white="0.17218864049999999" alpha="1" colorSpace="calibratedWhite"/>
+                                                    <color key="textColor" red="0.94509803920000002" green="0.35294117650000001" blue="0.36078431370000003" alpha="1" colorSpace="calibratedRGB"/>
                                                     <nil key="highlightedColor"/>
                                                 </label>
                                                 <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Rating" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="ARv-Gq-cId">
@@ -358,7 +358,7 @@
                                                         <constraint firstAttribute="height" constant="13" id="mFr-Y0-sfp"/>
                                                     </constraints>
                                                     <fontDescription key="fontDescription" name="AvenirNext-Regular" family="Avenir Next" pointSize="10"/>
-                                                    <color key="textColor" white="0.17218864049999999" alpha="1" colorSpace="calibratedWhite"/>
+                                                    <color key="textColor" red="0.94509803920000002" green="0.35294117650000001" blue="0.36078431370000003" alpha="1" colorSpace="calibratedRGB"/>
                                                     <nil key="highlightedColor"/>
                                                 </label>
                                                 <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Price" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="XI6-MM-UIU">
@@ -369,7 +369,7 @@
                                                         <constraint firstAttribute="width" constant="40" id="uJT-3c-AfR"/>
                                                     </constraints>
                                                     <fontDescription key="fontDescription" name="AvenirNext-Regular" family="Avenir Next" pointSize="10"/>
-                                                    <color key="textColor" white="0.17218864049999999" alpha="1" colorSpace="calibratedWhite"/>
+                                                    <color key="textColor" red="0.94509803920000002" green="0.35294117650000001" blue="0.36078431370000003" alpha="1" colorSpace="calibratedRGB"/>
                                                     <nil key="highlightedColor"/>
                                                 </label>
                                             </subviews>
@@ -646,7 +646,7 @@
                     </connections>
                 </tapGestureRecognizer>
             </objects>
-            <point key="canvasLocation" x="1975" y="1538"/>
+            <point key="canvasLocation" x="1286" y="1623"/>
         </scene>
         <!--Signup View Controller-->
         <scene sceneID="gJC-h6-ppF">
@@ -934,7 +934,7 @@
                     </connections>
                 </tapGestureRecognizer>
             </objects>
-            <point key="canvasLocation" x="2482" y="1538"/>
+            <point key="canvasLocation" x="1881" y="1623"/>
         </scene>
         <!--Buy View Controller-->
         <scene sceneID="Azm-PS-pRU">
@@ -1003,8 +1003,8 @@
                                 <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 <nil key="highlightedColor"/>
                             </label>
-                            <button opaque="NO" contentMode="scaleToFill" misplaced="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="CSm-PH-zvK">
-                                <rect key="frame" x="20" y="509" width="282" height="39"/>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="CSm-PH-zvK">
+                                <rect key="frame" x="20" y="509" width="280" height="39"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <color key="backgroundColor" red="0.40000000600000002" green="0.40000000600000002" blue="1" alpha="1" colorSpace="calibratedRGB"/>
                                 <constraints>
@@ -1127,14 +1127,17 @@
                                 </constraints>
                                 <fontDescription key="fontDescription" name="AvenirNext-Bold" family="Avenir Next" pointSize="15"/>
                                 <state key="normal" title="Sign Up">
-                                    <color key="titleColor" red="1" green="0.37049498180000001" blue="0.25098040700000002" alpha="1" colorSpace="calibratedRGB"/>
+                                    <color key="titleColor" red="0.94509803920000002" green="0.35294117650000001" blue="0.36078431370000003" alpha="1" colorSpace="calibratedRGB"/>
                                     <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
                                 </state>
+                                <connections>
+                                    <action selector="signup:" destination="atI-zE-ycy" eventType="touchUpInside" id="VQw-Ra-LDz"/>
+                                </connections>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="N78-MN-4wo">
                                 <rect key="frame" x="170" y="449" width="130" height="40"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <color key="backgroundColor" red="1" green="0.37049498180000001" blue="0.25098040700000002" alpha="1" colorSpace="calibratedRGB"/>
+                                <color key="backgroundColor" red="0.94509803920000002" green="0.35294117650000001" blue="0.36078431370000003" alpha="1" colorSpace="calibratedRGB"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="40" id="ZxA-da-Gkf"/>
                                 </constraints>
@@ -1143,6 +1146,9 @@
                                     <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                     <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
                                 </state>
+                                <connections>
+                                    <action selector="logIn:" destination="atI-zE-ycy" eventType="touchUpInside" id="jOz-5e-Rbd"/>
+                                </connections>
                             </button>
                         </subviews>
                         <color key="backgroundColor" white="0.1721886405109489" alpha="1" colorSpace="calibratedWhite"/>
@@ -1192,6 +1198,7 @@
                         <outlet property="lotNameLabel" destination="gKy-Mz-1P6" id="RdM-uS-brf"/>
                         <outlet property="lotOwnerLabel" destination="Znb-Hk-dc2" id="gMs-Ok-2PP"/>
                         <outlet property="lotRatingLabel" destination="LZP-v4-1sr" id="EVu-L9-UjB"/>
+                        <outlet property="reserveButton" destination="CSm-PH-zvK" id="8nr-l2-EXp"/>
                         <outlet property="spotDateLabel" destination="MSD-i6-fvn" id="rai-pm-Kq6"/>
                         <outlet property="spotPriceLabel" destination="E66-sm-coy" id="AXy-lI-jeU"/>
                         <outlet property="spotTypeLabel" destination="DiL-ic-qpx" id="Rko-4M-RA2"/>
@@ -1368,7 +1375,7 @@
                     </view>
                     <navigationItem key="navigationItem" id="6PY-c2-E7v">
                         <barButtonItem key="rightBarButtonItem" image="Comment" id="6SI-lG-aUC">
-                            <color key="tintColor" red="0.94509803920000002" green="0.35294117650000001" blue="0.36078431370000003" alpha="1" colorSpace="calibratedRGB"/>
+                            <color key="tintColor" red="0.40000000600000002" green="0.40000000600000002" blue="1" alpha="1" colorSpace="calibratedRGB"/>
                             <connections>
                                 <segue destination="YKG-gJ-cO9" kind="push" identifier="goToReview" id="cwW-R4-Ieu"/>
                             </connections>
@@ -1449,13 +1456,13 @@
                                     <segment title="Price"/>
                                     <segment title="Name"/>
                                 </segments>
-                                <color key="tintColor" red="0.94509803920000002" green="0.35294117650000001" blue="0.36078431370000003" alpha="1" colorSpace="calibratedRGB"/>
+                                <color key="tintColor" red="0.40000000600000002" green="0.40000000600000002" blue="1" alpha="1" colorSpace="calibratedRGB"/>
                                 <connections>
                                     <action selector="didSelectSegment:" destination="TCl-EB-kKd" eventType="valueChanged" id="c0S-Ig-5jx"/>
                                 </connections>
                             </segmentedControl>
                         </subviews>
-                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <gestureRecognizers/>
                         <constraints>
                             <constraint firstAttribute="centerX" secondItem="EVR-YR-0SJ" secondAttribute="centerX" id="1th-mU-Hy2"/>
@@ -1470,18 +1477,21 @@
                     </view>
                     <navigationItem key="navigationItem" id="6bK-o6-HoI">
                         <barButtonItem key="leftBarButtonItem" title="Item" image="Profile" width="15" id="Utj-OL-UwG">
-                            <color key="tintColor" red="0.94509803921568625" green="0.3529411764705882" blue="0.36078431372549019" alpha="1" colorSpace="calibratedRGB"/>
+                            <color key="tintColor" red="0.40000000600000002" green="0.40000000600000002" blue="1" alpha="1" colorSpace="calibratedRGB"/>
                             <connections>
-                                <segue destination="pwE-RB-6ll" kind="modal" identifier="profile" modalTransitionStyle="coverVertical" id="qLP-9f-INo"/>
+                                <action selector="viewProfile:" destination="TCl-EB-kKd" id="AnQ-lu-U0H"/>
                             </connections>
                         </barButtonItem>
                         <barButtonItem key="rightBarButtonItem" title="Spots" id="ZPe-lb-5gs">
-                            <color key="tintColor" red="0.94509803921568625" green="0.3529411764705882" blue="0.36078431372549019" alpha="1" colorSpace="calibratedRGB"/>
+                            <color key="tintColor" red="0.40000000600000002" green="0.40000000600000002" blue="1" alpha="1" colorSpace="calibratedRGB"/>
                         </barButtonItem>
                     </navigationItem>
                     <connections>
                         <outlet property="theMap" destination="WOY-NU-HJW" id="KAu-gk-k4u"/>
                         <segue destination="dFA-bo-uCn" kind="push" identifier="pushToDetail" id="qtt-7b-ANI"/>
+                        <segue destination="pwE-RB-6ll" kind="modal" identifier="pushToView" id="ym7-NH-nx4"/>
+                        <segue destination="9hH-lh-DPK" kind="modal" identifier="pushToLogin" id="KBm-50-7Lz"/>
+                        <segue destination="3OT-FQ-bKD" kind="modal" identifier="pushToSignup" id="rb1-fJ-zuN"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="DhD-m6-Cd9" userLabel="First Responder" sceneMemberID="firstResponder"/>
@@ -1623,4 +1633,8 @@
         <simulatedOrientationMetrics key="orientation"/>
         <simulatedScreenMetrics key="destination" type="retina4"/>
     </simulatedMetricsContainer>
+    <inferredMetricsTieBreakers>
+        <segue reference="EKt-tY-rqt"/>
+        <segue reference="5Nt-nu-raX"/>
+    </inferredMetricsTieBreakers>
 </document>

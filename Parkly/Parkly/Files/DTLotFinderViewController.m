@@ -8,11 +8,14 @@
 
 #import "DTLotFinderViewController.h"
 #import "DTDetailViewController.h"
+#import "DTModel.h"
 
 @interface DTLotFinderViewController ()
 
-@property (strong, nonatomic) DTLotTableViewController *lotTable;
-@property (strong, nonatomic) DTProfileViewController *profileViewController;
+@property (weak, nonatomic) DTLotTableViewController *lotTable;
+@property (weak, nonatomic) DTProfileViewController *profileViewController;
+@property (weak, nonatomic) DTLoginViewController *loginViewController;
+@property (weak, nonatomic) DTSignupViewController *signupViewController;
 
 @end
 
@@ -43,13 +46,10 @@
 - (IBAction)didSelectSegment:(UISegmentedControl *)sender {
   
   if(sender.selectedSegmentIndex == 0){
-    //Sort elements of table by distance
     [self.lotTable sortByDistance];
   }else if(sender.selectedSegmentIndex == 1){
-    //Sort elements of table by review rank
     [self.lotTable sortByReview];
   } else if(sender.selectedSegmentIndex == 2){
-  //Sort elements of table by price
     [self.lotTable sortByPrice];
   } else if(sender.selectedSegmentIndex == 3){
     [self.lotTable sortByName];
@@ -61,27 +61,17 @@
   if([[segue identifier] isEqualToString:@"embed"]){
     self.lotTable = [segue destinationViewController];
     self.lotTable.delegate = self;
-  } else if([[segue identifier] isEqualToString:@"profile"]){
+  } else if([[segue identifier] isEqualToString:@"pushToView"]){
     self.profileViewController = [segue destinationViewController];
     self.profileViewController.delegate = self;
   } else if([[segue identifier] isEqualToString:@"pushToDetail"]){
     ((DTDetailViewController*) [segue destinationViewController]).lot = self.lotTable.theLots[self.lotTable.theTable.indexPathForSelectedRow.row];
-    
-    
-    /*
-    DTParkingLot *theLot = self.lotTable.theLots[self.lotTable.theTable.indexPathForSelectedRow.row];
-    CLLocationCoordinate2D coordinate = CLLocationCoordinate2DMake(theLot.lat.floatValue, theLot.lon.floatValue);
-    MKPlacemark *placemark = [[MKPlacemark alloc] initWithCoordinate:coordinate addressDictionary:nil];
-    MKMapItem *item = [[MKMapItem alloc] initWithPlacemark:placemark];
-    item.name = theLot.title;
-    NSDictionary *options = @{
-                              MKLaunchOptionsDirectionsModeKey : MKLaunchOptionsDirectionsModeDriving,
-                              MKLaunchOptionsMapTypeKey : @0,
-                              MKLaunchOptionsMapCenterKey : [NSValue valueWithMKCoordinate: CLLocationCoordinate2DMake(theLot.lat.floatValue, theLot.lon.floatValue)],
-                              MKLaunchOptionsMapSpanKey : [NSValue valueWithMKCoordinateSpan: MKCoordinateSpanMake(theLot.distance.floatValue, theLot.distance.floatValue)]
-                              };
-    [item openInMapsWithLaunchOptions:options];
-     */
+  } else if([[segue identifier] isEqualToString:@"pushToLogin"]){
+    self.loginViewController = [segue destinationViewController];
+    self.loginViewController.delegate = self;
+  } else if([[segue identifier] isEqualToString:@"pushToSignup"]){
+    self.signupViewController = [segue destinationViewController];
+    self.signupViewController.delegate = self;
   }
 }
 
@@ -102,6 +92,31 @@
   [self dismissViewControllerAnimated:YES completion:^{
     
   }];
+}
+
+-(void)dismissLoginViewController
+{
+  [self dismissViewControllerAnimated:YES completion:^{
+    
+  }];
+}
+
+-(void)dismissSignupViewController
+{
+  [self dismissViewControllerAnimated:YES completion:^{
+    
+  }];
+}
+
+- (IBAction)viewProfile:(id)sender
+{
+  if([[DTModel sharedInstance] userHasAccount] && [[DTModel sharedInstance] userIsLoggedIn]){
+    [self performSegueWithIdentifier:@"pushToView" sender:self];
+  } else if([[DTModel sharedInstance] userHasAccount] && ![[DTModel sharedInstance] userIsLoggedIn]){
+    [self performSegueWithIdentifier:@"pushToLogin" sender:self];
+  } else {
+    [self performSegueWithIdentifier:@"pushToSignup" sender:self];
+  }
 }
 
 @end
