@@ -53,6 +53,8 @@
     NSDictionary* parameters = @{@"email": email,
                                  @"password": password};
     
+    NSLog(@"%@",parameters);
+    
     [self.networkManager call:@"post" one:@"users" two:@"session" parameters:parameters success:^(NSURLSessionDataTask *task, id responseObject) {
                    NSLog(@"we're doin' it");
         NSLog(@"%@",responseObject);
@@ -62,8 +64,8 @@
             [[[self dataManager] currentUser] setValuesForKeysWithDictionary:responseObject];
             //set the defaults for next time if they aren't the same
                 [self setDefaultEmail:email];
-                NSLog(@"default email: %@", [self defaultEmail]);
                 [[PDKeychainBindings sharedKeychainBindings] setString:password forKey:@"password"];
+                NSLog(@"default email: %@. You're logged in.", [self defaultEmail]);
         }
         success(task, responseObject);
     } failure:^(NSURLSessionDataTask *task, NSError *error) {
@@ -101,11 +103,11 @@
 - (void) createUser:(DTUser*)user success: (void (^)(NSURLSessionDataTask *task, DTUser* newUser))success failure:(void (^)(NSURLSessionDataTask *task, NSError *error))failure {
     [[self networkManager] call:@"post" one:@"users" parameters:[user dictionaryRepresentation] success:^(NSURLSessionDataTask *task, id responseObject) {
       NSLog(@"Response object from creation of user: %@", responseObject);
-      DTUser* newUser = [[DTUser alloc] init];
-      [newUser setValuesForKeysWithDictionary:responseObject];
+      /*DTUser* newUser = [[DTUser alloc] init];
+      [newUser setValuesForKeysWithDictionary:responseObject];*/
         //Login with that new user
-        [self authenticateUser:newUser success:^(NSURLSessionDataTask *task, DTUser *aUser) {
-            success(task, newUser);
+        [self authenticateUser:user success:^(NSURLSessionDataTask *task, DTUser *aUser) {
+            success(task, user);
         } failure:^(NSURLSessionDataTask *task, NSError *error) {
           //Login with that new user
           NSLog(@"Failed to authenticate new user");
