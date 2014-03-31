@@ -21,8 +21,6 @@
         sharedInstance.currentUser = [[DTUser alloc] init];
         sharedInstance.currentUser._id = @"-1";
         
-        //sharedInstance.dataManager = [DTDataManager sharedInstance];
-        //sharedInstance.networkManager = [DTNetworkManager sharedInstance];
     });
     return sharedInstance;
 }
@@ -38,7 +36,7 @@
 }
 
 - (BOOL) isUserLoggedIn {
-    return [self.currentUser._id isEqualToString:@"-1"];
+    return ![self.currentUser._id isEqualToString:@"-1"];
 }
 
 
