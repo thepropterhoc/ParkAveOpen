@@ -37,8 +37,17 @@
 
 #pragma mark - Local User Session
 - (void) logoutUser {
-    [self.dataManager logoutUser];
+    NSDictionary* parameters = @{@"email": [[self.dataManager currentUser] email],
+                                 @"password":@"logout"
+                                 };
+    [self.networkManager call:@"post" one:@"users" two:@"session" parameters:parameters success:^(NSURLSessionDataTask *task, id responseObject) {
+        NSLog(@"You done logged out there!");
+        [self.dataManager logoutUser];
+    } failure:^(NSURLSessionDataTask *task, NSError *error) {
+        NSLog(@"error logging out. %@", error);
+    }];
 }
+
 - (BOOL) userIsLoggedIn {
     return [self.dataManager isUserLoggedIn];
 }
