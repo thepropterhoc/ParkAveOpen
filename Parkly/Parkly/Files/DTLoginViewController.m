@@ -53,7 +53,7 @@
 - (IBAction)login:(id)sender
 {
   [[DTModel sharedInstance] authenticateUserWithEmail:self.emailField.text andPassword:self.passwordField.text success:^(NSURLSessionDataTask *task, DTUser *user) {
-    [[[UIAlertView alloc] initWithTitle:@"Success" message:[NSString stringWithFormat:@"Successfully logged in %@ %@", user.firstName, user.lastName] delegate:Nil cancelButtonTitle:@"Dismiss" otherButtonTitles: nil] show];
+    [[[UIAlertView alloc] initWithTitle:@"Success" message:@"Successfully logged in" delegate:Nil cancelButtonTitle:@"Dismiss" otherButtonTitles: nil] show];
     [self.delegate dismissLoginViewController];
   } failure:^(NSURLSessionDataTask *task, NSError *error) {
     [[[UIAlertView alloc] initWithTitle:@"Error" message:@"Invalid login information" delegate:nil cancelButtonTitle:@"Dismiss" otherButtonTitles: nil] show];

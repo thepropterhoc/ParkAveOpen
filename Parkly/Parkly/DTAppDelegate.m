@@ -14,7 +14,7 @@
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions
 {
   if([[DTModel sharedInstance] defaultsExist]){
-    [[DTModel sharedInstance] authenticateUser:[[DTModel sharedInstance] defaultUser] success:^(NSURLSessionDataTask *task, DTUser *aUser) {
+    [[DTModel sharedInstance] authenticateUserWithEmail:[[DTModel sharedInstance] defaultEmail] andPassword:[[DTModel sharedInstance] defaultPassword] success:^(NSURLSessionDataTask *task, DTUser *aUser) {
       NSLog(@"DIDFINISHLAUNCHINGWITHOPTIONS : Successfully logged default user in");
     } failure:^(NSURLSessionDataTask *task, NSError *error) {
       NSLog(@"DIDFINISHLAUNCHINGWITHOPTIONS : Unable to log default user in");
@@ -44,7 +44,7 @@
 - (void)applicationWillEnterForeground:(UIApplication *)application
 {
   if([[DTModel sharedInstance] defaultsExist]){
-    [[DTModel sharedInstance] authenticateUser:[[DTModel sharedInstance] defaultUser] success:^(NSURLSessionDataTask *task, DTUser *aUser) {
+    [[DTModel sharedInstance] authenticateUserWithEmail:[[DTModel sharedInstance] defaultEmail] andPassword:[[DTModel sharedInstance] defaultPassword] success:^(NSURLSessionDataTask *task, DTUser *aUser) {
       NSLog(@"WILLENTERFOREGROUND : Logged user in successfully");
     } failure:^(NSURLSessionDataTask *task, NSError *error) {
       NSLog(@"WILLENTERFOREGROUND : Unable to default log in");
@@ -58,7 +58,7 @@
   
   
   if([[DTModel sharedInstance] defaultsExist] && [[DTModel sharedInstance] userHasAccount] && ![[DTModel sharedInstance] userIsLoggedIn]){
-    [[DTModel sharedInstance] authenticateUser:[[DTModel sharedInstance] defaultUser] success:^(NSURLSessionDataTask *task, DTUser *aUser) {
+    [[DTModel sharedInstance] authenticateUserWithEmail:[[DTModel sharedInstance] defaultEmail] andPassword:[[DTModel sharedInstance] defaultPassword] success:^(NSURLSessionDataTask *task, DTUser *aUser) {
       NSLog(@"DIDBECOMEACTIVE : Logged user in successfully");
     } failure:^(NSURLSessionDataTask *task, NSError *error) {
       NSLog(@"DIDBECOMEACTIVE : Unable to default log in");
