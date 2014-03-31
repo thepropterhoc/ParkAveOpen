@@ -18,12 +18,13 @@
 + (instancetype) sharedInstance;
 
 @property(strong, nonatomic) DTUser* currentUser;
-@property(strong, nonatomic) DTUser* defaultUser;
 
 - (void) loginUser:(DTUser*)user;
 
 - (void) logoutUser;
 
 - (BOOL) isUserLoggedIn;
+
+- (DTUser*) defaultUser;
 
 @end

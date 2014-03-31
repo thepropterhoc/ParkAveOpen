@@ -7,6 +7,7 @@
 //
 
 #import "DTDataManager.h"
+#import "PDKeychainBindings.h"
 
 @implementation DTDataManager
 
@@ -39,6 +40,11 @@
     return ![self.currentUser._id isEqualToString:@"-1"];
 }
 
-
+- (DTUser*) defaultUser {
+    DTUser* mrDefault = [[DTUser alloc] init];
+    mrDefault.email = [[NSUserDefaults standardUserDefaults] objectForKey:@"email"];
+    mrDefault.password = [[PDKeychainBindings sharedKeychainBindings] objectForKey:@"password"];
+    return mrDefault;
+}
 
 @end
