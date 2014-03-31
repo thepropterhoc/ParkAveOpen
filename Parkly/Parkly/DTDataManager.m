@@ -7,6 +7,7 @@
 //
 
 #import "DTDataManager.h"
+#import "PDKeychainBindings.h"
 
 @implementation DTDataManager
 
@@ -21,8 +22,6 @@
         sharedInstance.currentUser = [[DTUser alloc] init];
         sharedInstance.currentUser._id = @"-1";
         
-        //sharedInstance.dataManager = [DTDataManager sharedInstance];
-        //sharedInstance.networkManager = [DTNetworkManager sharedInstance];
     });
     return sharedInstance;
 }
@@ -38,9 +37,14 @@
 }
 
 - (BOOL) isUserLoggedIn {
-    return [self.currentUser._id isEqualToString:@"-1"];
+    return ![self.currentUser._id isEqualToString:@"-1"];
 }
 
-
+- (DTUser*) defaultUser {
+    DTUser* mrDefault = [[DTUser alloc] init];
+    mrDefault.email = [[NSUserDefaults standardUserDefaults] objectForKey:@"email"];
+    mrDefault.password = [[PDKeychainBindings sharedKeychainBindings] objectForKey:@"password"];
+    return mrDefault;
+}
 
 @end
