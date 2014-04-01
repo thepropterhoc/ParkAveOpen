@@ -55,30 +55,18 @@
 
 - (IBAction)tryToReserve:(id)sender
 {
-#warning Check for login needs to happen here
-    NSLog(@"user has account:%@\n user is logged in:%@", [[DTModel sharedInstance] userHasAccount], [[DTModel sharedInstance] userIsLoggedIn]);
   if([[DTModel sharedInstance] userHasAccount] && [[DTModel sharedInstance] userIsLoggedIn]){
     [[DTModel sharedInstance] purchaseSpot:self.theSpot forUser:[[DTModel sharedInstance] defaultUser]  success:^(NSURLSessionDataTask *task, id responseObject) {
       [self performSegueWithIdentifier:@"goToReceipt" sender:self];
     } failure:^(NSURLSessionDataTask *task, NSError *error) {
-#warning Handle error purchasing spot here
+      NSLog(@"Unable to purchase spot : %@", error);
+      [[[UIAlertView alloc] initWithTitle:@"Error" message:[NSString stringWithFormat:@"Unable to purchase spot.  Error : %d", [error code]] delegate:nil cancelButtonTitle:@"Dismiss" otherButtonTitles: nil] show];
     }];
   } else if([[DTModel sharedInstance] userHasAccount] && ![[DTModel sharedInstance] userIsLoggedIn]){
       [self performSegueWithIdentifier:@"pushToLogin" sender:self];
   } else {
     [self performSegueWithIdentifier:@"pushToSignup" sender:self];
   }
-}
-
--(void)purchaseLot
-{
-    DTUser* currentUser = [[DTModel sharedInstance] currentUser];
-    [[DTModel sharedInstance] purchaseSpot:self.theSpot forUser:currentUser
-       success:^(NSURLSessionDataTask *task, id responseObject) {}
-       failure:^(NSURLSessionDataTask *task, id responseObject) {
-           NSLog(@"Unable to make reservation at this time. Please try again.");
-       }
-    ];
 }
 
 -(NSString*)generateReceipt
@@ -93,7 +81,6 @@
 {
   if([[segue identifier] isEqualToString:@"goToReceipt"]){
     DTReceiptViewController *dest = [segue destinationViewController];
-    [self purchaseLot];
     dest.theReceipt = [self generateReceipt];
     dest.theItem = [self mapItem];
     dest.span = MKCoordinateSpanMake(self.theLot.distance.floatValue, self.theLot.distance.floatValue);
