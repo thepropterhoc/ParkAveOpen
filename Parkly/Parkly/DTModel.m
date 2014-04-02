@@ -46,6 +46,38 @@
     return [self defaultsExist];
 }
 
+#pragma mark - Paypal
+
+- (void) makePaymentFromUser:(DTUser*)user forSpot:(DTParkingSpot*)spot success: (void (^)(NSURLSessionDataTask *task, DTUser* aUser))success failure:(void (^)(NSURLSessionDataTask *task, NSError *error))failure {
+    
+    NSDictionary* parameters = @{
+                                 @"spot_id": [spot _id],
+                                 @"user_id": [user _id],
+                                 @"type": @"visa",
+                                 @"number": @"4417119669820331",
+                                 @"expire_month": @"11",
+                                 @"expire_year": @"2018",
+                                 @"cvv2": @"874",
+                                 @"first_name": [user firstName],
+                                 @"last_name": [user lastName],
+                                 @"billing_address": @{
+                                         @"line1": @"52 N Main ST",
+                                         @"city": @"Johnstown",
+                                         @"state": @"OH",
+                                         @"postal_code": @"43210",
+                                         @"country_code": @"US"
+                                         }
+                                 };
+    
+    [self.networkManager call:@"post" one:@"purchase" parameters:parameters success:^(NSURLSessionDataTask *task, id responseObject) {
+#warning something needs to happen here
+        success(task, responseObject);
+    } failure:^(NSURLSessionDataTask *task, NSError *error) {
+        failure(task, error);
+    }];
+}
+
+
 #pragma mark - Users
 
 - (void) authenticateUserWithEmail:(NSString*)email andPassword:(NSString*)password success: (void (^)(NSURLSessionDataTask *task, DTUser* user))success failure:(void (^)(NSURLSessionDataTask *task, NSError *error))failure {
@@ -316,6 +348,23 @@
     }];
 }
 
+#pragma mark - My Spots
+
+-(void) addSpotToReservedSpots:(DTParkingSpot*)spot {
+    //add to currentUser
+    [[[self.currentUser reservedSpots] mutableCopy] insertObject:spot atIndex:0];
+    
+    //update the user on the server
+    [self updateUser:[self currentUser] success:^(NSURLSessionDataTask *task, id responseObject) {
+        NSLog(@"currentUser updated on server");
+    } failure:^(NSURLSessionDataTask *task, NSError *error) {
+        NSLog(@"error updating user on server %@", error);
+    }];
+}
+
+-(NSArray*) allReservedSpots {
+    return [[self currentUser] reservedSpots];
+}
 #pragma mark - Directions
 
 - (void) openDirectionsInMapsToLatitude:(CGFloat)latitude andLongitude:(CGFloat)longitude {

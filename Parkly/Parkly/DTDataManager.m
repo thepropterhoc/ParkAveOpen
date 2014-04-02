@@ -32,8 +32,8 @@
 }
 
 - (void) logoutUser {
-#warning this needs to be different
-    self.currentUser = [[DTUser alloc]init];
+//#warning this needs to be different
+    self.currentUser = [[DTUser alloc] init];
     self.currentUser._id = @"-1";
 }
 
