@@ -64,6 +64,7 @@
   } else if([[segue identifier] isEqualToString:@"pushToView"]){
     self.profileViewController = [segue destinationViewController];
     self.profileViewController.delegate = self;
+    self.profileViewController.theUser = [[DTModel sharedInstance] currentUser];
   } else if([[segue identifier] isEqualToString:@"pushToDetail"]){
     ((DTDetailViewController*) [segue destinationViewController]).lot = self.lotTable.theLots[self.lotTable.theTable.indexPathForSelectedRow.row];
   } else if([[segue identifier] isEqualToString:@"pushToLogin"]){
