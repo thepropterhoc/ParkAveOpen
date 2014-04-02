@@ -57,34 +57,6 @@
 
 #pragma mark - Paypal
 
-- (void) makePaymentFromUser:(DTUser*)user forSpot:(DTParkingSpot*)spot success: (void (^)(NSURLSessionDataTask *task, DTUser* aUser))success failure:(void (^)(NSURLSessionDataTask *task, NSError *error))failure {
-    
-    NSDictionary* parameters = @{
-                                 @"spot_id": [spot _id],
-                                 @"user_id": [user _id],
-                                 @"type": @"visa",
-                                 @"number": @"4417119669820331",
-                                 @"expire_month": @"11",
-                                 @"expire_year": @"2018",
-                                 @"cvv2": @"874",
-                                 @"first_name": [user firstName],
-                                 @"last_name": [user lastName],
-                                 @"billing_address": @{
-                                         @"line1": @"52 N Main ST",
-                                         @"city": @"Johnstown",
-                                         @"state": @"OH",
-                                         @"postal_code": @"43210",
-                                         @"country_code": @"US"
-                                         }
-                                 };
-    
-    [self.networkManager call:@"post" one:@"purchase" parameters:parameters success:^(NSURLSessionDataTask *task, id responseObject) {
-#warning something needs to happen here
-        success(task, responseObject);
-    } failure:^(NSURLSessionDataTask *task, NSError *error) {
-        failure(task, error);
-    }];
-}
 
 
 #pragma mark - Users
@@ -359,6 +331,36 @@
         failure(task, error);
     }];
 }
+
+- (void) makePaymentFromUser:(DTUser*)user forSpot:(DTParkingSpot*)spot success: (void (^)(NSURLSessionDataTask *task, DTUser* aUser))success failure:(void (^)(NSURLSessionDataTask *task, NSError *error))failure {
+    
+    NSDictionary* parameters = @{
+                                 @"spot_id": [spot _id],
+                                 @"user_id": [user _id],
+                                 @"type": @"visa",
+                                 @"number": @"4417119669820331",
+                                 @"expire_month": @"11",
+                                 @"expire_year": @"2018",
+                                 @"cvv2": @"874",
+                                 @"first_name": [user firstName],
+                                 @"last_name": [user lastName],
+                                 @"billing_address": @{
+                                         @"line1": @"52 N Main ST",
+                                         @"city": @"Johnstown",
+                                         @"state": @"OH",
+                                         @"postal_code": @"43210",
+                                         @"country_code": @"US"
+                                         }
+                                 };
+    
+    [self.networkManager call:@"post" one:@"purchase" parameters:parameters success:^(NSURLSessionDataTask *task, id responseObject) {
+#warning something needs to happen here
+        success(task, responseObject);
+    } failure:^(NSURLSessionDataTask *task, NSError *error) {
+        failure(task, error);
+    }];
+}
+
 
 #pragma mark - My Spots
 

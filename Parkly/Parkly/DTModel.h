@@ -26,11 +26,7 @@
 - (BOOL) userIsLoggedIn;
 - (BOOL) userHasAccount;
 
-#pragma mark - Paypal
-
-
 //most of these are not yet implemented
-- (void) makePaymentFromUser:(DTUser*)user  forSpot:(DTParkingSpot*)spot success: (void (^)(NSURLSessionDataTask *task, DTUser* aUser))success failure:(void (^)(NSURLSessionDataTask *task, NSError *error))failure;
 
 #pragma mark - Users
 
@@ -103,6 +99,8 @@
 #pragma mark - Purchase
 
 - (void) purchaseSpot:(DTParkingSpot*)spot forUser:(DTUser*)user success: (void (^)(NSURLSessionDataTask *task, id responseObject))success failure:(void (^)(NSURLSessionDataTask *task, NSError *error))failure;
+
+- (void) makePaymentFromUser:(DTUser*)user  forSpot:(DTParkingSpot*)spot success: (void (^)(NSURLSessionDataTask *task, DTUser* aUser))success failure:(void (^)(NSURLSessionDataTask *task, NSError *error))failure;
 
 #pragma mark - My Spots
 
