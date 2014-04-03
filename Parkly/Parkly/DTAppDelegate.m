@@ -20,6 +20,7 @@
       NSLog(@"DIDFINISHLAUNCHINGWITHOPTIONS : Unable to log default user in");
     }];
   }
+    
     // Override point for customization after application launch.
     return YES;
 }

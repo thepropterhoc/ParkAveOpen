@@ -328,7 +328,7 @@
                        state:(NSString*)state
                   postalCode:(NSString*)postalCode
                  countryCode:(NSString*)countryCode
-                     success: (void (^)(NSURLSessionDataTask *task, DTUser* aUser))success failure:(void (^)(NSURLSessionDataTask *task, NSString *errorMessage))failure {
+                     success: (void (^)(NSURLSessionDataTask *task, id responseObject))success failure:(void (^)(NSURLSessionDataTask *task, NSString *errorMessage))failure {
     
     NSDictionary* parameters = @{
                                  @"type": type,
@@ -359,7 +359,7 @@
     }];
 }
 
-- (void) addCreditCard: (void (^)(NSURLSessionDataTask *task, DTUser* aUser))success failure:(void (^)(NSURLSessionDataTask *task, NSString *errorMessage))failure {
+- (void) addCreditCard: (void (^)(NSURLSessionDataTask *task, id responseObject))success failure:(void (^)(NSURLSessionDataTask *task, NSString *errorMessage))failure {
     NSDictionary* parameters = @{
                                  @"type": @"visa",
                                  @"number": @"4417119669820331",
@@ -378,8 +378,7 @@
                                  };
     
     [self.networkManager call:@"post" one:@"addpaymentmethod" parameters:parameters success:^(NSURLSessionDataTask *task, id responseObject) {
-        NSLog(@"do something in purchaseSpot");
-        
+        NSLog(@"response: %@", responseObject);
         if([[responseObject valueForKeyPath:@"status"] intValue] == 200) {
             success(task, responseObject);
         } else {
@@ -392,7 +391,7 @@
 }
 
 
-- (void) purchaseSpot:(DTParkingSpot*)spot forUser:(DTUser*)user success: (void (^)(NSURLSessionDataTask *task, id responseObject))success failure:(void (^)(NSURLSessionDataTask *task, NSString *errorMessage))failure {
+- (void) purchaseSpot:(DTParkingSpot*)spot forUser:(DTUser*)user success: (void (^)(NSURLSessionDataTask *task, id responseObject))success failure:(void (^)(NSURLSessionDataTask *task, NSError *error))failure {
     
     NSDictionary* parameters = @{@"user_id": [user _id],
                                  @"spot_id": [spot _id]
