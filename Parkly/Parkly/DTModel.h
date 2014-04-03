@@ -98,9 +98,24 @@
 
 #pragma mark - Purchase
 
-- (void) purchaseSpot:(DTParkingSpot*)spot forUser:(DTUser*)user success: (void (^)(NSURLSessionDataTask *task, id responseObject))success failure:(void (^)(NSURLSessionDataTask *task, NSError *error))failure;
+- (void) purchaseSpot:(DTParkingSpot*)spot forUser:(DTUser*)user success: (void (^)(NSURLSessionDataTask *task, id responseObject))success failure:(void (^)(NSURLSessionDataTask *task, NSString *errorMessage))failure;
 
-- (void) makePaymentFromUser:(DTUser*)user  forSpot:(DTParkingSpot*)spot success: (void (^)(NSURLSessionDataTask *task, DTUser* aUser))success failure:(void (^)(NSURLSessionDataTask *task, NSError *error))failure;
+//- (void) makePaymentFromUser:(DTUser*)user  forSpot:(DTParkingSpot*)spot success: (void (^)(NSURLSessionDataTask *task, DTUser* aUser))success failure:(void (^)(NSURLSessionDataTask *task, NSError *error))failure;
+
+//sandbox method
+- (void) addCreditCard: (void (^)(NSURLSessionDataTask *task, DTUser* aUser))success failure:(void (^)(NSURLSessionDataTask *task, NSString *errorMessage))failure;
+
+- (void) addCreditCardOfType:(NSString*)type
+                      number:(NSString*)number
+                 expireMonth:(NSString*)expireMonth
+                  expireYear:(NSString*)expireYear
+                        cvv2:(NSString*)cvv2
+       billingAddressLineOne:(NSString*)line1
+                        city:(NSString*)city
+                       state:(NSString*)state
+                  postalCode:(NSString*)postalCode
+                 countryCode:(NSString*)countryCode
+                     success: (void (^)(NSURLSessionDataTask *task, DTUser* aUser))success failure:(void (^)(NSURLSessionDataTask *task, NSString *errorMessage))failure;
 
 #pragma mark - My Spots
 

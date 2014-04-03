@@ -318,21 +318,101 @@
 
 #pragma mark - Purchase
 
-- (void) purchaseSpot:(DTParkingSpot*)spot forUser:(DTUser*)user success: (void (^)(NSURLSessionDataTask *task, id responseObject))success failure:(void (^)(NSURLSessionDataTask *task, NSError *error))failure {
-#warning They updated this in the server Nick.  Can you take a look here?
+- (void) addCreditCardOfType:(NSString*)type
+                      number:(NSString*)number
+                 expireMonth:(NSString*)expireMonth
+                  expireYear:(NSString*)expireYear
+                        cvv2:(NSString*)cvv2
+       billingAddressLineOne:(NSString*)line1
+                        city:(NSString*)city
+                       state:(NSString*)state
+                  postalCode:(NSString*)postalCode
+                 countryCode:(NSString*)countryCode
+                     success: (void (^)(NSURLSessionDataTask *task, DTUser* aUser))success failure:(void (^)(NSURLSessionDataTask *task, NSString *errorMessage))failure {
+    
+    NSDictionary* parameters = @{
+                                 @"type": type,
+                                 @"number": number,
+                                 @"expire_month": expireMonth,
+                                 @"expire_year": expireYear,
+                                 @"cvv2": cvv2,
+                                 @"first_name": [[self.dataManager currentUser] firstName],
+                                 @"last_name": [[self.dataManager currentUser] lastName],
+                                 @"billing_address": @{
+                                         @"line1": line1,
+                                         @"city": city,
+                                         @"state": state,
+                                         @"postal_code": postalCode,
+                                         @"country_code": countryCode
+                                         }
+                                 };
+    
+    [self.networkManager call:@"post" one:@"addpaymentmethod" parameters:parameters success:^(NSURLSessionDataTask *task, id responseObject) {
+        
+        if([[responseObject valueForKeyPath:@"status"] intValue] == 200) {
+            success(task, responseObject);
+        } else {
+            failure(task, @"There was an error adding the card.");
+        }
+    } failure:^(NSURLSessionDataTask *task, NSError *error) {
+        failure(task, [NSString stringWithFormat:@"%@", error]);
+    }];
+}
+
+- (void) addCreditCard: (void (^)(NSURLSessionDataTask *task, DTUser* aUser))success failure:(void (^)(NSURLSessionDataTask *task, NSString *errorMessage))failure {
+    NSDictionary* parameters = @{
+                                 @"type": @"visa",
+                                 @"number": @"4417119669820331",
+                                 @"expire_month": @"11",
+                                 @"expire_year": @"2018",
+                                 @"cvv2": @"874",
+                                 @"first_name": @"Joe",
+                                 @"last_name": @"Shopper",
+                                 @"billing_address": @{
+                                         @"line1": @"52 N Main ST",
+                                         @"city": @"Johnstown",
+                                         @"state": @"OH",
+                                         @"postal_code": @"43210",
+                                         @"country_code": @"US"
+                                         }
+                                 };
+    
+    [self.networkManager call:@"post" one:@"addpaymentmethod" parameters:parameters success:^(NSURLSessionDataTask *task, id responseObject) {
+        NSLog(@"do something in purchaseSpot");
+        
+        if([[responseObject valueForKeyPath:@"status"] intValue] == 200) {
+            success(task, responseObject);
+        } else {
+            failure(task, @"There was an error adding the card.");
+        }
+        success(task, responseObject);
+    } failure:^(NSURLSessionDataTask *task, NSError *error) {
+        failure(task, [NSString stringWithFormat:@"%@", error]);
+    }];
+}
+
+
+- (void) purchaseSpot:(DTParkingSpot*)spot forUser:(DTUser*)user success: (void (^)(NSURLSessionDataTask *task, id responseObject))success failure:(void (^)(NSURLSessionDataTask *task, NSString *errorMessage))failure {
+    
     NSDictionary* parameters = @{@"user_id": [user _id],
                                  @"spot_id": [spot _id]
                                  };
     
     [self.networkManager call:@"post" one:@"purchase" parameters:parameters success:^(NSURLSessionDataTask *task, id responseObject) {
         NSLog(@"do something in purchaseSpot");
+
+        if([[responseObject valueForKeyPath:@"status"] intValue] == 200) {
+            success(task, responseObject);
+        } else {
+            failure(task, @"There was an error adding the card.");
+        }
         success(task, responseObject);
     } failure:^(NSURLSessionDataTask *task, NSError *error) {
-        failure(task, error);
+        failure(task, [NSString stringWithFormat:@"%@", error]);
     }];
 }
 
-- (void) makePaymentFromUser:(DTUser*)user forSpot:(DTParkingSpot*)spot success: (void (^)(NSURLSessionDataTask *task, DTUser* aUser))success failure:(void (^)(NSURLSessionDataTask *task, NSError *error))failure {
+/*- (void) makePaymentFromUser:(DTUser*)user forSpot:(DTParkingSpot*)spot success: (void (^)(NSURLSessionDataTask *task, DTUser* aUser))success failure:(void (^)(NSURLSessionDataTask *task, NSError *error))failure {
     
     NSDictionary* parameters = @{
                                  @"spot_id": [spot _id],
@@ -359,7 +439,7 @@
     } failure:^(NSURLSessionDataTask *task, NSError *error) {
         failure(task, error);
     }];
-}
+}*/
 
 
 #pragma mark - My Spots

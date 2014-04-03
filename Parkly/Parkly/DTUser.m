@@ -24,9 +24,9 @@
         self.reservedSpots = [[NSArray alloc] init];
         self.spotHistory = [[NSArray alloc] init];
         self.averageRating = [[NSNumber alloc] init];
+        self.creditCard = [[NSString alloc] init];
     }
     return self;
-    
 }
 
 - (NSDictionary*) dictionaryRepresentation {
@@ -39,7 +39,8 @@
              @"phone": self.phone,
              @"reservedSpots": self.reservedSpots,
              @"spotHistory": self.spotHistory,
-             @"averageRating": self.averageRating
+             @"averageRating": self.averageRating,
+             @"creditCard": self.creditCard
              };
 }
 
