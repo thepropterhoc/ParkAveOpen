@@ -429,9 +429,6 @@
     [self.networkManager call:@"post" one:@"purchase" parameters:parameters success:^(NSURLSessionDataTask *task, id responseObject) {
         NSLog(@"do something in purchaseSpot");
         
-        //set default car
-        [self.dataManager setDefaultCar:car];
-        
         success(task, responseObject);
     } failure:^(NSURLSessionDataTask *task, NSError *error) {
         failure(task, error);
@@ -515,6 +512,9 @@
 }
 - (DTCar*) defaultCar {
     return [self.dataManager defaultCar];
+}
+- (void) setDefaultCar:(DTCar *)car {
+    [self.dataManager setDefaultCar:car];
 }
 
 - (NSString*) defaultEmail {
