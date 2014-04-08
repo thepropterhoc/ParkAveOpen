@@ -134,6 +134,8 @@
 
 - (DTUser*) currentUser;
 - (DTUser*) defaultUser;
+- (DTCar*) defaultCar;
+- (void) setDefaultCar:(DTCar*)car;
 
 - (NSString*) defaultEmail;
 - (NSString*) defaultPassword;
