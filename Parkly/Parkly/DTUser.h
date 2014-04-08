@@ -22,6 +22,7 @@
 @property (strong, nonatomic) NSArray* reservedSpots;
 @property (strong, nonatomic) NSArray* spotHistory;
 @property (strong, nonatomic) NSNumber* averageRating;
+@property (strong, nonatomic) NSString* creditCard;
 
 - (NSDictionary*) dictionaryRepresentation;
 
