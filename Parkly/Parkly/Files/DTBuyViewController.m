@@ -56,7 +56,7 @@
 - (IBAction)tryToReserve:(id)sender
 {
   if([[DTModel sharedInstance] userHasAccount] && [[DTModel sharedInstance] userIsLoggedIn]){
-    [[DTModel sharedInstance] purchaseSpot:self.theSpot forUser:[[DTModel sharedInstance] defaultUser]  success:^(NSURLSessionDataTask *task, id responseObject) {
+    [[DTModel sharedInstance] purchaseSpot:self.theSpot forUser:[[DTModel sharedInstance] defaultUser] withCar:[[DTModel sharedInstance] defaultCar] success:^(NSURLSessionDataTask *task, id responseObject) {
       [self performSegueWithIdentifier:@"goToReceipt" sender:self];
     } failure:^(NSURLSessionDataTask *task, NSError *error) {
       NSLog(@"Unable to purchase spot : %@", error);

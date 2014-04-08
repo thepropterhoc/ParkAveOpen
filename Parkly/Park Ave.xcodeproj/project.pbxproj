@@ -8,6 +8,9 @@
 
 /* Begin PBXBuildFile section */
 		594A7C4A18C57C94008C077C /* Security.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 594A7C4918C57C94008C077C /* Security.framework */; };
+		9D13E84618F4C2060062105C /* DTMySpotsViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 9D13E84518F4C2060062105C /* DTMySpotsViewController.m */; };
+		9D13E84918F4C2250062105C /* DTMySpotsTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 9D13E84818F4C2250062105C /* DTMySpotsTableViewController.m */; };
+		9D13E84C18F4C2ED0062105C /* DTMySpotTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 9D13E84B18F4C2ED0062105C /* DTMySpotTableViewCell.m */; };
 		9D15D3BC18B6F34100FA635E /* JosefinSlab-Bold.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 9D15D3B218B6F34100FA635E /* JosefinSlab-Bold.ttf */; };
 		9D15D3BD18B6F34100FA635E /* JosefinSlab-BoldItalic.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 9D15D3B318B6F34100FA635E /* JosefinSlab-BoldItalic.ttf */; };
 		9D15D3BE18B6F34100FA635E /* JosefinSlab-Italic.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 9D15D3B418B6F34100FA635E /* JosefinSlab-Italic.ttf */; };
@@ -90,6 +93,12 @@
 		594A7C5618C59315008C077C /* DTCar.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DTCar.m; sourceTree = "<group>"; };
 		9D035C2718CB81AD007E331D /* DTBuyViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = DTBuyViewController.h; path = Files/DTBuyViewController.h; sourceTree = "<group>"; };
 		9D035C2818CB81AD007E331D /* DTBuyViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = DTBuyViewController.m; path = Files/DTBuyViewController.m; sourceTree = "<group>"; };
+		9D13E84418F4C2060062105C /* DTMySpotsViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = DTMySpotsViewController.h; path = Files/DTMySpotsViewController.h; sourceTree = "<group>"; };
+		9D13E84518F4C2060062105C /* DTMySpotsViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = DTMySpotsViewController.m; path = Files/DTMySpotsViewController.m; sourceTree = "<group>"; };
+		9D13E84718F4C2250062105C /* DTMySpotsTableViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DTMySpotsTableViewController.h; sourceTree = "<group>"; };
+		9D13E84818F4C2250062105C /* DTMySpotsTableViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DTMySpotsTableViewController.m; sourceTree = "<group>"; };
+		9D13E84A18F4C2ED0062105C /* DTMySpotTableViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DTMySpotTableViewCell.h; sourceTree = "<group>"; };
+		9D13E84B18F4C2ED0062105C /* DTMySpotTableViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DTMySpotTableViewCell.m; sourceTree = "<group>"; };
 		9D15D3AF18B5B33300FA635E /* DTRoundedImageView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = DTRoundedImageView.h; path = Files/DTRoundedImageView.h; sourceTree = "<group>"; };
 		9D15D3B018B5B33300FA635E /* DTRoundedImageView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = DTRoundedImageView.m; path = Files/DTRoundedImageView.m; sourceTree = "<group>"; };
 		9D15D3B218B6F34100FA635E /* JosefinSlab-Bold.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "JosefinSlab-Bold.ttf"; sourceTree = "<group>"; };
@@ -248,6 +257,19 @@
 			name = DTBuy;
 			sourceTree = "<group>";
 		};
+		9D13E84318F4C1EB0062105C /* DTMySpots */ = {
+			isa = PBXGroup;
+			children = (
+				9D13E84418F4C2060062105C /* DTMySpotsViewController.h */,
+				9D13E84518F4C2060062105C /* DTMySpotsViewController.m */,
+				9D13E84718F4C2250062105C /* DTMySpotsTableViewController.h */,
+				9D13E84818F4C2250062105C /* DTMySpotsTableViewController.m */,
+				9D13E84A18F4C2ED0062105C /* DTMySpotTableViewCell.h */,
+				9D13E84B18F4C2ED0062105C /* DTMySpotTableViewCell.m */,
+			);
+			name = DTMySpots;
+			sourceTree = "<group>";
+		};
 		9D15D3C918B7234500FA635E /* DTSignup */ = {
 			isa = PBXGroup;
 			children = (
@@ -339,6 +361,7 @@
 		9D2E92A418B5A48300509F23 /* DTUIElements */ = {
 			isa = PBXGroup;
 			children = (
+				9D13E84318F4C1EB0062105C /* DTMySpots */,
 				9D7A3ED518CD2033003F6E62 /* DTInitial */,
 				9D7E8A7318CCD27200F4D9C0 /* DTSignup */,
 				9D7B726E18CCC44700D5D15C /* DTReceipts */,
@@ -646,9 +669,11 @@
 				9D7E8A8018CCD9AC00F4D9C0 /* AFURLResponseSerialization.m in Sources */,
 				9D7E8A8118CCD9AC00F4D9C0 /* AFURLSessionManager.m in Sources */,
 				9D7E8A8218CCD9AC00F4D9C0 /* DTDataManager.m in Sources */,
+				9D13E84C18F4C2ED0062105C /* DTMySpotTableViewCell.m in Sources */,
 				9D7E8A8318CCD9AC00F4D9C0 /* DTNetworkManager.m in Sources */,
 				9D7E8A8518CCD9AC00F4D9C0 /* DTModel.m in Sources */,
 				9D7E8A8618CCD9AC00F4D9C0 /* DTParkingLot.m in Sources */,
+				9D13E84618F4C2060062105C /* DTMySpotsViewController.m in Sources */,
 				9D7E8A8718CCD9AC00F4D9C0 /* DTParkingSpot.m in Sources */,
 				9D7E8A8818CCD9AC00F4D9C0 /* DTReview.m in Sources */,
 				9D7E8A8918CCD9AC00F4D9C0 /* DTUser.m in Sources */,
@@ -662,6 +687,7 @@
 				9D7E8A9218CCD9AC00F4D9C0 /* DTProfileViewController.m in Sources */,
 				9D7E8A9318CCD9AC00F4D9C0 /* DTNavigationBar.m in Sources */,
 				9D7E8A9418CCD9AC00F4D9C0 /* DTRoundedImageView.m in Sources */,
+				9D13E84918F4C2250062105C /* DTMySpotsTableViewController.m in Sources */,
 				9D7E8A9518CCD9AC00F4D9C0 /* DTLotTableViewController.m in Sources */,
 				9D7E8A9618CCD9AC00F4D9C0 /* DTLotTableCell.m in Sources */,
 				9D27300F18DE6BB1004CF460 /* DTCache.m in Sources */,

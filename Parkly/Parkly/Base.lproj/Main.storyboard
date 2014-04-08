@@ -1241,10 +1241,10 @@
             </objects>
             <point key="canvasLocation" x="2482" y="771"/>
         </scene>
-        <!--View Controller - Spots-->
+        <!--My Spots View Controller-->
         <scene sceneID="GSS-DJ-GPl">
             <objects>
-                <viewController id="inv-tZ-Z30" sceneMemberID="viewController">
+                <viewController id="inv-tZ-Z30" customClass="DTMySpotsViewController" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="hMd-vZ-iB6"/>
                         <viewControllerLayoutGuide type="bottom" id="w51-wt-7dp"/>
@@ -1252,13 +1252,51 @@
                     <view key="view" contentMode="scaleToFill" id="pnk-Ae-GIt">
                         <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                        <subviews>
+                            <containerView contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="Rd1-AH-sGE">
+                                <rect key="frame" x="0.0" y="64" width="320" height="504"/>
+                                <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
+                                <connections>
+                                    <segue destination="wz9-Sk-V2d" kind="embed" id="hoH-wc-RNu"/>
+                                </connections>
+                            </containerView>
+                        </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
                     </view>
-                    <navigationItem key="navigationItem" title="Spots" id="Xmn-Bc-sMO"/>
+                    <navigationItem key="navigationItem" id="Xmn-Bc-sMO"/>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Pwt-qg-ssw" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="882" y="-733"/>
+        </scene>
+        <!--My Spots Table View Controller-->
+        <scene sceneID="CX8-Zv-Aoo">
+            <objects>
+                <tableViewController id="wz9-Sk-V2d" customClass="DTMySpotsTableViewController" sceneMemberID="viewController">
+                    <tableView key="view" opaque="NO" clipsSubviews="YES" clearsContextBeforeDrawing="NO" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="44" sectionHeaderHeight="22" sectionFooterHeight="22" id="f6K-uW-D88">
+                        <rect key="frame" x="0.0" y="0.0" width="320" height="504"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <prototypes>
+                            <tableViewCell contentMode="scaleToFill" selectionStyle="blue" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" id="PsS-F2-cnJ">
+                                <rect key="frame" x="0.0" y="22" width="320" height="44"/>
+                                <autoresizingMask key="autoresizingMask"/>
+                                <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="PsS-F2-cnJ" id="LlB-n9-atQ">
+                                    <rect key="frame" x="0.0" y="0.0" width="320" height="43"/>
+                                    <autoresizingMask key="autoresizingMask"/>
+                                </tableViewCellContentView>
+                            </tableViewCell>
+                        </prototypes>
+                        <connections>
+                            <outlet property="dataSource" destination="wz9-Sk-V2d" id="GZJ-Iw-pUl"/>
+                            <outlet property="delegate" destination="wz9-Sk-V2d" id="fQn-Vb-wLy"/>
+                        </connections>
+                    </tableView>
+                </tableViewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="2le-g7-X2d" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1299" y="-669"/>
         </scene>
         <!--Detail View Controller-->
         <scene sceneID="skb-bV-cLK">
