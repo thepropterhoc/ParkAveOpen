@@ -246,7 +246,7 @@
 
 #pragma mark - Cars
 
-- (void) getCarsForUser:(DTUser *)user success:(void (^)(NSURLSessionDataTask *, id))success failure:(void (^)(NSURLSessionDataTask *, NSError *))failure {
+- (void) getCarsForUser:(DTUser *)user success:(void (^)(NSURLSessionDataTask *task, NSArray* cars))success failure:(void (^)(NSURLSessionDataTask *, NSError *))failure {
     [self.networkManager call:@"get" one:@"users" two:[user _id] three:@"cars" parameters:nil success:^(NSURLSessionDataTask *task, id responseObject) {
         success(task, [self parseJSON:responseObject toArrayOfClass:[DTCar class]]);
     } failure:^(NSURLSessionDataTask *task, NSError *error) {
@@ -254,8 +254,14 @@
     }];
 }
 
-- (void) getCar:(DTCar*)car success: (void (^)(NSURLSessionDataTask *task, id responseObject))success failure:(void (^)(NSURLSessionDataTask *task, NSError *error))failure {
-    NSLog(@"%@ not implemented", NSStringFromSelector(_cmd));
+- (void) getCar:(DTCar*)car success: (void (^)(NSURLSessionDataTask *task, DTCar* aCar))success failure:(void (^)(NSURLSessionDataTask *task, NSError *error))failure {
+    [self.networkManager call:@"get" one:@"users" two:[car user_id] three:@"cars" four:[car _id] parameters:nil success:^(NSURLSessionDataTask *task, id responseObject) {
+        DTCar* newCar = [[DTCar alloc] init];
+        [newCar setValuesForKeysWithDictionary:responseObject];
+        success(task, newCar);
+    } failure:^(NSURLSessionDataTask *task, NSError *error) {
+        failure(task, error);
+    }];
 }
 
 - (void) createCar:(DTCar*)car success: (void (^)(NSURLSessionDataTask *task, id responseObject))success failure:(void (^)(NSURLSessionDataTask *task, NSError *error))failure {
@@ -391,23 +397,18 @@
 }
 
 
-- (void) purchaseSpot:(DTParkingSpot*)spot forUser:(DTUser*)user success: (void (^)(NSURLSessionDataTask *task, id responseObject))success failure:(void (^)(NSURLSessionDataTask *task, NSError *error))failure {
+- (void) purchaseSpot:(DTParkingSpot*)spot forUser:(DTUser*)user withCar:(DTCar*)car success: (void (^)(NSURLSessionDataTask *task, id responseObject))success failure:(void (^)(NSURLSessionDataTask *task, NSError *error))failure {
     
     NSDictionary* parameters = @{@"user_id": [user _id],
-                                 @"spot_id": [spot _id]
+                                 @"spot_id": [spot _id],
+                                  @"car_id": [car _id]
                                  };
     
     [self.networkManager call:@"post" one:@"purchase" parameters:parameters success:^(NSURLSessionDataTask *task, id responseObject) {
         NSLog(@"do something in purchaseSpot");
-
-        if([[responseObject valueForKeyPath:@"status"] intValue] == 200) {
-            success(task, responseObject);
-        } else {
-            failure(task, @"There was an error adding the card.");
-        }
         success(task, responseObject);
     } failure:^(NSURLSessionDataTask *task, NSError *error) {
-        failure(task, [NSString stringWithFormat:@"%@", error]);
+        failure(task, error);
     }];
 }
 
