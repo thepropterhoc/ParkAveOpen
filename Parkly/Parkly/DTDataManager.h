@@ -27,4 +27,7 @@
 
 - (DTUser*) defaultUser;
 
+- (DTCar*) defaultCar;
+- (void) setDefaultCar:(DTCar*)car;
+
 @end
