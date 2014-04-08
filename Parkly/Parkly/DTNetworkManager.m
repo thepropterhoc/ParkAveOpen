@@ -66,6 +66,30 @@ static NSString * const apiBaseURL = @"http://dev.getparkave.com/api/";
 
 #pragma mark - Helper Methods
 
+- (void) checkResponseStatus:(id)responseObject success:(void (^)(id responseObject))success failure: (void (^)(NSString* statusCode, NSString* description))failure {
+
+    if([[responseObject allKeys] containsObject:@"err"]) {
+        failure([responseObject objectForKey:@"err"], @"there was an error");
+    } else {
+        success(responseObject);
+    }
+    
+    /*
+    NSString *status = [responseObject valueForKey:@"status"];
+    
+    if (status == NULL) {
+        status = [responseObject valueForKey:@"response"];
+    }
+    
+    [[responseObject mutableCopy] removeObjectForKey:@"status"];
+    
+    if ([status isEqualToString:@"Success"]) {
+        success(responseObject);
+    } else {
+        failure(status, @"There was an error.");
+    }*/
+}
+
 - (void) genericCall:(NSString*)action path:(NSString*) path parameters:(NSDictionary *)parameters success:(void (^)(NSURLSessionDataTask *, id))success failure:(void (^)(NSURLSessionDataTask *, NSError *))failure {
     if([action isEqualToString:@"get"]) {
         [self genericGet:path parameters:parameters success:success failure:failure];
