@@ -1241,6 +1241,25 @@
             </objects>
             <point key="canvasLocation" x="2482" y="771"/>
         </scene>
+        <!--View Controller - Spots-->
+        <scene sceneID="GSS-DJ-GPl">
+            <objects>
+                <viewController id="inv-tZ-Z30" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="hMd-vZ-iB6"/>
+                        <viewControllerLayoutGuide type="bottom" id="w51-wt-7dp"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="pnk-Ae-GIt">
+                        <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
+                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
+                    </view>
+                    <navigationItem key="navigationItem" title="Spots" id="Xmn-Bc-sMO"/>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="Pwt-qg-ssw" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="882" y="-733"/>
+        </scene>
         <!--Detail View Controller-->
         <scene sceneID="skb-bV-cLK">
             <objects>
@@ -1429,6 +1448,9 @@
                         </barButtonItem>
                         <barButtonItem key="rightBarButtonItem" title="Spots" id="ZPe-lb-5gs">
                             <color key="tintColor" red="0.40000000600000002" green="0.40000000600000002" blue="1" alpha="1" colorSpace="calibratedRGB"/>
+                            <connections>
+                                <segue destination="inv-tZ-Z30" kind="push" id="6Gz-N7-36C"/>
+                            </connections>
                         </barButtonItem>
                     </navigationItem>
                     <connections>
