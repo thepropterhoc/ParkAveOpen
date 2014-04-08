@@ -106,7 +106,7 @@
 //- (void) makePaymentFromUser:(DTUser*)user  forSpot:(DTParkingSpot*)spot success: (void (^)(NSURLSessionDataTask *task, DTUser* aUser))success failure:(void (^)(NSURLSessionDataTask *task, NSError *error))failure;
 
 //sandbox method
-- (void) addCreditCard: (void (^)(NSURLSessionDataTask *task, id responseObject))success failure:(void (^)(NSURLSessionDataTask *task, NSString *errorMessage))failure;
+- (void) addCreditCard: (void (^)(NSURLSessionDataTask *task, id responseObject))success failure:(void (^)(NSURLSessionDataTask *task, NSError* error))failure;
 
 - (void) addCreditCardOfType:(NSString*)type
                       number:(NSString*)number
@@ -118,7 +118,8 @@
                        state:(NSString*)state
                   postalCode:(NSString*)postalCode
                  countryCode:(NSString*)countryCode
-                     success: (void (^)(NSURLSessionDataTask *task, id responseObject))success failure:(void (^)(NSURLSessionDataTask *task, NSString *errorMessage))failure;
+                     success:(void (^)(NSURLSessionDataTask *task, id responseObject))success
+                     failure:(void (^)(NSURLSessionDataTask *task, NSString *errorMessage))failure;
 
 #pragma mark - My Spots
 

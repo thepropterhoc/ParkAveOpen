@@ -16,6 +16,14 @@
   if([[DTModel sharedInstance] defaultsExist]){
     [[DTModel sharedInstance] authenticateUserWithEmail:[[DTModel sharedInstance] defaultEmail] andPassword:[[DTModel sharedInstance] defaultPassword] success:^(NSURLSessionDataTask *task, DTUser *aUser) {
       NSLog(@"DIDFINISHLAUNCHINGWITHOPTIONS : Successfully logged default user in");
+        
+        
+        [[DTModel sharedInstance] addCreditCard:^(NSURLSessionDataTask *task, id responseObject) {
+            NSLog(@"added credit card");
+        } failure:^(NSURLSessionDataTask *task, NSError *error) {
+            NSLog(@"added credit card");
+        }];
+        
     } failure:^(NSURLSessionDataTask *task, NSError *error) {
       NSLog(@"DIDFINISHLAUNCHINGWITHOPTIONS : Unable to log default user in");
     }];
