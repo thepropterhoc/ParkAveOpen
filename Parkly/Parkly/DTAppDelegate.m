@@ -17,11 +17,17 @@
     [[DTModel sharedInstance] authenticateUserWithEmail:[[DTModel sharedInstance] defaultEmail] andPassword:[[DTModel sharedInstance] defaultPassword] success:^(NSURLSessionDataTask *task, DTUser *aUser) {
       NSLog(@"DIDFINISHLAUNCHINGWITHOPTIONS : Successfully logged default user in");
         
-        
         [[DTModel sharedInstance] addCreditCard:^(NSURLSessionDataTask *task, id responseObject) {
             NSLog(@"added credit card");
         } failure:^(NSURLSessionDataTask *task, NSError *error) {
             NSLog(@"added credit card");
+        }];
+        
+        [[DTModel sharedInstance] getLotsNearLatitude:-35.0 andLongitude:92.0 withDistance:15000.0 success:^(NSURLSessionDataTask *task, NSArray* lotArray) {
+            NSLog(@"%@", lotArray);
+            NSLog(@"working?");
+        } failure:^(NSURLSessionDataTask *task, NSError *error) {
+            NSLog(@"%@", error);
         }];
         
     } failure:^(NSURLSessionDataTask *task, NSError *error) {
