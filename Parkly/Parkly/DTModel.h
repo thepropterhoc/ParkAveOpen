@@ -139,7 +139,6 @@
 
 - (NSString*) defaultEmail;
 - (NSString*) defaultPassword;
-- (DTCar*) defaultCar;
 - (BOOL) defaultsExist;
 
 #pragma mark - Sorting

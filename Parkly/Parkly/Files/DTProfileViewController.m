@@ -7,6 +7,7 @@
 //
 
 #import "DTProfileViewController.h"
+#import "DTMyCarViewController.h"
 #import "DTModel.h"
 
 @interface DTProfileViewController ()
@@ -107,5 +108,22 @@
   [self.view setFrame:self.startFrame];
 }
 
+- (IBAction)pushToCars:(id)sender
+{
+  [self performSegueWithIdentifier:@"goToCars" sender:self];
+}
+
+-(void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender
+{
+  if([[segue identifier] isEqualToString:@"goToCars"]){
+    DTMyCarViewController *myCarViewController = [segue destinationViewController];
+    myCarViewController.delegate = self;
+  }
+}
+
+-(void)dismissMyCarViewController
+{
+  [self dismissViewControllerAnimated:YES completion:nil];
+}
 
 @end

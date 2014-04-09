@@ -1,14 +1,14 @@
 //
-//  DTMySpotTableViewCell.m
+//  DTMyCarTableViewCell.m
 //  Park Ave
 //
 //  Created by Shelby Vanhooser on 4/8/14.
 //  Copyright (c) 2014 DevTeam14. All rights reserved.
 //
 
-#import "DTMySpotTableViewCell.h"
+#import "DTMyCarTableViewCell.h"
 
-@implementation DTMySpotTableViewCell
+@implementation DTMyCarTableViewCell
 
 - (id)initWithStyle:(UITableViewCellStyle)style reuseIdentifier:(NSString *)reuseIdentifier
 {
@@ -31,9 +31,13 @@
     // Configure the view for the selected state
 }
 
--(void)initWithSpot:(DTParkingSpot *)spot
+-(void)initWithCar:(DTCar *)car
 {
-  
+  self.makeLabel.text = car.make;
+  self.modelLabel.text = car.model;
+  self.yearLabel.text = car.year;
+  self.colorLabel.text = car.color;
+  self.tagLabel.text = car.plate;
 }
 
 @end

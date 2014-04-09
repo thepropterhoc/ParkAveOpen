@@ -23,6 +23,8 @@
 		9D15D3C518B6F34100FA635E /* JosefinSlab-ThinItalic.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 9D15D3BB18B6F34100FA635E /* JosefinSlab-ThinItalic.ttf */; };
 		9D15D3D118B72A0C00FA635E /* MapKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 9D15D3D018B72A0C00FA635E /* MapKit.framework */; };
 		9D27300F18DE6BB1004CF460 /* DTCache.m in Sources */ = {isa = PBXBuildFile; fileRef = 9D27300E18DE6BB1004CF460 /* DTCache.m */; };
+		9D36814018F4CA2600B7E21D /* DTMyCarTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 9D36813F18F4CA2600B7E21D /* DTMyCarTableViewCell.m */; };
+		9D36814618F4CA7200B7E21D /* DTMyCarViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 9D36814518F4CA7200B7E21D /* DTMyCarViewController.m */; };
 		9D7A3ED818CD2043003F6E62 /* DTInitialViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 9D7A3ED718CD2043003F6E62 /* DTInitialViewController.m */; };
 		9D7E8A7718CCD9AC00F4D9C0 /* PDKeychainBindings.m in Sources */ = {isa = PBXBuildFile; fileRef = 594A7C5018C580C3008C077C /* PDKeychainBindings.m */; };
 		9D7E8A7818CCD9AC00F4D9C0 /* PDKeychainBindingsController.m in Sources */ = {isa = PBXBuildFile; fileRef = 594A7C5218C580C3008C077C /* PDKeychainBindingsController.m */; };
@@ -134,6 +136,10 @@
 		9D284C9418C51FCE0044F89D /* DTProfileViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = DTProfileViewController.m; path = Files/DTProfileViewController.m; sourceTree = "<group>"; };
 		9D2E92A518B5A49F00509F23 /* DTNavigationBar.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = DTNavigationBar.h; path = Files/DTNavigationBar.h; sourceTree = "<group>"; };
 		9D2E92A618B5A49F00509F23 /* DTNavigationBar.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = DTNavigationBar.m; path = Files/DTNavigationBar.m; sourceTree = "<group>"; };
+		9D36813E18F4CA2600B7E21D /* DTMyCarTableViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DTMyCarTableViewCell.h; sourceTree = "<group>"; };
+		9D36813F18F4CA2600B7E21D /* DTMyCarTableViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DTMyCarTableViewCell.m; sourceTree = "<group>"; };
+		9D36814418F4CA7200B7E21D /* DTMyCarViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DTMyCarViewController.h; sourceTree = "<group>"; };
+		9D36814518F4CA7200B7E21D /* DTMyCarViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DTMyCarViewController.m; sourceTree = "<group>"; };
 		9D7A3ED618CD2043003F6E62 /* DTInitialViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = DTInitialViewController.h; path = Files/DTInitialViewController.h; sourceTree = "<group>"; };
 		9D7A3ED718CD2043003F6E62 /* DTInitialViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = DTInitialViewController.m; path = Files/DTInitialViewController.m; sourceTree = "<group>"; };
 		9D7B726F18CCC45A00D5D15C /* DTReceiptViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = DTReceiptViewController.h; path = Files/DTReceiptViewController.h; sourceTree = "<group>"; };
@@ -361,6 +367,7 @@
 		9D2E92A418B5A48300509F23 /* DTUIElements */ = {
 			isa = PBXGroup;
 			children = (
+				9D36813D18F4CA1A00B7E21D /* DTMyCars */,
 				9D13E84318F4C1EB0062105C /* DTMySpots */,
 				9D7A3ED518CD2033003F6E62 /* DTInitial */,
 				9D7E8A7318CCD27200F4D9C0 /* DTSignup */,
@@ -384,6 +391,17 @@
 			children = (
 			);
 			name = DTResources;
+			sourceTree = "<group>";
+		};
+		9D36813D18F4CA1A00B7E21D /* DTMyCars */ = {
+			isa = PBXGroup;
+			children = (
+				9D36813E18F4CA2600B7E21D /* DTMyCarTableViewCell.h */,
+				9D36813F18F4CA2600B7E21D /* DTMyCarTableViewCell.m */,
+				9D36814418F4CA7200B7E21D /* DTMyCarViewController.h */,
+				9D36814518F4CA7200B7E21D /* DTMyCarViewController.m */,
+			);
+			name = DTMyCars;
 			sourceTree = "<group>";
 		};
 		9D7A3ED518CD2033003F6E62 /* DTInitial */ = {
@@ -679,11 +697,13 @@
 				9D7E8A8918CCD9AC00F4D9C0 /* DTUser.m in Sources */,
 				9D7E8A8A18CCD9AC00F4D9C0 /* DTCar.m in Sources */,
 				9D7E8A8B18CCD9AC00F4D9C0 /* DTSignupViewController.m in Sources */,
+				9D36814018F4CA2600B7E21D /* DTMyCarTableViewCell.m in Sources */,
 				9D7E8A8C18CCD9AC00F4D9C0 /* DTReceiptViewController.m in Sources */,
 				9D7E8A8D18CCD9AC00F4D9C0 /* DTBuyViewController.m in Sources */,
 				9D7E8A8F18CCD9AC00F4D9C0 /* DTLoginViewController.m in Sources */,
 				9D7E8A9018CCD9AC00F4D9C0 /* DTLotFinderViewController.m in Sources */,
 				9D7E8A9118CCD9AC00F4D9C0 /* DTDetailViewController.m in Sources */,
+				9D36814618F4CA7200B7E21D /* DTMyCarViewController.m in Sources */,
 				9D7E8A9218CCD9AC00F4D9C0 /* DTProfileViewController.m in Sources */,
 				9D7E8A9318CCD9AC00F4D9C0 /* DTNavigationBar.m in Sources */,
 				9D7E8A9418CCD9AC00F4D9C0 /* DTRoundedImageView.m in Sources */,

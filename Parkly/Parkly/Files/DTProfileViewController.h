@@ -7,6 +7,7 @@
 //
 
 #import <UIKit/UIKit.h>
+#import "DTMyCarViewController.h"
 #import "DTUser.h"
 
 @protocol DTProfileViewControllerDelegate <NSObject>
@@ -16,7 +17,7 @@
 
 @end
 
-@interface DTProfileViewController : UIViewController <UITextFieldDelegate>
+@interface DTProfileViewController : UIViewController <UITextFieldDelegate, DTMyCarViewControllerDelegate>
 
 @property (weak, nonatomic) id<DTProfileViewControllerDelegate> delegate;
 @property (strong, nonatomic) DTUser *theUser;

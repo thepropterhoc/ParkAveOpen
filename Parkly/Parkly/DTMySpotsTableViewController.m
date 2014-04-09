@@ -7,6 +7,7 @@
 //
 
 #import "DTMySpotsTableViewController.h"
+#import "DTMySpotTableViewCell.h"
 #import "DTModel.h"
 
 @interface DTMySpotsTableViewController ()
@@ -45,26 +46,30 @@
 
 - (NSInteger)numberOfSectionsInTableView:(UITableView *)tableView
 {
-#warning Potentially incomplete method implementation.
-    // Return the number of sections.
   return 1;
 }
 
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section
 {
-#warning Incomplete method implementation.
-    // Return the number of rows in the section.
-  return [[[DTModel sharedInstance] allReservedSpots] count];
+  int numSpots = [[[DTModel sharedInstance] allReservedSpots] count];
+  if(numSpots == 0){
+    return 1;
+  } else {
+    return numSpots;
+  }
 }
 
 
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath
 {
-    UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:<#@"reuseIdentifier"#> forIndexPath:indexPath];
-    
-    // Configure the cell...
-    
+  if([[[DTModel sharedInstance] allReservedSpots] count] != 0){
+    DTMySpotTableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:@"cell" forIndexPath:indexPath];
+    [cell initWithSpot:[[DTModel sharedInstance] allReservedSpots][indexPath.row]];
     return cell;
+  } else {
+    UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:@"nullSpot" forIndexPath:indexPath];
+    return cell;
+  }
 }
 
 
