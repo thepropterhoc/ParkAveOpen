@@ -184,11 +184,6 @@
     }];
 }
 
-- (void) getLotsNearLatitude:(CGFloat*)latitude andLongitude:(CGFloat*)longitude success:(void (^)(NSURLSessionDataTask *task, NSArray* allLots))success failure:(void (^)(NSURLSessionDataTask *task, NSError *error))failure {
-#warning fix this later
-    [self getAllLots:success failure:failure];
-}
-
 - (void) getLot:(DTParkingLot*)lot success: (void (^)(NSURLSessionDataTask *task, id responseObject))success failure:(void (^)(NSURLSessionDataTask *task, NSError *error))failure {
     NSLog(@"%@ not implemented", NSStringFromSelector(_cmd));
 }
@@ -203,6 +198,61 @@
 
 - (void) deleteLot:(DTParkingLot*)lot success: (void (^)(NSURLSessionDataTask *task, id responseObject))success failure:(void (^)(NSURLSessionDataTask *task, NSError *error))failure {
     NSLog(@"%@ not implemented", NSStringFromSelector(_cmd));
+}
+
+- (void) getLotsNearLatitude:(CGFloat)latitude andLongitude:(CGFloat)longitude withDistance:(CGFloat)distance success:(void (^)(NSURLSessionDataTask *task, NSArray* allLots))success failure:(void (^)(NSURLSessionDataTask *task, NSError *error))failure {
+    
+    NSString* string = [NSString stringWithFormat:@"%f+%f+%f", latitude, longitude, distance];
+    
+    [self.networkManager call:@"get" one:@"location" two:string parameters:nil success:^(NSURLSessionDataTask *task, id responseObject) {
+        NSArray* lotArray = [self parseJSON:responseObject toArrayOfClass:[DTParkingLot class]];
+        [[DTCache sharedInstance] addLots:lotArray];
+        success(task, lotArray);
+    } failure:^(NSURLSessionDataTask *task, NSError *error) {
+        failure(task, error);
+    }];
+}
+
+- (void) getLotsAndSpotsNearLatitude:(CGFloat)latitude andLongitude:(CGFloat)longitude withDistance:(CGFloat)distance success:(void (^)(NSURLSessionDataTask *task, id responseObject))success failure:(void (^)(NSURLSessionDataTask *task, NSError *error))failure {
+    
+    NSString* string = [NSString stringWithFormat:@"%f+%f+%f", latitude, longitude, distance];
+    
+    [self.networkManager call:@"get" one:@"location" two:@"all" three:string parameters:nil success:^(NSURLSessionDataTask *task, id responseObject) {
+        
+        NSLog(@"Nearby lots and spots: %@", responseObject);
+        
+        //parse lots and spots arrays separately
+        NSArray* lotArray = [self parseJSON:[responseObject objectForKey:@"lots"] toArrayOfClass:[DTParkingLot class]];
+        NSArray* spotArray = [self parseJSON:[responseObject objectForKey:@"spots"] toArrayOfClass:[DTParkingSpot class]];
+        
+        //add lots to cache
+        [[DTCache sharedInstance] addLots:lotArray];
+        
+        //loop through lots
+        for (DTParkingLot* lot in lotArray) {
+            //for each, create an array of spots that belong to it
+            NSMutableArray* currentSpots = [[NSMutableArray alloc] init];
+            NSString* lot_id = [lot _id];
+            
+            //now loop through spots
+            for (DTParkingSpot* spot in spotArray) {
+                //for each spot, if its lot id matches the current lot's id, add the spot to currentSpots
+                if ([[spot lot_id] isEqualToString:lot_id]) {
+                    [currentSpots insertObject:spot atIndex:0];
+                }
+            }
+            
+            //remove currentSpots from spot array
+            [[spotArray mutableCopy] removeObjectsInArray:[currentSpots copy]];
+            
+            //add currentSpots to the cache
+            [[DTCache sharedInstance] addSpots:currentSpots forLot:lot];
+        }
+        
+        success(task, responseObject);
+    } failure:^(NSURLSessionDataTask *task, NSError *error) {
+        failure(task, error);
+    }];
 }
 
 #pragma mark - Spots
