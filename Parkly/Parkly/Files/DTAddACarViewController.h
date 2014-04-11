@@ -7,9 +7,11 @@
 //
 
 #import <UIKit/UIKit.h>
+#import "DTCar.h"
 
 @protocol DTAddACarViewControllerDelegate <NSObject>
 
+-(void)dismissAddACarViewControllerWithCar:(DTCar*)car;
 -(void)dismissAddACarViewController;
 
 @end

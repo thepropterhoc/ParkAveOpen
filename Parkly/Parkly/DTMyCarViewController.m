@@ -12,6 +12,8 @@
 
 @interface DTMyCarViewController ()
 
+@property (strong, nonatomic) NSArray *theCars;
+
 @end
 
 @implementation DTMyCarViewController
@@ -27,7 +29,12 @@
 
 - (void)viewDidLoad
 {
-    [super viewDidLoad];
+  [super viewDidLoad];
+  [[DTModel sharedInstance] getCarsForUser:[[DTModel sharedInstance] currentUser] success:^(NSURLSessionDataTask *task, NSArray *cars) {
+    self.theCars = cars;
+  } failure:^(NSURLSessionDataTask *task, NSError *error) {
+    self.theCars = nil;
+  }];
     // Do any additional setup after loading the view.
 }
 
@@ -39,7 +46,11 @@
 
 -(int)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section
 {
-  return 1;
+  if(self.theCars){
+    return [self.theCars count];
+  } else {
+    return 0;
+  }
 }
 
 -(int)numberOfSectionsInTableView:(UITableView *)tableView
@@ -50,7 +61,7 @@
 -(UITableViewCell*)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath
 {
   DTMyCarTableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:@"cell" forIndexPath:indexPath];
-  [cell initWithCar:[[DTModel sharedInstance] defaultCar]];
+  [cell initWithCar:self.theCars[indexPath.row]];
   return cell;
 }
 
@@ -66,10 +77,20 @@
 
 - (IBAction)setDefaultCar:(id)sender
 {
-  
-#warning Cars not implemented correctly here
-  [[DTModel sharedInstance] setDefaultCar:[[DTModel sharedInstance] defaultCar]];
-  [self.delegate dismissMyCarViewController];
+  if(self.theTable.indexPathForSelectedRow){
+    [[DTModel sharedInstance] setDefaultCar:self.theCars[[self.theTable indexPathForSelectedRow].row]];
+    [self.delegate dismissMyCarViewController];
+  } else {
+    [[[UIAlertView alloc] initWithTitle:@"Error" message:@"No car selected" delegate:nil cancelButtonTitle:@"Dismiss" otherButtonTitles: nil] show];
+  }
+}
+
+-(void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender
+{
+  if([[segue identifier] isEqualToString:@"pushToAddACar"]){
+    DTAddACarViewController *dest = [segue destinationViewController];
+    dest.delegate = self;
+  }
 }
 
 - (IBAction)addACar:(id)sender
@@ -77,5 +98,18 @@
   [self performSegueWithIdentifier:@"pushToAddACar" sender:self];
 }
 
+-(void)dismissAddACarViewController
+{
+  [self dismissViewControllerAnimated:YES completion:^{
+    
+  }];
+}
+
+-(void)dismissAddACarViewControllerWithCar:(DTCar *)car
+{
+  self.theCars = [self.theCars arrayByAddingObject:car];
+  [self.theTable reloadRowsAtIndexPaths:@[[NSIndexPath indexPathForRow:self.theCars.count inSection:0]] withRowAnimation:UITableViewRowAnimationAutomatic];
+  [self dismissAddACarViewController];
+}
 
 @end

@@ -7,6 +7,7 @@
 //
 
 #import <UIKit/UIKit.h>
+#import "DTAddACarViewController.h"
 
 @protocol DTMyCarViewControllerDelegate <NSObject>
 
@@ -14,8 +15,9 @@
 
 @end
 
-@interface DTMyCarViewController : UIViewController <UITableViewDataSource, UITableViewDelegate>
+@interface DTMyCarViewController : UIViewController <UITableViewDataSource, UITableViewDelegate, DTAddACarViewControllerDelegate>
 
 @property (weak, nonatomic) id<DTMyCarViewControllerDelegate> delegate;
+@property (strong, nonatomic) IBOutlet UITableView *theTable;
 
 @end
