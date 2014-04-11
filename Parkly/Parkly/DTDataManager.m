@@ -50,11 +50,11 @@
     return mrDefault;
 }
 
-- (DTUser*) defaultCar {
-    return [[NSUserDefaults standardUserDefaults] objectForKey:@"car"];
+- (DTCar*) defaultCar {
+    return [[DTCar alloc] initWithDictionary:[[NSUserDefaults standardUserDefaults] objectForKey:@"car"]];
 }
 - (void) setDefaultCar:(DTCar*)car {
-    [[NSUserDefaults standardUserDefaults] setObject:car forKey:@"car"];
+    [[NSUserDefaults standardUserDefaults] setObject:[car dictionaryRepresentation] forKey:@"car"];
 }
 
 
