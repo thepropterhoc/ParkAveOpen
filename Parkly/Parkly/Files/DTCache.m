@@ -14,6 +14,7 @@
 @property NSCache *lotsCache;
 @property NSCache *spotsCache;
 @property NSCache *reviewsCache;
+@property NSCache *carsCache;
 @property NSString *ALL_LOTS_KEY;
 
 @end
@@ -29,6 +30,7 @@
     sharedInstance = [[[self class] alloc] init];
     sharedInstance.lotsCache = [[NSCache alloc] init];
     sharedInstance.spotsCache = [[NSCache alloc] init];
+    sharedInstance.reviewsCache = [[NSCache alloc] init];
     sharedInstance.reviewsCache = [[NSCache alloc] init];
     sharedInstance.ALL_LOTS_KEY = @"GET_ALL_LOTS";
   });
@@ -54,6 +56,11 @@
   return [self.reviewsCache objectForKey:theUser] != nil;
 }
 
+-(BOOL)hasCarsForUser:(DTUser *)theUser
+{
+    return [self.carsCache objectForKey:theUser] != nil;
+}
+
 -(BOOL)hasLots
 {
   return [self.lotsCache objectForKey:self.ALL_LOTS_KEY] != nil;
@@ -76,6 +83,11 @@
   [self.reviewsCache setObject:theReviews forKey:theUser];
 }
 
+-(void)addCars:(NSArray *)theCars forUser:(DTUser *)theUser
+{
+    [self.carsCache setObject:theCars forKey:theUser];
+}
+
 
 #pragma mark - Fetching methods
 
@@ -92,6 +104,11 @@
 -(NSArray*)reviewsForUser:(DTUser*)theUser
 {
   return [self.reviewsCache objectForKey:theUser];
+}
+
+-(NSArray*)carsForUser:(DTUser *)theUser
+{
+    return [self.carsCache objectForKey:theUser];
 }
 
 
@@ -113,6 +130,11 @@
   [self.reviewsCache removeObjectForKey:theUser];
 }
 
+-(void)removeCarsForUser:(DTUser*)theUser;
+{
+  [self.carsCache removeObjectForKey:theUser];
+}
+
 -(void)removeAllLots
 {
   [self.lotsCache removeAllObjects];
@@ -123,11 +145,17 @@
   [self.spotsCache removeAllObjects];
 }
 
+-(void)removeAllCars
+{
+  [self.carsCache removeAllObjects];
+}
+
 -(void)removeAll
 {
   [self.reviewsCache removeAllObjects];
   [self.lotsCache removeAllObjects];
   [self.spotsCache removeAllObjects];
+  [self.carsCache removeAllObjects];
   NSLog(@"Scrubbed the caches");
 }
 

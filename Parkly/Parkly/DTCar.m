@@ -7,9 +7,16 @@
 //
 
 #import "DTCar.h"
-#import "DTUser.h"
 
 @implementation DTCar
+
+- (id) initWithDictionary:(NSDictionary*)dictionary {
+    self = [super init];
+    if (self) {
+        [self setValuesForKeysWithDictionary:dictionary];
+    }
+    return self;
+}
 
 - (id) initWithUser:(DTUser*)user {
     self = [super init];
@@ -28,9 +35,12 @@
     
 }
 
+
 - (NSDictionary*) dictionaryRepresentation {
     
     return @{
+             @"_id": self._id,
+             @"__v": self.__v,
              @"user_id": self.user_id,
              @"make": self.make,
              @"model": self.model,
