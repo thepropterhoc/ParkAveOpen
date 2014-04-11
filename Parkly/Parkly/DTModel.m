@@ -649,6 +649,11 @@
 - (NSArray*) parseJSON:(id)json toArrayOfClass:(__unsafe_unretained Class)theClass {
 
     NSArray* array = json;
+    
+    if ([array count] == 0) {
+        return nil;
+    }
+    
     NSMutableArray* newArray = [[NSMutableArray alloc] init];
     
     //find the valid keys for this class
