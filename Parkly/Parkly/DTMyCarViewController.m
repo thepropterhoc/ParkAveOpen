@@ -72,4 +72,10 @@
   [self.delegate dismissMyCarViewController];
 }
 
+- (IBAction)addACar:(id)sender
+{
+  [self performSegueWithIdentifier:@"pushToAddACar" sender:self];
+}
+
+
 @end

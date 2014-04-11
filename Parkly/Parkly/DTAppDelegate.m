@@ -15,23 +15,17 @@
 {
   if([[DTModel sharedInstance] defaultsExist]){
     [[DTModel sharedInstance] authenticateUserWithEmail:[[DTModel sharedInstance] defaultEmail] andPassword:[[DTModel sharedInstance] defaultPassword] success:^(NSURLSessionDataTask *task, DTUser *aUser) {
-      NSLog(@"DIDFINISHLAUNCHINGWITHOPTIONS : Successfully logged default user in");
-        
         [[DTModel sharedInstance] addCreditCard:^(NSURLSessionDataTask *task, id responseObject) {
-            NSLog(@"added credit card");
+          
         } failure:^(NSURLSessionDataTask *task, NSError *error) {
-            NSLog(@"added credit card");
+          
         }];
         
         [[DTModel sharedInstance] getLotsNearLatitude:-35.0 andLongitude:92.0 withDistance:15000.0 success:^(NSURLSessionDataTask *task, NSArray* lotArray) {
-            NSLog(@"%@", lotArray);
-            NSLog(@"working?");
         } failure:^(NSURLSessionDataTask *task, NSError *error) {
-            NSLog(@"%@", error);
         }];
         
     } failure:^(NSURLSessionDataTask *task, NSError *error) {
-      NSLog(@"DIDFINISHLAUNCHINGWITHOPTIONS : Unable to log default user in");
     }];
   }
     
@@ -52,7 +46,7 @@
   [[DTModel sharedInstance] scrubTheCache];
   if([[DTModel sharedInstance] userIsLoggedIn]){
     [[DTModel sharedInstance] logoutUser];
-    NSLog(@"DIDENTERBACKGROUND : Logged user out");
+    
   }
 }
 
@@ -60,9 +54,9 @@
 {
   if([[DTModel sharedInstance] defaultsExist]){
     [[DTModel sharedInstance] authenticateUserWithEmail:[[DTModel sharedInstance] defaultEmail] andPassword:[[DTModel sharedInstance] defaultPassword] success:^(NSURLSessionDataTask *task, DTUser *aUser) {
-      NSLog(@"WILLENTERFOREGROUND : Logged user in successfully");
+      
     } failure:^(NSURLSessionDataTask *task, NSError *error) {
-      NSLog(@"WILLENTERFOREGROUND : Unable to default log in");
+      
     }];
   }
 }
@@ -74,9 +68,9 @@
   
   if([[DTModel sharedInstance] defaultsExist] && [[DTModel sharedInstance] userHasAccount] && ![[DTModel sharedInstance] userIsLoggedIn]){
     [[DTModel sharedInstance] authenticateUserWithEmail:[[DTModel sharedInstance] defaultEmail] andPassword:[[DTModel sharedInstance] defaultPassword] success:^(NSURLSessionDataTask *task, DTUser *aUser) {
-      NSLog(@"DIDBECOMEACTIVE : Logged user in successfully");
+      
     } failure:^(NSURLSessionDataTask *task, NSError *error) {
-      NSLog(@"DIDBECOMEACTIVE : Unable to default log in");
+      
     }];
   }
 }
@@ -87,7 +81,7 @@
   [[DTModel sharedInstance] scrubTheCache];
   if([[DTModel sharedInstance] userIsLoggedIn]){
     [[DTModel sharedInstance] logoutUser];
-    NSLog(@"WILLTERMINATE : Logged user out");
+    
   }
 }
 

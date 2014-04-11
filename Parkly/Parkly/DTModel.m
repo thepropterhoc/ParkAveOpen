@@ -69,17 +69,12 @@
     //NSLog(@"%@",parameters);
     
     [self.networkManager call:@"post" one:@"users" two:@"session" parameters:parameters success:^(NSURLSessionDataTask *task, id responseObject) {
-                   NSLog(@"we're doin' it");
-        NSLog(@"response from login: %@",responseObject);
-        
         [self.networkManager checkResponseStatus:responseObject success:^(id responseObject) {
             
             [[[self dataManager] currentUser] setValuesForKeysWithDictionary:responseObject];
-            NSLog(@"!!!!!~~~~~~~~~~~~~~~~~~~%@", [[[self dataManager] currentUser] _id]);
             //set the defaults for next time if they aren't the same
             [self setDefaultEmail:email];
             [[PDKeychainBindings sharedKeychainBindings] setString:password forKey:@"password"];
-            NSLog(@"default email: %@. You're logged in.", [self defaultEmail]);
             
         } failure:^(NSString *statusCode, NSString *description) {
             NSLog(@"There was an error. status code %@", statusCode);
@@ -432,9 +427,6 @@
 }
 
 - (void) addCreditCard: (void (^)(NSURLSessionDataTask *task, id responseObject))success failure:(void (^)(NSURLSessionDataTask *task, NSError* error))failure {
-    
-    NSLog(@"!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!user id %@", [[self.dataManager currentUser] _id]);
-    
     NSDictionary* parameters = @{
                                  @"type": @"visa",
                                  @"number": @"4417119669820331",
@@ -454,7 +446,7 @@
                                  };
     
     [self.networkManager call:@"post" one:@"addpaymentmethod" parameters:parameters success:^(NSURLSessionDataTask *task, id responseObject) {
-        NSLog(@"response: %@", responseObject);
+        //NSLog(@"response: %@", responseObject);
 
         [self.networkManager checkResponseStatus:responseObject success:^(id responseObject) {
             success(task, responseObject);
