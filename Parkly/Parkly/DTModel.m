@@ -325,7 +325,11 @@
         [self.networkManager call:@"get" one:@"users" two:[user _id] three:@"cars" parameters:nil success:^(NSURLSessionDataTask *task, id responseObject) {
             NSArray* cars = [self parseJSON:responseObject toArrayOfClass:[DTCar class]];
             
-            [[DTCache sharedInstance] addCars:cars forUser:user];
+            if(cars) {
+                [[DTCache sharedInstance] addCars:cars forUser:user];
+            } else {
+                NSLog(@"No cars for user, so it's not stored in the cache");
+            }
             
             success(task, cars);
         } failure:^(NSURLSessionDataTask *task, NSError *error) {
@@ -346,6 +350,10 @@
 
 - (void) createCar:(DTCar*)car success: (void (^)(NSURLSessionDataTask *task, id responseObject))success failure:(void (^)(NSURLSessionDataTask *task, NSError *error))failure {
     [self.networkManager call:@"post" one:@"users" two:[car user_id] three:@"cars" parameters:[car dictionaryRepresentation] success:^(NSURLSessionDataTask *task, id responseObject) {
+        
+        //add car to cache
+        [[DTCache sharedInstance] addCars:[NSArray arrayWithObject:car] forUser:[self currentUser]];
+        
         success(task, responseObject);
     } failure:^(NSURLSessionDataTask *task, NSError *error) {
         failure(task, error);
