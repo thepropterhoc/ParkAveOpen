@@ -23,11 +23,10 @@
             NSLog(@"added credit card");
         }];
         
-        [[DTModel sharedInstance] getLotsNearLatitude:-35.0 andLongitude:92.0 withDistance:15000.0 success:^(NSURLSessionDataTask *task, NSArray* lotArray) {
-            NSLog(@"%@", lotArray);
-            NSLog(@"working?");
+        [[DTModel sharedInstance] getAllLots:^(NSURLSessionDataTask *task, NSArray *allLots) {
+            NSLog(@"count: %d",[allLots count]);
         } failure:^(NSURLSessionDataTask *task, NSError *error) {
-            NSLog(@"%@", error);
+            NSLog(@"it done broke");
         }];
         
     } failure:^(NSURLSessionDataTask *task, NSError *error) {
