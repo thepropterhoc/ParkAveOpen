@@ -22,6 +22,8 @@
         sharedInstance.currentUser = [[DTUser alloc] init];
         sharedInstance.currentUser._id = @"-1";
         
+        sharedInstance.currentUserCars = [[NSArray alloc] init];
+        
     });
     return sharedInstance;
 }
@@ -34,6 +36,7 @@
 //#warning this needs to be different
     self.currentUser = [[DTUser alloc] init];
     self.currentUser._id = @"-1";
+    self.currentUserCars = [[NSArray alloc] init];
 }
 
 - (BOOL) isUserLoggedIn {

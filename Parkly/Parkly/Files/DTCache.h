@@ -11,6 +11,7 @@
 #import "DTParkingSpot.h"
 #import "DTUser.h"
 #import "DTReview.h"
+#import "DTCar.h"
 
 
 @interface DTCache : NSObject
@@ -24,6 +25,7 @@
 -(BOOL)hasSpotsForLot:(DTParkingLot*)theLot;
 -(BOOL)hasLot:(DTParkingLot*)theLot;
 -(BOOL)hasReviewsForUser:(DTUser*)theUser;
+-(BOOL)hasCarsForUser:(DTUser*)theUser;
 -(BOOL)hasLots;
 
 #pragma mark - Adding methods
@@ -31,20 +33,24 @@
 -(void)addLots:(NSArray*)theLots;
 -(void)addSpots:(NSArray*)theSpots forLot:(DTParkingLot*)theLot;
 -(void)addReviews:(NSArray*)theReviews forUser:(DTUser*)theUser;
+-(void)addCars:(NSArray*)theCars forUser:(DTUser*)theUser;
 
 #pragma mark - Fetching methods
 
 -(NSArray*)spotsForLot:(DTParkingLot*)theLot;
 -(NSArray*)allLots;
 -(NSArray*)reviewsForUser:(DTUser*)theUser;
+-(NSArray*)carsForUser:(DTUser*)theUser;
 
 #pragma mark - Removal methods
 
 -(void)removeSpotsForLot:(DTParkingLot *)theLot;
 -(void)removeLot:(DTParkingLot *)theLot;
 -(void)removeReviewsForUser:(DTUser *)theUser;
+-(void)removeCarsForUser:(DTUser*)theUser;
 -(void)removeAllLots;
 -(void)removeAllSpots;
+-(void)removeAllCars;
 
 -(void)removeAll;
 
