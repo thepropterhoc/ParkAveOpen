@@ -569,6 +569,11 @@
                                   [NSValue valueWithMKCoordinateSpan:region.span], MKLaunchOptionsMapSpanKey, nil]];
 }
 
+-(CLLocation*)currentUserLocation
+{
+  return [self.locationManager location];
+}
+
 
 
 #pragma mark - Pseudo-properties

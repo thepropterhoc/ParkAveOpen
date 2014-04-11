@@ -59,6 +59,7 @@
   [self.yearField resignFirstResponder];
   [self.colorField resignFirstResponder];
   [self.tagField resignFirstResponder];
+  [self.stateField resignFirstResponder];
   [self.scrollView setFrame:CGRectMake(0, 0, self.scrollView.frame.size.width, self.scrollView.frame.size.height)];
 }
 
@@ -69,15 +70,15 @@
 
 - (IBAction)add:(id)sender
 {
-  DTCar *defaultCar = [[DTCar alloc] init];
+  DTCar *defaultCar = [[DTCar alloc] initWithUser:[[DTModel sharedInstance] currentUser]];
   [defaultCar setYear:self.yearField.text];
   [defaultCar setMake:self.makeField.text];
   [defaultCar setModel:self.modelField.text];
   [defaultCar setColor:self.colorField.text];
   [defaultCar setPlate:self.tagField.text];
-  
-  [[DTModel sharedInstance] setDefaultCar:defaultCar];
-  [self.delegate dismissAddACarViewController];
+  [defaultCar setState:self.stateField.text];
+  //[[DTModel sharedInstance] setDefaultCar:defaultCar];
+  [self.delegate dismissAddACarViewControllerWithCar:defaultCar];
 }
 
 @end

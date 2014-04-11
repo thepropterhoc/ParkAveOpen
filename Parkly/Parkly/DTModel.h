@@ -133,6 +133,7 @@
 #pragma mark - Directions
 
 - (void) openDirectionsInMapsToLatitude:(CGFloat)latitude andLongitude:(CGFloat)longitude;
+- (CLLocation*) currentUserLocation;
 
 #pragma mark - Pseudo-properties
 

@@ -34,6 +34,9 @@
 {
   [super viewDidLoad];
   [self.view layoutSubviews];
+  
+  [self.theMap.camera setCenterCoordinate:[[DTModel sharedInstance] currentUserLocation].coordinate];
+  [self.theMap.camera setAltitude:2000.0f];
 	// Do any additional setup after loading the view.
 }
 

@@ -31,9 +31,14 @@
 {
   [super viewDidLoad];
   [[DTModel sharedInstance] getCarsForUser:[[DTModel sharedInstance] currentUser] success:^(NSURLSessionDataTask *task, NSArray *cars) {
-    self.theCars = cars;
+    if(cars){
+      self.theCars = cars;
+    } else {
+      NSLog(@"No cars");
+      self.theCars = [[NSArray alloc] init];
+    }
   } failure:^(NSURLSessionDataTask *task, NSError *error) {
-    self.theCars = nil;
+    self.theCars = [[NSArray alloc] init];
   }];
     // Do any additional setup after loading the view.
 }
@@ -78,6 +83,7 @@
 - (IBAction)setDefaultCar:(id)sender
 {
   if(self.theTable.indexPathForSelectedRow){
+    NSLog(@"Selected car : %@", self.theCars[self.theTable.indexPathForSelectedRow.row]);
     [[DTModel sharedInstance] setDefaultCar:self.theCars[[self.theTable indexPathForSelectedRow].row]];
     [self.delegate dismissMyCarViewController];
   } else {
@@ -108,8 +114,9 @@
 -(void)dismissAddACarViewControllerWithCar:(DTCar *)car
 {
   self.theCars = [self.theCars arrayByAddingObject:car];
-  [self.theTable reloadRowsAtIndexPaths:@[[NSIndexPath indexPathForRow:self.theCars.count inSection:0]] withRowAnimation:UITableViewRowAnimationAutomatic];
+  [self.theTable reloadData];
   [self dismissAddACarViewController];
+  NSLog(@"Cars : %@", self.theCars);
 }
 
 @end

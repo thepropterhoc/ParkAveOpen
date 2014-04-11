@@ -25,6 +25,7 @@
 @property (strong, nonatomic) IBOutlet UITextField *yearField;
 @property (strong, nonatomic) IBOutlet UITextField *colorField;
 @property (strong, nonatomic) IBOutlet UITextField *tagField;
+@property (strong, nonatomic) IBOutlet UITextField *stateField;
 @property (weak, nonatomic) id<DTAddACarViewControllerDelegate> delegate;
 
 @end
