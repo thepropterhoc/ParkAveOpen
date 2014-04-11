@@ -73,6 +73,7 @@
     //NSLog(@"%@",parameters);
     
     [self.networkManager call:@"post" one:@"users" two:@"session" parameters:parameters success:^(NSURLSessionDataTask *task, id responseObject) {
+        
         [self.networkManager checkResponseStatus:responseObject success:^(id responseObject) {
             
             [[[self dataManager] currentUser] setValuesForKeysWithDictionary:responseObject];
@@ -646,11 +647,30 @@
 #pragma mark - Helper Methods
 
 - (NSArray*) parseJSON:(id)json toArrayOfClass:(__unsafe_unretained Class)theClass {
+
     NSArray* array = json;
     NSMutableArray* newArray = [[NSMutableArray alloc] init];
+    
+    //find the valid keys for this class
+    NSMutableArray* tempKeys = [[array[0] allKeys] mutableCopy];
+    id testObject = [[theClass alloc] init];
+    for (NSString* key in tempKeys) {
+        if (![testObject respondsToSelector:NSSelectorFromString(key)]) {
+            [tempKeys removeObject:key];
+            NSLog(@"key %@ was not used while parsing json.", key);
+        }
+    }
+    NSArray* keys = [tempKeys copy];
+    
     for (NSDictionary* item in array) {
         id newItem = [[theClass alloc] init];
-        [newItem setValuesForKeysWithDictionary:item];
+        
+        //assign properties
+        for (NSString* key in keys) {
+            id value = [item valueForKey:key];
+            [newItem setValue:value forKey:key];
+        }
+        //insert the item into the array
         [newArray insertObject:newItem atIndex:[newArray count]];
     }
     return [newArray copy];
