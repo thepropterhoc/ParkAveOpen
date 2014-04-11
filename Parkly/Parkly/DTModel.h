@@ -141,6 +141,9 @@
 - (DTCar*) defaultCar;
 - (void) setDefaultCar:(DTCar*)car;
 
+- (NSArray*) currentUserCars;
+- (void) addCurrentUserCar:(DTCar*)car;
+
 - (NSString*) defaultEmail;
 - (NSString*) defaultPassword;
 - (BOOL) defaultsExist;
@@ -160,5 +163,6 @@
 -(void)scrubTheCache;
 -(void)removeCachedLots;
 -(void)removeCachedSpots;
+-(void)removeCachedCars;
 
 @end

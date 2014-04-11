@@ -18,6 +18,7 @@
 + (instancetype) sharedInstance;
 
 @property(strong, nonatomic) DTUser* currentUser;
+@property(strong, nonatomic) NSArray* currentUserCars;
 
 - (void) loginUser:(DTUser*)user;
 

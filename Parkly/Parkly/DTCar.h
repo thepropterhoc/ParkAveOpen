@@ -7,6 +7,7 @@
 //
 
 #import <Foundation/Foundation.h>
+#import "DTUser.h"
 
 @interface DTCar : NSObject
 
@@ -21,5 +22,7 @@
 @property (strong, nonatomic) NSString* color;
 
 - (NSDictionary*) dictionaryRepresentation;
+- (id) initWithDictionary:(NSDictionary*)dictionary;
+- (id) initWithUser:(DTUser*)user;
 
 @end

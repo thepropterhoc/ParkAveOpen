@@ -317,11 +317,21 @@
 #pragma mark - Cars
 
 - (void) getCarsForUser:(DTUser *)user success:(void (^)(NSURLSessionDataTask *task, NSArray* cars))success failure:(void (^)(NSURLSessionDataTask *, NSError *))failure {
-    [self.networkManager call:@"get" one:@"users" two:[user _id] three:@"cars" parameters:nil success:^(NSURLSessionDataTask *task, id responseObject) {
-        success(task, [self parseJSON:responseObject toArrayOfClass:[DTCar class]]);
-    } failure:^(NSURLSessionDataTask *task, NSError *error) {
-        failure(task, error);
-    }];
+    
+    if ([[DTCache sharedInstance] hasCarsForUser:user]) {
+        success([[NSURLSessionDataTask alloc] init], [[DTCache sharedInstance] carsForUser:user]);
+    } else {
+        
+        [self.networkManager call:@"get" one:@"users" two:[user _id] three:@"cars" parameters:nil success:^(NSURLSessionDataTask *task, id responseObject) {
+            NSArray* cars = [self parseJSON:responseObject toArrayOfClass:[DTCar class]];
+            
+            [[DTCache sharedInstance] addCars:cars forUser:user];
+            
+            success(task, cars);
+        } failure:^(NSURLSessionDataTask *task, NSError *error) {
+            failure(task, error);
+        }];
+    }
 }
 
 - (void) getCar:(DTCar*)car success: (void (^)(NSURLSessionDataTask *task, DTCar* aCar))success failure:(void (^)(NSURLSessionDataTask *task, NSError *error))failure {
@@ -698,6 +708,11 @@
 -(void)removeCachedSpots
 {
   [[DTCache sharedInstance] removeAllSpots];
+}
+
+-(void)removeCachedCars
+{
+  [[DTCache sharedInstance] removeAllCars];
 }
 
 -(void)scrubTheCache
