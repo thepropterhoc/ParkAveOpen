@@ -14,8 +14,15 @@
 
 @end
 
-@interface DTAddACarViewController : UIViewController
+@interface DTAddACarViewController : UIViewController <UITextFieldDelegate>
 
+@property (strong, nonatomic) IBOutlet UIScrollView *scrollView;
+
+@property (strong, nonatomic) IBOutlet UITextField *makeField;
+@property (strong, nonatomic) IBOutlet UITextField *modelField;
+@property (strong, nonatomic) IBOutlet UITextField *yearField;
+@property (strong, nonatomic) IBOutlet UITextField *colorField;
+@property (strong, nonatomic) IBOutlet UITextField *tagField;
 @property (weak, nonatomic) id<DTAddACarViewControllerDelegate> delegate;
 
 @end

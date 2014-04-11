@@ -21,8 +21,10 @@
           
         }];
         
-        [[DTModel sharedInstance] getLotsNearLatitude:-35.0 andLongitude:92.0 withDistance:15000.0 success:^(NSURLSessionDataTask *task, NSArray* lotArray) {
+        [[DTModel sharedInstance] getLotsandSpotsForCurrentLocationWithDistance:150000.0f success:^(NSURLSessionDataTask *task, id responseObject) {
+          
         } failure:^(NSURLSessionDataTask *task, NSError *error) {
+          
         }];
         
     } failure:^(NSURLSessionDataTask *task, NSError *error) {
@@ -59,6 +61,12 @@
       
     }];
   }
+  
+  [[DTModel sharedInstance] getLotsandSpotsForCurrentLocationWithDistance:150000.0 success:^(NSURLSessionDataTask *task, id responseObject) {
+    
+  } failure:^(NSURLSessionDataTask *task, NSError *error) {
+    
+  }];
 }
 
 - (void)applicationDidBecomeActive:(UIApplication *)application

@@ -7,6 +7,7 @@
 //
 
 #import "DTAddACarViewController.h"
+#import "DTModel.h"
 
 @interface DTAddACarViewController ()
 
@@ -46,6 +47,21 @@
 }
 */
 
+-(void)textFieldDidBeginEditing:(UITextField *)textField
+{
+  [self.scrollView setFrame:CGRectMake(0, 150 + (textField.frame.origin.y * -1), self.scrollView.frame.size.width, self.scrollView.frame.size.height)];
+}
+
+- (IBAction)tap:(id)sender
+{
+  [self.makeField resignFirstResponder];
+  [self.modelField resignFirstResponder];
+  [self.yearField resignFirstResponder];
+  [self.colorField resignFirstResponder];
+  [self.tagField resignFirstResponder];
+  [self.scrollView setFrame:CGRectMake(0, 0, self.scrollView.frame.size.width, self.scrollView.frame.size.height)];
+}
+
 - (IBAction)cancel:(id)sender
 {
   [self.delegate dismissAddACarViewController];
@@ -53,7 +69,14 @@
 
 - (IBAction)add:(id)sender
 {
+  DTCar *defaultCar = [[DTCar alloc] init];
+  [defaultCar setYear:self.yearField.text];
+  [defaultCar setMake:self.makeField.text];
+  [defaultCar setModel:self.modelField.text];
+  [defaultCar setColor:self.colorField.text];
+  [defaultCar setPlate:self.tagField.text];
   
+  [[DTModel sharedInstance] setDefaultCar:defaultCar];
   [self.delegate dismissAddACarViewController];
 }
 

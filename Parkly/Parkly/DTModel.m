@@ -13,6 +13,7 @@
 
 @property (weak, nonatomic) DTDataManager* dataManager;
 @property (weak, nonatomic) DTNetworkManager* networkManager;
+@property (strong, nonatomic) CLLocationManager *locationManager;
 
 - (NSArray*) parseJSON:(id)json toArrayOfClass:(__unsafe_unretained Class)theClass;
 - (void) setDefaultEmail:(NSString*)email;
@@ -29,8 +30,11 @@
         sharedInstance = [[[self class] alloc] init];
         
         // Do any other initialisation stuff here
-        sharedInstance.dataManager = [DTDataManager sharedInstance];
-        sharedInstance.networkManager = [DTNetworkManager sharedInstance];
+      sharedInstance.dataManager = [DTDataManager sharedInstance];
+      sharedInstance.networkManager = [DTNetworkManager sharedInstance];
+      sharedInstance.locationManager = [[CLLocationManager alloc] init];
+      [sharedInstance.locationManager setPausesLocationUpdatesAutomatically:YES];
+      [sharedInstance.locationManager startMonitoringSignificantLocationChanges];
     });
     return sharedInstance;
 }
@@ -248,6 +252,11 @@
     } failure:^(NSURLSessionDataTask *task, NSError *error) {
         failure(task, error);
     }];
+}
+
+-(void)getLotsandSpotsForCurrentLocationWithDistance:(CGFloat)distance success:(void (^)(NSURLSessionDataTask *, id))success failure:(void (^)(NSURLSessionDataTask *, NSError *))failure
+{
+  [self getLotsAndSpotsNearLatitude:self.locationManager.location.coordinate.latitude andLongitude:self.locationManager.location.coordinate.longitude withDistance:distance success:success failure:failure];
 }
 
 #pragma mark - Spots
