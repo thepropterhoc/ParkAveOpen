@@ -57,13 +57,18 @@
 - (IBAction)tryToReserve:(id)sender
 {
   if([[DTModel sharedInstance] userHasAccount] && [[DTModel sharedInstance] userIsLoggedIn]){
-    
+    [self.loadingView setHidden:NO];
+    [self.loadingActivityIndicator startAnimating];
     
     
     [[DTModel sharedInstance] purchaseSpot:self.theSpot forUser:[[DTModel sharedInstance] currentUser] withCar:[[DTModel sharedInstance] defaultCar] success:^(NSURLSessionDataTask *task, id responseObject) {
+      [self.loadingActivityIndicator stopAnimating];
+      [self.loadingView setHidden:YES];
       [self performSegueWithIdentifier:@"goToReceipt" sender:self];
     } failure:^(NSURLSessionDataTask *task, NSError *error) {
       NSLog(@"Unable to purchase spot : %@", error);
+      [self.loadingActivityIndicator stopAnimating];
+      [self.loadingView setHidden:YES];
       [[[UIAlertView alloc] initWithTitle:@"Error" message:[NSString stringWithFormat:@"Unable to purchase spot.  Error : %d", [error code]] delegate:nil cancelButtonTitle:@"Dismiss" otherButtonTitles: nil] show];
     }];
   } else if([[DTModel sharedInstance] userHasAccount] && ![[DTModel sharedInstance] userIsLoggedIn]){
