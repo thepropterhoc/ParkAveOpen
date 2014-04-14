@@ -219,8 +219,6 @@
     
     [self.networkManager call:@"get" one:@"location" two:@"all" three:string parameters:nil success:^(NSURLSessionDataTask *task, id responseObject) {
         
-        NSLog(@"Nearby lots and spots: %@", responseObject);
-        
         //parse lots and spots arrays separately
         NSArray* lotArray = [self parseJSON:[responseObject objectForKey:@"lots"] toArrayOfClass:[DTParkingLot class]];
         NSArray* spotArray = [self parseJSON:[responseObject objectForKey:@"spots"] toArrayOfClass:[DTParkingSpot class]];
@@ -300,6 +298,28 @@
 
 - (void) getSpot:(DTParkingSpot*)spot success: (void (^)(NSURLSessionDataTask *task, id responseObject))success failure:(void (^)(NSURLSessionDataTask *task, NSError *error))failure {
     NSLog(@"%@ not implemented", NSStringFromSelector(_cmd));
+}
+
+
+- (void) getLotForSpot:(DTParkingSpot*)spot success:(void (^)(NSURLSessionDataTask *task, DTParkingLot *responseObject))success failure:(void (^)(NSURLSessionDataTask *task, NSError *error))failure
+{
+  [self getAllLots:^(NSURLSessionDataTask *task, NSArray *allLots) {
+    for(DTParkingLot *lot in allLots){
+      [self getSpotsForLot:lot success:^(NSURLSessionDataTask *task, NSArray *spots) {
+        for(DTParkingSpot *theSpot in spots){
+          if(theSpot == spot){
+            success(task, lot);
+            return;
+          }
+        }
+        failure(task, nil);
+      } failure:^(NSURLSessionDataTask *task, NSError *error) {
+        failure(task, error);
+      }];
+    }
+  } failure:^(NSURLSessionDataTask *task, NSError *error) {
+    failure(task, error);
+  }];
 }
 
 - (void) createSpot:(DTParkingSpot*)spot success: (void (^)(NSURLSessionDataTask *task, id responseObject))success failure:(void (^)(NSURLSessionDataTask *task, NSError *error))failure {
@@ -498,7 +518,7 @@
     
     [self.networkManager call:@"post" one:@"purchase" parameters:parameters success:^(NSURLSessionDataTask *task, id responseObject) {
         NSLog(@"do something in purchaseSpot");
-        
+      [self addSpotToReservedSpots:spot];
         success(task, responseObject);
     } failure:^(NSURLSessionDataTask *task, NSError *error) {
         failure(task, error);
@@ -552,6 +572,7 @@
 -(NSArray*) allReservedSpots {
     return [[self currentUser] reservedSpots];
 }
+
 #pragma mark - Directions
 
 - (void) openDirectionsInMapsToLatitude:(CGFloat)latitude andLongitude:(CGFloat)longitude {

@@ -31,6 +31,7 @@
 - (void)viewDidLoad
 {
   [super viewDidLoad];
+  [self.loadingView setHidden:YES];
   [self populateFields];
   [self checkUserStatus];
 	// Do any additional setup after loading the view.
@@ -56,6 +57,9 @@
 - (IBAction)tryToReserve:(id)sender
 {
   if([[DTModel sharedInstance] userHasAccount] && [[DTModel sharedInstance] userIsLoggedIn]){
+    
+    
+    
     [[DTModel sharedInstance] purchaseSpot:self.theSpot forUser:[[DTModel sharedInstance] currentUser] withCar:[[DTModel sharedInstance] defaultCar] success:^(NSURLSessionDataTask *task, id responseObject) {
       [self performSegueWithIdentifier:@"goToReceipt" sender:self];
     } failure:^(NSURLSessionDataTask *task, NSError *error) {
@@ -75,6 +79,16 @@
   [formatter setDateStyle:NSDateFormatterMediumStyle];
   NSString *currentDate = [formatter stringFromDate:[NSDate date]];
   return [NSString stringWithFormat:@"Purchaser : %@\nSeller : %@\nDate of Purchase : %@\nAmount of Purchase : %@\nDate of Reservation : %@\nLot Name : %@\nLot Location : %@\nSpot Surface Type : %@", [DTModel sharedInstance].currentUser._id, self.theLot.user_id, currentDate, [NSString stringWithFormat:@"%.2f", self.theSpot.price.floatValue], self.theSpot.startDate, self.theLot.title, [NSString stringWithFormat:@"%.4f, %.4f", self.theLot.lat.floatValue, self.theLot.lon.floatValue], self.theSpot.surface];
+}
+
+-(void)showLoading
+{
+  [self.loadingView setHidden:NO];
+}
+
+-(void)dismissLoading
+{
+  
 }
 
 -(void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender

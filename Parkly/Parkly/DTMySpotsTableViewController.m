@@ -12,6 +12,8 @@
 
 @interface DTMySpotsTableViewController ()
 
+@property (strong, nonatomic) NSArray *mySpots;
+
 @end
 
 @implementation DTMySpotsTableViewController
@@ -27,13 +29,12 @@
 
 - (void)viewDidLoad
 {
-    [super viewDidLoad];
-    
-    // Uncomment the following line to preserve selection between presentations.
-    // self.clearsSelectionOnViewWillAppear = NO;
-    
-    // Uncomment the following line to display an Edit button in the navigation bar for this view controller.
-    // self.navigationItem.rightBarButtonItem = self.editButtonItem;
+  [super viewDidLoad];
+  if([[DTModel sharedInstance] allReservedSpots]){
+    self.mySpots = [[DTModel sharedInstance] allReservedSpots];
+  } else {
+    self.mySpots = [[NSArray alloc] init];
+  }
 }
 
 - (void)didReceiveMemoryWarning
@@ -51,7 +52,7 @@
 
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section
 {
-  int numSpots = [[[DTModel sharedInstance] allReservedSpots] count];
+  NSInteger numSpots = [self.mySpots count];
   if(numSpots == 0){
     return 1;
   } else {
@@ -62,9 +63,10 @@
 
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath
 {
-  if([[[DTModel sharedInstance] allReservedSpots] count] != 0){
+  if([self.mySpots count] != 0){
     DTMySpotTableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:@"cell" forIndexPath:indexPath];
-    [cell initWithSpot:[[DTModel sharedInstance] allReservedSpots][indexPath.row]];
+    [cell initWithSpot:self.mySpots[indexPath.row]];
+    NSLog(@"Spot class : %@", [self.mySpots[indexPath.row] class]);
     return cell;
   } else {
     UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:@"nullSpot" forIndexPath:indexPath];
