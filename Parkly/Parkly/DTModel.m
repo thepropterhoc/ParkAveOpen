@@ -497,7 +497,6 @@
                                  };
     
     [self.networkManager call:@"post" one:@"purchase" parameters:parameters success:^(NSURLSessionDataTask *task, id responseObject) {
-        NSLog(@"do something in purchaseSpot");
       
       [self reserveSpot:spot];
         
@@ -544,7 +543,15 @@
 }
 
 - (NSArray*) allReservedSpots {
-    return [[self currentUser] reservedSpots];
+  [self.networkManager call:@"get" one:@"users" two:[[self currentUser] _id] parameters:nil success:^(NSURLSessionDataTask *task, id responseObject) {
+    
+    DTUser* newUser = [self parseJSON:responseObject toArrayOfClass:[DTUser class]][0];
+    self.currentUser.reservedSpots = [newUser reservedSpots];
+    
+  } failure:^(NSURLSessionDataTask *task, NSError *error) {
+    NSLog(@"error! : %@", error);
+  }];
+  return [[self currentUser] reservedSpots];
 }
 #pragma mark - Directions
 
