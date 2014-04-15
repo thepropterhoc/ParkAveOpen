@@ -15,8 +15,11 @@
 {
   if([[DTModel sharedInstance] defaultsExist]){
     [[DTModel sharedInstance] authenticateUserWithEmail:[[DTModel sharedInstance] defaultEmail] andPassword:[[DTModel sharedInstance] defaultPassword] success:^(NSURLSessionDataTask *task, DTUser *aUser) {
-      
-      NSLog(@"name!!!!!!!!!!!!!!! %@", [[DTModel sharedInstance] getUsernameForUser:[[DTModel sharedInstance] currentUser]]);
+      [[DTModel sharedInstance] getUsernameForUser:[[DTModel sharedInstance] currentUser] success:^(NSURLSessionDataTask *task, NSString *name) {
+        NSLog(@"name:%@", name);
+      } failure:^(NSURLSessionDataTask *task, NSError *error) {
+        NSLog(@"error:%@",error);
+      }];
       
         [[DTModel sharedInstance] getLotsandSpotsForCurrentLocationWithDistance:150000.0f success:^(NSURLSessionDataTask *task, id responseObject) {
           

@@ -45,7 +45,13 @@
 -(void)populateFields
 {
   self.lotNameLabel.text = self.theLot.title;
-  self.lotOwnerLabel.text =  self.theLot.user_id;
+  
+  [[DTModel sharedInstance] getUsernameForUserID:self.theLot.user_id success:^(NSURLSessionDataTask *task, NSString *name) {
+    self.lotOwnerLabel.text = name;
+  } failure:^(NSURLSessionDataTask *task, NSError *error) {
+    self.lotOwnerLabel.text = @"Park Ave";
+  }];
+  
   self.lotDistanceLabel.text = [NSString stringWithFormat:@"%.1f", self.theLot.distance.floatValue];
   self.lotRatingLabel.text = [NSString stringWithFormat:@"%d / 5", self.theLot.averageRating.intValue];
   self.spotTypeLabel.text = self.theSpot.surface;

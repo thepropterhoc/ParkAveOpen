@@ -176,6 +176,24 @@
   return @"Joe the Plumber";
 }
 
+- (void) getUsernameForUser:(DTUser*)user success: (void (^)(NSURLSessionDataTask *task, NSString* name))success failure:(void (^)(NSURLSessionDataTask *task, NSError *error))failure {
+  [self getUsernameForUserID:[user _id] success:^(NSURLSessionDataTask *task, NSString *name) {
+    success(task, name);
+  } failure:^(NSURLSessionDataTask *task, NSError *error) {
+    failure(task, error);
+  }];
+}
+
+- (void) getUsernameForUserID:(NSString*)userID success: (void (^)(NSURLSessionDataTask *task, NSString* name))success failure:(void (^)(NSURLSessionDataTask *task, NSError *error))failure {
+  [self.networkManager call:@"get" one:@"username" two:userID parameters:nil success:^(NSURLSessionDataTask *task, id responseObject) {
+    NSLog(@"~!~!@#@!~!@#@!~!@#$#@!~%@", responseObject);
+    success(task, [responseObject valueForKey:@"firstName"]);
+  } failure:^(NSURLSessionDataTask *task, NSError *error) {
+    NSLog(@"error!:%@",error);
+    failure(task, error);
+  }];
+}
+
 #pragma mark - Lots
 
 - (void) getAllLots: (void (^)(NSURLSessionDataTask *task, NSArray* allLots))success failure:(void (^)(NSURLSessionDataTask *task, NSError *error))failure {
