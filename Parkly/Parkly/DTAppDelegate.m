@@ -15,10 +15,14 @@
 {
   if([[DTModel sharedInstance] defaultsExist]){
     [[DTModel sharedInstance] authenticateUserWithEmail:[[DTModel sharedInstance] defaultEmail] andPassword:[[DTModel sharedInstance] defaultPassword] success:^(NSURLSessionDataTask *task, DTUser *aUser) {
+      [[DTUser sharedInstance] addCreditCard:^(NSURLSessionDataTask *task, id responseObject) {
+        ;
+      } failure:^(NSURLSessionDataTask *task, NSError *error) {
+        ;
+      }];
       
-      NSLog(@"name!!!!!!!!!!!!!!! %@", [[DTModel sharedInstance] getUsernameForUser:[[DTModel sharedInstance] currentUser]]);
       
-        [[DTModel sharedInstance] getLotsandSpotsForCurrentLocationWithDistance:150000.0f success:^(NSURLSessionDataTask *task, id responseObject) {
+      [[DTModel sharedInstance] getLotsandSpotsForCurrentLocationWithDistance:150000.0f success:^(NSURLSessionDataTask *task, id responseObject) {
           
         } failure:^(NSURLSessionDataTask *task, NSError *error) {
           
