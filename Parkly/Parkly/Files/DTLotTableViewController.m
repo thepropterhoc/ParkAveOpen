@@ -139,6 +139,12 @@
 {
   [[DTModel sharedInstance] removeCachedLots];
   [[DTModel sharedInstance] getAllLots:^(NSURLSessionDataTask *task, NSArray *allLots) {
+      
+      //add random avg rating
+      for(DTParkingLot* lot in allLots) {
+          lot.averageRating = [NSNumber numberWithInt:arc4random()%5+1];
+      }
+      
     self.theLots = allLots;
     [self.theTable reloadData];
   } failure:^(NSURLSessionDataTask *task, NSError *error) {
