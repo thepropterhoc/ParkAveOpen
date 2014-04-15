@@ -388,6 +388,15 @@
     failure(task, error);
   }];
 }
+
+- (NSArray*) currentUserCars {
+  return [[DTCache sharedInstance] carsForUser:[self currentUser]];
+}
+
+- (void) addCurrentUserCar:(DTCar*)car {
+  [[DTCache sharedInstance] addCars:[NSArray arrayWithObject:car] forUser:[self currentUser]];
+}
+
 #pragma mark - Reviews
 
 - (void) getAllReviews: (void (^)(NSURLSessionDataTask *task, id responseObject))success failure:(void (^)(NSURLSessionDataTask *task, NSError *error))failure {
@@ -508,275 +517,246 @@
                                @"spot_id": [spot _id],
                                @"car_id": [car _id]
                                };
-  
-  [self.networkManager call:@"post" one:@"purchase" parameters:parameters success:^(NSURLSessionDataTask *task, id responseObject) {
-    NSLog(@"do something in purchaseSpot");
-    
-<<<<<<< HEAD
-    NSDictionary* parameters = @{@"user_id": [user _id],
-                                 @"spot_id": [spot _id],
-                                  @"car_id": [car _id]
-                                 };
     
     [self.networkManager call:@"post" one:@"purchase" parameters:parameters success:^(NSURLSessionDataTask *task, id responseObject) {
       
       [self reserveSpot:spot];
-        
-        success(task, responseObject);
+      
+      success(task, responseObject);
     } failure:^(NSURLSessionDataTask *task, NSError *error) {
-        failure(task, error);
-    }];
-=======
-    success(task, responseObject);
-  } failure:^(NSURLSessionDataTask *task, NSError *error) {
-    failure(task, error);
-  }];
->>>>>>> rating
-}
-
-/*- (void) makePaymentFromUser:(DTUser*)user forSpot:(DTParkingSpot*)spot success: (void (^)(NSURLSessionDataTask *task, DTUser* aUser))success failure:(void (^)(NSURLSessionDataTask *task, NSError *error))failure {
- 
- NSDictionary* parameters = @{
- @"spot_id": [spot _id],
- @"user_id": [user _id],
- @"type": @"visa",
- @"number": @"4417119669820331",
- @"expire_month": @"11",
- @"expire_year": @"2018",
- @"cvv2": @"874",
- @"first_name": [user firstName],
- @"last_name": [user lastName],
- @"billing_address": @{
- @"line1": @"52 N Main ST",
- @"city": @"Johnstown",
- @"state": @"OH",
- @"postal_code": @"43210",
- @"country_code": @"US"
- }
- };
- 
- [self.networkManager call:@"post" one:@"purchase" parameters:parameters success:^(NSURLSessionDataTask *task, id responseObject) {
- #warning something needs to happen here
- success(task, responseObject);
- } failure:^(NSURLSessionDataTask *task, NSError *error) {
- failure(task, error);
- }];
- }*/
-
-
+      failure(task, error);
+    }
+     ];
+  }
+   
+  /*- (void) makePaymentFromUser:(DTUser*)user forSpot:(DTParkingSpot*)spot success: (void (^)(NSURLSessionDataTask *task, DTUser* aUser))success failure:(void (^)(NSURLSessionDataTask *task, NSError *error))failure {
+   
+   NSDictionary* parameters = @{
+   @"spot_id": [spot _id],
+   @"user_id": [user _id],
+   @"type": @"visa",
+   @"number": @"4417119669820331",
+   @"expire_month": @"11",
+   @"expire_year": @"2018",
+   @"cvv2": @"874",
+   @"first_name": [user firstName],
+   @"last_name": [user lastName],
+   @"billing_address": @{
+   @"line1": @"52 N Main ST",
+   @"city": @"Johnstown",
+   @"state": @"OH",
+   @"postal_code": @"43210",
+   @"country_code": @"US"
+   }
+   };
+   
+   [self.networkManager call:@"post" one:@"purchase" parameters:parameters success:^(NSURLSessionDataTask *task, id responseObject) {
+   #warning something needs to happen here
+   success(task, responseObject);
+   } failure:^(NSURLSessionDataTask *task, NSError *error) {
+   failure(task, error);
+   }];
+   }*/
+   
+   
 #pragma mark - My Spots
-
-<<<<<<< HEAD
-- (void) reserveSpot:(DTParkingSpot*)spot {
-    [[[self.currentUser reservedSpots] mutableCopy] insertObject:spot atIndex:0];
-}
-
-- (NSArray*) allReservedSpots {
-  [self.networkManager call:@"get" one:@"users" two:[[self currentUser] _id] parameters:nil success:^(NSURLSessionDataTask *task, id responseObject) {
-    
-    DTUser* newUser = [self parseJSON:responseObject toArrayOfClass:[DTUser class]][0];
-    self.currentUser.reservedSpots = [newUser reservedSpots];
-    
-  } failure:^(NSURLSessionDataTask *task, NSError *error) {
-    NSLog(@"error! : %@", error);
-  }];
-=======
--(void) addSpotToReservedSpots:(DTParkingSpot*)spot {
-  //add to currentUser
-  [[[self.currentUser reservedSpots] mutableCopy] insertObject:spot atIndex:0];
-  
-  //update the user on the server
-  [self updateUser:[self currentUser] success:^(NSURLSessionDataTask *task, id responseObject) {
-    NSLog(@"currentUser updated on server");
-  } failure:^(NSURLSessionDataTask *task, NSError *error) {
-    NSLog(@"error updating user on server %@", error);
-  }];
-}
-
--(NSArray*) allReservedSpots {
->>>>>>> rating
-  return [[self currentUser] reservedSpots];
-}
+   
+   - (void) reserveSpot:(DTParkingSpot*)spot {
+     [[[self.currentUser reservedSpots] mutableCopy] insertObject:spot atIndex:0];
+   }
+   
+   - (NSArray*) allReservedSpots {
+     [self.networkManager call:@"get" one:@"users" two:[[self currentUser] _id] parameters:nil success:^(NSURLSessionDataTask *task, id responseObject) {
+       
+       DTUser* newUser = [self parseJSON:responseObject toArrayOfClass:[DTUser class]][0];
+       self.currentUser.reservedSpots = [newUser reservedSpots];
+       
+     } failure:^(NSURLSessionDataTask *task, NSError *error) {
+       NSLog(@"error! : %@", error);
+     }];
+     return [[self currentUser] reservedSpots];
+   }
+   
 #pragma mark - Directions
-
-- (void) openDirectionsInMapsToLatitude:(CGFloat)latitude andLongitude:(CGFloat)longitude {
-  
-  // Create a region centered on the starting point with a 10km span
-  CLLocation* currentLocation = [[[CLLocationManager alloc] init] location];
-  MKCoordinateRegion region = MKCoordinateRegionMakeWithDistance(currentLocation.coordinate, 10000, 10000);
-  
-  CLLocation* location = [[CLLocation alloc] initWithLatitude:latitude longitude:longitude];
-  
-  // Open the item in Maps, specifying the map region to display.
-  [MKMapItem openMapsWithItems:[NSArray arrayWithObject:location]
-                 launchOptions:[NSDictionary dictionaryWithObjectsAndKeys:
-                                [NSValue valueWithMKCoordinate:region.center], MKLaunchOptionsMapCenterKey,
-                                [NSValue valueWithMKCoordinateSpan:region.span], MKLaunchOptionsMapSpanKey, nil]];
-}
-
--(CLLocation*)currentUserLocation
-{
-  return [self.locationManager location];
-}
-
-
-
+   
+   - (void) openDirectionsInMapsToLatitude:(CGFloat)latitude andLongitude:(CGFloat)longitude {
+     
+     // Create a region centered on the starting point with a 10km span
+     CLLocation* currentLocation = [[[CLLocationManager alloc] init] location];
+     MKCoordinateRegion region = MKCoordinateRegionMakeWithDistance(currentLocation.coordinate, 10000, 10000);
+     
+     CLLocation* location = [[CLLocation alloc] initWithLatitude:latitude longitude:longitude];
+     
+     // Open the item in Maps, specifying the map region to display.
+     [MKMapItem openMapsWithItems:[NSArray arrayWithObject:location]
+                    launchOptions:[NSDictionary dictionaryWithObjectsAndKeys:
+                                   [NSValue valueWithMKCoordinate:region.center], MKLaunchOptionsMapCenterKey,
+                                   [NSValue valueWithMKCoordinateSpan:region.span], MKLaunchOptionsMapSpanKey, nil]];
+   }
+   
+   -(CLLocation*)currentUserLocation
+  {
+    return [self.locationManager location];
+  }
+   
+   
+   
 #pragma mark - Pseudo-properties
-
-- (DTUser*) currentUser {
-  return [self.dataManager currentUser];
-}
-
-- (DTUser*) defaultUser {
-  return [self.dataManager defaultUser];
-}
-- (DTCar*) defaultCar {
-  return [self.dataManager defaultCar];
-}
-- (void) setDefaultCar:(DTCar *)car {
-  [self.dataManager setDefaultCar:car];
-}
-
-- (NSString*) defaultEmail {
-  return [[NSUserDefaults standardUserDefaults] objectForKey:@"email"];
-}
-- (NSString*) defaultPassword {
-  return [[PDKeychainBindings sharedKeychainBindings] objectForKey:@"password"];
-}
-- (BOOL) defaultsExist {
-  return ([[NSUserDefaults standardUserDefaults] objectForKey:@"email"] != nil);
-}
-
-- (void) setDefaultEmail:(NSString*)email {
-  [[NSUserDefaults standardUserDefaults] setObject:email forKey:@"email"];
-  [[NSUserDefaults standardUserDefaults] synchronize];
-}
-
+   
+   - (DTUser*) currentUser {
+     return [self.dataManager currentUser];
+   }
+   
+   - (DTUser*) defaultUser {
+     return [self.dataManager defaultUser];
+   }
+   - (DTCar*) defaultCar {
+     return [self.dataManager defaultCar];
+   }
+   - (void) setDefaultCar:(DTCar *)car {
+     [self.dataManager setDefaultCar:car];
+   }
+   
+   - (NSString*) defaultEmail {
+     return [[NSUserDefaults standardUserDefaults] objectForKey:@"email"];
+   }
+   - (NSString*) defaultPassword {
+     return [[PDKeychainBindings sharedKeychainBindings] objectForKey:@"password"];
+   }
+   - (BOOL) defaultsExist {
+     return ([[NSUserDefaults standardUserDefaults] objectForKey:@"email"] != nil);
+   }
+   
+   - (void) setDefaultEmail:(NSString*)email {
+     [[NSUserDefaults standardUserDefaults] setObject:email forKey:@"email"];
+     [[NSUserDefaults standardUserDefaults] synchronize];
+   }
+   
 #pragma mark - Sorting
-
-- (NSArray*) sortLotsByRating:(NSArray*)array isAscending:(BOOL)isAscending {
-  [[array mutableCopy] sortUsingComparator:^NSComparisonResult(id obj1, id obj2) {
-    DTParkingLot* lotA = obj1;
-    DTParkingLot* lotB = obj2;
-    CGFloat ratingA = [lotA.averageRating floatValue];
-    CGFloat ratingB = [lotB.averageRating floatValue];
-    
-    if (ratingA > ratingB) {
-      return isAscending ? NSOrderedAscending : NSOrderedDescending;
-    } else if (ratingA < ratingB) {
-      return isAscending ? NSOrderedDescending : NSOrderedAscending;
-    }
-    return NSOrderedSame;
-  }];
-  return array;
-}
-- (NSArray*) sortLots:(NSMutableArray*)array byDistanceFromLatitude:(CGFloat)latitude andLongitude:(CGFloat)longitude isAscending:(BOOL)isAscending {
-  NSLog(@"asc/desc may not work correctly");
-  [[array mutableCopy] sortUsingComparator:^NSComparisonResult(id obj1, id obj2) {
-    DTParkingLot* lotA = obj1;
-    CGFloat latA = [lotA.lat floatValue];
-    CGFloat lonA = [lotA.lon floatValue];
-    
-    CGFloat distanceA = sqrt((latitude - latA)*(latitude - latA) + (longitude - lonA)*(longitude - lonA));
-    
-    DTParkingLot* lotB = obj2;
-    CGFloat latB = [lotB.lat floatValue];
-    CGFloat lonB = [lotB.lon floatValue];
-    
-    CGFloat distanceB = sqrt((latitude - latB)*(latitude - latB) + (longitude - lonB)*(longitude - lonB));
-    
-    if(distanceA > distanceB) {
-      return NSOrderedAscending;
-    } else if (distanceA < distanceB) {
-      return NSOrderedDescending;
-    }
-    return NSOrderedSame;
-  }];
-  return array;
-}
-- (NSArray*) sortLotsByPrice:(NSMutableArray*)array isAscending:(BOOL)isAscending {
-  NSLog(@"asc/desc may not work correctly");
-  [[array mutableCopy] sortUsingComparator:^NSComparisonResult(id obj1, id obj2) {
-    DTParkingLot* lotA = obj1;
-    DTParkingLot* lotB = obj2;
-    
-    CGFloat priceA = [lotA.minimumPrice floatValue];
-    CGFloat priceB = [lotB.minimumPrice floatValue];
-    
-    if (priceA > priceB) {
-      return isAscending ? NSOrderedAscending : NSOrderedDescending;
-    } else if (priceA < priceB) {
-      return isAscending ? NSOrderedDescending : NSOrderedAscending;
-    }
-    return NSOrderedSame;
-  }];
-  return array;
-}
+   
+   - (NSArray*) sortLotsByRating:(NSArray*)array isAscending:(BOOL)isAscending {
+     [[array mutableCopy] sortUsingComparator:^NSComparisonResult(id obj1, id obj2) {
+       DTParkingLot* lotA = obj1;
+       DTParkingLot* lotB = obj2;
+       CGFloat ratingA = [lotA.averageRating floatValue];
+       CGFloat ratingB = [lotB.averageRating floatValue];
+       
+       if (ratingA > ratingB) {
+         return isAscending ? NSOrderedAscending : NSOrderedDescending;
+       } else if (ratingA < ratingB) {
+         return isAscending ? NSOrderedDescending : NSOrderedAscending;
+       }
+       return NSOrderedSame;
+     }];
+     return array;
+   }
+   - (NSArray*) sortLots:(NSMutableArray*)array byDistanceFromLatitude:(CGFloat)latitude andLongitude:(CGFloat)longitude isAscending:(BOOL)isAscending {
+     NSLog(@"asc/desc may not work correctly");
+     [[array mutableCopy] sortUsingComparator:^NSComparisonResult(id obj1, id obj2) {
+       DTParkingLot* lotA = obj1;
+       CGFloat latA = [lotA.lat floatValue];
+       CGFloat lonA = [lotA.lon floatValue];
+       
+       CGFloat distanceA = sqrt((latitude - latA)*(latitude - latA) + (longitude - lonA)*(longitude - lonA));
+       
+       DTParkingLot* lotB = obj2;
+       CGFloat latB = [lotB.lat floatValue];
+       CGFloat lonB = [lotB.lon floatValue];
+       
+       CGFloat distanceB = sqrt((latitude - latB)*(latitude - latB) + (longitude - lonB)*(longitude - lonB));
+       
+       if(distanceA > distanceB) {
+         return NSOrderedAscending;
+       } else if (distanceA < distanceB) {
+         return NSOrderedDescending;
+       }
+       return NSOrderedSame;
+     }];
+     return array;
+   }
+   - (NSArray*) sortLotsByPrice:(NSMutableArray*)array isAscending:(BOOL)isAscending {
+     NSLog(@"asc/desc may not work correctly");
+     [[array mutableCopy] sortUsingComparator:^NSComparisonResult(id obj1, id obj2) {
+       DTParkingLot* lotA = obj1;
+       DTParkingLot* lotB = obj2;
+       
+       CGFloat priceA = [lotA.minimumPrice floatValue];
+       CGFloat priceB = [lotB.minimumPrice floatValue];
+       
+       if (priceA > priceB) {
+         return isAscending ? NSOrderedAscending : NSOrderedDescending;
+       } else if (priceA < priceB) {
+         return isAscending ? NSOrderedDescending : NSOrderedAscending;
+       }
+       return NSOrderedSame;
+     }];
+     return array;
+   }
 #pragma mark - Helper Methods
-
-- (NSArray*) parseJSON:(id)json toArrayOfClass:(__unsafe_unretained Class)theClass {
-  
-  NSArray* array = json;
-  
-  if ([array count] == 0) {
-    return nil;
+   
+   - (NSArray*) parseJSON:(id)json toArrayOfClass:(__unsafe_unretained Class)theClass {
+     
+     NSArray* array = json;
+     
+     if ([array count] == 0) {
+       return nil;
+     }
+     
+     NSMutableArray* newArray = [[NSMutableArray alloc] init];
+     
+     //find the valid keys for this class
+     NSMutableArray* tempKeys = [[array[0] allKeys] mutableCopy];
+     id testObject = [[theClass alloc] init];
+     for (NSString* key in tempKeys) {
+       if (![testObject respondsToSelector:NSSelectorFromString(key)]) {
+         [tempKeys removeObject:key];
+         NSLog(@"key %@ was not used while parsing json.", key);
+       }
+     }
+     NSArray* keys = [tempKeys copy];
+     
+     for (NSDictionary* item in array) {
+       id newItem = [[theClass alloc] init];
+       
+       //assign properties
+       for (NSString* key in keys) {
+         id value = [item valueForKey:key];
+         [newItem setValue:value forKey:key];
+       }
+       //insert the item into the array
+       [newArray insertObject:newItem atIndex:[newArray count]];
+     }
+     return [newArray copy];
+   }
+   
+   -(NSDate*)setDateFromString:(NSString *)date
+  {
+    NSDateFormatter *formatter = [[NSDateFormatter alloc] init];
+    [formatter setDateStyle:NSDateFormatterFullStyle];
+    //[formatter setDateFormat:@"yyyy'-'MM'-'dd"];
+    return [formatter dateFromString:date];
   }
-  
-  NSMutableArray* newArray = [[NSMutableArray alloc] init];
-  
-  //find the valid keys for this class
-  NSMutableArray* tempKeys = [[array[0] allKeys] mutableCopy];
-  id testObject = [[theClass alloc] init];
-  for (NSString* key in tempKeys) {
-    if (![testObject respondsToSelector:NSSelectorFromString(key)]) {
-      [tempKeys removeObject:key];
-      NSLog(@"key %@ was not used while parsing json.", key);
-    }
-  }
-  NSArray* keys = [tempKeys copy];
-  
-  for (NSDictionary* item in array) {
-    id newItem = [[theClass alloc] init];
-    
-    //assign properties
-    for (NSString* key in keys) {
-      id value = [item valueForKey:key];
-      [newItem setValue:value forKey:key];
-    }
-    //insert the item into the array
-    [newArray insertObject:newItem atIndex:[newArray count]];
-  }
-  return [newArray copy];
-}
-
--(NSDate*)setDateFromString:(NSString *)date
-{
-  NSDateFormatter *formatter = [[NSDateFormatter alloc] init];
-  [formatter setDateStyle:NSDateFormatterFullStyle];
-  //[formatter setDateFormat:@"yyyy'-'MM'-'dd"];
-  return [formatter dateFromString:date];
-}
-
+   
 #pragma mark - Data Management Methods
-
--(void)removeCachedLots
-{
-  [[DTCache sharedInstance] removeAllLots];
-}
-
--(void)removeCachedSpots
-{
-  [[DTCache sharedInstance] removeAllSpots];
-}
-
--(void)removeCachedCars
-{
-  [[DTCache sharedInstance] removeAllCars];
-}
-
--(void)scrubTheCache
-{
-  [[DTCache sharedInstance] removeAll];
-}
-
-@end
+   
+   -(void)removeCachedLots
+  {
+    [[DTCache sharedInstance] removeAllLots];
+  }
+   
+   -(void)removeCachedSpots
+  {
+    [[DTCache sharedInstance] removeAllSpots];
+  }
+   
+   -(void)removeCachedCars
+  {
+    [[DTCache sharedInstance] removeAllCars];
+  }
+   
+   -(void)scrubTheCache
+  {
+    [[DTCache sharedInstance] removeAll];
+  }
+   
+   @end
