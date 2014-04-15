@@ -498,6 +498,8 @@
     
     [self.networkManager call:@"post" one:@"purchase" parameters:parameters success:^(NSURLSessionDataTask *task, id responseObject) {
         NSLog(@"do something in purchaseSpot");
+      
+      [self reserveSpot:spot];
         
         success(task, responseObject);
     } failure:^(NSURLSessionDataTask *task, NSError *error) {
@@ -537,19 +539,11 @@
 
 #pragma mark - My Spots
 
--(void) addSpotToReservedSpots:(DTParkingSpot*)spot {
-    //add to currentUser
+- (void) reserveSpot:(DTParkingSpot*)spot {
     [[[self.currentUser reservedSpots] mutableCopy] insertObject:spot atIndex:0];
-    
-    //update the user on the server
-    [self updateUser:[self currentUser] success:^(NSURLSessionDataTask *task, id responseObject) {
-        NSLog(@"currentUser updated on server");
-    } failure:^(NSURLSessionDataTask *task, NSError *error) {
-        NSLog(@"error updating user on server %@", error);
-    }];
 }
 
--(NSArray*) allReservedSpots {
+- (NSArray*) allReservedSpots {
     return [[self currentUser] reservedSpots];
 }
 #pragma mark - Directions

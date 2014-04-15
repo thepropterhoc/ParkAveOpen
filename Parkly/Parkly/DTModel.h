@@ -127,7 +127,7 @@
 
 #pragma mark - My Spots
 
--(void) addSpotToReservedSpots:(DTParkingSpot*)spot;
+- (void) reserveSpot:(DTParkingSpot*)spot;
 -(NSArray*) allReservedSpots;
 
 #pragma mark - Directions
