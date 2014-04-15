@@ -75,7 +75,9 @@
 
 -(void)addSpots:(NSArray*)theSpots forLot:(DTParkingLot*)theLot
 {
-  [self.spotsCache setObject:theSpots forKey:theLot];
+  if(theSpots && theLot){
+    [self.spotsCache setObject:theSpots forKey:theLot];
+  }
 }
 
 -(void)addReviews:(NSArray*)theReviews forUser:(DTUser*)theUser

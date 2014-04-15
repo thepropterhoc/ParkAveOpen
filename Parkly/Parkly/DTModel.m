@@ -241,34 +241,17 @@
     //add lots to cache
     [[DTCache sharedInstance] addLots:lotArray];
     
-    [self.networkManager call:@"get" one:@"location" two:@"all" three:string parameters:nil success:^(NSURLSessionDataTask *task, id responseObject) {
-        
-        //parse lots and spots arrays separately
-        NSArray* lotArray = [self parseJSON:[responseObject objectForKey:@"lots"] toArrayOfClass:[DTParkingLot class]];
-        NSArray* spotArray = [self parseJSON:[responseObject objectForKey:@"spots"] toArrayOfClass:[DTParkingSpot class]];
-        
-        //add lots to cache
-        [[DTCache sharedInstance] addLots:lotArray];
-        
-        //loop through lots
-        for (DTParkingLot* lot in lotArray) {
-            //for each, create an array of spots that belong to it
-            NSMutableArray* currentSpots = [[NSMutableArray alloc] init];
-            NSString* lot_id = [lot _id];
-            
-            //now loop through spots
-            for (DTParkingSpot* spot in spotArray) {
-                //for each spot, if its lot id matches the current lot's id, add the spot to currentSpots
-                if ([[spot lot_id] isEqualToString:lot_id]) {
-                    [currentSpots insertObject:spot atIndex:0];
-                }
-            }
-            
-            //remove currentSpots from spot array
-            [[spotArray mutableCopy] removeObjectsInArray:[currentSpots copy]];
-            
-            //add currentSpots to the cache
-            [[DTCache sharedInstance] addSpots:currentSpots forLot:lot];
+    //loop through lots
+    for (DTParkingLot* lot in lotArray) {
+      //for each, create an array of spots that belong to it
+      NSMutableArray* currentSpots = [[NSMutableArray alloc] init];
+      NSString* lot_id = [lot _id];
+      
+      //now loop through spots
+      for (DTParkingSpot* spot in spotArray) {
+        //for each spot, if its lot id matches the current lot's id, add the spot to currentSpots
+        if ([[spot lot_id] isEqualToString:lot_id]) {
+          [currentSpots insertObject:spot atIndex:0];
         }
       }
       
@@ -551,41 +534,11 @@
 
 
 - (void) purchaseSpot:(DTParkingSpot*)spot forUser:(DTUser*)user withCar:(DTCar*)car success: (void (^)(NSURLSessionDataTask *task, id responseObject))success failure:(void (^)(NSURLSessionDataTask *task, NSError *error))failure {
-    
-    NSDictionary* parameters = @{@"user_id": [user _id],
-                                 @"spot_id": [spot _id],
-                                  @"car_id": [car _id]
-                                 };
-    
-    [self.networkManager call:@"post" one:@"purchase" parameters:parameters success:^(NSURLSessionDataTask *task, id responseObject) {
-        NSLog(@"do something in purchaseSpot");
-      [self addSpotToReservedSpots:spot];
-        success(task, responseObject);
-    } failure:^(NSURLSessionDataTask *task, NSError *error) {
-        failure(task, error);
-    }];
-}
-
-/*- (void) makePaymentFromUser:(DTUser*)user forSpot:(DTParkingSpot*)spot success: (void (^)(NSURLSessionDataTask *task, DTUser* aUser))success failure:(void (^)(NSURLSessionDataTask *task, NSError *error))failure {
-    
-    NSDictionary* parameters = @{
-                                 @"spot_id": [spot _id],
-                                 @"user_id": [user _id],
-                                 @"type": @"visa",
-                                 @"number": @"4417119669820331",
-                                 @"expire_month": @"11",
-                                 @"expire_year": @"2018",
-                                 @"cvv2": @"874",
-                                 @"first_name": [user firstName],
-                                 @"last_name": [user lastName],
-                                 @"billing_address": @{
-                                         @"line1": @"52 N Main ST",
-                                         @"city": @"Johnstown",
-                                         @"state": @"OH",
-                                         @"postal_code": @"43210",
-                                         @"country_code": @"US"
-                                         }
-                                 };
+  
+  NSDictionary* parameters = @{@"user_id": [user _id],
+                               @"spot_id": [spot _id],
+                               @"car_id": [car _id]
+                               };
     
     [self.networkManager call:@"post" one:@"purchase" parameters:parameters success:^(NSURLSessionDataTask *task, id responseObject) {
       
@@ -629,23 +582,23 @@
    
    
 #pragma mark - My Spots
-
--(void) addSpotToReservedSpots:(DTParkingSpot*)spot {
-    //add to currentUser
-    [[[self.currentUser reservedSpots] mutableCopy] insertObject:spot atIndex:0];
-    
-    //update the user on the server
-    [self updateUser:[self currentUser] success:^(NSURLSessionDataTask *task, id responseObject) {
-        NSLog(@"currentUser updated on server");
-    } failure:^(NSURLSessionDataTask *task, NSError *error) {
-        NSLog(@"error updating user on server %@", error);
-    }];
-}
-
--(NSArray*) allReservedSpots {
-    return [[self currentUser] reservedSpots];
-}
-
+   
+   - (void) reserveSpot:(DTParkingSpot*)spot {
+     [[[self.currentUser reservedSpots] mutableCopy] insertObject:spot atIndex:0];
+   }
+   
+   - (NSArray*) allReservedSpots {
+     [self.networkManager call:@"get" one:@"users" two:[[self currentUser] _id] parameters:nil success:^(NSURLSessionDataTask *task, id responseObject) {
+       
+       DTUser* newUser = [self parseJSON:responseObject toArrayOfClass:[DTUser class]][0];
+       self.currentUser.reservedSpots = [newUser reservedSpots];
+       
+     } failure:^(NSURLSessionDataTask *task, NSError *error) {
+       NSLog(@"error! : %@", error);
+     }];
+     return [[self currentUser] reservedSpots];
+   }
+   
 #pragma mark - Directions
    
    - (void) openDirectionsInMapsToLatitude:(CGFloat)latitude andLongitude:(CGFloat)longitude {
