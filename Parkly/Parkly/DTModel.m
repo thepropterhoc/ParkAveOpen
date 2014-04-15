@@ -333,6 +333,28 @@
   NSLog(@"%@ not implemented", NSStringFromSelector(_cmd));
 }
 
+
+- (void) getLotForSpot:(DTParkingSpot*)spot success:(void (^)(NSURLSessionDataTask *task, DTParkingLot *responseObject))success failure:(void (^)(NSURLSessionDataTask *task, NSError *error))failure
+{
+  [self getAllLots:^(NSURLSessionDataTask *task, NSArray *allLots) {
+    for(DTParkingLot *lot in allLots){
+      [self getSpotsForLot:lot success:^(NSURLSessionDataTask *task, NSArray *spots) {
+        for(DTParkingSpot *theSpot in spots){
+          if(theSpot == spot){
+            success(task, lot);
+            return;
+          }
+        }
+        failure(task, nil);
+      } failure:^(NSURLSessionDataTask *task, NSError *error) {
+        failure(task, error);
+      }];
+    }
+  } failure:^(NSURLSessionDataTask *task, NSError *error) {
+    failure(task, error);
+  }];
+}
+
 - (void) createSpot:(DTParkingSpot*)spot success: (void (^)(NSURLSessionDataTask *task, id responseObject))success failure:(void (^)(NSURLSessionDataTask *task, NSError *error))failure {
   NSLog(@"%@ not implemented", NSStringFromSelector(_cmd));
 }

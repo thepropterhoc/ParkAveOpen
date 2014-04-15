@@ -11,8 +11,9 @@
 
 @interface DTMySpotTableViewCell : UITableViewCell
 
--(void)initWithSpot: (DTParkingSpot*)spot;
+-(void)initWithSpot: (NSString*)spot;
 @property (strong, nonatomic) IBOutlet UILabel *lotNameLabel;
 @property (strong, nonatomic) IBOutlet UILabel *purchaseDateLabel;
+- (IBAction)navigate:(id)sender;
 
 @end

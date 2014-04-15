@@ -12,6 +12,7 @@
 @interface DTReceiptViewController : UIViewController
 
 @property (strong, nonatomic) NSString *theReceipt;
+
 @property (strong, nonatomic) MKMapItem *theItem;
 @property MKCoordinateSpan span;
 @property CLLocationCoordinate2D coordinate;

@@ -72,6 +72,8 @@
 
 - (void) getSpot:(DTParkingSpot*)spot success: (void (^)(NSURLSessionDataTask *task, id responseObject))success failure:(void (^)(NSURLSessionDataTask *task, NSError *error))failure;
 
+- (void) getLotForSpot:(DTParkingSpot*)spot success:(void(^)(NSURLSessionDataTask *task, DTParkingLot* responseObject))success failure:(void (^)(NSURLSessionDataTask *task, NSError *error))failure;
+
 - (void) createSpot:(DTParkingSpot*)spot success: (void (^)(NSURLSessionDataTask *task, id responseObject))success failure:(void (^)(NSURLSessionDataTask *task, NSError *error))failure;
 
 - (void) updateSpot:(DTParkingSpot*)spot success: (void (^)(NSURLSessionDataTask *task, id responseObject))success failure:(void (^)(NSURLSessionDataTask *task, NSError *error))failure;

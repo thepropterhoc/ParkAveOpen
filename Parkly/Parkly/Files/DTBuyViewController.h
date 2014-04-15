@@ -32,5 +32,7 @@
 @property (strong, nonatomic) IBOutlet UILabel *spotDateLabel;
 @property (strong, nonatomic) IBOutlet UILabel *spotPriceLabel;
 @property (strong, nonatomic) IBOutlet UIButton *reserveButton;
+@property (strong, nonatomic) IBOutlet UIView *loadingView;
+@property (strong, nonatomic) IBOutlet UIActivityIndicatorView *loadingActivityIndicator;
 
 @end
