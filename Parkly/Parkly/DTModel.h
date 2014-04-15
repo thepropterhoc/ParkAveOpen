@@ -44,6 +44,10 @@
 
 - (void) deleteUser:(DTUser*)user success: (void (^)(NSURLSessionDataTask *task, id responseObject))success failure:(void (^)(NSURLSessionDataTask *task, NSError *error))failure;
 
+- (NSString*) getUsernameForUser:(DTUser*)user;
+
+- (NSString*) getUsernameForUserID:(NSString*)userID;
+
 #pragma mark - Lots
 
 - (void) getAllLots: (void (^)(NSURLSessionDataTask *task, NSArray* allLots))success failure:(void (^)(NSURLSessionDataTask *task, NSError *error))failure;
@@ -129,7 +133,7 @@
 
 #pragma mark - My Spots
 
--(void) addSpotToReservedSpots:(DTParkingSpot*)spot;
+- (void) reserveSpot:(DTParkingSpot*)spot;
 -(NSArray*) allReservedSpots;
 
 #pragma mark - Directions
