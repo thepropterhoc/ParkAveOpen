@@ -15,7 +15,7 @@
 {
   if([[DTModel sharedInstance] defaultsExist]){
     [[DTModel sharedInstance] authenticateUserWithEmail:[[DTModel sharedInstance] defaultEmail] andPassword:[[DTModel sharedInstance] defaultPassword] success:^(NSURLSessionDataTask *task, DTUser *aUser) {
-      [[DTUser sharedInstance] addCreditCard:^(NSURLSessionDataTask *task, id responseObject) {
+      [[DTModel sharedInstance] addCreditCard:^(NSURLSessionDataTask *task, id responseObject) {
         ;
       } failure:^(NSURLSessionDataTask *task, NSError *error) {
         ;
