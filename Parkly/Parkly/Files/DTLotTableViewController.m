@@ -142,7 +142,7 @@
       
       //add random avg rating
       for(DTParkingLot* lot in allLots) {
-        lot.averageRating = [NSNumber numberWithInt:arc4random()%5+1];
+        lot.averageRating = [NSNumber numberWithFloat:(arc4random()%500)/100.0f];
         lot.distance = [NSNumber numberWithFloat:(arc4random() % 500)/100.0f];
       }
       
