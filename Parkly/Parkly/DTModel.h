@@ -164,6 +164,7 @@
 #pragma mark - Helper Methods
 
 - (NSArray*) parseJSON:(id)json toArrayOfClass:(__unsafe_unretained Class)theClass;
+- (NSString*) formattedDateFromString:(NSString*)date;
 
 #pragma mark - Data Management Methods
 

@@ -168,12 +168,7 @@
 }
 
 - (NSString*) getUsernameForUserID:(NSString*)userID {
-  [self.networkManager call:@"get" one:@"username" two:userID parameters:nil success:^(NSURLSessionDataTask *task, id responseObject) {
-    NSLog(@"~!~!@#@!~!@#@!~!@#$#@!~%@", responseObject);
-  } failure:^(NSURLSessionDataTask *task, NSError *error) {
-    NSLog(@"error!:%@",error);
-  }];
-  return @"Joe the Plumber";
+  return @"REMOVE THIS!!!!! THIS NEEDS TO CHANGE TO THE NEW VERSION!";
 }
 
 - (void) getUsernameForUser:(DTUser*)user success: (void (^)(NSURLSessionDataTask *task, NSString* name))success failure:(void (^)(NSURLSessionDataTask *task, NSError *error))failure {
@@ -186,8 +181,8 @@
 
 - (void) getUsernameForUserID:(NSString*)userID success: (void (^)(NSURLSessionDataTask *task, NSString* name))success failure:(void (^)(NSURLSessionDataTask *task, NSError *error))failure {
   [self.networkManager call:@"get" one:@"username" two:userID parameters:nil success:^(NSURLSessionDataTask *task, id responseObject) {
-    NSLog(@"~!~!@#@!~!@#@!~!@#$#@!~%@", responseObject);
-    success(task, [responseObject valueForKey:@"firstName"]);
+    NSString* name = [NSString stringWithFormat:@"%@ %@",[responseObject valueForKey:@"firstName"], [responseObject valueForKey:@"lastName"]];
+    success(task, name);
   } failure:^(NSURLSessionDataTask *task, NSError *error) {
     NSLog(@"error!:%@",error);
     failure(task, error);
@@ -733,57 +728,59 @@
      return array;
    }
 #pragma mark - Helper Methods
-   
-   - (NSArray*) parseJSON:(id)json toArrayOfClass:(__unsafe_unretained Class)theClass {
-     
-     NSArray* array = json;
-     
-     if ([array count] == 0) {
-       return nil;
-     }
-     
-     NSMutableArray* newArray = [[NSMutableArray alloc] init];
-     
-     //find the valid keys for this class
-     NSMutableArray* tempKeys = [[array[0] allKeys] mutableCopy];
-     id testObject = [[theClass alloc] init];
-     for (NSString* key in tempKeys) {
-       if (![testObject respondsToSelector:NSSelectorFromString(key)]) {
-         [tempKeys removeObject:key];
-         NSLog(@"key %@ was not used while parsing json.", key);
-       }
-     }
-     NSArray* keys = [tempKeys copy];
-     
-     for (NSDictionary* item in array) {
-       id newItem = [[theClass alloc] init];
-       
-       //assign properties
-       for (NSString* key in keys) {
-         id value = [item valueForKey:key];
-         [newItem setValue:value forKey:key];
-       }
-       //insert the item into the array
-       [newArray insertObject:newItem atIndex:[newArray count]];
-     }
-     return [newArray copy];
-   }
-   
-   -(NSDate*)setDateFromString:(NSString *)date
-  {
-    NSDateFormatter *formatter = [[NSDateFormatter alloc] init];
-    [formatter setDateStyle:NSDateFormatterFullStyle];
-    //[formatter setDateFormat:@"yyyy'-'MM'-'dd"];
-    return [formatter dateFromString:date];
+
+- (NSArray*) parseJSON:(id)json toArrayOfClass:(__unsafe_unretained Class)theClass {
+  
+  NSArray* array = json;
+  
+  if ([array count] == 0) {
+    return nil;
   }
-   
+  
+  NSMutableArray* newArray = [[NSMutableArray alloc] init];
+  
+  //find the valid keys for this class
+  NSMutableArray* tempKeys = [[array[0] allKeys] mutableCopy];
+  id testObject = [[theClass alloc] init];
+  for (NSString* key in tempKeys) {
+    if (![testObject respondsToSelector:NSSelectorFromString(key)]) {
+      [tempKeys removeObject:key];
+      NSLog(@"key %@ was not used while parsing json.", key);
+    }
+  }
+  NSArray* keys = [tempKeys copy];
+  
+  for (NSDictionary* item in array) {
+    id newItem = [[theClass alloc] init];
+    
+    //assign properties
+    for (NSString* key in keys) {
+      id value = [item valueForKey:key];
+      [newItem setValue:value forKey:key];
+    }
+    //insert the item into the array
+    [newArray insertObject:newItem atIndex:[newArray count]];
+  }
+  return [newArray copy];
+}
+
+- (NSString*) formattedDateFromString:(NSString*)date {
+  NSDateFormatter *formatter = [[NSDateFormatter alloc] init];
+  [formatter setDateFormat:@"yyyy'-'MM'-'dd"];
+  
+  NSDate* tempDate = [formatter dateFromString:[date substringToIndex:10]];
+  [formatter setDateStyle:NSDateFormatterLongStyle];
+  
+  return [formatter stringFromDate:tempDate];
+}
+
 #pragma mark - Data Management Methods
-   
+
    -(void)removeCachedLots
   {
     [[DTCache sharedInstance] removeAllLots];
   }
-   
+
    -(void)removeCachedSpots
   {
     [[DTCache sharedInstance] removeAllSpots];

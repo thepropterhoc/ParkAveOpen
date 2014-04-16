@@ -56,7 +56,7 @@
   self.lotDistanceLabel.text = [NSString stringWithFormat:@"%.1f", self.theLot.distance.floatValue];
   self.lotRatingLabel.text = [NSString stringWithFormat:@"%d / 5", self.theLot.averageRating.intValue];
   self.spotTypeLabel.text = self.theSpot.surface;
-  self.spotDateLabel.text = self.theSpot.startDate;
+  self.spotDateLabel.text = [[DTModel sharedInstance] formattedDateFromString:self.theSpot.startDate];
   self.spotPriceLabel.text = [NSString stringWithFormat:@"%.2f", self.theSpot.price.floatValue];
 }
 
