@@ -7,6 +7,7 @@
 //
 
 #import "DTSpotTableCell.h"
+#import "DTModel.h"
 
 @implementation DTSpotTableCell
 
@@ -30,7 +31,7 @@
 -(void)initWithParkingSpot:(DTParkingSpot*)spot
 {
   self.price.text = [NSString stringWithFormat:@"$ %.2f", [spot.price floatValue]];
-  self.spotDate.text = [spot startDate];
+  self.spotDate.text = [[DTModel sharedInstance] formattedDateFromString:[spot startDate]];
   self.spotType.text = spot.surface;
 }
 
