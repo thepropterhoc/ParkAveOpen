@@ -11,11 +11,11 @@
 
 @interface DTCache ()
 
-@property NSCache *lotsCache;
-@property NSCache *spotsCache;
-@property NSCache *reviewsCache;
-@property NSCache *carsCache;
-@property NSString *ALL_LOTS_KEY;
+@property (strong, nonatomic) NSMutableDictionary *lotsCache;
+@property (strong, nonatomic) NSMutableDictionary *spotsCache;
+@property (strong, nonatomic) NSMutableDictionary *reviewsCache;
+@property (strong, nonatomic) NSMutableDictionary *carsCache;
+@property (strong, nonatomic) NSString *ALL_LOTS_KEY;
 
 @end
 
@@ -28,10 +28,10 @@
   
   dispatch_once(&onceToken, ^{
     sharedInstance = [[[self class] alloc] init];
-    sharedInstance.lotsCache = [[NSCache alloc] init];
-    sharedInstance.spotsCache = [[NSCache alloc] init];
-    sharedInstance.reviewsCache = [[NSCache alloc] init];
-    sharedInstance.reviewsCache = [[NSCache alloc] init];
+    sharedInstance.lotsCache = [[NSMutableDictionary alloc] init];
+    sharedInstance.spotsCache = [[NSMutableDictionary alloc] init];
+    sharedInstance.reviewsCache = [[NSMutableDictionary alloc] init];
+    
     sharedInstance.ALL_LOTS_KEY = @"GET_ALL_LOTS";
   });
   
@@ -43,7 +43,7 @@
 
 -(BOOL)hasSpotsForLot:(DTParkingLot*)theLot
 {
-  return [self.spotsCache objectForKey:theLot] != nil;
+  return [self.spotsCache objectForKey:theLot._id] != nil;
 }
 
 -(BOOL)hasLot:(DTParkingLot*)theLot
@@ -78,18 +78,18 @@
 -(void)addSpots:(NSArray*)theSpots forLot:(DTParkingLot*)theLot
 {
   if(theSpots && theLot){
-    [self.spotsCache setObject:theSpots forKey:theLot];
+    [self.spotsCache setObject:theSpots forKey:theLot._id];
   }
 }
 
 -(void)addReviews:(NSArray*)theReviews forUser:(DTUser*)theUser
 {
-  [self.reviewsCache setObject:theReviews forKey:theUser];
+  [self.reviewsCache setObject:theReviews forKey:theUser._id];
 }
 
 -(void)addCars:(NSArray *)theCars forUser:(DTUser *)theUser
 {
-    [self.carsCache setObject:theCars forKey:theUser];
+  [self.carsCache setObject:theCars forKey:theUser._id];
 }
 
 
@@ -97,7 +97,7 @@
 
 -(NSArray*)spotsForLot:(DTParkingLot*)theLot
 {
-  return [self.spotsCache objectForKey:theLot];
+  return [self.spotsCache objectForKey:theLot._id];
 }
 
 -(NSArray*)allLots
@@ -107,12 +107,12 @@
 
 -(NSArray*)reviewsForUser:(DTUser*)theUser
 {
-  return [self.reviewsCache objectForKey:theUser];
+  return [self.reviewsCache objectForKey:theUser._id];
 }
 
 -(NSArray*)carsForUser:(DTUser *)theUser
 {
-    return [self.carsCache objectForKey:theUser];
+    return [self.carsCache objectForKey:theUser._id];
 }
 
 
@@ -120,23 +120,23 @@
 
 -(void)removeSpotsForLot:(DTParkingLot *)theLot
 {
-  [self.spotsCache removeObjectForKey:theLot];
+  [self.spotsCache removeObjectForKey:theLot._id];
 }
 
 -(void)removeLot:(DTParkingLot *)theLot
 {
   [self removeSpotsForLot:theLot];
-  [self.lotsCache removeObjectForKey:theLot];
+  [self.lotsCache removeObjectForKey:theLot._id];
 }
 
 -(void)removeReviewsForUser:(DTUser *)theUser
 {
-  [self.reviewsCache removeObjectForKey:theUser];
+  [self.reviewsCache removeObjectForKey:theUser._id];
 }
 
 -(void)removeCarsForUser:(DTUser*)theUser;
 {
-  [self.carsCache removeObjectForKey:theUser];
+  [self.carsCache removeObjectForKey:theUser._id];
 }
 
 -(void)removeAllLots

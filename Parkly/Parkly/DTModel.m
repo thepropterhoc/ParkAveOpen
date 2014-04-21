@@ -253,7 +253,7 @@
     
     //add lots to cache
     [[DTCache sharedInstance] addLots:lotArray];
-    
+    NSLog(@"Filled the cache");
     //loop through lots
     for (DTParkingLot* lot in lotArray) {
       //for each, create an array of spots that belong to it
@@ -306,6 +306,8 @@
   if([[DTCache sharedInstance] hasSpotsForLot:lot]){
     success(nil, [[DTCache sharedInstance] spotsForLot:lot]);
     return;
+  } else {
+    NSLog(@"Cache miss");
   }
   
   [self.networkManager call:@"get" one:@"users" two:[lot user_id] three:@"lots" four:[lot _id] five:@"spots" parameters:nil success:^(NSURLSessionDataTask *task, id responseObject) {

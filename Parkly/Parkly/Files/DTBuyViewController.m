@@ -53,18 +53,16 @@
     self.lotOwnerLabel.text = @"Park Ave";
   }];
   
-  self.lotDistanceLabel.text = [NSString stringWithFormat:@"%.1f", self.theLot.distance.floatValue];
+  self.lotDistanceLabel.text = [NSString stringWithFormat:@"%.1f mi", self.theLot.distance.floatValue];
   self.lotRatingLabel.text = [NSString stringWithFormat:@"%d / 5", self.theLot.averageRating.intValue];
   self.spotTypeLabel.text = self.theSpot.surface;
   self.spotDateLabel.text = [[DTModel sharedInstance] formattedDateFromString:self.theSpot.startDate];
-  self.spotPriceLabel.text = [NSString stringWithFormat:@"%.2f", self.theSpot.price.floatValue];
+  self.spotPriceLabel.text = [NSString stringWithFormat:@"$%.2f", self.theSpot.price.floatValue];
 }
 
 - (IBAction)tryToReserve:(id)sender
 {
   [self performSegueWithIdentifier:@"goToReceipt" sender:self];
-  
-  
   /*
   if([[DTModel sharedInstance] userHasAccount] && [[DTModel sharedInstance] userIsLoggedIn]){
     [self.loadingView setHidden:NO];

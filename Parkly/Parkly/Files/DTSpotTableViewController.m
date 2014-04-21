@@ -91,12 +91,13 @@
 -(void)refresh:(UIRefreshControl*)refresher
 {
   [refresher endRefreshing];
+  
+  [[DTModel sharedInstance] removeCachedSpots];
   [self fetchSpots];
 }
 
 -(void)fetchSpots
 {
-  [[DTModel sharedInstance] removeCachedSpots];
   [[DTModel sharedInstance] getSpotsForLot:self.theLot success:^(NSURLSessionDataTask *task, NSArray *spots) {
     self.spots = spots;
     [self.theTable reloadData];
