@@ -34,7 +34,11 @@
   [super viewDidLoad];
   if(self.lot){
     [self initialize];
-    [self.imageView setImage:[UIImage imageWithData:[NSData dataWithContentsOfURL:[NSURL URLWithString:[NSString stringWithFormat:@"http://maps.googleapis.com/maps/api/streetview?size=320x220&location=%.3f,%.3f&fov=90&heading=235&pitch=10&sensor=false", self.lot.lat.floatValue, self.lot.lon.floatValue]]]]];
+    [[DTModel sharedInstance] imageForLot:self.lot success:^(NSURLSessionDataTask *task, id responseObject) {
+      [self.imageView setImage:responseObject];
+    } failure:^(NSURLSessionDataTask *task, NSError *error) {
+      [self.imageView setImage:nil];
+    }];
   } else {
     NSLog(@"Lot doesn't exist");
   }

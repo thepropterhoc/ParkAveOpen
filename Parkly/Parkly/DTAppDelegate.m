@@ -23,7 +23,7 @@
       }];
       
       [[DTModel sharedInstance] getUsernameForUser:[[DTModel sharedInstance] currentUser] success:^(NSURLSessionDataTask *task, NSString *name) {
-        NSLog(@"name:%@", name);
+        
       } failure:^(NSURLSessionDataTask *task, NSError *error) {
         NSLog(@"error:%@",error);
       }];

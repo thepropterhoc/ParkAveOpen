@@ -226,6 +226,23 @@
   NSLog(@"%@ not implemented", NSStringFromSelector(_cmd));
 }
 
+-(void) imageForLot:(DTParkingLot *)lot success:(void (^)(NSURLSessionDataTask *, id))success failure:(void (^)(NSURLSessionDataTask *, NSError *))failure
+{
+  if([[DTCache sharedInstance] hasImageForLot:lot]){
+    success(nil, [[DTCache sharedInstance] imageForLot:lot]);
+    return;
+  } else {
+    NSLog(@"Cache miss for image");
+  }
+  UIImage *theImage = [UIImage imageWithData:[NSData dataWithContentsOfURL:[NSURL URLWithString:[NSString stringWithFormat:@"http://maps.googleapis.com/maps/api/streetview?size=320x220&location=%.3f,%.3f&fov=90&heading=235&pitch=10&sensor=false", lot.lat.floatValue, lot.lon.floatValue]]]];
+  if(theImage){
+    [[DTCache sharedInstance] addImage:theImage forLot:lot];
+    success(nil, theImage);
+  } else {
+    failure(nil, [[NSError alloc] initWithDomain:@"Network failure" code:404 userInfo:nil]);
+  }
+}
+
 - (void) getLotsNearLatitude:(CGFloat)latitude andLongitude:(CGFloat)longitude withDistance:(CGFloat)distance success:(void (^)(NSURLSessionDataTask *task, NSArray* allLots))success failure:(void (^)(NSURLSessionDataTask *task, NSError *error))failure {
   
   NSString* string = [NSString stringWithFormat:@"%f+%f+%f", latitude, longitude, distance];
@@ -245,7 +262,6 @@
   
   [self.networkManager call:@"get" one:@"location" two:@"all" three:string parameters:nil success:^(NSURLSessionDataTask *task, id responseObject) {
     
-    NSLog(@"Nearby lots and spots: %@", responseObject);
     
     //parse lots and spots arrays separately
     NSArray* lotArray = [self parseJSON:[responseObject objectForKey:@"lots"] toArrayOfClass:[DTParkingLot class]];
@@ -253,13 +269,16 @@
     
     //add lots to cache
     [[DTCache sharedInstance] addLots:lotArray];
-    NSLog(@"Filled the cache");
     //loop through lots
     for (DTParkingLot* lot in lotArray) {
       //for each, create an array of spots that belong to it
       NSMutableArray* currentSpots = [[NSMutableArray alloc] init];
       NSString* lot_id = [lot _id];
-      
+      [self imageForLot:lot success:^(NSURLSessionDataTask *task, id responseObject) {
+        
+      } failure:^(NSURLSessionDataTask *task, NSError *error) {
+        
+      }];
       //now loop through spots
       for (DTParkingSpot* spot in spotArray) {
         //for each spot, if its lot id matches the current lot's id, add the spot to currentSpots

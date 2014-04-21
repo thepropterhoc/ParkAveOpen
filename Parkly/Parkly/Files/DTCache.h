@@ -22,6 +22,7 @@
 
 #pragma mark - Checking methods
 
+-(BOOL)hasImageForLot:(DTParkingLot*)theLot;
 -(BOOL)hasSpotsForLot:(DTParkingLot*)theLot;
 -(BOOL)hasLot:(DTParkingLot*)theLot;
 -(BOOL)hasReviewsForUser:(DTUser*)theUser;
@@ -30,6 +31,7 @@
 
 #pragma mark - Adding methods
 
+-(void)addImage:(UIImage*)image forLot:(DTParkingLot*)theLot;
 -(void)addLots:(NSArray*)theLots;
 -(void)addSpots:(NSArray*)theSpots forLot:(DTParkingLot*)theLot;
 -(void)addReviews:(NSArray*)theReviews forUser:(DTUser*)theUser;
@@ -37,6 +39,7 @@
 
 #pragma mark - Fetching methods
 
+-(UIImage*)imageForLot:(DTParkingLot*)theLot;
 -(NSArray*)spotsForLot:(DTParkingLot*)theLot;
 -(NSArray*)allLots;
 -(NSArray*)reviewsForUser:(DTUser*)theUser;
@@ -44,10 +47,12 @@
 
 #pragma mark - Removal methods
 
+-(void)removeImageForLot:(DTParkingLot*)theLot;
 -(void)removeSpotsForLot:(DTParkingLot *)theLot;
 -(void)removeLot:(DTParkingLot *)theLot;
 -(void)removeReviewsForUser:(DTUser *)theUser;
 -(void)removeCarsForUser:(DTUser*)theUser;
+-(void)removeAllImages;
 -(void)removeAllLots;
 -(void)removeAllSpots;
 -(void)removeAllCars;

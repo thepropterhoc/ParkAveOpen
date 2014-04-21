@@ -34,10 +34,13 @@
 {
   [super viewDidLoad];
   [self.view layoutSubviews];
-  
+	// Do any additional setup after loading the view.
+}
+
+-(void)viewWillAppear:(BOOL)animated
+{
   [self.theMap.camera setCenterCoordinate:[[DTModel sharedInstance] currentUserLocation].coordinate];
   [self.theMap.camera setAltitude:2000.0f];
-	// Do any additional setup after loading the view.
 }
 
 - (void)didReceiveMemoryWarning

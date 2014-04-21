@@ -11,6 +11,7 @@
 
 @interface DTCache ()
 
+@property (strong, nonatomic) NSMutableDictionary *imageCache;
 @property (strong, nonatomic) NSMutableDictionary *lotsCache;
 @property (strong, nonatomic) NSMutableDictionary *spotsCache;
 @property (strong, nonatomic) NSMutableDictionary *reviewsCache;
@@ -31,7 +32,7 @@
     sharedInstance.lotsCache = [[NSMutableDictionary alloc] init];
     sharedInstance.spotsCache = [[NSMutableDictionary alloc] init];
     sharedInstance.reviewsCache = [[NSMutableDictionary alloc] init];
-    
+    sharedInstance.imageCache = [[NSMutableDictionary alloc] init];
     sharedInstance.ALL_LOTS_KEY = @"GET_ALL_LOTS";
   });
   
@@ -40,6 +41,11 @@
 
 
 #pragma mark - Checking methods
+
+-(BOOL)hasImageForLot:(DTParkingLot *)theLot
+{
+  return [self.imageCache objectForKey:theLot._id] != nil;
+}
 
 -(BOOL)hasSpotsForLot:(DTParkingLot*)theLot
 {
@@ -68,6 +74,13 @@
 
 #pragma mark - Adding methods
 
+-(void)addImage:(UIImage *)image forLot:(DTParkingLot *)theLot
+{
+  if(image){
+    [self.imageCache setObject:image forKey:theLot._id];
+  }
+}
+
 -(void)addLots:(NSArray *)theLots
 {
   if(theLots){
@@ -95,6 +108,11 @@
 
 #pragma mark - Fetching methods
 
+-(UIImage*)imageForLot:(DTParkingLot *)theLot
+{
+  return [self.imageCache objectForKey:theLot._id];
+}
+
 -(NSArray*)spotsForLot:(DTParkingLot*)theLot
 {
   return [self.spotsCache objectForKey:theLot._id];
@@ -118,6 +136,11 @@
 
 #pragma mark - Removal methods
 
+-(void)removeImageForLot:(DTParkingLot *)theLot
+{
+  [self.imageCache removeObjectForKey:theLot._id];
+}
+
 -(void)removeSpotsForLot:(DTParkingLot *)theLot
 {
   [self.spotsCache removeObjectForKey:theLot._id];
@@ -137,6 +160,11 @@
 -(void)removeCarsForUser:(DTUser*)theUser;
 {
   [self.carsCache removeObjectForKey:theUser._id];
+}
+
+-(void)removeAllImages
+{
+  [self.imageCache removeAllObjects];
 }
 
 -(void)removeAllLots
@@ -160,6 +188,7 @@
   [self.lotsCache removeAllObjects];
   [self.spotsCache removeAllObjects];
   [self.carsCache removeAllObjects];
+  [self.imageCache removeAllObjects];
   NSLog(@"Scrubbed the caches");
 }
 
