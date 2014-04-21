@@ -62,8 +62,10 @@
 
 - (IBAction)tryToReserve:(id)sender
 {
-  //[self performSegueWithIdentifier:@"goToReceipt" sender:self];
+  [self performSegueWithIdentifier:@"goToReceipt" sender:self];
   
+  
+  /*
   if([[DTModel sharedInstance] userHasAccount] && [[DTModel sharedInstance] userIsLoggedIn]){
     [self.loadingView setHidden:NO];
     [self.loadingActivityIndicator startAnimating];
@@ -85,7 +87,7 @@
     [self performSegueWithIdentifier:@"pushToSignup" sender:self];
   }
    
-   
+   */
 }
 
 -(NSString*)generateReceipt
