@@ -305,6 +305,15 @@
   [self getLotsAndSpotsNearLatitude:self.locationManager.location.coordinate.latitude andLongitude:self.locationManager.location.coordinate.longitude withDistance:distance success:success failure:failure];
 }
 
+
+- (void) decrementSpotsForLot:(DTParkingLot*)lot success:(void (^)(NSURLSessionDataTask *task, id responseObject))success failure:(void (^)(NSURLSessionDataTask *task, NSError *error))failure {
+  [self.networkManager call:@"put" one:@"lots" two:[lot _id] parameters:[lot dictionaryRepresentation] success:^(NSURLSessionDataTask *task, id responseObject) {
+    success(task, responseObject);
+  } failure:^(NSURLSessionDataTask *task, NSError *error) {
+    failure(task, error);
+  }];
+}
+
 #pragma mark - Spots
 
 - (void) getSpotsForLot:(DTParkingLot*)lot success: (void (^)(NSURLSessionDataTask *task, NSArray* spots))success failure:(void (^)(NSURLSessionDataTask *task, NSError *error))failure {

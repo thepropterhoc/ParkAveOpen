@@ -63,11 +63,10 @@
 - (IBAction)tryToReserve:(id)sender
 {
   [self performSegueWithIdentifier:@"goToReceipt" sender:self];
-  /*
+  
   if([[DTModel sharedInstance] userHasAccount] && [[DTModel sharedInstance] userIsLoggedIn]){
     [self.loadingView setHidden:NO];
     [self.loadingActivityIndicator startAnimating];
-    
     
     [[DTModel sharedInstance] purchaseSpot:self.theSpot forUser:[[DTModel sharedInstance] currentUser] withCar:[[DTModel sharedInstance] defaultCar] success:^(NSURLSessionDataTask *task, id responseObject) {
       [self.loadingActivityIndicator stopAnimating];
@@ -85,7 +84,6 @@
     [self performSegueWithIdentifier:@"pushToSignup" sender:self];
   }
    
-   */
 }
 
 -(NSString*)generateReceipt

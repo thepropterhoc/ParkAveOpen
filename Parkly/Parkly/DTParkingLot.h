@@ -14,7 +14,7 @@
 
 @property (strong, nonatomic) NSString *_id;
 @property (strong, nonatomic) NSString *user_id;
-@property (strong, nonatomic) NSNumber *__v;
+@property (strong, nonatomic) NSString *__v;
 
 @property (strong, nonatomic) NSString *title;
 @property (strong, nonatomic) NSString* lat;
@@ -35,5 +35,7 @@
 @property (strong, nonatomic) NSNumber *averageRating;
 @property (strong, nonatomic) NSNumber *distance;
 @property (strong, nonatomic) NSString *lotImage;
+
+- (NSDictionary*) dictionaryRepresentation;
 
 @end
