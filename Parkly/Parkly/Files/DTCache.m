@@ -59,7 +59,7 @@
 
 -(BOOL)hasReviewsForUser:(DTUser*)theUser
 {
-  return [self.reviewsCache objectForKey:theUser] != nil;
+  return [self.reviewsCache objectForKey:theUser._id] != nil;
 }
 
 -(BOOL)hasCarsForUser:(DTUser *)theUser

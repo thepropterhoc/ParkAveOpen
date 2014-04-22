@@ -280,7 +280,11 @@
         
       }];
       [self getUserWithId:lot.user_id success:^(NSURLSessionDataTask *task, DTUser *user) {
-        
+        [self getReviewsForUser:user success:^(NSURLSessionDataTask *task, NSArray *reviews) {
+          
+        } failure:^(NSURLSessionDataTask *task, NSError *error) {
+          
+        }];
       } failure:^(NSURLSessionDataTask *task, NSError *error) {
         
       }];
@@ -478,9 +482,17 @@
 }
 
 - (void) getReviewsForUser:(DTUser*)user success: (void (^)(NSURLSessionDataTask *task, NSArray* reviews))success failure:(void (^)(NSURLSessionDataTask *task, NSError *error))failure {
+  
+  if([[DTCache sharedInstance] hasReviewsForUser:user]){
+    success(nil, [[DTCache sharedInstance] reviewsForUser:user]);
+    return;
+  }
+  
   NSLog(@"%@", user._id);
   [self.networkManager call:@"get" one:@"users" two:[user _id] three:@"reviews" parameters:nil success:^(NSURLSessionDataTask *task, id responseObject) {
-    success(task, [self parseJSON:responseObject toArrayOfClass:[DTReview class]]);
+    NSArray *reviews = [self parseJSON:responseObject toArrayOfClass:[DTReview class]];
+    [[DTCache sharedInstance] addReviews:reviews forUser:user];
+    success(task, reviews);
   } failure:^(NSURLSessionDataTask *task, NSError *error) {
     failure(task, error);
   }];
@@ -584,8 +596,8 @@
 - (void) purchaseSpot:(DTParkingSpot*)spot forUser:(DTUser*)user withCar:(DTCar*)car success: (void (^)(NSURLSessionDataTask *task, id responseObject))success failure:(void (^)(NSURLSessionDataTask *task, NSError *error))failure {
   
   NSDictionary* parameters = @{@"user_id": [user _id],
-                               @"spot_id": [spot _id],
-                               @"car_id": [car _id]
+                               @"spot_id": [spot _id]/*,
+                               @"car_id": [car _id]*/
                                };
     
     [self.networkManager call:@"post" one:@"purchase" parameters:parameters success:^(NSURLSessionDataTask *task, id responseObject) {

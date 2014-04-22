@@ -68,6 +68,8 @@
     [self.loadingView setHidden:NO];
     [self.loadingActivityIndicator startAnimating];
     
+    
+  
     [[DTModel sharedInstance] purchaseSpot:self.theSpot forUser:[[DTModel sharedInstance] currentUser] withCar:[[DTModel sharedInstance] defaultCar] success:^(NSURLSessionDataTask *task, id responseObject) {
       [self.loadingActivityIndicator stopAnimating];
       [self.loadingView setHidden:YES];
