@@ -118,6 +118,8 @@
   if([[segue identifier] isEqualToString:@"goToCars"]){
     DTMyCarViewController *myCarViewController = [segue destinationViewController];
     myCarViewController.delegate = self;
+  } else if([[segue identifier] isEqualToString:@"pushToSignup"]){
+    [[segue destinationViewController] setDelegate:self.delegate];
   }
 }
 
