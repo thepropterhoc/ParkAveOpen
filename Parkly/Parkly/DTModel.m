@@ -279,6 +279,11 @@
       } failure:^(NSURLSessionDataTask *task, NSError *error) {
         
       }];
+      [self getUserWithId:lot.user_id success:^(NSURLSessionDataTask *task, DTUser *user) {
+        
+      } failure:^(NSURLSessionDataTask *task, NSError *error) {
+        
+      }];
       //now loop through spots
       for (DTParkingSpot* spot in spotArray) {
         //for each spot, if its lot id matches the current lot's id, add the spot to currentSpots
