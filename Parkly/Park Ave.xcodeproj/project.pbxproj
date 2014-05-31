@@ -8,9 +8,7 @@
 
 /* Begin PBXBuildFile section */
 		594A7C4A18C57C94008C077C /* Security.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 594A7C4918C57C94008C077C /* Security.framework */; };
-		9D13E84618F4C2060062105C /* DTMySpotsViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 9D13E84518F4C2060062105C /* DTMySpotsViewController.m */; };
-		9D13E84918F4C2250062105C /* DTMySpotsTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 9D13E84818F4C2250062105C /* DTMySpotsTableViewController.m */; };
-		9D13E84C18F4C2ED0062105C /* DTMySpotTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 9D13E84B18F4C2ED0062105C /* DTMySpotTableViewCell.m */; };
+		9D00E043193517B600EABE29 /* DTPurchaseViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 9D00E042193517B600EABE29 /* DTPurchaseViewController.m */; };
 		9D15D3BC18B6F34100FA635E /* JosefinSlab-Bold.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 9D15D3B218B6F34100FA635E /* JosefinSlab-Bold.ttf */; };
 		9D15D3BD18B6F34100FA635E /* JosefinSlab-BoldItalic.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 9D15D3B318B6F34100FA635E /* JosefinSlab-BoldItalic.ttf */; };
 		9D15D3BE18B6F34100FA635E /* JosefinSlab-Italic.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 9D15D3B418B6F34100FA635E /* JosefinSlab-Italic.ttf */; };
@@ -23,10 +21,10 @@
 		9D15D3C518B6F34100FA635E /* JosefinSlab-ThinItalic.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 9D15D3BB18B6F34100FA635E /* JosefinSlab-ThinItalic.ttf */; };
 		9D15D3D118B72A0C00FA635E /* MapKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 9D15D3D018B72A0C00FA635E /* MapKit.framework */; };
 		9D27300F18DE6BB1004CF460 /* DTCache.m in Sources */ = {isa = PBXBuildFile; fileRef = 9D27300E18DE6BB1004CF460 /* DTCache.m */; };
-		9D36814018F4CA2600B7E21D /* DTMyCarTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 9D36813F18F4CA2600B7E21D /* DTMyCarTableViewCell.m */; };
-		9D36814618F4CA7200B7E21D /* DTMyCarViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 9D36814518F4CA7200B7E21D /* DTMyCarViewController.m */; };
-		9D45241A18F4DD200044E058 /* DTAddACarViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 9D45241918F4DD200044E058 /* DTAddACarViewController.m */; };
-		9D7A3ED818CD2043003F6E62 /* DTInitialViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 9D7A3ED718CD2043003F6E62 /* DTInitialViewController.m */; };
+		9D4E011B192BD70600F50955 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 9D4E011A192BD70600F50955 /* Main.storyboard */; };
+		9D4E0120192BD7BE00F50955 /* DTLandingViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 9D4E011F192BD7BE00F50955 /* DTLandingViewController.m */; };
+		9D4E012C192C018300F50955 /* DTLotSorterViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 9D4E012B192C018300F50955 /* DTLotSorterViewController.m */; };
+		9D4E012E192C078700F50955 /* CoreLocation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 9D4E012D192C078700F50955 /* CoreLocation.framework */; };
 		9D7E8A7718CCD9AC00F4D9C0 /* PDKeychainBindings.m in Sources */ = {isa = PBXBuildFile; fileRef = 594A7C5018C580C3008C077C /* PDKeychainBindings.m */; };
 		9D7E8A7818CCD9AC00F4D9C0 /* PDKeychainBindingsController.m in Sources */ = {isa = PBXBuildFile; fileRef = 594A7C5218C580C3008C077C /* PDKeychainBindingsController.m */; };
 		9D7E8A7918CCD9AC00F4D9C0 /* AFHTTPRequestOperation.m in Sources */ = {isa = PBXBuildFile; fileRef = 9DF5B44C18C55B2000E1D1D7 /* AFHTTPRequestOperation.m */; };
@@ -46,28 +44,21 @@
 		9D7E8A8818CCD9AC00F4D9C0 /* DTReview.m in Sources */ = {isa = PBXBuildFile; fileRef = 9DF5B44318C55AFE00E1D1D7 /* DTReview.m */; };
 		9D7E8A8918CCD9AC00F4D9C0 /* DTUser.m in Sources */ = {isa = PBXBuildFile; fileRef = 9DF5B44518C55AFE00E1D1D7 /* DTUser.m */; };
 		9D7E8A8A18CCD9AC00F4D9C0 /* DTCar.m in Sources */ = {isa = PBXBuildFile; fileRef = 594A7C5618C59315008C077C /* DTCar.m */; };
-		9D7E8A8B18CCD9AC00F4D9C0 /* DTSignupViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 9D7E8A7518CCD28E00F4D9C0 /* DTSignupViewController.m */; };
-		9D7E8A8C18CCD9AC00F4D9C0 /* DTReceiptViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 9D7B727018CCC45A00D5D15C /* DTReceiptViewController.m */; };
-		9D7E8A8D18CCD9AC00F4D9C0 /* DTBuyViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 9D035C2818CB81AD007E331D /* DTBuyViewController.m */; };
-		9D7E8A8F18CCD9AC00F4D9C0 /* DTLoginViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 9DE9D55818B53CC10035519D /* DTLoginViewController.m */; };
-		9D7E8A9018CCD9AC00F4D9C0 /* DTLotFinderViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 9DE9D55C18B53CF10035519D /* DTLotFinderViewController.m */; };
-		9D7E8A9118CCD9AC00F4D9C0 /* DTDetailViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 9D15D3E918B809F400FA635E /* DTDetailViewController.m */; };
-		9D7E8A9218CCD9AC00F4D9C0 /* DTProfileViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 9D284C9418C51FCE0044F89D /* DTProfileViewController.m */; };
-		9D7E8A9318CCD9AC00F4D9C0 /* DTNavigationBar.m in Sources */ = {isa = PBXBuildFile; fileRef = 9D2E92A618B5A49F00509F23 /* DTNavigationBar.m */; };
-		9D7E8A9418CCD9AC00F4D9C0 /* DTRoundedImageView.m in Sources */ = {isa = PBXBuildFile; fileRef = 9D15D3B018B5B33300FA635E /* DTRoundedImageView.m */; };
-		9D7E8A9518CCD9AC00F4D9C0 /* DTLotTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 9D15D3CE18B724DF00FA635E /* DTLotTableViewController.m */; };
-		9D7E8A9618CCD9AC00F4D9C0 /* DTLotTableCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 9D15D3D318B7405D00FA635E /* DTLotTableCell.m */; };
-		9D7E8A9718CCD9AC00F4D9C0 /* DTReviewTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 9D15D49618BD89BF00FA635E /* DTReviewTableViewController.m */; };
-		9D7E8A9818CCD9AC00F4D9C0 /* DTReviewTableCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 9D15D49918BD8A0C00FA635E /* DTReviewTableCell.m */; };
-		9D7E8A9918CCD9AC00F4D9C0 /* DTSpotTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 9D15D49C18BD952E00FA635E /* DTSpotTableViewController.m */; };
-		9D7E8A9A18CCD9AC00F4D9C0 /* DTSpotTableCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 9D15D49F18BD954400FA635E /* DTSpotTableCell.m */; };
 		9D7E8A9C18CCDA7400F4D9C0 /* DTAppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 9DE9D53118B462B50035519D /* DTAppDelegate.m */; };
+		9D8A64ED192C0CF40003448C /* DTLotTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 9D8A64EC192C0CF40003448C /* DTLotTableViewCell.m */; };
+		9D8A64EE192C10F60003448C /* DTNavigationBar.m in Sources */ = {isa = PBXBuildFile; fileRef = 9D4E0123192BFCE000F50955 /* DTNavigationBar.m */; };
+		9D8A64F6192C5AB20003448C /* DTLotExpandedTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 9D8A64F5192C5AB20003448C /* DTLotExpandedTableViewCell.m */; };
+		9D8A64FA193263B70003448C /* DTSpotTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 9D8A64F9193263B70003448C /* DTSpotTableViewCell.m */; };
+		9DE968F519397D4F009470B1 /* DTSpotManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 9DE968F419397D4F009470B1 /* DTSpotManager.m */; };
+		9DE968F819399F31009470B1 /* DTLotManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 9DE968F719399F31009470B1 /* DTLotManager.m */; };
+		9DE968FB1939A267009470B1 /* DTUserManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 9DE968FA1939A267009470B1 /* DTUserManager.m */; };
+		9DE968FE1939A4F0009470B1 /* DTCarManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 9DE968FD1939A4F0009470B1 /* DTCarManager.m */; };
+		9DE969021939A8B9009470B1 /* DTReviewManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 9DE969001939A6C8009470B1 /* DTReviewManager.m */; };
 		9DE9D52218B462B50035519D /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 9DE9D52118B462B50035519D /* Foundation.framework */; };
 		9DE9D52418B462B50035519D /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 9DE9D52318B462B50035519D /* CoreGraphics.framework */; };
 		9DE9D52618B462B50035519D /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 9DE9D52518B462B50035519D /* UIKit.framework */; };
 		9DE9D52C18B462B50035519D /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = 9DE9D52A18B462B50035519D /* InfoPlist.strings */; };
 		9DE9D52E18B462B50035519D /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 9DE9D52D18B462B50035519D /* main.m */; };
-		9DE9D53518B462B50035519D /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 9DE9D53318B462B50035519D /* Main.storyboard */; };
 		9DE9D53A18B462B50035519D /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 9DE9D53918B462B50035519D /* Images.xcassets */; };
 		9DE9D54118B462B50035519D /* XCTest.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 9DE9D54018B462B50035519D /* XCTest.framework */; };
 		9DE9D54218B462B50035519D /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 9DE9D52118B462B50035519D /* Foundation.framework */; };
@@ -94,16 +85,8 @@
 		594A7C5218C580C3008C077C /* PDKeychainBindingsController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PDKeychainBindingsController.m; sourceTree = "<group>"; };
 		594A7C5518C59315008C077C /* DTCar.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DTCar.h; sourceTree = "<group>"; };
 		594A7C5618C59315008C077C /* DTCar.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DTCar.m; sourceTree = "<group>"; };
-		9D035C2718CB81AD007E331D /* DTBuyViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = DTBuyViewController.h; path = Files/DTBuyViewController.h; sourceTree = "<group>"; };
-		9D035C2818CB81AD007E331D /* DTBuyViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = DTBuyViewController.m; path = Files/DTBuyViewController.m; sourceTree = "<group>"; };
-		9D13E84418F4C2060062105C /* DTMySpotsViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = DTMySpotsViewController.h; path = Files/DTMySpotsViewController.h; sourceTree = "<group>"; };
-		9D13E84518F4C2060062105C /* DTMySpotsViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = DTMySpotsViewController.m; path = Files/DTMySpotsViewController.m; sourceTree = "<group>"; };
-		9D13E84718F4C2250062105C /* DTMySpotsTableViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DTMySpotsTableViewController.h; sourceTree = "<group>"; };
-		9D13E84818F4C2250062105C /* DTMySpotsTableViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DTMySpotsTableViewController.m; sourceTree = "<group>"; };
-		9D13E84A18F4C2ED0062105C /* DTMySpotTableViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DTMySpotTableViewCell.h; sourceTree = "<group>"; };
-		9D13E84B18F4C2ED0062105C /* DTMySpotTableViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DTMySpotTableViewCell.m; sourceTree = "<group>"; };
-		9D15D3AF18B5B33300FA635E /* DTRoundedImageView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = DTRoundedImageView.h; path = Files/DTRoundedImageView.h; sourceTree = "<group>"; };
-		9D15D3B018B5B33300FA635E /* DTRoundedImageView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = DTRoundedImageView.m; path = Files/DTRoundedImageView.m; sourceTree = "<group>"; };
+		9D00E041193517B600EABE29 /* DTPurchaseViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = DTPurchaseViewController.h; path = Files/DTPurchaseViewController.h; sourceTree = "<group>"; };
+		9D00E042193517B600EABE29 /* DTPurchaseViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = DTPurchaseViewController.m; path = Files/DTPurchaseViewController.m; sourceTree = "<group>"; };
 		9D15D3B218B6F34100FA635E /* JosefinSlab-Bold.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "JosefinSlab-Bold.ttf"; sourceTree = "<group>"; };
 		9D15D3B318B6F34100FA635E /* JosefinSlab-BoldItalic.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "JosefinSlab-BoldItalic.ttf"; sourceTree = "<group>"; };
 		9D15D3B418B6F34100FA635E /* JosefinSlab-Italic.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "JosefinSlab-Italic.ttf"; sourceTree = "<group>"; };
@@ -114,41 +97,33 @@
 		9D15D3B918B6F34100FA635E /* JosefinSlab-SemiBoldItalic.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "JosefinSlab-SemiBoldItalic.ttf"; sourceTree = "<group>"; };
 		9D15D3BA18B6F34100FA635E /* JosefinSlab-Thin.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "JosefinSlab-Thin.ttf"; sourceTree = "<group>"; };
 		9D15D3BB18B6F34100FA635E /* JosefinSlab-ThinItalic.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "JosefinSlab-ThinItalic.ttf"; sourceTree = "<group>"; };
-		9D15D3C618B7233F00FA635E /* DTSignupViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = DTSignupViewController.h; path = Files/DTSignupViewController.h; sourceTree = "<group>"; };
-		9D15D3C718B7233F00FA635E /* DTSignupViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = DTSignupViewController.m; path = Files/DTSignupViewController.m; sourceTree = "<group>"; };
-		9D15D3CD18B724DF00FA635E /* DTLotTableViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = DTLotTableViewController.h; path = Files/DTLotTableViewController.h; sourceTree = "<group>"; };
-		9D15D3CE18B724DF00FA635E /* DTLotTableViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = DTLotTableViewController.m; path = Files/DTLotTableViewController.m; sourceTree = "<group>"; };
 		9D15D3D018B72A0C00FA635E /* MapKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = MapKit.framework; path = System/Library/Frameworks/MapKit.framework; sourceTree = SDKROOT; };
-		9D15D3D218B7405D00FA635E /* DTLotTableCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = DTLotTableCell.h; path = Files/DTLotTableCell.h; sourceTree = "<group>"; };
-		9D15D3D318B7405D00FA635E /* DTLotTableCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = DTLotTableCell.m; path = Files/DTLotTableCell.m; sourceTree = "<group>"; };
-		9D15D3E818B809F400FA635E /* DTDetailViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = DTDetailViewController.h; path = Files/DTDetailViewController.h; sourceTree = "<group>"; };
-		9D15D3E918B809F400FA635E /* DTDetailViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = DTDetailViewController.m; path = Files/DTDetailViewController.m; sourceTree = "<group>"; };
-		9D15D49518BD89BF00FA635E /* DTReviewTableViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = DTReviewTableViewController.h; path = Files/DTReviewTableViewController.h; sourceTree = "<group>"; };
-		9D15D49618BD89BF00FA635E /* DTReviewTableViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = DTReviewTableViewController.m; path = Files/DTReviewTableViewController.m; sourceTree = "<group>"; };
-		9D15D49818BD8A0C00FA635E /* DTReviewTableCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = DTReviewTableCell.h; path = Files/DTReviewTableCell.h; sourceTree = "<group>"; };
-		9D15D49918BD8A0C00FA635E /* DTReviewTableCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = DTReviewTableCell.m; path = Files/DTReviewTableCell.m; sourceTree = "<group>"; };
-		9D15D49B18BD952E00FA635E /* DTSpotTableViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = DTSpotTableViewController.h; path = Files/DTSpotTableViewController.h; sourceTree = "<group>"; };
-		9D15D49C18BD952E00FA635E /* DTSpotTableViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = DTSpotTableViewController.m; path = Files/DTSpotTableViewController.m; sourceTree = "<group>"; };
-		9D15D49E18BD954400FA635E /* DTSpotTableCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = DTSpotTableCell.h; path = Files/DTSpotTableCell.h; sourceTree = "<group>"; };
-		9D15D49F18BD954400FA635E /* DTSpotTableCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = DTSpotTableCell.m; path = Files/DTSpotTableCell.m; sourceTree = "<group>"; };
 		9D27300D18DE6BB1004CF460 /* DTCache.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = DTCache.h; path = Files/DTCache.h; sourceTree = "<group>"; };
 		9D27300E18DE6BB1004CF460 /* DTCache.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = DTCache.m; path = Files/DTCache.m; sourceTree = "<group>"; };
-		9D284C9318C51FCE0044F89D /* DTProfileViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = DTProfileViewController.h; path = Files/DTProfileViewController.h; sourceTree = "<group>"; };
-		9D284C9418C51FCE0044F89D /* DTProfileViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = DTProfileViewController.m; path = Files/DTProfileViewController.m; sourceTree = "<group>"; };
-		9D2E92A518B5A49F00509F23 /* DTNavigationBar.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = DTNavigationBar.h; path = Files/DTNavigationBar.h; sourceTree = "<group>"; };
-		9D2E92A618B5A49F00509F23 /* DTNavigationBar.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = DTNavigationBar.m; path = Files/DTNavigationBar.m; sourceTree = "<group>"; };
-		9D36813E18F4CA2600B7E21D /* DTMyCarTableViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DTMyCarTableViewCell.h; sourceTree = "<group>"; };
-		9D36813F18F4CA2600B7E21D /* DTMyCarTableViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DTMyCarTableViewCell.m; sourceTree = "<group>"; };
-		9D36814418F4CA7200B7E21D /* DTMyCarViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DTMyCarViewController.h; sourceTree = "<group>"; };
-		9D36814518F4CA7200B7E21D /* DTMyCarViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DTMyCarViewController.m; sourceTree = "<group>"; };
-		9D45241818F4DD200044E058 /* DTAddACarViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = DTAddACarViewController.h; path = Files/DTAddACarViewController.h; sourceTree = "<group>"; };
-		9D45241918F4DD200044E058 /* DTAddACarViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = DTAddACarViewController.m; path = Files/DTAddACarViewController.m; sourceTree = "<group>"; };
-		9D7A3ED618CD2043003F6E62 /* DTInitialViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = DTInitialViewController.h; path = Files/DTInitialViewController.h; sourceTree = "<group>"; };
-		9D7A3ED718CD2043003F6E62 /* DTInitialViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = DTInitialViewController.m; path = Files/DTInitialViewController.m; sourceTree = "<group>"; };
-		9D7B726F18CCC45A00D5D15C /* DTReceiptViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = DTReceiptViewController.h; path = Files/DTReceiptViewController.h; sourceTree = "<group>"; };
-		9D7B727018CCC45A00D5D15C /* DTReceiptViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = DTReceiptViewController.m; path = Files/DTReceiptViewController.m; sourceTree = "<group>"; };
-		9D7E8A7418CCD28E00F4D9C0 /* DTSignupViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = DTSignupViewController.h; path = Files/DTSignupViewController.h; sourceTree = "<group>"; };
-		9D7E8A7518CCD28E00F4D9C0 /* DTSignupViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = DTSignupViewController.m; path = Files/DTSignupViewController.m; sourceTree = "<group>"; };
+		9D4E011A192BD70600F50955 /* Main.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = Main.storyboard; sourceTree = "<group>"; };
+		9D4E011E192BD7BE00F50955 /* DTLandingViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DTLandingViewController.h; sourceTree = "<group>"; };
+		9D4E011F192BD7BE00F50955 /* DTLandingViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DTLandingViewController.m; sourceTree = "<group>"; };
+		9D4E0122192BFCE000F50955 /* DTNavigationBar.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = DTNavigationBar.h; path = Files/DTNavigationBar.h; sourceTree = "<group>"; };
+		9D4E0123192BFCE000F50955 /* DTNavigationBar.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = DTNavigationBar.m; path = Files/DTNavigationBar.m; sourceTree = "<group>"; };
+		9D4E012A192C018300F50955 /* DTLotSorterViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = DTLotSorterViewController.h; path = Files/DTLotSorterViewController.h; sourceTree = "<group>"; };
+		9D4E012B192C018300F50955 /* DTLotSorterViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = DTLotSorterViewController.m; path = Files/DTLotSorterViewController.m; sourceTree = "<group>"; };
+		9D4E012D192C078700F50955 /* CoreLocation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreLocation.framework; path = System/Library/Frameworks/CoreLocation.framework; sourceTree = SDKROOT; };
+		9D8A64EB192C0CF40003448C /* DTLotTableViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = DTLotTableViewCell.h; path = Files/DTLotTableViewCell.h; sourceTree = "<group>"; };
+		9D8A64EC192C0CF40003448C /* DTLotTableViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = DTLotTableViewCell.m; path = Files/DTLotTableViewCell.m; sourceTree = "<group>"; };
+		9D8A64F4192C5AB20003448C /* DTLotExpandedTableViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = DTLotExpandedTableViewCell.h; path = Files/DTLotExpandedTableViewCell.h; sourceTree = "<group>"; };
+		9D8A64F5192C5AB20003448C /* DTLotExpandedTableViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = DTLotExpandedTableViewCell.m; path = Files/DTLotExpandedTableViewCell.m; sourceTree = "<group>"; };
+		9D8A64F8193263B70003448C /* DTSpotTableViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = DTSpotTableViewCell.h; path = Files/DTSpotTableViewCell.h; sourceTree = "<group>"; };
+		9D8A64F9193263B70003448C /* DTSpotTableViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = DTSpotTableViewCell.m; path = Files/DTSpotTableViewCell.m; sourceTree = "<group>"; };
+		9DE968F319397D4F009470B1 /* DTSpotManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = DTSpotManager.h; path = Files/DTSpotManager.h; sourceTree = "<group>"; };
+		9DE968F419397D4F009470B1 /* DTSpotManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = DTSpotManager.m; path = Files/DTSpotManager.m; sourceTree = "<group>"; };
+		9DE968F619399F31009470B1 /* DTLotManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = DTLotManager.h; path = Files/DTLotManager.h; sourceTree = "<group>"; };
+		9DE968F719399F31009470B1 /* DTLotManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = DTLotManager.m; path = Files/DTLotManager.m; sourceTree = "<group>"; };
+		9DE968F91939A267009470B1 /* DTUserManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = DTUserManager.h; path = Files/DTUserManager.h; sourceTree = "<group>"; };
+		9DE968FA1939A267009470B1 /* DTUserManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = DTUserManager.m; path = Files/DTUserManager.m; sourceTree = "<group>"; };
+		9DE968FC1939A4F0009470B1 /* DTCarManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = DTCarManager.h; path = Files/DTCarManager.h; sourceTree = "<group>"; };
+		9DE968FD1939A4F0009470B1 /* DTCarManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = DTCarManager.m; path = Files/DTCarManager.m; sourceTree = "<group>"; };
+		9DE968FF1939A6C8009470B1 /* DTReviewManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = DTReviewManager.h; path = Files/DTReviewManager.h; sourceTree = "<group>"; };
+		9DE969001939A6C8009470B1 /* DTReviewManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = DTReviewManager.m; path = Files/DTReviewManager.m; sourceTree = "<group>"; };
 		9DE9D51E18B462B50035519D /* Park Ave.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Park Ave.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		9DE9D52118B462B50035519D /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
 		9DE9D52318B462B50035519D /* CoreGraphics.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreGraphics.framework; path = System/Library/Frameworks/CoreGraphics.framework; sourceTree = SDKROOT; };
@@ -159,17 +134,12 @@
 		9DE9D52F18B462B50035519D /* Park Ave-Prefix.pch */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "Park Ave-Prefix.pch"; sourceTree = "<group>"; };
 		9DE9D53018B462B50035519D /* DTAppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = DTAppDelegate.h; sourceTree = "<group>"; };
 		9DE9D53118B462B50035519D /* DTAppDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = DTAppDelegate.m; sourceTree = "<group>"; };
-		9DE9D53418B462B50035519D /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		9DE9D53918B462B50035519D /* Images.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Images.xcassets; sourceTree = "<group>"; };
 		9DE9D53F18B462B50035519D /* Park AveTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = "Park AveTests.xctest"; sourceTree = BUILT_PRODUCTS_DIR; };
 		9DE9D54018B462B50035519D /* XCTest.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = XCTest.framework; path = Library/Frameworks/XCTest.framework; sourceTree = DEVELOPER_DIR; };
 		9DE9D54818B462B50035519D /* Park AveTests-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = "Park AveTests-Info.plist"; sourceTree = "<group>"; };
 		9DE9D54A18B462B50035519D /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/InfoPlist.strings; sourceTree = "<group>"; };
 		9DE9D54C18B462B50035519D /* ParklyTests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ParklyTests.m; sourceTree = "<group>"; };
-		9DE9D55718B53CC10035519D /* DTLoginViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = DTLoginViewController.h; path = Files/DTLoginViewController.h; sourceTree = "<group>"; };
-		9DE9D55818B53CC10035519D /* DTLoginViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = DTLoginViewController.m; path = Files/DTLoginViewController.m; sourceTree = "<group>"; };
-		9DE9D55B18B53CF10035519D /* DTLotFinderViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = DTLotFinderViewController.h; path = Files/DTLotFinderViewController.h; sourceTree = "<group>"; };
-		9DE9D55C18B53CF10035519D /* DTLotFinderViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = DTLotFinderViewController.m; path = Files/DTLotFinderViewController.m; sourceTree = "<group>"; };
 		9DF5B43E18C55AFE00E1D1D7 /* DTParkingLot.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DTParkingLot.h; sourceTree = "<group>"; };
 		9DF5B43F18C55AFE00E1D1D7 /* DTParkingLot.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DTParkingLot.m; sourceTree = "<group>"; };
 		9DF5B44018C55AFE00E1D1D7 /* DTParkingSpot.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DTParkingSpot.h; sourceTree = "<group>"; };
@@ -210,8 +180,9 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				594A7C4A18C57C94008C077C /* Security.framework in Frameworks */,
+				9D4E012E192C078700F50955 /* CoreLocation.framework in Frameworks */,
 				9D15D3D118B72A0C00FA635E /* MapKit.framework in Frameworks */,
+				594A7C4A18C57C94008C077C /* Security.framework in Frameworks */,
 				9DE9D52418B462B50035519D /* CoreGraphics.framework in Frameworks */,
 				9DE9D52618B462B50035519D /* UIKit.framework in Frameworks */,
 				9DE9D52218B462B50035519D /* Foundation.framework in Frameworks */,
@@ -247,6 +218,16 @@
 			children = (
 				9DF5B46218C55B2000E1D1D7 /* DTModel.h */,
 				9DF5B46318C55B2000E1D1D7 /* DTModel.m */,
+				9DE968F319397D4F009470B1 /* DTSpotManager.h */,
+				9DE968F419397D4F009470B1 /* DTSpotManager.m */,
+				9DE968F619399F31009470B1 /* DTLotManager.h */,
+				9DE968F719399F31009470B1 /* DTLotManager.m */,
+				9DE968F91939A267009470B1 /* DTUserManager.h */,
+				9DE968FA1939A267009470B1 /* DTUserManager.m */,
+				9DE968FC1939A4F0009470B1 /* DTCarManager.h */,
+				9DE968FD1939A4F0009470B1 /* DTCarManager.m */,
+				9DE968FF1939A6C8009470B1 /* DTReviewManager.h */,
+				9DE969001939A6C8009470B1 /* DTReviewManager.m */,
 				9D27300D18DE6BB1004CF460 /* DTCache.h */,
 				9D27300E18DE6BB1004CF460 /* DTCache.m */,
 				9DF5B45E18C55B2000E1D1D7 /* DTDataManager.h */,
@@ -257,35 +238,13 @@
 			name = "Data Model";
 			sourceTree = "<group>";
 		};
-		9D035C2618CB80AC007E331D /* DTBuy */ = {
+		9D00E0401935179F00EABE29 /* DTPurchase */ = {
 			isa = PBXGroup;
 			children = (
-				9D035C2718CB81AD007E331D /* DTBuyViewController.h */,
-				9D035C2818CB81AD007E331D /* DTBuyViewController.m */,
+				9D00E041193517B600EABE29 /* DTPurchaseViewController.h */,
+				9D00E042193517B600EABE29 /* DTPurchaseViewController.m */,
 			);
-			name = DTBuy;
-			sourceTree = "<group>";
-		};
-		9D13E84318F4C1EB0062105C /* DTMySpots */ = {
-			isa = PBXGroup;
-			children = (
-				9D13E84418F4C2060062105C /* DTMySpotsViewController.h */,
-				9D13E84518F4C2060062105C /* DTMySpotsViewController.m */,
-				9D13E84718F4C2250062105C /* DTMySpotsTableViewController.h */,
-				9D13E84818F4C2250062105C /* DTMySpotsTableViewController.m */,
-				9D13E84A18F4C2ED0062105C /* DTMySpotTableViewCell.h */,
-				9D13E84B18F4C2ED0062105C /* DTMySpotTableViewCell.m */,
-			);
-			name = DTMySpots;
-			sourceTree = "<group>";
-		};
-		9D15D3C918B7234500FA635E /* DTSignup */ = {
-			isa = PBXGroup;
-			children = (
-				9D15D3C618B7233F00FA635E /* DTSignupViewController.h */,
-				9D15D3C718B7233F00FA635E /* DTSignupViewController.m */,
-			);
-			name = DTSignup;
+			name = DTPurchase;
 			sourceTree = "<group>";
 		};
 		9D15D3D518B7F77800FA635E /* DTDataTypes */ = {
@@ -305,86 +264,16 @@
 			name = DTDataTypes;
 			sourceTree = "<group>";
 		};
-		9D15D3E718B809DC00FA635E /* DTDetail */ = {
-			isa = PBXGroup;
-			children = (
-				9D15D3E818B809F400FA635E /* DTDetailViewController.h */,
-				9D15D3E918B809F400FA635E /* DTDetailViewController.m */,
-			);
-			name = DTDetail;
-			sourceTree = "<group>";
-		};
-		9D15D4A118BDA2DF00FA635E /* DTLotTable */ = {
-			isa = PBXGroup;
-			children = (
-				9D15D3CD18B724DF00FA635E /* DTLotTableViewController.h */,
-				9D15D3CE18B724DF00FA635E /* DTLotTableViewController.m */,
-				9D15D3D218B7405D00FA635E /* DTLotTableCell.h */,
-				9D15D3D318B7405D00FA635E /* DTLotTableCell.m */,
-			);
-			name = DTLotTable;
-			sourceTree = "<group>";
-		};
-		9D15D4A218BDA2F100FA635E /* DTReviews */ = {
-			isa = PBXGroup;
-			children = (
-				9D15D49518BD89BF00FA635E /* DTReviewTableViewController.h */,
-				9D15D49618BD89BF00FA635E /* DTReviewTableViewController.m */,
-				9D15D49818BD8A0C00FA635E /* DTReviewTableCell.h */,
-				9D15D49918BD8A0C00FA635E /* DTReviewTableCell.m */,
-			);
-			name = DTReviews;
-			sourceTree = "<group>";
-		};
-		9D15D4A318BDA2FD00FA635E /* DTSpots */ = {
-			isa = PBXGroup;
-			children = (
-				9D15D49B18BD952E00FA635E /* DTSpotTableViewController.h */,
-				9D15D49C18BD952E00FA635E /* DTSpotTableViewController.m */,
-				9D15D49E18BD954400FA635E /* DTSpotTableCell.h */,
-				9D15D49F18BD954400FA635E /* DTSpotTableCell.m */,
-			);
-			name = DTSpots;
-			sourceTree = "<group>";
-		};
-		9D15D4A418BDA30700FA635E /* DTGeneral */ = {
-			isa = PBXGroup;
-			children = (
-				9D2E92A518B5A49F00509F23 /* DTNavigationBar.h */,
-				9D2E92A618B5A49F00509F23 /* DTNavigationBar.m */,
-				9D15D3AF18B5B33300FA635E /* DTRoundedImageView.h */,
-				9D15D3B018B5B33300FA635E /* DTRoundedImageView.m */,
-			);
-			name = DTGeneral;
-			sourceTree = "<group>";
-		};
-		9D284C9218C51FB60044F89D /* DTProfile */ = {
-			isa = PBXGroup;
-			children = (
-				9D284C9318C51FCE0044F89D /* DTProfileViewController.h */,
-				9D284C9418C51FCE0044F89D /* DTProfileViewController.m */,
-			);
-			name = DTProfile;
-			sourceTree = "<group>";
-		};
 		9D2E92A418B5A48300509F23 /* DTUIElements */ = {
 			isa = PBXGroup;
 			children = (
-				9D36813D18F4CA1A00B7E21D /* DTMyCars */,
-				9D13E84318F4C1EB0062105C /* DTMySpots */,
-				9D7A3ED518CD2033003F6E62 /* DTInitial */,
-				9D7E8A7318CCD27200F4D9C0 /* DTSignup */,
-				9D7B726E18CCC44700D5D15C /* DTReceipts */,
-				9D035C2618CB80AC007E331D /* DTBuy */,
-				9D15D3C918B7234500FA635E /* DTSignup */,
-				9DE9D55618B53C810035519D /* DTLogin */,
-				9DE9D55A18B53CCF0035519D /* DTLotFinder */,
-				9D15D3E718B809DC00FA635E /* DTDetail */,
-				9D284C9218C51FB60044F89D /* DTProfile */,
-				9D15D4A418BDA30700FA635E /* DTGeneral */,
-				9D15D4A118BDA2DF00FA635E /* DTLotTable */,
-				9D15D4A218BDA2F100FA635E /* DTReviews */,
-				9D15D4A318BDA2FD00FA635E /* DTSpots */,
+				9D00E0401935179F00EABE29 /* DTPurchase */,
+				9D8A64F7193263A20003448C /* DTSpotTableViewCell */,
+				9D8A64F3192C5A850003448C /* DTLotExpandedTableViewCell */,
+				9D8A64EA192C0CD90003448C /* DTLotTableViewCell */,
+				9D4E0129192C016A00F50955 /* DTLotSorter */,
+				9D4E0121192BEADA00F50955 /* DTNavigationBar */,
+				9D4E011D192BD79000F50955 /* DTLanding */,
 			);
 			name = DTUIElements;
 			sourceTree = "<group>";
@@ -396,44 +285,58 @@
 			name = DTResources;
 			sourceTree = "<group>";
 		};
-		9D36813D18F4CA1A00B7E21D /* DTMyCars */ = {
+		9D4E011D192BD79000F50955 /* DTLanding */ = {
 			isa = PBXGroup;
 			children = (
-				9D36813E18F4CA2600B7E21D /* DTMyCarTableViewCell.h */,
-				9D36813F18F4CA2600B7E21D /* DTMyCarTableViewCell.m */,
-				9D36814418F4CA7200B7E21D /* DTMyCarViewController.h */,
-				9D36814518F4CA7200B7E21D /* DTMyCarViewController.m */,
-				9D45241818F4DD200044E058 /* DTAddACarViewController.h */,
-				9D45241918F4DD200044E058 /* DTAddACarViewController.m */,
+				9D4E011E192BD7BE00F50955 /* DTLandingViewController.h */,
+				9D4E011F192BD7BE00F50955 /* DTLandingViewController.m */,
 			);
-			name = DTMyCars;
+			name = DTLanding;
 			sourceTree = "<group>";
 		};
-		9D7A3ED518CD2033003F6E62 /* DTInitial */ = {
+		9D4E0121192BEADA00F50955 /* DTNavigationBar */ = {
 			isa = PBXGroup;
 			children = (
-				9D7A3ED618CD2043003F6E62 /* DTInitialViewController.h */,
-				9D7A3ED718CD2043003F6E62 /* DTInitialViewController.m */,
+				9D4E0122192BFCE000F50955 /* DTNavigationBar.h */,
+				9D4E0123192BFCE000F50955 /* DTNavigationBar.m */,
 			);
-			name = DTInitial;
+			name = DTNavigationBar;
 			sourceTree = "<group>";
 		};
-		9D7B726E18CCC44700D5D15C /* DTReceipts */ = {
+		9D4E0129192C016A00F50955 /* DTLotSorter */ = {
 			isa = PBXGroup;
 			children = (
-				9D7B726F18CCC45A00D5D15C /* DTReceiptViewController.h */,
-				9D7B727018CCC45A00D5D15C /* DTReceiptViewController.m */,
+				9D4E012A192C018300F50955 /* DTLotSorterViewController.h */,
+				9D4E012B192C018300F50955 /* DTLotSorterViewController.m */,
 			);
-			name = DTReceipts;
+			name = DTLotSorter;
 			sourceTree = "<group>";
 		};
-		9D7E8A7318CCD27200F4D9C0 /* DTSignup */ = {
+		9D8A64EA192C0CD90003448C /* DTLotTableViewCell */ = {
 			isa = PBXGroup;
 			children = (
-				9D7E8A7418CCD28E00F4D9C0 /* DTSignupViewController.h */,
-				9D7E8A7518CCD28E00F4D9C0 /* DTSignupViewController.m */,
+				9D8A64EB192C0CF40003448C /* DTLotTableViewCell.h */,
+				9D8A64EC192C0CF40003448C /* DTLotTableViewCell.m */,
 			);
-			name = DTSignup;
+			name = DTLotTableViewCell;
+			sourceTree = "<group>";
+		};
+		9D8A64F3192C5A850003448C /* DTLotExpandedTableViewCell */ = {
+			isa = PBXGroup;
+			children = (
+				9D8A64F4192C5AB20003448C /* DTLotExpandedTableViewCell.h */,
+				9D8A64F5192C5AB20003448C /* DTLotExpandedTableViewCell.m */,
+			);
+			name = DTLotExpandedTableViewCell;
+			sourceTree = "<group>";
+		};
+		9D8A64F7193263A20003448C /* DTSpotTableViewCell */ = {
+			isa = PBXGroup;
+			children = (
+				9D8A64F8193263B70003448C /* DTSpotTableViewCell.h */,
+				9D8A64F9193263B70003448C /* DTSpotTableViewCell.m */,
+			);
+			name = DTSpotTableViewCell;
 			sourceTree = "<group>";
 		};
 		9DE9D51518B462B50035519D = {
@@ -458,6 +361,7 @@
 		9DE9D52018B462B50035519D /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				9D4E012D192C078700F50955 /* CoreLocation.framework */,
 				594A7C4918C57C94008C077C /* Security.framework */,
 				9D15D3D018B72A0C00FA635E /* MapKit.framework */,
 				9DE9D52118B462B50035519D /* Foundation.framework */,
@@ -479,8 +383,8 @@
 				9DF5B44A18C55B1100E1D1D7 /* DTNetworking */,
 				9D15D3D518B7F77800FA635E /* DTDataTypes */,
 				9D2E92A418B5A48300509F23 /* DTUIElements */,
-				9DE9D53318B462B50035519D /* Main.storyboard */,
 				9DE9D53918B462B50035519D /* Images.xcassets */,
+				9D4E011A192BD70600F50955 /* Main.storyboard */,
 				9DE9D52818B462B50035519D /* Supporting Files */,
 			);
 			name = "Park Ave";
@@ -524,24 +428,6 @@
 				9DE9D54918B462B50035519D /* InfoPlist.strings */,
 			);
 			name = "Supporting Files";
-			sourceTree = "<group>";
-		};
-		9DE9D55618B53C810035519D /* DTLogin */ = {
-			isa = PBXGroup;
-			children = (
-				9DE9D55718B53CC10035519D /* DTLoginViewController.h */,
-				9DE9D55818B53CC10035519D /* DTLoginViewController.m */,
-			);
-			name = DTLogin;
-			sourceTree = "<group>";
-		};
-		9DE9D55A18B53CCF0035519D /* DTLotFinder */ = {
-			isa = PBXGroup;
-			children = (
-				9DE9D55B18B53CF10035519D /* DTLotFinderViewController.h */,
-				9DE9D55C18B53CF10035519D /* DTLotFinderViewController.m */,
-			);
-			name = DTLotFinder;
 			sourceTree = "<group>";
 		};
 		9DF5B44A18C55B1100E1D1D7 /* DTNetworking */ = {
@@ -656,9 +542,9 @@
 				9D15D3C218B6F34100FA635E /* JosefinSlab-SemiBold.ttf in Resources */,
 				9D15D3BC18B6F34100FA635E /* JosefinSlab-Bold.ttf in Resources */,
 				9D15D3C318B6F34100FA635E /* JosefinSlab-SemiBoldItalic.ttf in Resources */,
+				9D4E011B192BD70600F50955 /* Main.storyboard in Resources */,
 				9D15D3C118B6F34100FA635E /* JosefinSlab-Regular.ttf in Resources */,
 				9D15D3BE18B6F34100FA635E /* JosefinSlab-Italic.ttf in Resources */,
-				9DE9D53518B462B50035519D /* Main.storyboard in Resources */,
 				9D15D3BD18B6F34100FA635E /* JosefinSlab-BoldItalic.ttf in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -678,50 +564,40 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				9DE969021939A8B9009470B1 /* DTReviewManager.m in Sources */,
+				9D8A64EE192C10F60003448C /* DTNavigationBar.m in Sources */,
 				9D7E8A9C18CCDA7400F4D9C0 /* DTAppDelegate.m in Sources */,
 				9D7E8A7718CCD9AC00F4D9C0 /* PDKeychainBindings.m in Sources */,
-				9D7A3ED818CD2043003F6E62 /* DTInitialViewController.m in Sources */,
 				9D7E8A7818CCD9AC00F4D9C0 /* PDKeychainBindingsController.m in Sources */,
 				9D7E8A7918CCD9AC00F4D9C0 /* AFHTTPRequestOperation.m in Sources */,
 				9D7E8A7A18CCD9AC00F4D9C0 /* AFHTTPRequestOperationManager.m in Sources */,
 				9D7E8A7B18CCD9AC00F4D9C0 /* AFHTTPSessionManager.m in Sources */,
 				9D7E8A7C18CCD9AC00F4D9C0 /* AFNetworkReachabilityManager.m in Sources */,
 				9D7E8A7D18CCD9AC00F4D9C0 /* AFSecurityPolicy.m in Sources */,
+				9D8A64FA193263B70003448C /* DTSpotTableViewCell.m in Sources */,
 				9D7E8A7E18CCD9AC00F4D9C0 /* AFURLConnectionOperation.m in Sources */,
 				9D7E8A7F18CCD9AC00F4D9C0 /* AFURLRequestSerialization.m in Sources */,
 				9D7E8A8018CCD9AC00F4D9C0 /* AFURLResponseSerialization.m in Sources */,
 				9D7E8A8118CCD9AC00F4D9C0 /* AFURLSessionManager.m in Sources */,
 				9D7E8A8218CCD9AC00F4D9C0 /* DTDataManager.m in Sources */,
-				9D13E84C18F4C2ED0062105C /* DTMySpotTableViewCell.m in Sources */,
 				9D7E8A8318CCD9AC00F4D9C0 /* DTNetworkManager.m in Sources */,
 				9D7E8A8518CCD9AC00F4D9C0 /* DTModel.m in Sources */,
+				9DE968F519397D4F009470B1 /* DTSpotManager.m in Sources */,
 				9D7E8A8618CCD9AC00F4D9C0 /* DTParkingLot.m in Sources */,
-				9D13E84618F4C2060062105C /* DTMySpotsViewController.m in Sources */,
+				9D4E0120192BD7BE00F50955 /* DTLandingViewController.m in Sources */,
 				9D7E8A8718CCD9AC00F4D9C0 /* DTParkingSpot.m in Sources */,
 				9D7E8A8818CCD9AC00F4D9C0 /* DTReview.m in Sources */,
 				9D7E8A8918CCD9AC00F4D9C0 /* DTUser.m in Sources */,
 				9D7E8A8A18CCD9AC00F4D9C0 /* DTCar.m in Sources */,
-				9D7E8A8B18CCD9AC00F4D9C0 /* DTSignupViewController.m in Sources */,
-				9D36814018F4CA2600B7E21D /* DTMyCarTableViewCell.m in Sources */,
-				9D7E8A8C18CCD9AC00F4D9C0 /* DTReceiptViewController.m in Sources */,
-				9D7E8A8D18CCD9AC00F4D9C0 /* DTBuyViewController.m in Sources */,
-				9D7E8A8F18CCD9AC00F4D9C0 /* DTLoginViewController.m in Sources */,
-				9D7E8A9018CCD9AC00F4D9C0 /* DTLotFinderViewController.m in Sources */,
-				9D7E8A9118CCD9AC00F4D9C0 /* DTDetailViewController.m in Sources */,
-				9D36814618F4CA7200B7E21D /* DTMyCarViewController.m in Sources */,
-				9D45241A18F4DD200044E058 /* DTAddACarViewController.m in Sources */,
-				9D7E8A9218CCD9AC00F4D9C0 /* DTProfileViewController.m in Sources */,
-				9D7E8A9318CCD9AC00F4D9C0 /* DTNavigationBar.m in Sources */,
-				9D7E8A9418CCD9AC00F4D9C0 /* DTRoundedImageView.m in Sources */,
-				9D13E84918F4C2250062105C /* DTMySpotsTableViewController.m in Sources */,
-				9D7E8A9518CCD9AC00F4D9C0 /* DTLotTableViewController.m in Sources */,
-				9D7E8A9618CCD9AC00F4D9C0 /* DTLotTableCell.m in Sources */,
+				9DE968FE1939A4F0009470B1 /* DTCarManager.m in Sources */,
+				9D4E012C192C018300F50955 /* DTLotSorterViewController.m in Sources */,
 				9D27300F18DE6BB1004CF460 /* DTCache.m in Sources */,
-				9D7E8A9718CCD9AC00F4D9C0 /* DTReviewTableViewController.m in Sources */,
-				9D7E8A9818CCD9AC00F4D9C0 /* DTReviewTableCell.m in Sources */,
-				9D7E8A9918CCD9AC00F4D9C0 /* DTSpotTableViewController.m in Sources */,
-				9D7E8A9A18CCD9AC00F4D9C0 /* DTSpotTableCell.m in Sources */,
+				9D00E043193517B600EABE29 /* DTPurchaseViewController.m in Sources */,
 				9DE9D52E18B462B50035519D /* main.m in Sources */,
+				9DE968FB1939A267009470B1 /* DTUserManager.m in Sources */,
+				9D8A64ED192C0CF40003448C /* DTLotTableViewCell.m in Sources */,
+				9D8A64F6192C5AB20003448C /* DTLotExpandedTableViewCell.m in Sources */,
+				9DE968F819399F31009470B1 /* DTLotManager.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -750,14 +626,6 @@
 				9DE9D52B18B462B50035519D /* en */,
 			);
 			name = InfoPlist.strings;
-			sourceTree = "<group>";
-		};
-		9DE9D53318B462B50035519D /* Main.storyboard */ = {
-			isa = PBXVariantGroup;
-			children = (
-				9DE9D53418B462B50035519D /* Base */,
-			);
-			name = Main.storyboard;
 			sourceTree = "<group>";
 		};
 		9DE9D54918B462B50035519D /* InfoPlist.strings */ = {

@@ -16,6 +16,12 @@
 #import "DTReview.h"
 #import "DTCar.h"
 #import "DTCache.h"
+#import "DTSpotManager.h"
+#import "DTLotManager.h"
+#import "DTUserManager.h"
+#import "DTCarManager.h"
+#import "DTReviewManager.h"
+#import "PDKeychainBindings.h"
 
 @interface DTModel : NSObject
 
@@ -144,6 +150,8 @@
 
 - (void) openDirectionsInMapsToLatitude:(CGFloat)latitude andLongitude:(CGFloat)longitude;
 - (CLLocation*) currentUserLocation;
+- (void) stopUpdatingLocation;
+- (void) startUpdatingLocation;
 
 #pragma mark - Pseudo-properties
 
@@ -159,11 +167,7 @@
 - (NSString*) defaultPassword;
 - (BOOL) defaultsExist;
 
-#pragma mark - Sorting
-
-- (NSArray*) sortLotsByRating:(NSArray*)array isAscending:(BOOL)isAscending;
-- (NSArray*) sortLots:(NSMutableArray*)array byDistanceFromLatitude:(CGFloat)latitude andLongitude:(CGFloat)longitude isAscending:(BOOL)isDescending;
-- (NSArray*) sortLotsByPrice:(NSArray*)array isAscending:(BOOL)isAscending;
+- (void) setDefaultEmail:(NSString*)email;
 
 #pragma mark - Helper Methods
 
@@ -176,5 +180,16 @@
 -(void)removeCachedLots;
 -(void)removeCachedSpots;
 -(void)removeCachedCars;
+
+#pragma mark - Global managers
+
+@property (weak, nonatomic) DTDataManager* dataManager;
+@property (weak, nonatomic) DTNetworkManager* networkManager;
+@property (strong, nonatomic) CLLocationManager *locationManager;
+@property (strong, nonatomic) DTSpotManager *spotManager;
+@property (strong, nonatomic) DTLotManager *lotManager;
+@property (strong, nonatomic) DTUserManager *userManager;
+@property (strong, nonatomic) DTCarManager *carManager;
+@property (strong, nonatomic) DTReviewManager *reviewManager;
 
 @end

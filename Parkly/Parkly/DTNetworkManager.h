@@ -14,17 +14,7 @@
 
 + (instancetype) sharedInstance;
 
-- (void) call:(NSString*)action one:(NSString*)one parameters:(NSDictionary*)parameters success: (void (^)(NSURLSessionDataTask *task, id responseObject))success failure:(void (^)(NSURLSessionDataTask *task, NSError *error))failure;
-
-- (void) call:(NSString*)action one:(NSString*)one two:(NSString*)two parameters:(NSDictionary*)parameters success: (void (^)(NSURLSessionDataTask *task, id responseObject))success failure:(void (^)(NSURLSessionDataTask *task, NSError *error))failure;
-
-- (void) call:(NSString*)action one:(NSString*)one two:(NSString*)two three:(NSString*)three parameters:(NSDictionary*)parameters success: (void (^)(NSURLSessionDataTask *task, id responseObject))success failure:(void (^)(NSURLSessionDataTask *task, NSError *error))failure;
-
-- (void) call:(NSString*)action one:(NSString*)one two:(NSString*)two three:(NSString*)three four:(NSString*)four parameters:(NSDictionary*)parameters success: (void (^)(NSURLSessionDataTask *task, id responseObject))success failure:(void (^)(NSURLSessionDataTask *task, NSError *error))failure;
-
-- (void) call:(NSString*)action one:(NSString*)one two:(NSString*)two three:(NSString*)three four:(NSString*)four five:(NSString*)five parameters:(NSDictionary*)parameters success: (void (^)(NSURLSessionDataTask *task, id responseObject))success failure:(void (^)(NSURLSessionDataTask *task, NSError *error))failure;
-
-- (void) call:(NSString*)action one:(NSString*)one two:(NSString*)two three:(NSString*)three four:(NSString*)four five:(NSString*)five six:(NSString*)six parameters:(NSDictionary*)parameters success: (void (^)(NSURLSessionDataTask *task, id responseObject))success failure:(void (^)(NSURLSessionDataTask *task, NSError *error))failure;
+- (void) call:(NSString*)action payload:(NSArray*)payload parameters:(NSDictionary*)parameters success: (void (^)(NSURLSessionDataTask *task, id responseObject))success failure:(void (^)(NSURLSessionDataTask *task, NSError *error))failure;
 
 #pragma mark - Helper Methods
 

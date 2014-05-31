@@ -59,6 +59,7 @@
     [[DTModel sharedInstance] logoutUser];
     
   }
+  [[DTModel sharedInstance] stopUpdatingLocation];
 }
 
 - (void)applicationWillEnterForeground:(UIApplication *)application
@@ -71,6 +72,7 @@
     }];
   }
   
+  [[DTModel sharedInstance] startUpdatingLocation];
   [[DTModel sharedInstance] getLotsandSpotsForCurrentLocationWithDistance:150000.0 success:^(NSURLSessionDataTask *task, id responseObject) {
     
   } failure:^(NSURLSessionDataTask *task, NSError *error) {
@@ -81,8 +83,7 @@
 - (void)applicationDidBecomeActive:(UIApplication *)application
 {
   // Restart any tasks that were paused (or not yet started) while the application was inactive. If the application was previously in the background, optionally refresh the user interface.
-  
-  
+  [[DTModel sharedInstance] startUpdatingLocation];
   if([[DTModel sharedInstance] defaultsExist] && [[DTModel sharedInstance] userHasAccount] && ![[DTModel sharedInstance] userIsLoggedIn]){
     [[DTModel sharedInstance] authenticateUserWithEmail:[[DTModel sharedInstance] defaultEmail] andPassword:[[DTModel sharedInstance] defaultPassword] success:^(NSURLSessionDataTask *task, DTUser *aUser) {
       
@@ -100,6 +101,7 @@
     [[DTModel sharedInstance] logoutUser];
     
   }
+  [[DTModel sharedInstance] stopUpdatingLocation];
 }
 
 @end

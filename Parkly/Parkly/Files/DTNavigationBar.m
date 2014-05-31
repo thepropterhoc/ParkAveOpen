@@ -1,8 +1,8 @@
 //
 //  DTNavigationBar.m
-//  Parkly
+//  Park Ave
 //
-//  Created by Shelby Vanhooser on 2/19/14.
+//  Created by Shelby Vanhooser on 5/20/14.
 //  Copyright (c) 2014 DevTeam14. All rights reserved.
 //
 
@@ -22,10 +22,14 @@
 
 // Only override drawRect: if you perform custom drawing.
 // An empty implementation adversely affects performance during animation.
+
+/*
 - (void)drawRect:(CGRect)rect
 {
-  [self setBackgroundColor:[UIColor clearColor]];
+  [self setBarTintColor:[UIColor clearColor]];
 }
+*/
+ 
 
 
 @end

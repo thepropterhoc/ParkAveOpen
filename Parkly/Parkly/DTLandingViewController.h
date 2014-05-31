@@ -1,5 +1,5 @@
 //
-//  DTNavigationBar.h
+//  DTLandingViewController.h
 //  Park Ave
 //
 //  Created by Shelby Vanhooser on 5/20/14.
@@ -8,6 +8,6 @@
 
 #import <UIKit/UIKit.h>
 
-@interface DTNavigationBar : UINavigationBar
+@interface DTLandingViewController : UIViewController
 
 @end

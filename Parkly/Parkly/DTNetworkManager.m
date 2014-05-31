@@ -34,34 +34,12 @@ static NSString * const apiBaseURL = @"http://dev.getparkave.com/api/";
     return self;
 }
 
-- (void) call:(NSString*)action one:(NSString*)one parameters:(NSDictionary*)parameters success: (void (^)(NSURLSessionDataTask *task, id responseObject))success failure:(void (^)(NSURLSessionDataTask *task, NSError *error))failure {
-    [self genericCall:action path:one parameters:parameters success:success failure:failure];
-}
-
-- (void) call:(NSString*)action one:(NSString*)one two:(NSString*)two parameters:(NSDictionary*)parameters success: (void (^)(NSURLSessionDataTask *task, id responseObject))success failure:(void (^)(NSURLSessionDataTask *task, NSError *error))failure {
-    NSString* path = [NSString stringWithFormat:@"%@/%@", one, two];
-    
-    [self genericCall:action path:path parameters:parameters success:success failure:failure];
-}
-
-- (void) call:(NSString*)action one:(NSString*)one two:(NSString*)two three:(NSString*)three parameters:(NSDictionary*)parameters success: (void (^)(NSURLSessionDataTask *task, id responseObject))success failure:(void (^)(NSURLSessionDataTask *task, NSError *error))failure {
-        NSString* path = [NSString stringWithFormat:@"%@/%@/%@", one, two, three];
-    [self genericCall:action path:path parameters:parameters success:success failure:failure];
-}
-
-- (void) call:(NSString*)action one:(NSString*)one two:(NSString*)two three:(NSString*)three four:(NSString*)four parameters:(NSDictionary*)parameters success: (void (^)(NSURLSessionDataTask *task, id responseObject))success failure:(void (^)(NSURLSessionDataTask *task, NSError *error))failure {
-        NSString* path = [NSString stringWithFormat:@"%@/%@/%@/%@", one, two, three, four];
-    [self genericCall:action path:path parameters:parameters success:success failure:failure];
-}
-
-- (void) call:(NSString*)action one:(NSString*)one two:(NSString*)two three:(NSString*)three four:(NSString*)four five:(NSString*)five parameters:(NSDictionary*)parameters success: (void (^)(NSURLSessionDataTask *task, id responseObject))success failure:(void (^)(NSURLSessionDataTask *task, NSError *error))failure {
-    NSString* path = [NSString stringWithFormat:@"%@/%@/%@/%@/%@", one, two, three, four, five];
-    [self genericCall:action path:path parameters:parameters success:success failure:failure];
-}
-
-- (void) call:(NSString*)action one:(NSString*)one two:(NSString*)two three:(NSString*)three four:(NSString*)four five:(NSString*)five six:(NSString*)six parameters:(NSDictionary*)parameters success: (void (^)(NSURLSessionDataTask *task, id responseObject))success failure:(void (^)(NSURLSessionDataTask *task, NSError *error))failure {
-    NSString* path = [NSString stringWithFormat:@"%@/%@/%@/%@/%@/%@", one, two, three, four, five, six];
-    [self genericCall:action path:path parameters:parameters success:success failure:failure];
+-(void) call:(NSString*)action payload:(NSArray*)payload parameters:(NSDictionary*)parameters success: (void (^)(NSURLSessionDataTask *task, id responseObject))success failure:(void (^)(NSURLSessionDataTask *task, NSError *error))failure {
+  NSString *call = @"";
+  for (NSString *item in payload){
+    call = [call stringByAppendingPathComponent:item];
+  }
+  [self genericCall:action path:call parameters:parameters success:success failure:failure];
 }
 
 #pragma mark - Helper Methods
