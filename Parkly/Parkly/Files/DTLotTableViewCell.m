@@ -48,7 +48,14 @@
     [self.averageReviewLabel setText:@"N/A"];
   }
   if(lot.distance && lot.distance.intValue != -1){
-    [self.distanceLabel setText:[NSString stringWithFormat:@"%@ mi", lot.distance]];
+    float feet = lot.distance.floatValue * 3.28084;
+    if (feet > 5280){
+      
+      [self.distanceLabel setText:[NSString stringWithFormat:@"%.2f mi", (feet / 5280.0f)]];
+    } else {
+      [self.distanceLabel setText:[NSString stringWithFormat:@"%.f ft", feet]];
+    }
+    //[self.distanceLabel setText:[NSString stringWithFormat:@"%@ mi", lot.distance]];
   } else {
     [self.distanceLabel setText:@"N/A"];
   }

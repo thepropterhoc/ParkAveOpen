@@ -17,9 +17,16 @@
   if([[DTCache sharedInstance] hasLots]){
     success(nil, [[DTCache sharedInstance] allLots]);
     return;
+  } else {
+    NSLog(@"Cache miss for all lots");
   }
+  
   [[DTModel sharedInstance].networkManager call:@"get" payload:@[@"lots"] parameters:nil success:^(NSURLSessionDataTask *task, id responseObject) {
     NSArray *resultArray = [[DTModel sharedInstance] parseJSON:responseObject toArrayOfClass:[DTParkingLot class]];
+    for (DTParkingLot *lot in resultArray){
+      CLLocation *lotLocation = [[CLLocation alloc] initWithLatitude:lot.lat.floatValue longitude:lot.lon.floatValue];
+      lot.distance = [NSNumber numberWithFloat:[[DTModel sharedInstance].locationManager.location distanceFromLocation:lotLocation]];
+    }
     [[DTCache sharedInstance] addLots:resultArray];
     success(task, resultArray);
   } failure:^(NSURLSessionDataTask *task, NSError *error) {
@@ -66,6 +73,10 @@
   
   [[DTModel sharedInstance].networkManager call:@"get" payload:@[@"location", string] parameters:nil success:^(NSURLSessionDataTask *task, id responseObject) {
     NSArray* lotArray = [[DTModel sharedInstance] parseJSON:responseObject toArrayOfClass:[DTParkingLot class]];
+    for (DTParkingLot *lot in lotArray){
+      CLLocation *lotLocation = [[CLLocation alloc] initWithLatitude:lot.lat.floatValue longitude:lot.lon.floatValue];
+      lot.distance = [NSNumber numberWithFloat:[[DTModel sharedInstance].locationManager.location distanceFromLocation:lotLocation]];
+    }
     [[DTCache sharedInstance] addLots:lotArray];
     success(task, lotArray);
   } failure:^(NSURLSessionDataTask *task, NSError *error) {
@@ -87,7 +98,8 @@
       //for each, create an array of spots that belong to it
       NSMutableArray* currentSpots = [[NSMutableArray alloc] init];
       NSString* lot_id = [lot _id];
-      
+      CLLocation *lotLocation = [[CLLocation alloc] initWithLatitude:lot.lat.floatValue longitude:lot.lon.floatValue];
+      lot.distance = [NSNumber numberWithFloat:[[DTModel sharedInstance].locationManager.location distanceFromLocation:lotLocation]];
       [self imageForLot:lot success:nil failure:nil];
       [[DTModel sharedInstance] getUserWithId:lot.user_id success:^(NSURLSessionDataTask *task, DTUser *user) {
         [[DTModel sharedInstance] getReviewsForUser:user success:nil failure:nil];

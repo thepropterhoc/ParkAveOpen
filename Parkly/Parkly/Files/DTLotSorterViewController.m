@@ -19,6 +19,7 @@
 @property (strong ,nonatomic) NSNumber *selectedRow;
 @property (strong, nonatomic) DTParkingLot *pushLot;
 @property (strong, nonatomic) DTParkingSpot *pushSpot;
+@property (strong, nonatomic) UIRefreshControl *refreshControl;
 
 @end
 
@@ -36,35 +37,13 @@
 - (void)viewDidLoad
 {
   [super viewDidLoad];
+  
+  self.refreshControl = [[UIRefreshControl alloc] init];
+  [self.refreshControl addTarget:self action:@selector(refresh) forControlEvents:UIControlEventValueChanged];
+  [self.tableView addSubview:self.refreshControl];
+  [self loadLots];
   [self.mapButton.layer setCornerRadius:10.0f];
   self.selectedRow = nil;
-  
-  DTParkingLot *one = [[DTParkingLot alloc] init];
-  one.title = @"My Lot";
-  one.averageRating = @3.4;
-  one.minimumPrice = @5;
-  one.distance = @5.2;
-  
-  DTParkingLot *two = [[DTParkingLot alloc] init];
-  two.title = @"My lot number two";
-  two.averageRating = @4.2;
-  two.minimumPrice = @4;
-  two.distance = @2.3;
-  
-  self.lots = @[one, two];
-  [self.tableView reloadData];
-  
-  /*
-  [[DTModel sharedInstance] getAllLots:^(NSURLSessionDataTask *task, NSArray *allLots) {
-    self.lots = allLots;
-    [self.tableView reloadData];
-  } failure:^(NSURLSessionDataTask *task, NSError *error) {
-    NSLog(@"Critical error trying to get all lots");
-  }];
-   */
-  
-  
-    // Do any additional setup after loading the view.
 }
 
 -(void)viewWillAppear:(BOOL)animated
@@ -149,6 +128,24 @@
   self.pushSpot = spot;
   self.pushLot = lot;
   [self performSegueWithIdentifier:@"pushToPurchase" sender:self];
+}
+
+-(void)refresh
+{
+  [[DTModel sharedInstance] removeCachedLots];
+  [self loadLots];
+}
+
+-(void) loadLots
+{
+  [[DTModel sharedInstance] getAllLots:^(NSURLSessionDataTask *task, NSArray *allLots) {
+    self.lots = allLots;
+    [self.tableView reloadData];
+    [self.refreshControl endRefreshing];
+  } failure:^(NSURLSessionDataTask *task, NSError *error) {
+    NSLog(@"Critical error fetching lots");
+    [self.refreshControl endRefreshing];
+  }];
 }
 
 -(void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender

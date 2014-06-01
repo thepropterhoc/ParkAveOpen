@@ -16,11 +16,13 @@
   if([[DTModel sharedInstance] defaultsExist]){
     [[DTModel sharedInstance] authenticateUserWithEmail:[[DTModel sharedInstance] defaultEmail] andPassword:[[DTModel sharedInstance] defaultPassword] success:^(NSURLSessionDataTask *task, DTUser *aUser) {
 
+      /*
       [[DTModel sharedInstance] addCreditCard:^(NSURLSessionDataTask *task, id responseObject) {
         ;
       } failure:^(NSURLSessionDataTask *task, NSError *error) {
         ;
       }];
+       */
       
       [[DTModel sharedInstance] getUsernameForUser:[[DTModel sharedInstance] currentUser] success:^(NSURLSessionDataTask *task, NSString *name) {
         
@@ -29,7 +31,6 @@
       }];
       
 
-      
       [[DTModel sharedInstance] getLotsandSpotsForCurrentLocationWithDistance:150000.0f success:^(NSURLSessionDataTask *task, id responseObject) {
           
         } failure:^(NSURLSessionDataTask *task, NSError *error) {

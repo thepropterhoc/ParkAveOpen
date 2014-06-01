@@ -47,7 +47,13 @@
   [self.theTable setDelegate:self];
   [self.theTable setDataSource:self];
   self.lotNameLabel.text = lot.title;
-  self.distanceLabel.text = [NSString stringWithFormat:@"%@ mi", lot.distance];
+  
+  float feet = lot.distance.floatValue * 3.28084;
+  if (feet > 5280){
+    [self.distanceLabel setText:[NSString stringWithFormat:@"%.2f mi", (feet / 5280.0f)]];
+  } else {
+    [self.distanceLabel setText:[NSString stringWithFormat:@"%.f ft", feet]];
+  }
   
   [[DTModel sharedInstance] imageForLot:lot success:^(NSURLSessionDataTask *task, id responseObject) {
     [self.theImage setImage:responseObject forState:UIControlStateNormal];
@@ -57,31 +63,9 @@
   } failure:^(NSURLSessionDataTask *task, NSError *error) {
     [self.theImage setImage:nil forState:UIControlStateNormal];
   }];
+  //[self.refreshControl beginRefreshing];
+  [self loadSpots];
   
-  DTParkingSpot* one = [[DTParkingSpot alloc] init];
-  one.surface = @"Gravel";
-  one.price = @15.0;
-  one.startDate = @"06/24/2014";
-  one.endDate = @"06/25/2014";
-  one.numSpots = @3;
-  
-  DTParkingSpot *two = [[DTParkingSpot alloc] init];
-  two.surface = @"Dirt";
-  two.price = @20.0;
-  two.startDate = @"07/04/2014";
-  two.endDate = @"07/05/2014";
-  two.numSpots = @4;
-  
-  self.theSpots = @[one, two];
-  [self.theTable reloadData];
-  /*
-  [[DTModel sharedInstance] getSpotsForLot:lot success:^(NSURLSessionDataTask *task, NSArray *spots) {
-    self.theSpots = spots;
-  } failure:^(NSURLSessionDataTask *task, NSError *error) {
-    NSLog(@"Failure to get spots for lot: %@", lot.title);
-    self.theSpots = nil;
-  }];
-   */
 }
 
 -(int)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section
@@ -103,6 +87,18 @@
 -(void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath
 {
   [self.passthrough didSelectSpot:self.theSpots[indexPath.row] withLot:self.theLot];
+}
+
+-(void) loadSpots
+{
+  [[DTModel sharedInstance] getSpotsForLot:self.theLot success:^(NSURLSessionDataTask *task, NSArray *spots) {
+    self.theSpots = spots;
+    [self.theTable reloadData];
+  } failure:^(NSURLSessionDataTask *task, NSError *error) {
+    NSLog(@"Failure to get spots for lot: %@", self.theLot.title);
+    self.theSpots = nil;
+  }];
+  [self.theTable reloadData];
 }
 
 @end
