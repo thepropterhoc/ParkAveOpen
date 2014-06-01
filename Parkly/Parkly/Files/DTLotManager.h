@@ -6,7 +6,7 @@
 //  Copyright (c) 2014 DevTeam14. All rights reserved.
 //
 
-#import "DTModel.h"
+#import "DTParkingLot.h"
 #import <Foundation/Foundation.h>
 
 @interface DTLotManager : NSObject

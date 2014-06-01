@@ -21,6 +21,7 @@
 		9D15D3C518B6F34100FA635E /* JosefinSlab-ThinItalic.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 9D15D3BB18B6F34100FA635E /* JosefinSlab-ThinItalic.ttf */; };
 		9D15D3D118B72A0C00FA635E /* MapKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 9D15D3D018B72A0C00FA635E /* MapKit.framework */; };
 		9D27300F18DE6BB1004CF460 /* DTCache.m in Sources */ = {isa = PBXBuildFile; fileRef = 9D27300E18DE6BB1004CF460 /* DTCache.m */; };
+		9D3E0D01193AC5C900B0223E /* DTReviewManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 9D3E0D00193AC5C900B0223E /* DTReviewManager.m */; };
 		9D4E011B192BD70600F50955 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 9D4E011A192BD70600F50955 /* Main.storyboard */; };
 		9D4E0120192BD7BE00F50955 /* DTLandingViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 9D4E011F192BD7BE00F50955 /* DTLandingViewController.m */; };
 		9D4E012C192C018300F50955 /* DTLotSorterViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 9D4E012B192C018300F50955 /* DTLotSorterViewController.m */; };
@@ -53,7 +54,6 @@
 		9DE968F819399F31009470B1 /* DTLotManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 9DE968F719399F31009470B1 /* DTLotManager.m */; };
 		9DE968FB1939A267009470B1 /* DTUserManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 9DE968FA1939A267009470B1 /* DTUserManager.m */; };
 		9DE968FE1939A4F0009470B1 /* DTCarManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 9DE968FD1939A4F0009470B1 /* DTCarManager.m */; };
-		9DE969021939A8B9009470B1 /* DTReviewManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 9DE969001939A6C8009470B1 /* DTReviewManager.m */; };
 		9DE9D52218B462B50035519D /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 9DE9D52118B462B50035519D /* Foundation.framework */; };
 		9DE9D52418B462B50035519D /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 9DE9D52318B462B50035519D /* CoreGraphics.framework */; };
 		9DE9D52618B462B50035519D /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 9DE9D52518B462B50035519D /* UIKit.framework */; };
@@ -100,6 +100,8 @@
 		9D15D3D018B72A0C00FA635E /* MapKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = MapKit.framework; path = System/Library/Frameworks/MapKit.framework; sourceTree = SDKROOT; };
 		9D27300D18DE6BB1004CF460 /* DTCache.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = DTCache.h; path = Files/DTCache.h; sourceTree = "<group>"; };
 		9D27300E18DE6BB1004CF460 /* DTCache.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = DTCache.m; path = Files/DTCache.m; sourceTree = "<group>"; };
+		9D3E0CFF193AC5C900B0223E /* DTReviewManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DTReviewManager.h; sourceTree = "<group>"; };
+		9D3E0D00193AC5C900B0223E /* DTReviewManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DTReviewManager.m; sourceTree = "<group>"; };
 		9D4E011A192BD70600F50955 /* Main.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = Main.storyboard; sourceTree = "<group>"; };
 		9D4E011E192BD7BE00F50955 /* DTLandingViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DTLandingViewController.h; sourceTree = "<group>"; };
 		9D4E011F192BD7BE00F50955 /* DTLandingViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DTLandingViewController.m; sourceTree = "<group>"; };
@@ -122,8 +124,6 @@
 		9DE968FA1939A267009470B1 /* DTUserManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = DTUserManager.m; path = Files/DTUserManager.m; sourceTree = "<group>"; };
 		9DE968FC1939A4F0009470B1 /* DTCarManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = DTCarManager.h; path = Files/DTCarManager.h; sourceTree = "<group>"; };
 		9DE968FD1939A4F0009470B1 /* DTCarManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = DTCarManager.m; path = Files/DTCarManager.m; sourceTree = "<group>"; };
-		9DE968FF1939A6C8009470B1 /* DTReviewManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = DTReviewManager.h; path = Files/DTReviewManager.h; sourceTree = "<group>"; };
-		9DE969001939A6C8009470B1 /* DTReviewManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = DTReviewManager.m; path = Files/DTReviewManager.m; sourceTree = "<group>"; };
 		9DE9D51E18B462B50035519D /* Park Ave.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Park Ave.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		9DE9D52118B462B50035519D /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
 		9DE9D52318B462B50035519D /* CoreGraphics.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreGraphics.framework; path = System/Library/Frameworks/CoreGraphics.framework; sourceTree = SDKROOT; };
@@ -226,8 +226,8 @@
 				9DE968FA1939A267009470B1 /* DTUserManager.m */,
 				9DE968FC1939A4F0009470B1 /* DTCarManager.h */,
 				9DE968FD1939A4F0009470B1 /* DTCarManager.m */,
-				9DE968FF1939A6C8009470B1 /* DTReviewManager.h */,
-				9DE969001939A6C8009470B1 /* DTReviewManager.m */,
+				9D3E0CFF193AC5C900B0223E /* DTReviewManager.h */,
+				9D3E0D00193AC5C900B0223E /* DTReviewManager.m */,
 				9D27300D18DE6BB1004CF460 /* DTCache.h */,
 				9D27300E18DE6BB1004CF460 /* DTCache.m */,
 				9DF5B45E18C55B2000E1D1D7 /* DTDataManager.h */,
@@ -564,12 +564,12 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				9DE969021939A8B9009470B1 /* DTReviewManager.m in Sources */,
 				9D8A64EE192C10F60003448C /* DTNavigationBar.m in Sources */,
 				9D7E8A9C18CCDA7400F4D9C0 /* DTAppDelegate.m in Sources */,
 				9D7E8A7718CCD9AC00F4D9C0 /* PDKeychainBindings.m in Sources */,
 				9D7E8A7818CCD9AC00F4D9C0 /* PDKeychainBindingsController.m in Sources */,
 				9D7E8A7918CCD9AC00F4D9C0 /* AFHTTPRequestOperation.m in Sources */,
+				9D3E0D01193AC5C900B0223E /* DTReviewManager.m in Sources */,
 				9D7E8A7A18CCD9AC00F4D9C0 /* AFHTTPRequestOperationManager.m in Sources */,
 				9D7E8A7B18CCD9AC00F4D9C0 /* AFHTTPSessionManager.m in Sources */,
 				9D7E8A7C18CCD9AC00F4D9C0 /* AFNetworkReachabilityManager.m in Sources */,

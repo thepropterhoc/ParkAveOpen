@@ -7,13 +7,8 @@
 //
 
 #import "DTLotManager.h"
-
-@interface DTLotManager ()
-
-@property (weak, nonatomic) DTDataManager *dataManager;
-@property (weak, nonatomic) DTNetworkManager *networkManager;
-
-@end
+#import "DTCache.h"
+#import "DTModel.h"
 
 @implementation DTLotManager
 
@@ -23,7 +18,7 @@
     success(nil, [[DTCache sharedInstance] allLots]);
     return;
   }
-  [self.networkManager call:@"get" payload:@[@"lots"] parameters:nil success:^(NSURLSessionDataTask *task, id responseObject) {
+  [[DTModel sharedInstance].networkManager call:@"get" payload:@[@"lots"] parameters:nil success:^(NSURLSessionDataTask *task, id responseObject) {
     NSArray *resultArray = [[DTModel sharedInstance] parseJSON:responseObject toArrayOfClass:[DTParkingLot class]];
     [[DTCache sharedInstance] addLots:resultArray];
     success(task, resultArray);
@@ -69,7 +64,7 @@
   
   NSString* string = [NSString stringWithFormat:@"%f+%f+%f", latitude, longitude, distance];
   
-  [self.networkManager call:@"get" payload:@[@"location", string] parameters:nil success:^(NSURLSessionDataTask *task, id responseObject) {
+  [[DTModel sharedInstance].networkManager call:@"get" payload:@[@"location", string] parameters:nil success:^(NSURLSessionDataTask *task, id responseObject) {
     NSArray* lotArray = [[DTModel sharedInstance] parseJSON:responseObject toArrayOfClass:[DTParkingLot class]];
     [[DTCache sharedInstance] addLots:lotArray];
     success(task, lotArray);
@@ -82,7 +77,7 @@
   
   NSString* string = [NSString stringWithFormat:@"%f+%f+%f", latitude, longitude, distance];
   
-  [self.networkManager call:@"get" payload:@[@"location", @"all", string] parameters:nil success:^(NSURLSessionDataTask *task, id responseObject) {
+  [[DTModel sharedInstance].networkManager call:@"get" payload:@[@"location", @"all", string] parameters:nil success:^(NSURLSessionDataTask *task, id responseObject) {
     NSArray* lotArray = [[DTModel sharedInstance] parseJSON:[responseObject objectForKey:@"lots"] toArrayOfClass:[DTParkingLot class]];
     NSArray* spotArray = [[DTModel sharedInstance] parseJSON:[responseObject objectForKey:@"spots"] toArrayOfClass:[DTParkingSpot class]];
     
@@ -124,7 +119,7 @@
 
 
 - (void) decrementSpotsForLot:(DTParkingLot*)lot success:(void (^)(NSURLSessionDataTask *task, id responseObject))success failure:(void (^)(NSURLSessionDataTask *task, NSError *error))failure {
-  [self.networkManager call:@"put" payload:@[@"lots", [lot _id]] parameters:[lot dictionaryRepresentation] success:^(NSURLSessionDataTask *task, id responseObject) {
+  [[DTModel sharedInstance].networkManager call:@"put" payload:@[@"lots", [lot _id]] parameters:[lot dictionaryRepresentation] success:^(NSURLSessionDataTask *task, id responseObject) {
     success(task, responseObject);
   } failure:^(NSURLSessionDataTask *task, NSError *error) {
     failure(task, error);

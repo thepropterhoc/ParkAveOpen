@@ -7,6 +7,8 @@
 //
 
 #import "DTReviewManager.h"
+#import "DTModel.h"
+#import "DTCache.h"
 
 @implementation DTReviewManager
 

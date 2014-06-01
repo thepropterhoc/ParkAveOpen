@@ -7,6 +7,8 @@
 //
 
 #import "DTCarManager.h"
+#import "DTCache.h"
+#import "DTModel.h"
 
 @implementation DTCarManager
 

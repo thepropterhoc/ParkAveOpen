@@ -25,6 +25,17 @@
 
 @interface DTModel : NSObject
 
+#pragma mark - Global managers
+
+@property (weak, nonatomic) DTDataManager* dataManager;
+@property (weak, nonatomic) DTNetworkManager* networkManager;
+@property (strong, nonatomic) CLLocationManager *locationManager;
+@property (strong, nonatomic) DTSpotManager *spotManager;
+@property (strong, nonatomic) DTLotManager *lotManager;
+@property (strong, nonatomic) DTUserManager *userManager;
+@property (strong, nonatomic) DTCarManager *carManager;
+@property (strong, nonatomic) DTReviewManager *reviewManager;
+
 + (instancetype) sharedInstance;
 
 #pragma mark - Local User Session
@@ -181,15 +192,5 @@
 -(void)removeCachedSpots;
 -(void)removeCachedCars;
 
-#pragma mark - Global managers
-
-@property (weak, nonatomic) DTDataManager* dataManager;
-@property (weak, nonatomic) DTNetworkManager* networkManager;
-@property (strong, nonatomic) CLLocationManager *locationManager;
-@property (strong, nonatomic) DTSpotManager *spotManager;
-@property (strong, nonatomic) DTLotManager *lotManager;
-@property (strong, nonatomic) DTUserManager *userManager;
-@property (strong, nonatomic) DTCarManager *carManager;
-@property (strong, nonatomic) DTReviewManager *reviewManager;
 
 @end

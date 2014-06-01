@@ -7,6 +7,8 @@
 //
 
 #import "DTSpotManager.h"
+#import "DTCache.h"
+#import "DTModel.h"
 
 @implementation DTSpotManager
 

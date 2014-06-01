@@ -6,7 +6,9 @@
 //  Copyright (c) 2014 DevTeam14. All rights reserved.
 //
 
-#import "DTModel.h"
+//#import "DTModel.h"
+#import "DTUser.h"
+#import "DTReview.h"
 #import <Foundation/Foundation.h>
 
 @interface DTReviewManager : NSObject
@@ -22,5 +24,6 @@
 - (void) updateReview:(DTReview*)review success: (void (^)(NSURLSessionDataTask *task, id responseObject))success failure:(void (^)(NSURLSessionDataTask *task, NSError *error))failure;
 
 - (void) deleteReview:(DTReview*)review success: (void (^)(NSURLSessionDataTask *task, id responseObject))success failure:(void (^)(NSURLSessionDataTask *task, NSError *error))failure;
+
 
 @end
