@@ -19,12 +19,10 @@
   
   [[DTModel sharedInstance].networkManager call:@"post" payload:@[@"users", @"session"] parameters:parameters success:^(NSURLSessionDataTask *task, id responseObject) {
     [[DTModel sharedInstance].networkManager checkResponseStatus:responseObject success:^(id responseObject) {
-      
-      [[[DTModel sharedInstance].dataManager currentUser] setValuesForKeysWithDictionary:responseObject];
-      //set the defaults for next time if they aren't the same
-      [[DTModel sharedInstance] setDefaultEmail:email];
-      [[PDKeychainBindings sharedKeychainBindings] setString:password forKey:@"password"];
-      
+      DTUser *newCurrentUser = [[DTModel sharedInstance].dataManager currentUser];
+      [newCurrentUser setValuesForKeysWithDictionary:responseObject];
+      [[DTModel sharedInstance] setDefaultUser:newCurrentUser];
+      [[DTModel sharedInstance] setCurrentUser:newCurrentUser];
     } failure:^(NSString *statusCode, NSString *description) {
       NSLog(@"There was an error. status code %@", statusCode);
     }];
@@ -32,25 +30,33 @@
     if([[responseObject valueForKey:@"err"] isEqualToString:@"nomatch"]) {
       responseObject = @"error";
     } else {
-      [[[DTModel sharedInstance].dataManager currentUser] setValuesForKeysWithDictionary:responseObject];
-      NSLog(@"!!!!!~~~~~~~~~~~~~~~~~~~%@", [[[DTModel sharedInstance].dataManager currentUser] _id]);
-      //set the defaults for next time if they aren't the same
-      [[DTModel sharedInstance] setDefaultEmail:email];
-      [[PDKeychainBindings sharedKeychainBindings] setString:password forKey:@"password"];
-      NSLog(@"default email: %@. You're logged in.", [[DTModel sharedInstance] defaultEmail]);
+      DTUser *newCurrentUser = [[DTUser alloc] init];
+      [newCurrentUser setValuesForKeysWithDictionary:responseObject];
+      [[DTModel sharedInstance] setDefaultUser:newCurrentUser];
+      [[DTModel sharedInstance] setCurrentUser:newCurrentUser];
+      NSLog(@"default email: %@. You're logged in.", [[DTModel sharedInstance] defaultUser].email);
     }
-    success(task, responseObject);
+    if(success){
+      success(task, responseObject);
+    }
+    
   } failure:^(NSURLSessionDataTask *task, NSError *error) {
-    failure(task, error);
+    if(failure){
+      failure(task, error);
+    }
   }];
   
 }
 
 - (void) authenticateUser:(DTUser*)user success: (void (^)(NSURLSessionDataTask *task, DTUser* aUser))success failure:(void (^)(NSURLSessionDataTask *task, NSError *error))failure {
   [self authenticateUserWithEmail:[user email] andPassword:[user password] success:^(NSURLSessionDataTask *task, DTUser *user) {
-    success(task, user);
+    if(success){
+      success(task, user);
+    }
   } failure:^(NSURLSessionDataTask *task, NSError *error) {
-    failure(task, error);
+    if(failure){
+      failure(task, error);
+    }
   }];
 }
 
@@ -74,7 +80,7 @@
 }
 
 - (void) createUser:(DTUser*)user success: (void (^)(NSURLSessionDataTask *task, DTUser* newUser))success failure:(void (^)(NSURLSessionDataTask *task, NSError *error))failure {
-  [[DTModel sharedInstance].networkManager call:@"post'" payload:@[@"users"] parameters:[user dictionaryRepresentation] success:^(NSURLSessionDataTask *task, id responseObject) {
+  [[DTModel sharedInstance].networkManager call:@"post" payload:@[@"users"] parameters:[user dictionaryRepresentation] success:^(NSURLSessionDataTask *task, id responseObject) {
     [self authenticateUser:user success:^(NSURLSessionDataTask *task, DTUser *aUser) {
       success(task, user);
     } failure:^(NSURLSessionDataTask *task, NSError *error) {
@@ -113,7 +119,9 @@
 
 - (void) getUsernameForUser:(DTUser*)user success: (void (^)(NSURLSessionDataTask *task, NSString* name))success failure:(void (^)(NSURLSessionDataTask *task, NSError *error))failure {
   [self getUsernameForUserID:[user _id] success:^(NSURLSessionDataTask *task, NSString *name) {
-    success(task, name);
+    if(success){
+      success(task, name);
+    }
   } failure:^(NSURLSessionDataTask *task, NSError *error) {
     failure(task, error);
   }];

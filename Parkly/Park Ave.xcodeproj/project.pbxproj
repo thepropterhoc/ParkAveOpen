@@ -22,6 +22,8 @@
 		9D15D3D118B72A0C00FA635E /* MapKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 9D15D3D018B72A0C00FA635E /* MapKit.framework */; };
 		9D27300F18DE6BB1004CF460 /* DTCache.m in Sources */ = {isa = PBXBuildFile; fileRef = 9D27300E18DE6BB1004CF460 /* DTCache.m */; };
 		9D3E0D01193AC5C900B0223E /* DTReviewManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 9D3E0D00193AC5C900B0223E /* DTReviewManager.m */; };
+		9D3F1EBF193B9FEF002FC3B6 /* DTProfileViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 9D3F1EBE193B9FEF002FC3B6 /* DTProfileViewController.m */; };
+		9D3F1EC3193E72DC002FC3B6 /* DTMySpotsViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 9D3F1EC2193E72DC002FC3B6 /* DTMySpotsViewController.m */; };
 		9D4E011B192BD70600F50955 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 9D4E011A192BD70600F50955 /* Main.storyboard */; };
 		9D4E0120192BD7BE00F50955 /* DTLandingViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 9D4E011F192BD7BE00F50955 /* DTLandingViewController.m */; };
 		9D4E012C192C018300F50955 /* DTLotSorterViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 9D4E012B192C018300F50955 /* DTLotSorterViewController.m */; };
@@ -102,6 +104,10 @@
 		9D27300E18DE6BB1004CF460 /* DTCache.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = DTCache.m; path = Files/DTCache.m; sourceTree = "<group>"; };
 		9D3E0CFF193AC5C900B0223E /* DTReviewManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DTReviewManager.h; sourceTree = "<group>"; };
 		9D3E0D00193AC5C900B0223E /* DTReviewManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DTReviewManager.m; sourceTree = "<group>"; };
+		9D3F1EBD193B9FEF002FC3B6 /* DTProfileViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = DTProfileViewController.h; path = Files/DTProfileViewController.h; sourceTree = "<group>"; };
+		9D3F1EBE193B9FEF002FC3B6 /* DTProfileViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = DTProfileViewController.m; path = Files/DTProfileViewController.m; sourceTree = "<group>"; };
+		9D3F1EC1193E72DC002FC3B6 /* DTMySpotsViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = DTMySpotsViewController.h; path = Files/DTMySpotsViewController.h; sourceTree = "<group>"; };
+		9D3F1EC2193E72DC002FC3B6 /* DTMySpotsViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = DTMySpotsViewController.m; path = Files/DTMySpotsViewController.m; sourceTree = "<group>"; };
 		9D4E011A192BD70600F50955 /* Main.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = Main.storyboard; sourceTree = "<group>"; };
 		9D4E011E192BD7BE00F50955 /* DTLandingViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DTLandingViewController.h; sourceTree = "<group>"; };
 		9D4E011F192BD7BE00F50955 /* DTLandingViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DTLandingViewController.m; sourceTree = "<group>"; };
@@ -267,12 +273,10 @@
 		9D2E92A418B5A48300509F23 /* DTUIElements */ = {
 			isa = PBXGroup;
 			children = (
+				9D3F1EC0193E72C4002FC3B6 /* DTMySpots */,
+				9D3F1EBC193B9FC7002FC3B6 /* DTProfile */,
 				9D00E0401935179F00EABE29 /* DTPurchase */,
-				9D8A64F7193263A20003448C /* DTSpotTableViewCell */,
-				9D8A64F3192C5A850003448C /* DTLotExpandedTableViewCell */,
-				9D8A64EA192C0CD90003448C /* DTLotTableViewCell */,
 				9D4E0129192C016A00F50955 /* DTLotSorter */,
-				9D4E0121192BEADA00F50955 /* DTNavigationBar */,
 				9D4E011D192BD79000F50955 /* DTLanding */,
 			);
 			name = DTUIElements;
@@ -285,9 +289,28 @@
 			name = DTResources;
 			sourceTree = "<group>";
 		};
+		9D3F1EBC193B9FC7002FC3B6 /* DTProfile */ = {
+			isa = PBXGroup;
+			children = (
+				9D3F1EBD193B9FEF002FC3B6 /* DTProfileViewController.h */,
+				9D3F1EBE193B9FEF002FC3B6 /* DTProfileViewController.m */,
+			);
+			name = DTProfile;
+			sourceTree = "<group>";
+		};
+		9D3F1EC0193E72C4002FC3B6 /* DTMySpots */ = {
+			isa = PBXGroup;
+			children = (
+				9D3F1EC1193E72DC002FC3B6 /* DTMySpotsViewController.h */,
+				9D3F1EC2193E72DC002FC3B6 /* DTMySpotsViewController.m */,
+			);
+			name = DTMySpots;
+			sourceTree = "<group>";
+		};
 		9D4E011D192BD79000F50955 /* DTLanding */ = {
 			isa = PBXGroup;
 			children = (
+				9D4E0121192BEADA00F50955 /* DTNavigationBar */,
 				9D4E011E192BD7BE00F50955 /* DTLandingViewController.h */,
 				9D4E011F192BD7BE00F50955 /* DTLandingViewController.m */,
 			);
@@ -306,6 +329,8 @@
 		9D4E0129192C016A00F50955 /* DTLotSorter */ = {
 			isa = PBXGroup;
 			children = (
+				9D8A64F3192C5A850003448C /* DTLotExpandedTableViewCell */,
+				9D8A64EA192C0CD90003448C /* DTLotTableViewCell */,
 				9D4E012A192C018300F50955 /* DTLotSorterViewController.h */,
 				9D4E012B192C018300F50955 /* DTLotSorterViewController.m */,
 			);
@@ -324,6 +349,7 @@
 		9D8A64F3192C5A850003448C /* DTLotExpandedTableViewCell */ = {
 			isa = PBXGroup;
 			children = (
+				9D8A64F7193263A20003448C /* DTSpotTableViewCell */,
 				9D8A64F4192C5AB20003448C /* DTLotExpandedTableViewCell.h */,
 				9D8A64F5192C5AB20003448C /* DTLotExpandedTableViewCell.m */,
 			);
@@ -378,13 +404,13 @@
 				9D3411F718CCF9EA00B1508B /* DTResources */,
 				9DE9D53018B462B50035519D /* DTAppDelegate.h */,
 				9DE9D53118B462B50035519D /* DTAppDelegate.m */,
+				9D4E011A192BD70600F50955 /* Main.storyboard */,
 				59EA93A718CD018F00638048 /* Data Model */,
 				594A7C4B18C57F04008C077C /* DTSecurity */,
 				9DF5B44A18C55B1100E1D1D7 /* DTNetworking */,
 				9D15D3D518B7F77800FA635E /* DTDataTypes */,
 				9D2E92A418B5A48300509F23 /* DTUIElements */,
 				9DE9D53918B462B50035519D /* Images.xcassets */,
-				9D4E011A192BD70600F50955 /* Main.storyboard */,
 				9DE9D52818B462B50035519D /* Supporting Files */,
 			);
 			name = "Park Ave";
@@ -504,6 +530,9 @@
 				LastUpgradeCheck = 0510;
 				ORGANIZATIONNAME = DevTeam14;
 				TargetAttributes = {
+					9DE9D51D18B462B50035519D = {
+						DevelopmentTeam = HT8X5T7256;
+					};
 					9DE9D53E18B462B50035519D = {
 						TestTargetID = 9DE9D51D18B462B50035519D;
 					};
@@ -578,6 +607,7 @@
 				9D7E8A7E18CCD9AC00F4D9C0 /* AFURLConnectionOperation.m in Sources */,
 				9D7E8A7F18CCD9AC00F4D9C0 /* AFURLRequestSerialization.m in Sources */,
 				9D7E8A8018CCD9AC00F4D9C0 /* AFURLResponseSerialization.m in Sources */,
+				9D3F1EC3193E72DC002FC3B6 /* DTMySpotsViewController.m in Sources */,
 				9D7E8A8118CCD9AC00F4D9C0 /* AFURLSessionManager.m in Sources */,
 				9D7E8A8218CCD9AC00F4D9C0 /* DTDataManager.m in Sources */,
 				9D7E8A8318CCD9AC00F4D9C0 /* DTNetworkManager.m in Sources */,
@@ -586,6 +616,7 @@
 				9D7E8A8618CCD9AC00F4D9C0 /* DTParkingLot.m in Sources */,
 				9D4E0120192BD7BE00F50955 /* DTLandingViewController.m in Sources */,
 				9D7E8A8718CCD9AC00F4D9C0 /* DTParkingSpot.m in Sources */,
+				9D3F1EBF193B9FEF002FC3B6 /* DTProfileViewController.m in Sources */,
 				9D7E8A8818CCD9AC00F4D9C0 /* DTReview.m in Sources */,
 				9D7E8A8918CCD9AC00F4D9C0 /* DTUser.m in Sources */,
 				9D7E8A8A18CCD9AC00F4D9C0 /* DTCar.m in Sources */,
@@ -714,10 +745,11 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
+				CODE_SIGN_IDENTITY = "iPhone Developer";
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "Parkly/Park Ave-Prefix.pch";
 				INFOPLIST_FILE = "Parkly/Park Ave-Info.plist";
-				IPHONEOS_DEPLOYMENT_TARGET = 7.1;
+				IPHONEOS_DEPLOYMENT_TARGET = 7.0;
 				PRODUCT_NAME = "Park Ave";
 				WRAPPER_EXTENSION = app;
 			};
@@ -728,11 +760,11 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
-				CODE_SIGN_IDENTITY = "iPhone Distribution: Integrated Applications L.L.C. (HT8X5T7256)";
+				CODE_SIGN_IDENTITY = "iPhone Developer";
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "Parkly/Park Ave-Prefix.pch";
 				INFOPLIST_FILE = "Parkly/Park Ave-Info.plist";
-				IPHONEOS_DEPLOYMENT_TARGET = 7.1;
+				IPHONEOS_DEPLOYMENT_TARGET = 7.0;
 				PRODUCT_NAME = "Park Ave";
 				WRAPPER_EXTENSION = app;
 			};

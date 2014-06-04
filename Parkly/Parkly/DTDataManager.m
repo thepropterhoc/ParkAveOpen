@@ -16,46 +16,51 @@
     static DTDataManager *sharedInstance = nil;
     static dispatch_once_t onceToken = 0;
     dispatch_once(&onceToken, ^{
-        sharedInstance = [[[self class] alloc] init];
-        
-        // Do any other initialisation stuff here
-        sharedInstance.currentUser = [[DTUser alloc] init];
-        sharedInstance.currentUser._id = @"-1";
-        
-        sharedInstance.currentUserCars = [[NSArray alloc] init];
-        
+      sharedInstance = [[[self class] alloc] init];
+      sharedInstance.currentUser = nil;
+      sharedInstance.currentUserCars = nil;
     });
     return sharedInstance;
 }
 
-- (void) loginUser:(DTUser*)user {
-    self.currentUser = user;
-}
-
 - (void) logoutUser {
 //#warning this needs to be different
-    self.currentUser = [[DTUser alloc] init];
-    self.currentUser._id = @"-1";
-    self.currentUserCars = [[NSArray alloc] init];
+  self.currentUser = nil;
+  self.currentUserCars = @[];
 }
 
 - (BOOL) isUserLoggedIn {
-    return ![self.currentUser._id isEqualToString:@"-1"];
+    return self.currentUser != nil;
 }
 
 - (DTUser*) defaultUser {
+  if([[NSUserDefaults standardUserDefaults] objectForKey:@"email"] != nil && [[PDKeychainBindings sharedKeychainBindings] objectForKey:@"password"] != nil) {
     DTUser* mrDefault = [[DTUser alloc] init];
     mrDefault.email = [[NSUserDefaults standardUserDefaults] objectForKey:@"email"];
     mrDefault.password = [[PDKeychainBindings sharedKeychainBindings] objectForKey:@"password"];
     return mrDefault;
+  } else {
+    return nil;
+  }
 }
 
 - (DTCar*) defaultCar {
     return [[DTCar alloc] initWithDictionary:[[NSUserDefaults standardUserDefaults] objectForKey:@"car"]];
 }
+
 - (void) setDefaultCar:(DTCar*)car {
     [[NSUserDefaults standardUserDefaults] setObject:[car dictionaryRepresentation] forKey:@"car"];
 }
 
+-(void)setDefaultUser:(DTUser *)user
+{
+  if(user){
+    [[NSUserDefaults standardUserDefaults] setObject:user.email forKey:@"email"];
+    [[PDKeychainBindings sharedKeychainBindings] setObject:user.password forKey:@"password"];
+  } else {
+    [[NSUserDefaults standardUserDefaults] removeObjectForKey:@"email"];
+    [[PDKeychainBindings sharedKeychainBindings] removeObjectForKey:@"password"];
+  }
+}
 
 @end

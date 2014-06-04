@@ -42,8 +42,12 @@
   [self.refreshControl addTarget:self action:@selector(refresh) forControlEvents:UIControlEventValueChanged];
   [self.tableView addSubview:self.refreshControl];
   [self loadLots];
-  [self.mapButton.layer setCornerRadius:10.0f];
   self.selectedRow = nil;
+  UILabel *accentLabel = [[UILabel alloc] initWithFrame:CGRectMake(18, 5, 10, 10)];
+  [accentLabel setText:[NSString stringWithFormat:@"%d", [[DTModel sharedInstance] allReservedSpots].count]];
+  [accentLabel setFont:[UIFont fontWithName:@"AvenirNext-Medium" size:9.0f]];
+  [accentLabel setTextColor:[UIColor darkGrayColor]];
+  [self.segmentedControl insertSubview:accentLabel atIndex:0];
 }
 
 -(void)viewWillAppear:(BOOL)animated
@@ -106,7 +110,7 @@
       [tableView reloadRowsAtIndexPaths:
        @[[NSIndexPath indexPathForRow:old inSection:0]] withRowAnimation:UITableViewRowAnimationAutomatic];
     }
-    self.selectedRow = [NSNumber numberWithInt: indexPath.row];
+    self.selectedRow = [NSNumber numberWithInteger:indexPath.row];
     [tableView beginUpdates];
     [tableView reloadRowsAtIndexPaths:@[indexPath] withRowAnimation:UITableViewRowAnimationAutomatic];
     [tableView endUpdates];
@@ -114,7 +118,17 @@
   }
 }
 
--(float)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath
+/*
+-(float)tableView:(UITableView*)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath
+{
+  if(self.selectedRow && indexPath.row == self.selectedRow.intValue){
+    return 300.0f;
+  } else {
+    return 100.0f;
+  }
+} */
+
+-(CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath
 {
   if(self.selectedRow && indexPath.row == self.selectedRow.intValue){
     return 300.0f;
@@ -154,7 +168,27 @@
     DTPurchaseViewController *dest = [segue destinationViewController];
     dest.theLot = self.pushLot;
     dest.theSpot = self.pushSpot;
+  } else if([[segue identifier] isEqualToString:@"pushToProfile"]){
+    DTProfileViewController *dest = [segue destinationViewController];
+    dest.delegate = self;
   }
 }
  
+- (IBAction)segmentedControlDidSelect:(UISegmentedControl *)sender
+{
+  if([sender selectedSegmentIndex] == 0){
+    //Spots push
+  } else {
+    //Profile push
+    [self performSegueWithIdentifier:@"pushToProfile" sender:self];
+  }
+}
+
+-(void)dismissProfileViewController:(id)profile
+{
+  [self dismissViewControllerAnimated:YES completion:^{
+    
+  }];
+}
+
 @end

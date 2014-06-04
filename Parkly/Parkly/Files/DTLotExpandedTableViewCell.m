@@ -68,7 +68,7 @@
   
 }
 
--(int)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section
+-(long)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section
 {
   return self.theSpots.count;
 }

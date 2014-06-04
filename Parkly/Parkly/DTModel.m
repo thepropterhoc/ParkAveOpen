@@ -10,7 +10,7 @@
 
 @interface DTModel ()
 
-- (NSArray*) parseJSON:(id)json toArrayOfClass:(__unsafe_unretained Class)theClass;
+- (id) parseJSON:(id)json toArrayOfClass:(__unsafe_unretained Class)theClass;
 - (void) setDefaultEmail:(NSString*)email;
 
 @end
@@ -32,8 +32,7 @@
     sharedInstance.lotManager = [[DTLotManager alloc] init];
     sharedInstance.userManager = [[DTUserManager alloc] init];
     sharedInstance.carManager = [[DTCarManager alloc] init];
-    [sharedInstance.locationManager setPausesLocationUpdatesAutomatically:YES];
-    [sharedInstance.locationManager startMonitoringSignificantLocationChanges];
+    [sharedInstance.locationManager startUpdatingLocation];
   });
   return sharedInstance;
 }
@@ -46,14 +45,14 @@
                                };
   [self.networkManager call:@"post" payload:@[@"users", @"session"] parameters:parameters success:^(NSURLSessionDataTask *task, id responseObject) {
     NSLog(@"You done logged out there!");
-    [self.dataManager logoutUser];
+    [self.dataManager setCurrentUser:nil];
   } failure:^(NSURLSessionDataTask *task, NSError *error) {
     NSLog(@"error logging out. %@", error);
   }];
 }
 
 - (BOOL) userIsLoggedIn {
-  return [self.dataManager isUserLoggedIn];
+  return self.dataManager.currentUser != nil;
 }
 - (BOOL) userHasAccount {
   return [self defaultsExist];
@@ -302,7 +301,8 @@
 }
 
 
-- (void) purchaseSpot:(DTParkingSpot*)spot forUser:(DTUser*)user withCar:(DTCar*)car success: (void (^)(NSURLSessionDataTask *task, id responseObject))success failure:(void (^)(NSURLSessionDataTask *task, NSError *error))failure {
+- (void) purchaseSpot:(DTParkingSpot*)spot forUser:(DTUser*)user withCar:(DTCar*)car success: (void (^)(NSURLSessionDataTask *task, id responseObject))success failure:(void (^)(NSURLSessionDataTask *task, NSError *error))failure
+{
   
   NSDictionary* parameters = @{@"user_id": [user _id],
                                @"spot_id": [spot _id]/*,
@@ -317,130 +317,184 @@
     } failure:^(NSURLSessionDataTask *task, NSError *error) {
       failure(task, error);
     }
-     ];
-  }
+   ];
+}
    
 #pragma mark - My Spots
    
-   - (void) reserveSpot:(DTParkingSpot*)spot {
-     [[[self.currentUser reservedSpots] mutableCopy] insertObject:spot atIndex:0];
-   }
-   
-   - (NSArray*) allReservedSpots {
-     [self.networkManager call:@"get" payload:@[@"users", [[self currentUser] _id]] parameters:nil success:^(NSURLSessionDataTask *task, id responseObject) {
-       
-       DTUser* newUser = [self parseJSON:responseObject toArrayOfClass:[DTUser class]][0];
-       self.currentUser.reservedSpots = [newUser reservedSpots];
-       
-     } failure:^(NSURLSessionDataTask *task, NSError *error) {
-       NSLog(@"error! : %@", error);
-     }];
-     return [[self currentUser] reservedSpots];
-   }
-   
+- (void) reserveSpot:(DTParkingSpot*)spot {
+ [[[self.currentUser reservedSpots] mutableCopy] insertObject:spot atIndex:0];
+}
+
+- (NSArray*) allReservedSpots {
+  if([[DTModel sharedInstance] currentUser]){
+   [self.networkManager call:@"get" payload:@[@"users", [[self currentUser] _id]] parameters:nil success:^(NSURLSessionDataTask *task, id responseObject) {
+     
+     id retval = [self parseJSON:responseObject toArrayOfClass:[DTUser class]];
+     
+     DTUser *newUser;
+     if ([retval isKindOfClass:[NSArray class]]){
+       newUser = retval[0];
+     } else {
+       newUser = retval;
+     }
+     
+     self.currentUser.reservedSpots = [newUser reservedSpots];
+     
+   } failure:^(NSURLSessionDataTask *task, NSError *error) {
+     NSLog(@"error! : %@", error);
+   }];
+   return [[self currentUser] reservedSpots];
+  } else {
+    return @[];
+  }
+}
+
 #pragma mark - Directions
    
-   - (void) openDirectionsInMapsToLatitude:(CGFloat)latitude andLongitude:(CGFloat)longitude {
-     
-     // Create a region centered on the starting point with a 10km span
-     CLLocation* currentLocation = [[[CLLocationManager alloc] init] location];
-     MKCoordinateRegion region = MKCoordinateRegionMakeWithDistance(currentLocation.coordinate, 10000, 10000);
-     
-     CLLocation* location = [[CLLocation alloc] initWithLatitude:latitude longitude:longitude];
-     
-     // Open the item in Maps, specifying the map region to display.
-     [MKMapItem openMapsWithItems:[NSArray arrayWithObject:location]
-                    launchOptions:[NSDictionary dictionaryWithObjectsAndKeys:
-                                   [NSValue valueWithMKCoordinate:region.center], MKLaunchOptionsMapCenterKey,
-                                   [NSValue valueWithMKCoordinateSpan:region.span], MKLaunchOptionsMapSpanKey, nil]];
-   }
-   
-   -(CLLocation*)currentUserLocation
-  {
-    return [self.locationManager location];
-  }
+- (void) openDirectionsInMapsToLatitude:(CGFloat)latitude andLongitude:(CGFloat)longitude {
+ // Create a region centered on the starting point with a 10km span
+ CLLocation* currentLocation = [[[CLLocationManager alloc] init] location];
+ MKCoordinateRegion region = MKCoordinateRegionMakeWithDistance(currentLocation.coordinate, 10000, 10000);
+ 
+ CLLocation* location = [[CLLocation alloc] initWithLatitude:latitude longitude:longitude];
+ 
+ // Open the item in Maps, specifying the map region to display.
+ [MKMapItem openMapsWithItems:[NSArray arrayWithObject:location]
+                launchOptions:[NSDictionary dictionaryWithObjectsAndKeys:
+                               [NSValue valueWithMKCoordinate:region.center], MKLaunchOptionsMapCenterKey,
+                               [NSValue valueWithMKCoordinateSpan:region.span], MKLaunchOptionsMapSpanKey, nil]];
+}
 
-  -(void) startUpdatingLocation
-  {
-    [self.locationManager startUpdatingLocation];
-  }
+-(CLLocation*)currentUserLocation
+{
+  return [self.locationManager location];
+}
 
-  -(void) stopUpdatingLocation
-  {
-    [self.locationManager stopUpdatingLocation];
-  }
-   
-   
+-(void) startUpdatingLocation
+{
+  [self.locationManager startUpdatingLocation];
+}
+
+-(void) stopUpdatingLocation
+{
+  [self.locationManager stopUpdatingLocation];
+  [self.locationManager stopMonitoringSignificantLocationChanges];
+  NSLog(@"Stopped updating location");
+}
+
    
 #pragma mark - Pseudo-properties
    
-   - (DTUser*) currentUser {
-     return [self.dataManager currentUser];
-   }
-   
-   - (DTUser*) defaultUser {
-     return [self.dataManager defaultUser];
-   }
-   - (DTCar*) defaultCar {
-     return [self.dataManager defaultCar];
-   }
-   - (void) setDefaultCar:(DTCar *)car {
-     [self.dataManager setDefaultCar:car];
-   }
-   
-   - (NSString*) defaultEmail {
-     return [[NSUserDefaults standardUserDefaults] objectForKey:@"email"];
-   }
-   - (NSString*) defaultPassword {
-     return [[PDKeychainBindings sharedKeychainBindings] objectForKey:@"password"];
-   }
-   - (BOOL) defaultsExist {
-     return ([[NSUserDefaults standardUserDefaults] objectForKey:@"email"] != nil);
-   }
-   
-   - (void) setDefaultEmail:(NSString*)email {
-     [[NSUserDefaults standardUserDefaults] setObject:email forKey:@"email"];
-     [[NSUserDefaults standardUserDefaults] synchronize];
-   }
+ - (DTUser*) currentUser
+{
+  return [self.dataManager currentUser];
+}
+ 
+ - (DTUser*) defaultUser
+{
+ return [self.dataManager defaultUser];
+}
+
+- (DTCar*) defaultCar {
+ return [self.dataManager defaultCar];
+}
+
+- (void) setDefaultCar:(DTCar *)car
+{
+ [self.dataManager setDefaultCar:car];
+}
+ 
+ - (NSString*) defaultEmail
+{
+ return [self.dataManager defaultUser].email;
+}
+
+ - (NSString*) defaultPassword
+{
+ return [self.dataManager defaultUser].password;
+}
+
+ - (BOOL) defaultsExist
+{
+ return [self.dataManager defaultUser] != nil;
+}
+
+- (void) setDefaultUser:(DTUser *)user
+{
+  [self.dataManager setDefaultUser:user];
+}
+
+- (void) setCurrentUser:(DTUser *)user
+{
+  [self.dataManager setCurrentUser:user];
+}
 
 #pragma mark - Helper Methods
 
-- (NSArray*) parseJSON:(id)json toArrayOfClass:(__unsafe_unretained Class)theClass {
+- (id) parseJSON:(id)json toArrayOfClass:(__unsafe_unretained Class)theClass
+{
   
-  NSArray* array = json;
-  
-  if ([array count] == 0) {
-    return nil;
-  }
-  
-  NSMutableArray* newArray = [[NSMutableArray alloc] init];
-  
-  //find the valid keys for this class
-  NSMutableArray* tempKeys = [[array[0] allKeys] mutableCopy];
-  id testObject = [[theClass alloc] init];
-  for (NSString* key in tempKeys) {
-    if (![testObject respondsToSelector:NSSelectorFromString(key)]) {
-      [tempKeys removeObject:key];
-      NSLog(@"key %@ was not used while parsing json.", key);
-    }
-  }
-  NSArray* keys = [tempKeys copy];
-  
-  for (NSDictionary* item in array) {
-    id newItem = [[theClass alloc] init];
+  if([json isKindOfClass:[NSDictionary class]]){
     
-    //assign properties
+    NSMutableArray *tempKeys = [[(NSDictionary *) json allKeys] mutableCopy];
+
+    id testObject = [[theClass alloc] init];
+    for (NSString* key in tempKeys) {
+      if (![testObject respondsToSelector:NSSelectorFromString(key)]) {
+        [tempKeys removeObject:key];
+        NSLog(@"key %@ was not used while parsing json.", key);
+      }
+    }
+    
+    NSArray* keys = [tempKeys copy];
+    
+    id newItem = [[theClass alloc] init];
+      
+      //assign properties
     for (NSString* key in keys) {
-      id value = [item valueForKey:key];
+      id value = [json valueForKey:key];
       [newItem setValue:value forKey:key];
     }
-    //insert the item into the array
-    [newArray insertObject:newItem atIndex:[newArray count]];
+    
+    return newItem;
+  } else {
+    NSArray* array = json;
+    
+    if ([array count] == 0) {
+      return nil;
+    }
+    
+    NSMutableArray* newArray = [[NSMutableArray alloc] init];
+    
+    //find the valid keys for this class
+    NSMutableArray* tempKeys = [[array[0] allKeys] mutableCopy];
+    id testObject = [[theClass alloc] init];
+    for (NSString* key in tempKeys) {
+      if (![testObject respondsToSelector:NSSelectorFromString(key)]) {
+        [tempKeys removeObject:key];
+        NSLog(@"key %@ was not used while parsing json.", key);
+      }
+    }
+    NSArray* keys = [tempKeys copy];
+    
+    for (NSDictionary* item in array) {
+      id newItem = [[theClass alloc] init];
+      
+      //assign properties
+      for (NSString* key in keys) {
+        id value = [item valueForKey:key];
+        [newItem setValue:value forKey:key];
+      }
+      //insert the item into the array
+      [newArray insertObject:newItem atIndex:[newArray count]];
+    }
+    return [newArray copy];
   }
-  return [newArray copy];
 }
 
-- (NSString*) formattedDateFromString:(NSString*)date {
+- (NSString*) formattedDateFromString:(NSString*)date
+{
   NSDateFormatter *formatter = [[NSDateFormatter alloc] init];
   [formatter setDateFormat:@"yyyy'-'MM'-'dd"];
   

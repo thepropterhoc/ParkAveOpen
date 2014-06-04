@@ -28,9 +28,13 @@
       lot.distance = [NSNumber numberWithFloat:[[DTModel sharedInstance].locationManager.location distanceFromLocation:lotLocation]];
     }
     [[DTCache sharedInstance] addLots:resultArray];
-    success(task, resultArray);
+    if(success){
+      success(task, resultArray);
+    }
   } failure:^(NSURLSessionDataTask *task, NSError *error) {
-    failure(task, error);
+    if(failure){
+      failure(task, error);
+    }
   }];
 }
 
@@ -61,7 +65,9 @@
   UIImage *theImage = [UIImage imageWithData:[NSData dataWithContentsOfURL:[NSURL URLWithString:[NSString stringWithFormat:@"http://maps.googleapis.com/maps/api/streetview?size=320x220&location=%.3f,%.3f&fov=90&heading=235&pitch=10&sensor=false", lot.lat.floatValue, lot.lon.floatValue]]]];
   if(theImage){
     [[DTCache sharedInstance] addImage:theImage forLot:lot];
-    success(nil, theImage);
+    if(success){
+      success(nil, theImage);
+    }
   } else {
     failure(nil, [[NSError alloc] initWithDomain:@"Network failure" code:404 userInfo:nil]);
   }
@@ -118,7 +124,9 @@
       //add currentSpots to the cache
       [[DTCache sharedInstance] addSpots:currentSpots forLot:lot];
     }
-    success(task, responseObject);
+    if(success){
+      success(task, responseObject);
+    }
   } failure:^(NSURLSessionDataTask *task, NSError *error) {
     failure(task, error);
   }];

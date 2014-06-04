@@ -170,19 +170,18 @@
 - (DTUser*) defaultUser;
 - (DTCar*) defaultCar;
 - (void) setDefaultCar:(DTCar*)car;
+- (void) setCurrentUser:(DTUser*)user;
 
 - (NSArray*) currentUserCars;
 - (void) addCurrentUserCar:(DTCar*)car;
 
-- (NSString*) defaultEmail;
-- (NSString*) defaultPassword;
 - (BOOL) defaultsExist;
 
-- (void) setDefaultEmail:(NSString*)email;
+- (void) setDefaultUser:(DTUser*)user;
 
 #pragma mark - Helper Methods
 
-- (NSArray*) parseJSON:(id)json toArrayOfClass:(__unsafe_unretained Class)theClass;
+- (id) parseJSON:(id)json toArrayOfClass:(__unsafe_unretained Class)theClass;
 - (NSString*) formattedDateFromString:(NSString*)date;
 
 #pragma mark - Data Management Methods

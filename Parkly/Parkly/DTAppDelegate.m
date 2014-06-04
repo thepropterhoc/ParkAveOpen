@@ -13,9 +13,11 @@
 
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions
 {
+  [[DTModel sharedInstance] startUpdatingLocation];
+  
   if([[DTModel sharedInstance] defaultsExist]){
-    [[DTModel sharedInstance] authenticateUserWithEmail:[[DTModel sharedInstance] defaultEmail] andPassword:[[DTModel sharedInstance] defaultPassword] success:^(NSURLSessionDataTask *task, DTUser *aUser) {
-
+    [[DTModel sharedInstance] authenticateUser:[[DTModel sharedInstance] defaultUser] success:^(NSURLSessionDataTask *task, DTUser *aUser) {
+      NSLog(@"Logged user in");
       /*
       [[DTModel sharedInstance] addCreditCard:^(NSURLSessionDataTask *task, id responseObject) {
         ;
@@ -24,20 +26,17 @@
       }];
        */
       
-      [[DTModel sharedInstance] getUsernameForUser:[[DTModel sharedInstance] currentUser] success:^(NSURLSessionDataTask *task, NSString *name) {
-        
-      } failure:^(NSURLSessionDataTask *task, NSError *error) {
+      [[DTModel sharedInstance] getUsernameForUser:[[DTModel sharedInstance] currentUser] success:nil failure:^(NSURLSessionDataTask *task, NSError *error) {
         NSLog(@"error:%@",error);
       }];
       
 
-      [[DTModel sharedInstance] getLotsandSpotsForCurrentLocationWithDistance:150000.0f success:^(NSURLSessionDataTask *task, id responseObject) {
-          
-        } failure:^(NSURLSessionDataTask *task, NSError *error) {
-          
-        }];
+      //[[DTModel sharedInstance] getLotsandSpotsForCurrentLocationWithDistance:150000.0f success:nil failure:nil];
+      
+      [[DTModel sharedInstance] getAllLots:nil failure:nil];
         
-    } failure:^(NSURLSessionDataTask *task, NSError *error) {
+    } failure:^(NSURLSessionDataTask *task, NSError *error){
+      NSLog(@"Failed to log user in with email : %@ and password : %@", [[DTModel sharedInstance] defaultUser].email, [[DTModel sharedInstance] defaultUser].password);
     }];
   }
     
@@ -49,6 +48,7 @@
 {
   // Sent when the application is about to move from active to inactive state. This can occur for certain types of temporary interruptions (such as an incoming phone call or SMS message) or when the user quits the application and it begins the transition to the background state.
   // Use this method to pause ongoing tasks, disable timers, and throttle down OpenGL ES frame rates. Games should use this method to pause the game.
+  [[DTModel sharedInstance] stopUpdatingLocation];
 }
 
 - (void)applicationDidEnterBackground:(UIApplication *)application
@@ -58,7 +58,6 @@
   [[DTModel sharedInstance] scrubTheCache];
   if([[DTModel sharedInstance] userIsLoggedIn]){
     [[DTModel sharedInstance] logoutUser];
-    
   }
   [[DTModel sharedInstance] stopUpdatingLocation];
 }
@@ -66,19 +65,13 @@
 - (void)applicationWillEnterForeground:(UIApplication *)application
 {
   if([[DTModel sharedInstance] defaultsExist]){
-    [[DTModel sharedInstance] authenticateUserWithEmail:[[DTModel sharedInstance] defaultEmail] andPassword:[[DTModel sharedInstance] defaultPassword] success:^(NSURLSessionDataTask *task, DTUser *aUser) {
-      
-    } failure:^(NSURLSessionDataTask *task, NSError *error) {
-      
-    }];
+    [[DTModel sharedInstance] authenticateUser:[[DTModel sharedInstance] defaultUser] success:nil failure:nil];
   }
   
   [[DTModel sharedInstance] startUpdatingLocation];
-  [[DTModel sharedInstance] getLotsandSpotsForCurrentLocationWithDistance:150000.0 success:^(NSURLSessionDataTask *task, id responseObject) {
-    
-  } failure:^(NSURLSessionDataTask *task, NSError *error) {
-    
-  }];
+  //[[DTModel sharedInstance] getLotsandSpotsForCurrentLocationWithDistance:150000.0 success:nil failure:nil];
+  [[DTModel sharedInstance] getAllLots:nil failure:nil];
+  //[[DTModel sharedInstance].dataManager setCurrentUser:nil];
 }
 
 - (void)applicationDidBecomeActive:(UIApplication *)application
@@ -86,11 +79,7 @@
   // Restart any tasks that were paused (or not yet started) while the application was inactive. If the application was previously in the background, optionally refresh the user interface.
   [[DTModel sharedInstance] startUpdatingLocation];
   if([[DTModel sharedInstance] defaultsExist] && [[DTModel sharedInstance] userHasAccount] && ![[DTModel sharedInstance] userIsLoggedIn]){
-    [[DTModel sharedInstance] authenticateUserWithEmail:[[DTModel sharedInstance] defaultEmail] andPassword:[[DTModel sharedInstance] defaultPassword] success:^(NSURLSessionDataTask *task, DTUser *aUser) {
-      
-    } failure:^(NSURLSessionDataTask *task, NSError *error) {
-      
-    }];
+    [[DTModel sharedInstance] authenticateUser:[[DTModel sharedInstance] defaultUser] success:nil failure:nil];
   }
 }
 
@@ -100,7 +89,6 @@
   [[DTModel sharedInstance] scrubTheCache];
   if([[DTModel sharedInstance] userIsLoggedIn]){
     [[DTModel sharedInstance] logoutUser];
-    
   }
   [[DTModel sharedInstance] stopUpdatingLocation];
 }

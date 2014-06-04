@@ -1,27 +1,21 @@
 //
 //  DTProfileViewController.m
-//  Parkly
+//  Park Ave
 //
-//  Created by Shelby Vanhooser on 3/3/14.
+//  Created by Shelby Vanhooser on 6/1/14.
 //  Copyright (c) 2014 DevTeam14. All rights reserved.
 //
 
-#import "DTProfileViewController.h"
-#import "DTMyCarViewController.h"
 #import "DTModel.h"
+#import "DTProfileViewController.h"
 
 @interface DTProfileViewController ()
-
 @property (strong, nonatomic) IBOutlet UITextField *firstNameField;
-@property (strong, nonatomic) IBOutlet UITextField *usernameField;
-@property (strong, nonatomic) IBOutlet UITextField *dateOfBirthField;
-@property (strong, nonatomic) IBOutlet UITextField *phoneField;
 @property (strong, nonatomic) IBOutlet UITextField *lastNameField;
-
-@property (strong, nonatomic) IBOutletCollection(UITextField) NSArray *allFields;
-
-
-@property CGRect startFrame;
+@property (strong, nonatomic) IBOutlet UITextField *phoneField;
+@property (strong, nonatomic) IBOutlet UITextField *emailField;
+@property (strong, nonatomic) IBOutlet UITextField *passwordField;
+@property (strong, nonatomic) IBOutlet UIScrollView *scrollView;
 
 @end
 
@@ -29,21 +23,20 @@
 
 - (id)initWithNibName:(NSString *)nibNameOrNil bundle:(NSBundle *)nibBundleOrNil
 {
-  self = [super initWithNibName:nibNameOrNil bundle:nibBundleOrNil];
-  if (self) {
-      // Custom initialization
-  }
-  return self;
+    self = [super initWithNibName:nibNameOrNil bundle:nibBundleOrNil];
+    if (self) {
+        // Custom initialization
+    }
+    return self;
 }
 
 - (void)viewDidLoad
 {
   [super viewDidLoad];
-  self.startFrame = self.view.frame;
-  if(self.theUser){
-    [self fillWithUpdatedUserInfo];
+  if([[DTModel sharedInstance] currentUser]){
+    [self fillFields:[[DTModel sharedInstance] currentUser]];
   }
-	// Do any additional setup after loading the view.
+    // Do any additional setup after loading the view.
 }
 
 - (void)didReceiveMemoryWarning
@@ -52,80 +45,83 @@
     // Dispose of any resources that can be recreated.
 }
 
--(void)fillWithUpdatedUserInfo
+-(void) textFieldDidBeginEditing:(UITextField *)textField
 {
-  self.firstNameField.text = self.theUser.firstName;
-  self.lastNameField.text = self.theUser.lastName;
-  self.usernameField.text = self.theUser.email;
-  self.dateOfBirthField.text = self.theUser.birthdate;
-  self.phoneField.text = self.theUser.phone;
+  [self.scrollView setContentOffset:CGPointMake(0, textField.frame.origin.y - 40) animated:YES];
 }
 
--(DTUser*)updatedUserInfo
+- (IBAction)tap:(id)sender
 {
-  DTUser *newUser = self.theUser;
+  [self.firstNameField resignFirstResponder];
+  [self.lastNameField resignFirstResponder];
+  [self.phoneField resignFirstResponder];
+  [self.emailField resignFirstResponder];
+  [self.passwordField resignFirstResponder];
+  [self.scrollView setContentOffset:CGPointMake(0, 0) animated:YES];
+}
+
+-(void)fillFields:(DTUser*)user
+{
+  [self.firstNameField setText:user.firstName];
+  [self.lastNameField setText:user.lastName];
+  [self.phoneField setText:user.phone];
+  [self.emailField setText:user.email];
+  [self.passwordField setText:user.password];
+}
+
+-(DTUser*)userFromFields
+{
+  DTUser *newUser = [[DTModel sharedInstance] currentUser];
+  if(!newUser){
+    newUser = [[DTUser alloc] init];
+  }
   newUser.firstName = self.firstNameField.text;
   newUser.lastName = self.lastNameField.text;
-  newUser.email = self.usernameField.text;
-  newUser.birthdate = self.dateOfBirthField.text;
   newUser.phone = self.phoneField.text;
+  newUser.email = self.emailField.text;
+  newUser.password = self.passwordField.text;
+  newUser.reservedSpots = @[];
+  newUser.spotHistory = @[];
+  newUser.averageRating = @0;
+  newUser.creditCard = @"";
+  /*
+  @"firstName": self.firstName,
+  @"lastName": self.lastName,
+  @"email": self.email,
+  @"password": self.password,
+  //@"birthdate": self.birthdate,
+  //@"phone": self.phone,
+  @"reservedSpots": self.reservedSpots,
+  @"spotHistory": self.spotHistory,
+  @"averageRating": self.averageRating,
+  @"creditCard": self.creditCard
+   */
   return newUser;
 }
 
 - (IBAction)done:(id)sender
 {
-  [self.delegate dismissProfileViewControllerSuccess];
-  [[DTModel sharedInstance] updateUser:[self updatedUserInfo] success:^(NSURLSessionDataTask *task, id responseObject) {
-    NSLog(@"Successfully updated user's info");
-  } failure:^(NSURLSessionDataTask *task, NSError *error) {
-    [[[UIAlertView alloc] initWithTitle:@"ERROR" message:@"Unable to update user info.  Check the network connection?" delegate:Nil cancelButtonTitle:@"Dismiss" otherButtonTitles: nil] show];
-  }];
-  if([[DTModel sharedInstance] userIsLoggedIn]){
-    NSLog(@"User has updated info and successfully logged in");
+  [self.delegate dismissProfileViewController:self];
+}
+
+- (IBAction)save:(id)sender
+{
+  /*
+  if(![[DTModel sharedInstance] currentUser]){
+    [[DTModel sharedInstance] createUser:[self userFromFields] success:^(NSURLSessionDataTask *task, DTUser *newUser) {
+      [[[UIAlertView alloc] initWithTitle:@"Aww yiss" message:@"Successfully created new user" delegate:nil cancelButtonTitle:@"Bueno" otherButtonTitles: nil] show];
+    } failure:^(NSURLSessionDataTask *task, NSError *error) {
+      [[[UIAlertView alloc] initWithTitle:@"Houston, we have a problem" message:@"Something went terribly wrong" delegate:nil cancelButtonTitle:@"Panic" otherButtonTitles: nil] show];
+    }];
+  } else {
+    [[DTModel sharedInstance] updateUser:[self userFromFields] success:^(NSURLSessionDataTask *task, id responseObject) {
+      [[[UIAlertView alloc] initWithTitle:@"Aww yiss" message:@"Successfully updated info" delegate:nil cancelButtonTitle:@"Bueno" otherButtonTitles: nil] show];
+    } failure:^(NSURLSessionDataTask *task, NSError *error) {
+      [[[UIAlertView alloc] initWithTitle:@"Houston, we have a problem" message:@"Something went terribly wrong" delegate:nil cancelButtonTitle:@"Panic" otherButtonTitles: nil] show];
+    }];
   }
+   */
 }
 
-- (IBAction)cancel:(id)sender
-{
-  [self.delegate dismissProfileViewControllerCanceled];
-}
-
-- (IBAction)tap:(id)sender {
-  [self.firstNameField resignFirstResponder];
-  [self.lastNameField resignFirstResponder];
-  [self.usernameField resignFirstResponder];
-  [self.dateOfBirthField resignFirstResponder];
-  [self.phoneField resignFirstResponder];
-}
-
--(void)textFieldDidBeginEditing:(UITextField *)textField
-{
-  [self.view setFrame:CGRectMake(0,  -1 * textField.frame.origin.y + 150, self.view.frame.size.width, self.view.frame.size.height)];
-}
-
--(void)textFieldDidEndEditing:(UITextField *)textField
-{
-  [self.view setFrame:self.startFrame];
-}
-
-- (IBAction)pushToCars:(id)sender
-{
-  [self performSegueWithIdentifier:@"goToCars" sender:self];
-}
-
--(void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender
-{
-  if([[segue identifier] isEqualToString:@"goToCars"]){
-    DTMyCarViewController *myCarViewController = [segue destinationViewController];
-    myCarViewController.delegate = self;
-  } else if([[segue identifier] isEqualToString:@"pushToSignup"]){
-    [[segue destinationViewController] setDelegate:self.delegate];
-  }
-}
-
--(void)dismissMyCarViewController
-{
-  [self dismissViewControllerAnimated:YES completion:nil];
-}
 
 @end

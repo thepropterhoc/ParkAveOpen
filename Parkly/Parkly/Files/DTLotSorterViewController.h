@@ -7,14 +7,14 @@
 //
 
 #import "DTSpotTableViewCell.h"
-
+#import "DTProfileViewController.h"
 #import <MapKit/MapKit.h>
 #import <UIKit/UIKit.h>
 
-@interface DTLotSorterViewController : UIViewController <UITableViewDataSource, UITableViewDelegate, DTSpotTableViewCellDelegate>
+@interface DTLotSorterViewController : UIViewController <UITableViewDataSource, UITableViewDelegate, DTSpotTableViewCellDelegate, DTProfileViewControllerDelegate>
 
 @property (strong, nonatomic) IBOutlet UITableView *tableView;
-@property (strong, nonatomic) IBOutlet UIButton *mapButton;
-@property (strong, nonatomic) IBOutlet MKMapView *theMap;
+- (IBAction)segmentedControlDidSelect:(UISegmentedControl *)sender;
+@property (strong, nonatomic) IBOutlet UISegmentedControl *segmentedControl;
 
 @end

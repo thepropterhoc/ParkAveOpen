@@ -20,15 +20,10 @@
 @property(strong, nonatomic) DTUser* currentUser;
 @property(strong, nonatomic) NSArray* currentUserCars;
 
-- (void) loginUser:(DTUser*)user;
-
-- (void) logoutUser;
-
-- (BOOL) isUserLoggedIn;
-
 - (DTUser*) defaultUser;
-
 - (DTCar*) defaultCar;
+
 - (void) setDefaultCar:(DTCar*)car;
+- (void) setDefaultUser:(DTUser*)user;
 
 @end
