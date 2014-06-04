@@ -43,7 +43,6 @@
   } else {
     [self loginConfig];
   }
-    // Do any additional setup after loading the view.
 }
 
 - (void)didReceiveMemoryWarning
@@ -71,9 +70,6 @@
   [self.firstNameField setText:user.firstName];
   [self.lastNameField setText:user.lastName];
   [self.emailField setText:user.email];
-  //[self.passwordField setText:user.password];
-  
-  NSLog(@"Filled out with password : %@", user.password);
 }
 
 -(DTUser*)userFromFields
@@ -176,8 +172,6 @@
     [[DTModel sharedInstance] updateUser:[self userFromFields] success:^(NSURLSessionDataTask *task, id responseObject) {
       [[[UIAlertView alloc] initWithTitle:@"Aww yiss" message:@"Successfully updated info" delegate:nil cancelButtonTitle:@"Bueno" otherButtonTitles: nil] show];
       [self.delegate dismissProfileViewController:self];
-      //[[DTModel sharedInstance] setCurrentUser:responseObject];
-      //[[DTModel sharedInstance] setDefaultUser:responseObject];
     } failure:^(NSURLSessionDataTask *task, NSError *error) {
       [[[UIAlertView alloc] initWithTitle:@"Houston, we have a problem" message:@"Something went terribly wrong" delegate:nil cancelButtonTitle:@"Panic" otherButtonTitles: nil] show];
     }];
@@ -188,8 +182,6 @@
       return;
     }
     [[DTModel sharedInstance] authenticateUser:[self loginUserFromFields] success:^(NSURLSessionDataTask *task, DTUser *aUser) {
-      //[[DTModel sharedInstance] setCurrentUser:aUser];
-      //[[DTModel sharedInstance] setDefaultUser:aUser];
       [[[UIAlertView alloc] initWithTitle:@"Aww yiss" message:@"Ya done logged in" delegate:nil cancelButtonTitle:@"Cheers" otherButtonTitles: nil] show];
       [self.delegate dismissProfileViewController:self];
     } failure:^(NSURLSessionDataTask *task, NSError *error) {

@@ -7,8 +7,12 @@
 //
 
 #import "DTMySpotsViewController.h"
+#import "DTMySpotTableViewCell.h"
 
 @interface DTMySpotsViewController ()
+
+@property (strong, nonatomic) IBOutlet UITableView *theTable;
+@property (strong, nonatomic) NSArray *mySpots;
 
 @end
 
@@ -35,15 +39,24 @@
     // Dispose of any resources that can be recreated.
 }
 
-/*
-#pragma mark - Navigation
-
-// In a storyboard-based application, you will often want to do a little preparation before navigation
-- (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender
+-(NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section
 {
-    // Get the new view controller using [segue destinationViewController].
-    // Pass the selected object to the new view controller.
+  return self.mySpots.count;
 }
-*/
+
+-(UITableViewCell*)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath
+{
+  DTMySpotTableViewCell *cell = (DTMySpotTableViewCell*) [tableView dequeueReusableCellWithIdentifier:@"cell" forIndexPath:indexPath];
+  if(!cell){
+    cell = [[DTMySpotTableViewCell alloc] init];
+  }
+  [cell initWithSpot:self.mySpots[indexPath.row]];
+  return cell;
+}
+
+- (IBAction)dismiss:(id)sender
+{
+  [self.delegate dismissMySpotsViewController];
+}
 
 @end

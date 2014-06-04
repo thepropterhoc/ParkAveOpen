@@ -103,6 +103,7 @@
     [tableView beginUpdates];
     [tableView reloadRowsAtIndexPaths:@[indexPath] withRowAnimation:UITableViewRowAnimationAutomatic];
     [tableView endUpdates];
+    [tableView scrollToRowAtIndexPath:indexPath atScrollPosition:UITableViewScrollPositionMiddle animated:YES];
     return nil;
   } else {
     if(self.selectedRow){
@@ -115,19 +116,10 @@
     [tableView beginUpdates];
     [tableView reloadRowsAtIndexPaths:@[indexPath] withRowAnimation:UITableViewRowAnimationAutomatic];
     [tableView endUpdates];
+    [tableView scrollToRowAtIndexPath:indexPath atScrollPosition:UITableViewScrollPositionTop animated:YES];
     return nil;
   }
 }
-
-/*
--(float)tableView:(UITableView*)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath
-{
-  if(self.selectedRow && indexPath.row == self.selectedRow.intValue){
-    return 300.0f;
-  } else {
-    return 100.0f;
-  }
-} */
 
 -(CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath
 {
@@ -178,6 +170,8 @@
   } else if([[segue identifier] isEqualToString:@"pushToProfile"]){
     DTProfileViewController *dest = [segue destinationViewController];
     dest.delegate = self;
+  } else if([[segue identifier] isEqualToString:@"pushToMySpots"]){
+    [[segue destinationViewController] setDelegate:self];
   }
 }
  
@@ -185,6 +179,7 @@
 {
   if([sender selectedSegmentIndex] == 0){
     //Spots push
+    [self performSegueWithIdentifier:@"pushToMySpots" sender:self];
   } else {
     //Profile push
     [self performSegueWithIdentifier:@"pushToProfile" sender:self];
@@ -193,9 +188,12 @@
 
 -(void)dismissProfileViewController:(id)profile
 {
-  [self dismissViewControllerAnimated:YES completion:^{
-    
-  }];
+  [self dismissViewControllerAnimated:YES completion:nil];
+}
+
+-(void)dismissMySpotsViewController
+{
+  [self dismissViewControllerAnimated:YES completion:nil];
 }
 
 @end

@@ -52,6 +52,7 @@
 		9D8A64EE192C10F60003448C /* DTNavigationBar.m in Sources */ = {isa = PBXBuildFile; fileRef = 9D4E0123192BFCE000F50955 /* DTNavigationBar.m */; };
 		9D8A64F6192C5AB20003448C /* DTLotExpandedTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 9D8A64F5192C5AB20003448C /* DTLotExpandedTableViewCell.m */; };
 		9D8A64FA193263B70003448C /* DTSpotTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 9D8A64F9193263B70003448C /* DTSpotTableViewCell.m */; };
+		9DBAF08C193FB90500575268 /* DTMySpotTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 9DBAF08B193FB90500575268 /* DTMySpotTableViewCell.m */; };
 		9DE968F519397D4F009470B1 /* DTSpotManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 9DE968F419397D4F009470B1 /* DTSpotManager.m */; };
 		9DE968F819399F31009470B1 /* DTLotManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 9DE968F719399F31009470B1 /* DTLotManager.m */; };
 		9DE968FB1939A267009470B1 /* DTUserManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 9DE968FA1939A267009470B1 /* DTUserManager.m */; };
@@ -122,6 +123,8 @@
 		9D8A64F5192C5AB20003448C /* DTLotExpandedTableViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = DTLotExpandedTableViewCell.m; path = Files/DTLotExpandedTableViewCell.m; sourceTree = "<group>"; };
 		9D8A64F8193263B70003448C /* DTSpotTableViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = DTSpotTableViewCell.h; path = Files/DTSpotTableViewCell.h; sourceTree = "<group>"; };
 		9D8A64F9193263B70003448C /* DTSpotTableViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = DTSpotTableViewCell.m; path = Files/DTSpotTableViewCell.m; sourceTree = "<group>"; };
+		9DBAF08A193FB90500575268 /* DTMySpotTableViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = DTMySpotTableViewCell.h; path = Files/DTMySpotTableViewCell.h; sourceTree = "<group>"; };
+		9DBAF08B193FB90500575268 /* DTMySpotTableViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = DTMySpotTableViewCell.m; path = Files/DTMySpotTableViewCell.m; sourceTree = "<group>"; };
 		9DE968F319397D4F009470B1 /* DTSpotManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = DTSpotManager.h; path = Files/DTSpotManager.h; sourceTree = "<group>"; };
 		9DE968F419397D4F009470B1 /* DTSpotManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = DTSpotManager.m; path = Files/DTSpotManager.m; sourceTree = "<group>"; };
 		9DE968F619399F31009470B1 /* DTLotManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = DTLotManager.h; path = Files/DTLotManager.h; sourceTree = "<group>"; };
@@ -219,7 +222,7 @@
 			name = DTSecurity;
 			sourceTree = "<group>";
 		};
-		59EA93A718CD018F00638048 /* Data Model */ = {
+		59EA93A718CD018F00638048 /* DTDataModel */ = {
 			isa = PBXGroup;
 			children = (
 				9DF5B46218C55B2000E1D1D7 /* DTModel.h */,
@@ -241,7 +244,7 @@
 				9DF5B46418C55B2000E1D1D7 /* DTNetworkManager.h */,
 				9DF5B46518C55B2000E1D1D7 /* DTNetworkManager.m */,
 			);
-			name = "Data Model";
+			name = DTDataModel;
 			sourceTree = "<group>";
 		};
 		9D00E0401935179F00EABE29 /* DTPurchase */ = {
@@ -282,13 +285,6 @@
 			name = DTUIElements;
 			sourceTree = "<group>";
 		};
-		9D3411F718CCF9EA00B1508B /* DTResources */ = {
-			isa = PBXGroup;
-			children = (
-			);
-			name = DTResources;
-			sourceTree = "<group>";
-		};
 		9D3F1EBC193B9FC7002FC3B6 /* DTProfile */ = {
 			isa = PBXGroup;
 			children = (
@@ -303,6 +299,7 @@
 			children = (
 				9D3F1EC1193E72DC002FC3B6 /* DTMySpotsViewController.h */,
 				9D3F1EC2193E72DC002FC3B6 /* DTMySpotsViewController.m */,
+				9DBAF089193FB8EC00575268 /* DTMySpotTableViewCell */,
 			);
 			name = DTMySpots;
 			sourceTree = "<group>";
@@ -365,6 +362,15 @@
 			name = DTSpotTableViewCell;
 			sourceTree = "<group>";
 		};
+		9DBAF089193FB8EC00575268 /* DTMySpotTableViewCell */ = {
+			isa = PBXGroup;
+			children = (
+				9DBAF08A193FB90500575268 /* DTMySpotTableViewCell.h */,
+				9DBAF08B193FB90500575268 /* DTMySpotTableViewCell.m */,
+			);
+			name = DTMySpotTableViewCell;
+			sourceTree = "<group>";
+		};
 		9DE9D51518B462B50035519D = {
 			isa = PBXGroup;
 			children = (
@@ -401,11 +407,10 @@
 		9DE9D52718B462B50035519D /* Park Ave */ = {
 			isa = PBXGroup;
 			children = (
-				9D3411F718CCF9EA00B1508B /* DTResources */,
 				9DE9D53018B462B50035519D /* DTAppDelegate.h */,
 				9DE9D53118B462B50035519D /* DTAppDelegate.m */,
 				9D4E011A192BD70600F50955 /* Main.storyboard */,
-				59EA93A718CD018F00638048 /* Data Model */,
+				59EA93A718CD018F00638048 /* DTDataModel */,
 				594A7C4B18C57F04008C077C /* DTSecurity */,
 				9DF5B44A18C55B1100E1D1D7 /* DTNetworking */,
 				9D15D3D518B7F77800FA635E /* DTDataTypes */,
@@ -608,6 +613,7 @@
 				9D7E8A7F18CCD9AC00F4D9C0 /* AFURLRequestSerialization.m in Sources */,
 				9D7E8A8018CCD9AC00F4D9C0 /* AFURLResponseSerialization.m in Sources */,
 				9D3F1EC3193E72DC002FC3B6 /* DTMySpotsViewController.m in Sources */,
+				9DBAF08C193FB90500575268 /* DTMySpotTableViewCell.m in Sources */,
 				9D7E8A8118CCD9AC00F4D9C0 /* AFURLSessionManager.m in Sources */,
 				9D7E8A8218CCD9AC00F4D9C0 /* DTDataManager.m in Sources */,
 				9D7E8A8318CCD9AC00F4D9C0 /* DTNetworkManager.m in Sources */,

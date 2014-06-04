@@ -17,9 +17,7 @@
   if([[DTCache sharedInstance] hasLots]){
     success(nil, [[DTCache sharedInstance] allLots]);
     return;
-  } else {
-    NSLog(@"Cache miss for all lots");
-  }
+  } 
   
   [[DTModel sharedInstance].networkManager call:@"get" payload:@[@"lots"] parameters:nil success:^(NSURLSessionDataTask *task, id responseObject) {
     NSArray *resultArray = [[DTModel sharedInstance] parseJSON:responseObject toArrayOfClass:[DTParkingLot class]];
@@ -65,9 +63,7 @@
   if([[DTCache sharedInstance] hasImageForLot:lot]){
     success(nil, [[DTCache sharedInstance] imageForLot:lot]);
     return;
-  } else {
-    NSLog(@"Cache miss for image");
-  }
+  } 
   UIImage *theImage = [UIImage imageWithData:[NSData dataWithContentsOfURL:[NSURL URLWithString:[NSString stringWithFormat:@"http://maps.googleapis.com/maps/api/streetview?size=320x220&location=%.3f,%.3f&fov=90&heading=235&pitch=10&sensor=false", lot.lat.floatValue, lot.lon.floatValue]]]];
   if(theImage){
     [[DTCache sharedInstance] addImage:theImage forLot:lot];

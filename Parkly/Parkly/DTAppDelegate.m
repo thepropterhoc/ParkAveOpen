@@ -16,7 +16,7 @@
   [[DTModel sharedInstance] startUpdatingLocation];
   if([[DTModel sharedInstance] defaultsExist]){
     [[DTModel sharedInstance] authenticateUser:[[DTModel sharedInstance] defaultUser] success:^(NSURLSessionDataTask *task, DTUser *aUser) {
-      NSLog(@"Logged user in");
+      
       /*
       [[DTModel sharedInstance] addCreditCard:^(NSURLSessionDataTask *task, id responseObject) {
         ;

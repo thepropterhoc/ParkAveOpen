@@ -511,10 +511,7 @@
 
 - (NSDate*) dateFromString:(NSString *)string
 {
-  NSDate *output = [self.dateFormatter dateFromString:string];
-  
-  NSLog(@"String input : '%@' resulted in date : %@", string, output);
-  return output;
+  return [self.dateFormatter dateFromString:string];
 }
 
 - (NSString*) shortStringFromDate:(NSDate *)date

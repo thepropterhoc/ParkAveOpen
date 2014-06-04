@@ -34,7 +34,6 @@
       [newCurrentUser setValuesForKeysWithDictionary:responseObject];
       [[DTModel sharedInstance] setDefaultUser:newCurrentUser];
       [[DTModel sharedInstance] setCurrentUser:newCurrentUser];
-      NSLog(@"default email: %@. You're logged in.", [[DTModel sharedInstance] defaultUser].email);
     }
     if(success){
       success(task, responseObject);

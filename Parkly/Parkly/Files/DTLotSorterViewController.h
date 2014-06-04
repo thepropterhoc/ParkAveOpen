@@ -8,10 +8,11 @@
 
 #import "DTSpotTableViewCell.h"
 #import "DTProfileViewController.h"
+#import "DTMySpotsViewController.h"
 #import <MapKit/MapKit.h>
 #import <UIKit/UIKit.h>
 
-@interface DTLotSorterViewController : UIViewController <UITableViewDataSource, UITableViewDelegate, DTSpotTableViewCellDelegate, DTProfileViewControllerDelegate>
+@interface DTLotSorterViewController : UIViewController <UITableViewDataSource, UITableViewDelegate, DTSpotTableViewCellDelegate, DTProfileViewControllerDelegate, DTMySpotsViewControllerDelegate>
 
 @property (strong, nonatomic) IBOutlet UITableView *tableView;
 - (IBAction)segmentedControlDidSelect:(UISegmentedControl *)sender;

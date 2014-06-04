@@ -13,26 +13,10 @@
 @implementation DTSpotManager
 
 - (void) getSpotsForLot:(DTParkingLot*)lot success: (void (^)(NSURLSessionDataTask *task, NSArray* spots))success failure:(void (^)(NSURLSessionDataTask *task, NSError *error))failure {
-  //0. check if we already have the spots in memory
-  //1. create parameters dictionary
-  //2. call network manager
-  //3.1   if success, parse spots into DTParkingSpot array
-  //      update data manager
-  //3.2   if failure, return error
-  
-  //0
-  
-  //1
-  //NSDictionary* parameters = [NSDictionary dictionaryWithObject:lotID forKey:@"_id"];
-  
-  //2
-  
   if([[DTCache sharedInstance] hasSpotsForLot:lot]){
     success(nil, [[DTCache sharedInstance] spotsForLot:lot]);
     return;
-  } else {
-    NSLog(@"Cache miss for spot");
-  }
+  } 
   
   [[DTModel sharedInstance].networkManager call:@"get" payload:@[@"users", [lot user_id], @"lots", [lot _id], @"spots"] parameters:nil success:^(NSURLSessionDataTask *task, id responseObject) {
     NSArray* spotArray = [[DTModel sharedInstance] parseJSON:responseObject toArrayOfClass:[DTParkingSpot class]];

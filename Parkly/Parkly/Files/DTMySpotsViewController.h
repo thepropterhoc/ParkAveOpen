@@ -8,6 +8,14 @@
 
 #import <UIKit/UIKit.h>
 
-@interface DTMySpotsViewController : UIViewController
+@protocol DTMySpotsViewControllerDelegate <NSObject>
+
+-(void)dismissMySpotsViewController;
+
+@end
+
+@interface DTMySpotsViewController : UIViewController <UITableViewDataSource, UITableViewDelegate>
+
+@property (weak, nonatomic) id<DTMySpotsViewControllerDelegate> delegate;
 
 @end
