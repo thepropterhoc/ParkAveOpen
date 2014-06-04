@@ -33,8 +33,8 @@
 
 -(void)initWithSpot:(DTParkingSpot *)spot
 {
-  self.startDateLabel.text = spot.startDate;
-  self.endDateLabel.text = spot.endDate;
+  self.startDateLabel.text = spot.shortStartDate;
+  self.endDateLabel.text = spot.shortEndDate;
   self.priceLabel.text = [NSString stringWithFormat:@"$%.2f", spot.price.floatValue];
   self.surfaceLabel.text = spot.surface;
   self.remainingLabel.text = [NSString stringWithFormat:@"%d remaining", spot.numSpots.intValue];

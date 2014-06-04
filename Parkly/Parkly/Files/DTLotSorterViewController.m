@@ -53,6 +53,7 @@
 -(void)viewWillAppear:(BOOL)animated
 {
   [self.navigationController setNavigationBarHidden:NO];
+  [self.navigationController.navigationBar setTintAdjustmentMode:UIViewTintAdjustmentModeNormal];
 }
 
 - (void)didReceiveMemoryWarning
@@ -131,7 +132,13 @@
 -(CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath
 {
   if(self.selectedRow && indexPath.row == self.selectedRow.intValue){
-    return 300.0f;
+    __block NSNumber *height;
+    [[DTModel sharedInstance] getSpotsForLot:self.lots[indexPath.row] success:^(NSURLSessionDataTask *task, NSArray *spots) {
+      height = [NSNumber numberWithFloat:160.0f + (85 * spots.count)];
+    } failure:^(NSURLSessionDataTask *task, NSError *error) {
+      height = [NSNumber numberWithFloat:200.0f];
+    }];
+    return height.floatValue;
   } else {
     return 100.0f;
   }

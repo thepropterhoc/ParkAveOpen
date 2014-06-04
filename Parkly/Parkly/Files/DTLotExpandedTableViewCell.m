@@ -65,10 +65,32 @@
   }];
   //[self.refreshControl beginRefreshing];
   [self loadSpots];
+  [[self.theTable headerViewForSection:0].detailTextLabel setFont:[UIFont fontWithName:@"AvenirNext-Regular" size:10.0f]];
   
 }
 
--(long)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section
+-(UIView*)tableView:(UITableView *)tableView viewForHeaderInSection:(NSInteger)section
+{
+  if(!self.theSpots.count || self.theSpots.count == 0){
+    UILabel *label = [[UILabel alloc] initWithFrame:CGRectMake(10.0f, 2.0f, 40.0f, 21.0f)];
+    label.text = @"No Spots";
+    label.font = [UIFont fontWithName:@"AvenirNext-Regular" size:12.0f];
+    return label;
+  } else {
+    return [[UILabel alloc] initWithFrame:CGRectMake(0, 0, 0, 0)];
+  }
+}
+
+-(NSString*)tableView:(UITableView *)tableView titleForHeaderInSection:(NSInteger)section
+{
+  if(!self.theSpots.count || self.theSpots.count == 0){
+    return @"No Spots";
+  } else {
+    return nil;
+  }
+}
+
+-(NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section
 {
   return self.theSpots.count;
 }

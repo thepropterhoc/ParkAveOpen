@@ -11,7 +11,6 @@
 @interface DTModel ()
 
 - (id) parseJSON:(id)json toArrayOfClass:(__unsafe_unretained Class)theClass;
-- (void) setDefaultEmail:(NSString*)email;
 
 @end
 
@@ -32,6 +31,14 @@
     sharedInstance.lotManager = [[DTLotManager alloc] init];
     sharedInstance.userManager = [[DTUserManager alloc] init];
     sharedInstance.carManager = [[DTCarManager alloc] init];
+    sharedInstance.dateFormatter = [[NSDateFormatter alloc] init];
+    [sharedInstance.dateFormatter setDateFormat:@"yyyy-MM-dd'T'HH:mm:ss.SSS'Z'"];
+    sharedInstance.shortDateFormatter = [[NSDateFormatter alloc] init];
+    [sharedInstance.shortDateFormatter setDateFormat:@"MM'/'dd'/'YY HH:mm"];
+    NSLocale *englishLocale = [[NSLocale alloc] initWithLocaleIdentifier:@"en"];
+    [sharedInstance.dateFormatter setLocale:englishLocale];
+    [sharedInstance.shortDateFormatter setLocale:englishLocale];
+    
     [sharedInstance.locationManager startUpdatingLocation];
   });
   return sharedInstance;
@@ -39,15 +46,19 @@
 
 #pragma mark - Local User Session
 
-- (void) logoutUser {
+- (void) logoutUserWithSuccess: (void (^)(NSURLSessionDataTask *task, id responseObject))success failure:(void (^)(NSURLSessionDataTask *task, NSError *error))failure {
   NSDictionary* parameters = @{@"email": [[self.dataManager currentUser] email],
                                @"password":@"logout"
                                };
   [self.networkManager call:@"post" payload:@[@"users", @"session"] parameters:parameters success:^(NSURLSessionDataTask *task, id responseObject) {
-    NSLog(@"You done logged out there!");
+    if(success){
+      success(task, responseObject);
+    }
     [self.dataManager setCurrentUser:nil];
   } failure:^(NSURLSessionDataTask *task, NSError *error) {
-    NSLog(@"error logging out. %@", error);
+    if(failure){
+      failure(task, error);
+    }
   }];
 }
 
@@ -493,15 +504,29 @@
   }
 }
 
-- (NSString*) formattedDateFromString:(NSString*)date
+- (NSString*)stringFromDate:(NSDate *)date
 {
-  NSDateFormatter *formatter = [[NSDateFormatter alloc] init];
-  [formatter setDateFormat:@"yyyy'-'MM'-'dd"];
+  return [self.dateFormatter stringFromDate:date];
+}
+
+- (NSDate*) dateFromString:(NSString *)string
+{
+  NSDate *output = [self.dateFormatter dateFromString:string];
   
-  NSDate* tempDate = [formatter dateFromString:[date substringToIndex:10]];
-  [formatter setDateStyle:NSDateFormatterLongStyle];
-  
-  return [formatter stringFromDate:tempDate];
+  NSLog(@"String input : '%@' resulted in date : %@", string, output);
+  return output;
+}
+
+- (NSString*) shortStringFromDate:(NSDate *)date
+{
+  NSString *shortDate = [self.shortDateFormatter stringFromDate:date];
+  NSDateComponents *components = [[NSCalendar currentCalendar] components:(NSHourCalendarUnit | NSMinuteCalendarUnit) fromDate:date];
+  if ([components hour] > 12){
+    shortDate = [shortDate stringByAppendingString:@" PM"];
+  } else {
+    shortDate = [shortDate stringByAppendingString:@" AM"];
+  }
+  return shortDate;
 }
 
 #pragma mark - Data Management Methods

@@ -35,11 +35,13 @@
 @property (strong, nonatomic) DTUserManager *userManager;
 @property (strong, nonatomic) DTCarManager *carManager;
 @property (strong, nonatomic) DTReviewManager *reviewManager;
+@property (strong, nonatomic) NSDateFormatter *dateFormatter;
+@property (strong, nonatomic) NSDateFormatter *shortDateFormatter;
 
 + (instancetype) sharedInstance;
 
 #pragma mark - Local User Session
-- (void) logoutUser;
+- (void) logoutUserWithSuccess: (void (^)(NSURLSessionDataTask *task, id responseObject))success failure:(void (^)(NSURLSessionDataTask *task, NSError *error))failure;
 - (BOOL) userIsLoggedIn;
 - (BOOL) userHasAccount;
 
@@ -48,8 +50,6 @@
 #pragma mark - Users
 
 - (void) authenticateUser:(DTUser*)user success: (void (^)(NSURLSessionDataTask *task, DTUser* aUser))success failure:(void (^)(NSURLSessionDataTask *task, NSError *error))failure;
-
-- (void) authenticateUserWithEmail:(NSString*)email andPassword:(NSString*)password success: (void (^)(NSURLSessionDataTask *task, DTUser* user))success failure:(void (^)(NSURLSessionDataTask *task, NSError *error))failure;
 
 - (void) getAllUsers: (void (^)(NSURLSessionDataTask *task, NSArray* allUsers))success failure:(void (^)(NSURLSessionDataTask *task, NSError *error))failure;
 
@@ -182,7 +182,9 @@
 #pragma mark - Helper Methods
 
 - (id) parseJSON:(id)json toArrayOfClass:(__unsafe_unretained Class)theClass;
-- (NSString*) formattedDateFromString:(NSString*)date;
+- (NSDate*) dateFromString:(NSString*)string;
+- (NSString*) stringFromDate:(NSDate*)date;
+- (NSString*) shortStringFromDate:(NSDate*)date;
 
 #pragma mark - Data Management Methods
 

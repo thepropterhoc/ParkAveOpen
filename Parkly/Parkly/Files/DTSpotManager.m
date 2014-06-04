@@ -31,11 +31,17 @@
     success(nil, [[DTCache sharedInstance] spotsForLot:lot]);
     return;
   } else {
-    NSLog(@"Cache miss");
+    NSLog(@"Cache miss for spot");
   }
   
   [[DTModel sharedInstance].networkManager call:@"get" payload:@[@"users", [lot user_id], @"lots", [lot _id], @"spots"] parameters:nil success:^(NSURLSessionDataTask *task, id responseObject) {
     NSArray* spotArray = [[DTModel sharedInstance] parseJSON:responseObject toArrayOfClass:[DTParkingSpot class]];
+    for (DTParkingSpot *spot in spotArray){
+      spot.actualStartDate = [[DTModel sharedInstance] dateFromString:spot.startDate];
+      spot.actualEndDate = [[DTModel sharedInstance] dateFromString:spot.endDate];
+      spot.shortStartDate = [[DTModel sharedInstance] shortStringFromDate:spot.actualStartDate];
+      spot.shortEndDate = [[DTModel sharedInstance] shortStringFromDate:spot.actualEndDate];
+    }
     [[DTCache sharedInstance] addSpots:spotArray forLot:lot];
     success(task, spotArray);
   } failure:^(NSURLSessionDataTask *task, NSError *error) {
@@ -46,7 +52,6 @@
 - (void) getSpot:(DTParkingSpot*)spot success: (void (^)(NSURLSessionDataTask *task, id responseObject))success failure:(void (^)(NSURLSessionDataTask *task, NSError *error))failure {
   NSLog(@"%@ not implemented", NSStringFromSelector(_cmd));
 }
-
 
 - (void) getLotForSpot:(DTParkingSpot*)spot success:(void (^)(NSURLSessionDataTask *task, DTParkingLot *responseObject))success failure:(void (^)(NSURLSessionDataTask *task, NSError *error))failure
 {
@@ -80,6 +85,5 @@
 - (void) deleteSpot:(DTParkingSpot*)spot success: (void (^)(NSURLSessionDataTask *task, id responseObject))success failure:(void (^)(NSURLSessionDataTask *task, NSError *error))failure {
   NSLog(@"%@ not implemented", NSStringFromSelector(_cmd));
 }
-
 
 @end

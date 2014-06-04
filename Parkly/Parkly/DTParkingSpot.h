@@ -20,6 +20,10 @@
 @property (strong, nonatomic) NSNumber *price;
 @property (strong, nonatomic) NSString *startDate;
 @property (strong, nonatomic) NSString *endDate;
+@property (strong, nonatomic) NSDate *actualStartDate;
+@property (strong, nonatomic) NSDate *actualEndDate;
+@property (strong, nonatomic) NSString *shortStartDate;
+@property (strong, nonatomic) NSString *shortEndDate;
 @property (strong, nonatomic) NSArray *buyer_list;
 @property (strong, nonatomic) NSString *surface;
 @property (strong, nonatomic) NSString* description;

@@ -26,6 +26,12 @@
     for (DTParkingLot *lot in resultArray){
       CLLocation *lotLocation = [[CLLocation alloc] initWithLatitude:lot.lat.floatValue longitude:lot.lon.floatValue];
       lot.distance = [NSNumber numberWithFloat:[[DTModel sharedInstance].locationManager.location distanceFromLocation:lotLocation]];
+      [[DTModel sharedInstance] getSpotsForLot:lot success:^(NSURLSessionDataTask *task, NSArray *spots) {
+        [[DTCache sharedInstance] addSpots:spots forLot:lot];
+      } failure:nil];
+      [[DTModel sharedInstance] imageForLot:lot success:^(NSURLSessionDataTask *task, id responseObject) {
+        [[DTCache sharedInstance] addImage:responseObject forLot:lot];
+      } failure:nil];
     }
     [[DTCache sharedInstance] addLots:resultArray];
     if(success){

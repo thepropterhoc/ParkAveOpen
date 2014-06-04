@@ -10,9 +10,10 @@
 #import "DTParkingLot.h"
 #import "DTParkingSpot.h"
 #import "DTModel.h"
+#import "DTProfileViewController.h"
 #import <UIKit/UIKit.h>
 
-@interface DTPurchaseViewController : UIViewController
+@interface DTPurchaseViewController : UIViewController <DTProfileViewControllerDelegate>
 
 @property (strong, nonatomic) DTParkingLot *theLot;
 @property (strong, nonatomic) DTParkingSpot *theSpot;

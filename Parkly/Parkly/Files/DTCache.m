@@ -92,6 +92,8 @@
 {
   if(theSpots && theLot){
     [self.spotsCache setObject:theSpots forKey:theLot._id];
+  } else {
+    [self.spotsCache setObject:@[] forKey:theLot._id];
   }
 }
 

@@ -14,7 +14,6 @@
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions
 {
   [[DTModel sharedInstance] startUpdatingLocation];
-  
   if([[DTModel sharedInstance] defaultsExist]){
     [[DTModel sharedInstance] authenticateUser:[[DTModel sharedInstance] defaultUser] success:^(NSURLSessionDataTask *task, DTUser *aUser) {
       NSLog(@"Logged user in");
@@ -57,7 +56,7 @@
   // If your application supports background execution, this method is called instead of applicationWillTerminate: when the user quits.
   [[DTModel sharedInstance] scrubTheCache];
   if([[DTModel sharedInstance] userIsLoggedIn]){
-    [[DTModel sharedInstance] logoutUser];
+    [[DTModel sharedInstance] logoutUserWithSuccess:nil failure:nil];
   }
   [[DTModel sharedInstance] stopUpdatingLocation];
 }
@@ -88,7 +87,11 @@
   // Called when the application is about to terminate. Save data if appropriate. See also applicationDidEnterBackground:.
   [[DTModel sharedInstance] scrubTheCache];
   if([[DTModel sharedInstance] userIsLoggedIn]){
-    [[DTModel sharedInstance] logoutUser];
+    [[DTModel sharedInstance] logoutUserWithSuccess:^(NSURLSessionDataTask *task, id responseObject) {
+      
+    } failure:^(NSURLSessionDataTask *task, NSError *error) {
+      
+    }];
   }
   [[DTModel sharedInstance] stopUpdatingLocation];
 }
