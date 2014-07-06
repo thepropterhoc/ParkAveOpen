@@ -19,12 +19,9 @@
   
   [[DTModel sharedInstance].networkManager call:@"post" payload:@[@"users", @"session"] parameters:parameters success:^(NSURLSessionDataTask *task, id responseObject) {
     [[DTModel sharedInstance].networkManager checkResponseStatus:responseObject success:^(id responseObject) {
-      DTUser *newCurrentUser = [[DTModel sharedInstance].dataManager currentUser];
-      [newCurrentUser setValuesForKeysWithDictionary:responseObject];
-      [[DTModel sharedInstance] setDefaultUser:newCurrentUser];
-      [[DTModel sharedInstance] setCurrentUser:newCurrentUser];
     } failure:^(NSString *statusCode, NSString *description) {
       NSLog(@"There was an error. status code %@", statusCode);
+      return;
     }];
     
     if([[responseObject valueForKey:@"err"] isEqualToString:@"nomatch"]) {

@@ -20,6 +20,7 @@
 @property (strong, nonatomic) DTParkingLot *pushLot;
 @property (strong, nonatomic) DTParkingSpot *pushSpot;
 @property (strong, nonatomic) UIRefreshControl *refreshControl;
+@property (strong, nonatomic) UILabel *accentLabel;
 
 @end
 
@@ -43,17 +44,17 @@
   [self.tableView addSubview:self.refreshControl];
   [self loadLots];
   self.selectedRow = nil;
-  UILabel *accentLabel = [[UILabel alloc] initWithFrame:CGRectMake(18, 5, 10, 10)];
-  [accentLabel setText:[NSString stringWithFormat:@"%d", [[DTModel sharedInstance] allReservedSpots].count]];
-  [accentLabel setFont:[UIFont fontWithName:@"AvenirNext-Medium" size:9.0f]];
-  [accentLabel setTextColor:[UIColor darkGrayColor]];
-  [self.segmentedControl insertSubview:accentLabel atIndex:0];
+  self.accentLabel = [[UILabel alloc] initWithFrame:CGRectMake(18, 5, 10, 10)];
+  [self.accentLabel setFont:[UIFont fontWithName:@"AvenirNext-Medium" size:9.0f]];
+  [self.accentLabel setTextColor:[UIColor darkGrayColor]];
+  [self.segmentedControl insertSubview:self.accentLabel atIndex:0];
 }
 
 -(void)viewWillAppear:(BOOL)animated
 {
   [self.navigationController setNavigationBarHidden:NO];
   [self.navigationController.navigationBar setTintAdjustmentMode:UIViewTintAdjustmentModeNormal];
+  [self.accentLabel setText:[NSString stringWithFormat:@"%d", (int) [[DTModel sharedInstance] allReservedSpots].count]];
 }
 
 - (void)didReceiveMemoryWarning

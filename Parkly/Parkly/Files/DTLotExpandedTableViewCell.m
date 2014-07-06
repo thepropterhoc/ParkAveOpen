@@ -59,7 +59,7 @@
     [self.theImage setImage:responseObject forState:UIControlStateNormal];
     [self.theImage.layer setCornerRadius:self.theImage.frame.size.height/2];
     [self.theImage.layer setBorderWidth:2.0f];
-    [self.theImage.layer setBorderColor:[[UIColor colorWithRed:1.0f green:0.0f blue:0.5f alpha:1.0f] CGColor]];
+    [self.theImage.layer setBorderColor:[[UIColor colorWithRed:251.0f / 255.0f green:0.0f blue:31.0f / 255.0f alpha:1.0f] CGColor]];
   } failure:^(NSURLSessionDataTask *task, NSError *error) {
     [self.theImage setImage:nil forState:UIControlStateNormal];
   }];

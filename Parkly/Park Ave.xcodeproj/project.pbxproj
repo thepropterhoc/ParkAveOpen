@@ -123,6 +123,7 @@
 		9D8A64F5192C5AB20003448C /* DTLotExpandedTableViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = DTLotExpandedTableViewCell.m; path = Files/DTLotExpandedTableViewCell.m; sourceTree = "<group>"; };
 		9D8A64F8193263B70003448C /* DTSpotTableViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = DTSpotTableViewCell.h; path = Files/DTSpotTableViewCell.h; sourceTree = "<group>"; };
 		9D8A64F9193263B70003448C /* DTSpotTableViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = DTSpotTableViewCell.m; path = Files/DTSpotTableViewCell.m; sourceTree = "<group>"; };
+		9DADCFBA1940DA0900123D9A /* Park Ave.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.xml; path = "Park Ave.entitlements"; sourceTree = SOURCE_ROOT; };
 		9DBAF08A193FB90500575268 /* DTMySpotTableViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = DTMySpotTableViewCell.h; path = Files/DTMySpotTableViewCell.h; sourceTree = "<group>"; };
 		9DBAF08B193FB90500575268 /* DTMySpotTableViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = DTMySpotTableViewCell.m; path = Files/DTMySpotTableViewCell.m; sourceTree = "<group>"; };
 		9DE968F319397D4F009470B1 /* DTSpotManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = DTSpotManager.h; path = Files/DTSpotManager.h; sourceTree = "<group>"; };
@@ -407,6 +408,7 @@
 		9DE9D52718B462B50035519D /* Park Ave */ = {
 			isa = PBXGroup;
 			children = (
+				9DADCFBA1940DA0900123D9A /* Park Ave.entitlements */,
 				9DE9D53018B462B50035519D /* DTAppDelegate.h */,
 				9DE9D53118B462B50035519D /* DTAppDelegate.m */,
 				9D4E011A192BD70600F50955 /* Main.storyboard */,
@@ -537,6 +539,11 @@
 				TargetAttributes = {
 					9DE9D51D18B462B50035519D = {
 						DevelopmentTeam = HT8X5T7256;
+						SystemCapabilities = {
+							com.apple.Keychain = {
+								enabled = 1;
+							};
+						};
 					};
 					9DE9D53E18B462B50035519D = {
 						TestTargetID = 9DE9D51D18B462B50035519D;
@@ -751,12 +758,15 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
+				CODE_SIGN_ENTITLEMENTS = "Park Ave.entitlements";
 				CODE_SIGN_IDENTITY = "iPhone Developer";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "Parkly/Park Ave-Prefix.pch";
 				INFOPLIST_FILE = "Parkly/Park Ave-Info.plist";
 				IPHONEOS_DEPLOYMENT_TARGET = 7.0;
 				PRODUCT_NAME = "Park Ave";
+				PROVISIONING_PROFILE = "";
 				WRAPPER_EXTENSION = app;
 			};
 			name = Debug;
@@ -766,12 +776,15 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
+				CODE_SIGN_ENTITLEMENTS = "Park Ave.entitlements";
 				CODE_SIGN_IDENTITY = "iPhone Developer";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "Parkly/Park Ave-Prefix.pch";
 				INFOPLIST_FILE = "Parkly/Park Ave-Info.plist";
 				IPHONEOS_DEPLOYMENT_TARGET = 7.0;
 				PRODUCT_NAME = "Park Ave";
+				PROVISIONING_PROFILE = "";
 				WRAPPER_EXTENSION = app;
 			};
 			name = Release;

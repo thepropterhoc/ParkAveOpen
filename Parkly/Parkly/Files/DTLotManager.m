@@ -15,9 +15,20 @@
 - (void) getAllLots: (void (^)(NSURLSessionDataTask *task, NSArray* allLots))success failure:(void (^)(NSURLSessionDataTask *task, NSError *error))failure {
   
   if([[DTCache sharedInstance] hasLots]){
-    success(nil, [[DTCache sharedInstance] allLots]);
+    if(success){
+      success(nil, [[DTCache sharedInstance] allLots]);
+    }
     return;
-  } 
+  }
+  
+  DTParkingLot *lot = [[DTParkingLot alloc] init];
+  lot.title = @"Test lot";
+  lot.lat = @"35.8901";
+  lot.lon = @"91.452";
+  lot.lotImage = @"";
+  lot.minimumPrice = @3;
+  success(nil, @[lot]);
+  /*
   
   [[DTModel sharedInstance].networkManager call:@"get" payload:@[@"lots"] parameters:nil success:^(NSURLSessionDataTask *task, id responseObject) {
     NSArray *resultArray = [[DTModel sharedInstance] parseJSON:responseObject toArrayOfClass:[DTParkingLot class]];
@@ -40,6 +51,7 @@
       failure(task, error);
     }
   }];
+   */
 }
 
 - (void) getLot:(DTParkingLot*)lot success: (void (^)(NSURLSessionDataTask *task, id responseObject))success failure:(void (^)(NSURLSessionDataTask *task, NSError *error))failure {

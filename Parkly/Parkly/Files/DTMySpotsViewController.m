@@ -29,7 +29,10 @@
 
 - (void)viewDidLoad
 {
-    [super viewDidLoad];
+  [super viewDidLoad];
+  for (NSString *lotID in self.mySpots){
+    
+  }
     // Do any additional setup after loading the view.
 }
 
@@ -50,13 +53,27 @@
   if(!cell){
     cell = [[DTMySpotTableViewCell alloc] init];
   }
-  [cell initWithSpot:self.mySpots[indexPath.row]];
+  [[DTModel sharedInstance] getLotForSpot:self.mySpots[indexPath.row] success:^(NSURLSessionDataTask *task, DTParkingLot *responseObject) {
+    [cell initWithSpot:self.mySpots[indexPath.row] lot:responseObject];
+  } failure:^(NSURLSessionDataTask *task, NSError *error) {
+    NSLog(@"Unable to fetch lot for spot.  Error : %@", error.description);
+  }];
   return cell;
 }
 
 - (IBAction)dismiss:(id)sender
 {
   [self.delegate dismissMySpotsViewController];
+}
+
+-(void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath
+{
+  [self openNavigationToSpot:self.mySpots[indexPath.row]];
+}
+
+-(void)openNavigationToSpot:(DTParkingSpot*)spot
+{
+  NSLog(@"Navigate to spot");
 }
 
 @end

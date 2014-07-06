@@ -55,9 +55,11 @@
 -(void)setDefaultUser:(DTUser *)user
 {
   if(user){
+    NSLog(@"Set default user to %@, %@", user.email, user.password);
     [[NSUserDefaults standardUserDefaults] setObject:user.email forKey:@"email"];
     [[PDKeychainBindings sharedKeychainBindings] setObject:user.password forKey:@"password"];
   } else {
+    NSLog(@"Set default user to nil");
     [[NSUserDefaults standardUserDefaults] removeObjectForKey:@"email"];
     [[PDKeychainBindings sharedKeychainBindings] removeObjectForKey:@"password"];
   }

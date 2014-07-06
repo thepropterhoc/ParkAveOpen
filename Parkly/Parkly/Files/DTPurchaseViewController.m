@@ -65,15 +65,18 @@
                            }];
 }
 
-/*
-#pragma mark - Navigation
-
-// In a storyboard-based application, you will often want to do a little preparation before navigation
-- (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender
+- (IBAction)tryToReserve:(id)sender
 {
-    // Get the new view controller using [segue destinationViewController].
-    // Pass the selected object to the new view controller.
+  if(![[DTModel sharedInstance] userIsLoggedIn]){
+    [[[UIAlertView alloc] initWithTitle:@"Ack!" message:@"Please log in first" delegate:nil cancelButtonTitle:@"Ok, fine" otherButtonTitles: nil] show];
+  } else {
+    [[DTModel sharedInstance] purchaseSpot:self.theSpot forUser:[[DTModel sharedInstance] currentUser] withCar:[[DTModel sharedInstance] defaultCar] success:^(NSURLSessionDataTask *task, id responseObject) {
+      [self.navigationController popViewControllerAnimated:YES];
+      [[[UIAlertView alloc] initWithTitle:@"Break out the champagne!" message:@"Successfully purchased this spot.  Find it in your cart." delegate:nil cancelButtonTitle:@"Let's do this" otherButtonTitles: nil] show];
+    } failure:^(NSURLSessionDataTask *task, NSError *error) {
+      [[[UIAlertView alloc] initWithTitle:@"Aw, crap" message:@"Couldn't buy this spot for you.  Sorry about that." delegate:nil cancelButtonTitle:@"We'll let it go this time" otherButtonTitles: nil] show];
+    }];
+  }
 }
-*/
 
 @end

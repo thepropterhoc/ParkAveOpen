@@ -7,10 +7,17 @@
 //
 
 #import "DTParkingSpot.h"
+#import "DTParkingLot.h"
+#import "DTModel.h"
 #import <UIKit/UIKit.h>
 
 @interface DTMySpotTableViewCell : UITableViewCell
 
--(void)initWithSpot:(DTParkingSpot*)spot;
+-(void)initWithSpot:(DTParkingSpot*)spot lot:(DTParkingLot*)lot;
+@property (strong, nonatomic) IBOutlet UILabel *lotTitleLabel;
+@property (strong, nonatomic) IBOutlet UILabel *lotDistanceLabel;
+@property (strong, nonatomic) IBOutlet UILabel *startDateLabel;
+@property (strong, nonatomic) IBOutlet UILabel *endDateLabel;
+@property (strong, nonatomic) IBOutlet UIImageView *lotImageView;
 
 @end

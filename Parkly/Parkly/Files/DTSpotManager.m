@@ -18,6 +18,8 @@
     return;
   } 
   
+  success(nil, @[]);
+  /*
   [[DTModel sharedInstance].networkManager call:@"get" payload:@[@"users", [lot user_id], @"lots", [lot _id], @"spots"] parameters:nil success:^(NSURLSessionDataTask *task, id responseObject) {
     NSArray* spotArray = [[DTModel sharedInstance] parseJSON:responseObject toArrayOfClass:[DTParkingSpot class]];
     for (DTParkingSpot *spot in spotArray){
@@ -31,19 +33,20 @@
   } failure:^(NSURLSessionDataTask *task, NSError *error) {
     failure(task, error);
   }];
+   */
 }
 
 - (void) getSpot:(DTParkingSpot*)spot success: (void (^)(NSURLSessionDataTask *task, id responseObject))success failure:(void (^)(NSURLSessionDataTask *task, NSError *error))failure {
   NSLog(@"%@ not implemented", NSStringFromSelector(_cmd));
 }
 
-- (void) getLotForSpot:(DTParkingSpot*)spot success:(void (^)(NSURLSessionDataTask *task, DTParkingLot *responseObject))success failure:(void (^)(NSURLSessionDataTask *task, NSError *error))failure
+- (void) getLotForSpot:(NSString*)spot success:(void (^)(NSURLSessionDataTask *task, DTParkingLot *responseObject))success failure:(void (^)(NSURLSessionDataTask *task, NSError *error))failure
 {
   [[DTModel sharedInstance] getAllLots:^(NSURLSessionDataTask *task, NSArray *allLots) {
     for(DTParkingLot *lot in allLots){
       [self getSpotsForLot:lot success:^(NSURLSessionDataTask *task, NSArray *spots) {
         for(DTParkingSpot *theSpot in spots){
-          if(theSpot == spot){
+          if([theSpot._id isEqualToString:spot]){
             success(task, lot);
             return;
           }

@@ -334,7 +334,7 @@
 #pragma mark - My Spots
    
 - (void) reserveSpot:(DTParkingSpot*)spot {
- [[[self.currentUser reservedSpots] mutableCopy] insertObject:spot atIndex:0];
+ [[self.dataManager.currentUser.reservedSpots mutableCopy] insertObject:spot atIndex:0];
 }
 
 - (NSArray*) allReservedSpots {
@@ -349,7 +349,7 @@
      } else {
        newUser = retval;
      }
-     
+     NSLog(@"Returned reserved spots : %@", newUser.reservedSpots);
      self.currentUser.reservedSpots = [newUser reservedSpots];
      
    } failure:^(NSURLSessionDataTask *task, NSError *error) {

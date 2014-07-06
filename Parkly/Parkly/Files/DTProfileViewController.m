@@ -19,6 +19,7 @@
 @property (strong, nonatomic) IBOutlet UILabel *lastNameLabel;
 @property (strong, nonatomic) IBOutlet UIBarButtonItem *actionButton;
 @property (strong, nonatomic) IBOutlet UIButton *logOutButton;
+@property (strong, nonatomic) IBOutlet UIButton *reconfigButton;
 
 @end
 
@@ -109,6 +110,10 @@
   [[[UIAlertView alloc] initWithTitle:@"Why, hello there" message:@"Create an account with us, yeah?" delegate:nil cancelButtonTitle:@"Let's go" otherButtonTitles:nil] show];
   [self.logOutButton setEnabled:NO];
   [self.logOutButton setTintAdjustmentMode:UIViewTintAdjustmentModeDimmed];
+  [self.logOutButton setHidden:YES];
+  [self.reconfigButton setEnabled:YES];
+  [self.reconfigButton setHidden:NO];
+  [self.reconfigButton setTintAdjustmentMode:UIViewTintAdjustmentModeNormal];
 }
 
 -(void) returningUserConfig
@@ -118,6 +123,9 @@
   [self fillFields:[[DTModel sharedInstance] currentUser]];
   [self.logOutButton setEnabled:YES];
   [self.logOutButton setTintAdjustmentMode:UIViewTintAdjustmentModeNormal];
+  [self.reconfigButton setEnabled:NO];
+  [self.reconfigButton setHidden:YES];
+  [self.reconfigButton setTintAdjustmentMode:UIViewTintAdjustmentModeDimmed];
 }
 
 -(void)loginConfig
@@ -130,6 +138,9 @@
   [self.lastNameField setHidden:YES];
   [self.logOutButton setEnabled:NO];
   [self.logOutButton setTintAdjustmentMode:UIViewTintAdjustmentModeDimmed];
+  [self.logOutButton setHidden:YES];
+  [self.reconfigButton setEnabled:NO];
+  [self.reconfigButton setHidden:YES];
 }
 
 -(BOOL)createFieldsOK
@@ -149,7 +160,7 @@
 
 - (IBAction)actionButtonTapped:(id)sender
 {
-  if(![[DTModel sharedInstance] currentUser] && ![[DTModel sharedInstance] defaultUser]){
+  if([self.actionButton.title isEqualToString:@"Sign Up"]){
     //Create
     if(![self createFieldsOK]){
       [[[UIAlertView alloc] initWithTitle:@"No bueno" message:@"Please input correct data into fields" delegate:nil cancelButtonTitle:@"Try it again" otherButtonTitles: nil] show];
@@ -163,7 +174,7 @@
     } failure:^(NSURLSessionDataTask *task, NSError *error) {
       [[[UIAlertView alloc] initWithTitle:@"Houston, we have a problem" message:@"Something went terribly wrong" delegate:nil cancelButtonTitle:@"Panic" otherButtonTitles: nil] show];
     }];
-  } else if([[DTModel sharedInstance] currentUser] && [[DTModel sharedInstance] defaultUser]){
+  } else if([self.actionButton.title isEqualToString:@"Update"]){
     //Update
     if(![self updateFieldsOK]){
       [[[UIAlertView alloc] initWithTitle:@"No bueno" message:@"Please input correct data and password into fields" delegate:nil cancelButtonTitle:@"Try it again" otherButtonTitles: nil] show];
@@ -200,5 +211,9 @@
   }];
 }
 
+- (IBAction)reconfigForLogIn:(id)sender
+{
+  [self loginConfig];
+}
 
 @end
